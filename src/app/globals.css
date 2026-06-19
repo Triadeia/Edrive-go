@@ -260,10 +260,577 @@ img, svg { max-width: 100%; }
   font-size: 0.78rem;
 }
 
+.brandbook-tabs,
+.brandbook-anchor-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--header);
+  box-shadow: 0 18px 50px var(--shadow);
+  backdrop-filter: blur(20px) saturate(125%);
+}
+
+.brandbook-tabs a,
+.brandbook-anchor-nav a {
+  flex: 0 0 auto;
+  min-height: 2.35rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  padding: 0 0.8rem;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.brandbook-tabs a:hover,
+.brandbook-anchor-nav a:hover {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.brandbook-hero {
+  position: relative;
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  min-height: 560px;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  isolation: isolate;
+}
+
+.brandbook-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--primary) 18%, transparent), transparent 38%),
+    radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 20rem),
+    radial-gradient(circle at 72% 78%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 18rem);
+  opacity: 0.9;
+}
+
+.brandbook-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 780px;
+}
+
+.brandbook-hero h1 {
+  margin: 1rem 0 0;
+  max-width: 860px;
+  font-size: clamp(2.25rem, 4.4vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+
+.brandbook-hero p {
+  max-width: 720px;
+  margin: 1.5rem 0 2rem;
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.85;
+}
+
+.brandbook-logo-stage {
+  min-height: 420px;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+}
+
+.brandbook-logo-card {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--muted) 72%, transparent), color-mix(in srgb, var(--card-strong) 85%, transparent)),
+    radial-gradient(circle at center, color-mix(in srgb, var(--primary) 12%, transparent), transparent 14rem);
+}
+
+.brandbook-signal {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--card-strong) 84%, transparent);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.brandbook-button {
+  min-height: 2.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 1rem;
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--card-strong) 86%, transparent);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.brandbook-button-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.brandbook-section {
+  padding: clamp(1.35rem, 3vw, 2.4rem);
+}
+
+.brandbook-section-head {
+  max-width: 820px;
+}
+
+.brandbook-section-head h2,
+.brandbook-construction h2,
+.brandbook-voice h2,
+.brandbook-use-title h2 {
+  margin-top: 0.8rem;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+
+.brandbook-section-head p:not(.brand-kicker),
+.brandbook-construction p,
+.brandbook-voice p,
+.brandbook-movement > p {
+  margin-top: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+}
+
+.brandbook-section-row {
+  max-width: none;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brandbook-essence-grid,
+.brandbook-rule-grid,
+.brandbook-primal-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.brandbook-essence-grid article,
+.brandbook-rule-grid article,
+.brandbook-primal-grid article {
+  min-height: 190px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: var(--muted);
+}
+
+.brandbook-essence-grid h3,
+.brandbook-logo-meta h3,
+.brandbook-color-grid h3,
+.brandbook-application-grid h3,
+.brandbook-primal-grid h3,
+.brandbook-doc-grid h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.brandbook-essence-grid p,
+.brandbook-logo-meta p,
+.brandbook-color-grid p,
+.brandbook-application-grid p,
+.brandbook-primal-grid p,
+.brandbook-doc-grid p {
+  margin-top: 0.65rem;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.brandbook-logo-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.brandbook-logo-grid article {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--muted);
+}
+
+.brandbook-logo-preview {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--card) 75%, transparent), color-mix(in srgb, var(--card-strong) 85%, transparent));
+}
+
+.brandbook-logo-meta {
+  padding: 1rem;
+}
+
+.brandbook-logo-meta a {
+  margin-top: 1rem;
+  min-height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 6px;
+  padding: 0 0.7rem;
+  color: var(--primary-foreground);
+  background: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.brandbook-color-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.brandbook-color-grid article {
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--muted);
+}
+
+.brandbook-color-grid article > div {
+  height: 8rem;
+  background: var(--swatch);
+}
+
+.brandbook-color-grid h3,
+.brandbook-color-grid p {
+  padding-inline: 1rem;
+}
+
+.brandbook-hex {
+  color: var(--primary) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem !important;
+  font-weight: 850;
+}
+
+.brandbook-construction {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+}
+
+.brandbook-rule-grid article {
+  min-height: 150px;
+}
+
+.brandbook-rule-grid p {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brandbook-rule-grid span {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.brandbook-application-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.brandbook-application-grid article {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--muted);
+}
+
+.brandbook-application-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.brandbook-application-grid article > div {
+  padding: 1rem;
+}
+
+.brandbook-visual-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.brandbook-visual-strip span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  color: var(--primary);
+  background: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.brandbook-voice {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+}
+
+.brandbook-voice-list,
+.brandbook-use-list,
+.brandbook-phrase-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.brandbook-voice-list p,
+.brandbook-use-list p,
+.brandbook-phrase-list p {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--foreground);
+  background: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.brandbook-voice-list svg,
+.brandbook-use-list svg,
+.brandbook-phrase-list svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.brandbook-movement {
+  text-align: center;
+}
+
+.brandbook-movement > svg {
+  margin: 0 auto;
+}
+
+.brandbook-movement blockquote {
+  max-width: 880px;
+  margin: 1rem auto 0;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+
+.brandbook-movement > p {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.brandbook-movement-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  text-align: left;
+}
+
+.brandbook-movement-grid article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--muted);
+}
+
+.brandbook-movement-grid span {
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.brandbook-movement-grid p {
+  margin-top: 0.7rem;
+  color: var(--foreground);
+  font-size: 0.94rem;
+  font-weight: 850;
+  line-height: 1.55;
+}
+
+.brandbook-use-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.brandbook-use-title h2 {
+  margin: 0;
+}
+
+.brandbook-primal-grid {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.brandbook-primal-grid article {
+  min-height: 220px;
+}
+
+.brandbook-doc-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.brandbook-doc-grid a {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem;
+  background: var(--muted);
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.brandbook-doc-grid a:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.brandbook-doc-grid span {
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brandbook-doc-grid svg {
+  margin-top: auto;
+  color: var(--primary);
+}
+
+.brandbook-system-map {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding: 1rem;
+}
+
+.brandbook-system-map article {
+  min-height: 5rem;
+  display: grid;
+  place-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--primary);
+  background: var(--muted);
+  text-align: center;
+}
+
+.brandbook-system-map span {
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
 @media (max-width: 1024px) {
   .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brandbook-hero,
+  .brandbook-construction,
+  .brandbook-voice {
+    grid-template-columns: 1fr;
+  }
+  .brandbook-hero,
+  .brandbook-logo-stage {
+    min-height: auto;
+  }
+  .brandbook-essence-grid,
+  .brandbook-rule-grid,
+  .brandbook-logo-grid,
+  .brandbook-color-grid,
+  .brandbook-application-grid,
+  .brandbook-movement-grid,
+  .brandbook-primal-grid,
+  .brandbook-doc-grid,
+  .brandbook-system-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .brandbook-section-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
   .metric-grid { grid-template-columns: 1fr; }
+  .brandbook-hero h1 {
+    font-size: clamp(2.3rem, 15vw, 4rem);
+  }
+  .brandbook-essence-grid,
+  .brandbook-rule-grid,
+  .brandbook-logo-grid,
+  .brandbook-color-grid,
+  .brandbook-application-grid,
+  .brandbook-movement-grid,
+  .brandbook-primal-grid,
+  .brandbook-doc-grid,
+  .brandbook-system-map {
+    grid-template-columns: 1fr;
+  }
+  .brandbook-tabs a,
+  .brandbook-anchor-nav a {
+    font-size: 0.7rem;
+  }
 }

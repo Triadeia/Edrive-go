@@ -4,216 +4,243 @@ import {
   BookOpenText,
   BrainCircuit,
   Car,
-  CircleDollarSign,
+  Component,
+  FileText,
   Flame,
   Gauge,
-  Handshake,
-  Landmark,
-  MessageSquareText,
+  Megaphone,
+  Moon,
   Network,
   Palette,
-  RadioTower,
   ShieldCheck,
   Sparkles,
+  Sun,
   Target,
   Users,
   Zap,
 } from "lucide-react";
 
-export const coreNavigation = [
-  { href: "/app", label: "Visao geral", icon: Gauge },
-  { href: "/app/branding", label: "Branding Book", icon: BookOpenText },
-  { href: "/app/movimento", label: "Movimento", icon: Flame },
-  { href: "/app/primal-branding", label: "Primal Branding", icon: Sparkles },
-  { href: "/app/inteligencia-cliente", label: "Inteligencia do Cliente", icon: BrainCircuit },
+export const navigation = [
+  {
+    label: "Operacao",
+    items: [
+      { href: "/app/dashboard", label: "Visao geral", icon: Gauge },
+      { href: "/app/marca", label: "Brandbook eDrive", icon: BookOpenText },
+      { href: "/app/movimento", label: "Movimento", icon: Megaphone },
+    ],
+  },
+  {
+    label: "Inteligencia",
+    items: [
+      { href: "/app/inteligencia-cliente", label: "Cliente ideal", icon: BrainCircuit },
+      { href: "/app/marca/documentos", label: "Documentos", icon: FileText },
+      { href: "/app/marca/diretorio", label: "Diretorio", icon: Component },
+    ],
+  },
+  {
+    label: "Sistema",
+    items: [
+      { href: "/app/primal-branding", label: "Primal Branding", icon: Sparkles },
+      { href: "/app/branding", label: "Guidelines", icon: Palette },
+    ],
+  },
 ];
 
-export const brandPillars = [
+export const themes = [
+  { id: "night", label: "Noturno", icon: Moon },
+  { id: "day", label: "Diario", icon: Sun },
+  { id: "brand", label: "Marca", icon: Zap },
+] as const;
+
+export type ThemeId = (typeof themes)[number]["id"];
+
+export const kpis = [
+  { label: "Carregadores", value: "80+", note: "hub ultrarrapido integrado", icon: BatteryCharging, tone: "green" },
+  { label: "Frota inicial", value: "110", note: "BYD Dolphin para motoristas", icon: Car, tone: "purple" },
+  { label: "Mercado SAM", value: "42,5K", note: "motoristas qualificados Bahia", icon: Users, tone: "blue" },
+  { label: "Documentos", value: "12", note: "publicados e clicaveis", icon: FileText, tone: "amber" },
+];
+
+export const dashboardPriorities = [
+  { score: "01", title: "Reposicionar a marca como infraestrutura, nao locadora", project: "Brandbook", status: "Publicado", priority: "Alta" },
+  { score: "02", title: "Transformar a Maldicao da Gasolina em eixo narrativo", project: "Movimento", status: "Publicado", priority: "Alta" },
+  { score: "03", title: "Publicar documentos completos por pagina navegavel", project: "Acervo", status: "Publicado", priority: "Alta" },
+  { score: "04", title: "Organizar ICPs, TAM/SAM/SOM e voz do motorista", project: "Inteligencia", status: "Publicado", priority: "Media" },
+  { score: "05", title: "Criar galeria visual pronta para imagens reais do Instagram", project: "Visual", status: "Aguardando fonte", priority: "Media" },
+];
+
+export const brandSections = [
   {
+    slug: "estrategia",
+    group: "Marca",
     title: "Nao e locadora. E movimento.",
-    text: "A eDrive Go transforma locacao eletrica em uma identidade coletiva para motoristas que decidiram parar de trabalhar para a gasolina.",
-    icon: Flame,
-  },
-  {
-    title: "Infraestrutura, nao aplicativo isolado.",
-    text: "O Go abre a porta pelo carro e pela economia. A Energy sustenta fidelizacao com energia, recarga, hubs e recorrencia operacional.",
-    icon: Network,
-  },
-  {
-    title: "A conta antes da promessa.",
-    text: "A marca convence com calculo real: gasto atual de combustivel, custo total de operacao e diferenca liquida no bolso.",
-    icon: CircleDollarSign,
-  },
-  {
-    title: "Motoristas da nova geracao.",
-    text: "Os pioneiros nao compram status. Eles compram controle: carro eletrico, custo previsivel, comunidade e vantagem de chegada.",
-    icon: Zap,
-  },
-];
-
-export const ecosystemStats = [
-  { value: "80+", label: "carregadores rapidos e ultrarrapidos" },
-  { value: "110", label: "BYD Dolphins na frota inicial" },
-  { value: "6.000 m2", label: "de placas solares no hub" },
-  { value: "R$80M+", label: "de investimento no ecossistema" },
-];
-
-export const brandingSections = [
-  {
-    title: "Essencia da marca",
+    shortTitle: "Estrategia",
+    description: "Posicionamento, big idea, promessa, inimigo comum e diferenciacao da eDrive Go.",
     icon: ShieldCheck,
-    body: "A eDrive Go existe para provar que motorista de app nao precisa aceitar gasolina como destino financeiro. A marca organiza tecnologia, frota, energia e comunidade para devolver controle de margem a quem roda todos os dias.",
-    points: ["Liberdade financeira aplicada", "Mobilidade eletrica acessivel", "Pertencimento de Motorista Livre"],
+    chapters: [
+      {
+        id: "posicionamento",
+        title: "A nova infraestrutura do motorista da nova geracao",
+        lead: "A eDrive Go nao deve parecer apenas uma locadora. A marca deve se posicionar como acesso, energia, frota, comunidade e recorrencia para motoristas que querem controlar sua margem.",
+        points: [
+          { title: "Categoria", text: "Locacao inteligente de veiculos eletricos para motoristas de aplicativo." },
+          { title: "Diferenca", text: "Acesso ao eletrico sem compra, conectado ao ecossistema eDrive Energy." },
+          { title: "Promessa", text: "Parar de financiar a gasolina e trabalhar com custo previsivel." },
+        ],
+      },
+      {
+        id: "big-idea",
+        title: "A Maldicao da Gasolina",
+        lead: "A crenca de que combustivel fossil e custo inevitavel do trabalho de mobilidade. A eDrive Go quebra essa crenca com calculo, carro eletrico e comunidade.",
+      },
+    ],
   },
   {
-    title: "Quem e a eDrive Go",
-    icon: Car,
-    body: "Locacao inteligente de veiculos eletricos para motoristas de aplicativo, conectada a um ecossistema maior de energia, recarga, tecnologia e aquisicao de usuarios.",
-    points: ["BYD 0km", "Sem entrada absurda", "KM ilimitado", "Suporte e comunidade"],
-  },
-  {
-    title: "Go + Energy",
-    icon: BatteryCharging,
-    body: "O motorista entra pelo Go. A fidelizacao acontece pela Energy. O Go reduz a barreira de acesso ao eletrico; a Energy cria a infraestrutura que torna a escolha sustentavel e recorrente.",
-    points: ["Go = aquisicao e produto de entrada", "Energy = recarga e recorrencia", "Ecossistema = retencao"],
-  },
-  {
-    title: "Posicionamento",
-    icon: Target,
-    body: "A nova infraestrutura de mobilidade eletrica para os motoristas da nova geracao: sem gasolina, sem compra do veiculo, com calculo claro e comunidade de quem fez a virada.",
-    points: ["RMS como primeiro territorio", "Motorista full-time como foco", "Eletrico como vantagem economica"],
-  },
-  {
-    title: "Big Idea",
+    slug: "movimento",
+    group: "Marca",
+    title: "Motoristas Livres.",
+    shortTitle: "Movimento",
+    description: "Manifesto, rituais, comunidade, linguagem e jornada de pertencimento.",
     icon: Flame,
-    body: "A Maldicao da Gasolina: a crenca de que combustivel fossil e um custo inevitavel do trabalho de mobilidade. A eDrive Go existe para quebrar essa crenca com numero, veiculo e infraestrutura.",
-    points: ["Nomeia o inimigo", "Cria urgencia", "Transforma economia em identidade"],
+    chapters: [
+      {
+        id: "manifesto",
+        title: "O motorista deixa de sobreviver para lucrar",
+        lead: "A decisao eletrica nao e so troca de carro. E uma virada de identidade: de motorista que aceita o custo para empresario da propria mobilidade.",
+        points: [
+          { title: "Crenca", text: "Motorista de app e empresario." },
+          { title: "Ritual", text: "A partir de hoje, voce nao abastece mais." },
+          { title: "Prova", text: "O Calculo da Virada todos os meses." },
+        ],
+      },
+    ],
   },
   {
-    title: "Tom de voz",
-    icon: MessageSquareText,
-    body: "Direto, honesto, calculado e de rua. A eDrive Go fala como quem fez a conta e voltou para mostrar a saida. Sem jargao de startup, sem promessa vazia, sem paternalismo.",
-    points: ["Numero na primeira frase", "Pergunta antes de afirmar", "Prova antes de promessa"],
+    slug: "voz",
+    group: "Marca",
+    title: "O Libertador com Dados.",
+    shortTitle: "Voz & Copy",
+    description: "Tom direto, linguagem de rua, dados claros e promessas responsaveis.",
+    icon: Megaphone,
+    chapters: [
+      {
+        id: "atributos",
+        title: "Direta, honesta e calculada",
+        lead: "A eDrive Go fala como quem fez a conta e voltou para mostrar a saida. Sem jargao de startup, sem sonho abstrato, sem humilhar o motorista.",
+        points: [
+          { title: "Usar", text: "Numero real, pergunta direta, comparacao concreta e prova social." },
+          { title: "Evitar", text: "Promessa universal, sensacionalismo e linguagem corporativa fria." },
+        ],
+      },
+    ],
   },
   {
-    title: "Sistema visual",
+    slug: "visual",
+    group: "Fundamentos",
+    title: "Premium, eletrico e urbano.",
+    shortTitle: "Visual",
+    description: "Sistema visual com preto, roxo, verde eletrico, branco e amarelo relampago.",
     icon: Palette,
-    body: "Preto noturno, roxo institucional, verde eletrico, branco eletrico e amarelo relampago. O visual deve parecer premium, urbano, energetico e memoravel.",
-    points: ["Contraste alto", "Linhas eletricas", "Dados em destaque", "Logo oficial como sinal"],
+    chapters: [
+      { id: "paleta", title: "Cor tem funcao", lead: "Preto noturno estrutura autoridade. Roxo segura a marca. Verde comunica energia, economia e recarga. Amarelo cria urgencia. Branco organiza leitura." },
+      { id: "imagem", title: "Imagem real, contexto urbano e prova", lead: "As imagens devem mostrar carro eletrico, hub de recarga, motorista real, Salvador/RMS, painel com zero gasolina e situacoes de trabalho." },
+    ],
   },
   {
-    title: "Comportamento da marca",
-    icon: Handshake,
-    body: "A marca nao trata motorista como lead descartavel. Trata como operador de um negocio proprio, com medo real, familia, risco e ambicao de melhorar a margem.",
-    points: ["Faz a conta junto", "Responde duvidas sem julgamento", "Celebra marcos reais"],
+    slug: "cliente",
+    group: "Produto",
+    title: "O motorista certo no momento certo.",
+    shortTitle: "Cliente",
+    description: "ICPs, dores, objecoes, desejos, medos e mercado.",
+    icon: Target,
+    chapters: [
+      { id: "icp", title: "O prisioneiro da gasolina", lead: "Motorista full-time, carro antigo, alto custo de combustivel, cansaco financeiro e abertura para uma conta que faca sentido." },
+    ],
   },
+  {
+    slug: "ecossistema",
+    group: "Produto",
+    title: "Go abre. Energy fideliza.",
+    shortTitle: "Ecossistema",
+    description: "Como locacao, recarga, energia e comunidade viram retencao.",
+    icon: Network,
+    chapters: [
+      { id: "go-energy", title: "Dois motores de crescimento", lead: "O motorista entra pelo Go porque quer reduzir custo. A fidelizacao acontece pela Energy porque recarga, hub e energia tornam a decisao recorrente." },
+    ],
+  },
+];
+
+export const palette = [
+  { name: "Preto Noturno", hex: "#07070A", role: "Autoridade, tecnologia e base premium." },
+  { name: "Roxo eDrive", hex: "#6F35FF", role: "Marca, sistema digital e memoria visual." },
+  { name: "Verde Eletrico", hex: "#00C896", role: "Energia, economia, lucro e recarga." },
+  { name: "Branco Eletrico", hex: "#F5F5F7", role: "Clareza, documentos e area de leitura." },
+  { name: "Amarelo Relampago", hex: "#FFD700", role: "Urgencia, destaque e ativacao." },
+  { name: "Cinza Asfalto", hex: "#3A3A3A", role: "Rua, trabalho e contexto urbano." },
+];
+
+export const visualAssets = [
+  { title: "Hub de recarga", src: "/images/edrive-hub.svg", caption: "Visual gerado para representar hub eDrive Energy. Substituir por foto oficial/Instagram quando liberada." },
+  { title: "Motorista Livre", src: "/images/edrive-driver.svg", caption: "Imagem editorial gerada para o conceito de motorista da nova geracao." },
+  { title: "Painel do ecossistema", src: "/images/edrive-dashboard.svg", caption: "Composicao visual para dashboard e cards institucionais." },
 ];
 
 export const recommendedPhrases = [
   "Nao e locadora. E movimento.",
-  "Os primeiros motoristas da nova geracao.",
   "Voce trabalha para voce ou para a gasolina?",
+  "Os primeiros motoristas da nova geracao.",
   "Nao pedimos fe. Pedimos 5 minutos com a calculadora.",
   "A partir de hoje, voce nao abastece mais.",
   "O motorista entra pelo Go. A fidelizacao acontece pela Energy.",
 ];
 
 export const forbiddenPhrases = [
-  "So mais uma locadora de carros",
-  "Economia garantida para qualquer perfil",
-  "Eletrico e luxo para poucos",
-  "App de motorista comum",
-  "Contrato sem adaptacao e sem suporte",
-  "Promessa facil sem calculo individual",
+  "So uma locadora de carros",
+  "Economia garantida para qualquer motorista",
+  "Eletrico e coisa de rico",
+  "App comum de mobilidade",
+  "Promessa sem calculo individual",
+  "Contrato dificil e suporte distante",
 ];
 
 export const movementBeliefs = [
-  "Motorista de app e empresario. Quem pensa como funcionario, perde como funcionario.",
+  "Motorista de app e empresario.",
   "Custo aceito e custo permanente.",
   "R$1.000 por mes nao e economia. E transformacao de vida.",
-  "Eletrico nao e tendencia. E decisao presente.",
+  "O eletrico nao e futuro. E presente para quem chegou primeiro.",
   "Comunidade nao e bonus. E parte do resultado.",
   "Prova vale mais do que promessa.",
+  "Quem fez a Virada Eletrica tem responsabilidade de mostrar o caminho.",
+  "A gasolina e a corrente invisivel do motorista.",
+];
+
+export const customerSignals = [
+  "Boto R$200 de gasolina hoje, amanha ja ta na metade.",
+  "Posto virou meu segundo patrao.",
+  "Nao tenho salario. Tenho meta.",
+  "Meu sonho e ter previsibilidade de renda.",
+  "O que me convence nao e promessa. E prova.",
+];
+
+export const marketCards = [
+  { label: "TAM Brasil", value: "1,26M", text: "motoristas qualificados estimados para VE em escala nacional." },
+  { label: "SAM Bahia", value: "42,5K", text: "motoristas qualificados nas cidades hub e RMS." },
+  { label: "SOM base", value: "110", text: "veiculos ocupados ao final do mes 3 no cenario base." },
+  { label: "Ano 1", value: "R$16,1M", text: "receita projetada com frota expandida para 500 veiculos." },
+];
+
+export const sourceNotes = [
+  { title: "Instagram eDrive Go / Energy", text: "A consulta direta ao Instagram foi bloqueada no ambiente de automacao. A galeria foi preparada com imagens geradas e os assets oficiais locais; fotos reais podem ser adicionadas depois em public/images." },
+  { title: "Painel Triade", text: "A URL publica redireciona para login. A estrutura foi analisada pelo codigo clonado: sidebar fixa, topbar, cards densos, brandbook, diretorio e documentos individuais." },
+  { title: "Dr. Pitagoras", text: "A area de movimento e documentos publicos serviu de referencia para pagina de manifesto e documento individual em /app/marca/documentos/[id]." },
 ];
 
 export const primalElements = [
-  {
-    title: "Creation Story",
-    text: "O movimento nasce quando a eDrive Go faz a pergunta que o mercado ignorou: e se o motorista nao precisasse pagar gasolina?",
-    icon: Landmark,
-  },
-  {
-    title: "Creed",
-    text: "Motorista Livre controla sua equacao financeira, faz a conta antes de aceitar o custo e mostra o caminho para outros motoristas.",
-    icon: BadgeCheck,
-  },
-  {
-    title: "Icons",
-    text: "Raio sem corrente, BYD Dolphin, painel com zero gasolina, cabo de carregamento, chave digital e o numero R$1.000.",
-    icon: Zap,
-  },
-  {
-    title: "Rituals",
-    text: "Ativacao, primeira semana eletrica, calculo da virada, depoimento dos 30 dias, indicacao e Summit do Motorista Livre.",
-    icon: RadioTower,
-  },
-  {
-    title: "Pagans",
-    text: "O 'sempre foi assim', o medo sem dados, a normalizacao do custo e a ideia de que eletrico e privilegio.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Sacred Words",
-    text: "Maldicao da Gasolina, Virada Eletrica, Motorista Livre, Mais um mes livre, Rode sem corrente.",
-    icon: MessageSquareText,
-  },
-  {
-    title: "Leader",
-    text: "A lideranca deve aparecer como operador de ecossistema e prova: quem mostra numero, infraestrutura e motorista real.",
-    icon: Users,
-  },
-];
-
-export const customerIntelligence = {
-  icps: [
-    {
-      name: "Motorista Prisioneiro da Gasolina",
-      score: "9.6",
-      summary: "Full-time, 8-12h por dia, carro proprio antigo, alto gasto de combustivel e manutencao. Dor financeira clara e imediata.",
-      signal: "Trabalho muito e no final do mes estou no zero. A gasolina me mata.",
-    },
-    {
-      name: "Motorista que ja fez a conta",
-      score: "9.2",
-      summary: "Ja viu conteudo sobre eletrico, calculou gasto atual e sabe que a economia pode pagar a mudanca. Compra com menos educacao.",
-      signal: "Eu ja vi que compensa. Falta so a oportunidade certa.",
-    },
-    {
-      name: "Motorista em crise por combustivel",
-      score: "9.4",
-      summary: "Sente a gasolina subir mais rapido que a tarifa dos apps. Urgencia emocional e financeira combinadas.",
-      signal: "Fiz R$4.100 e sobrou R$800. Isso nao pode continuar.",
-    },
-  ],
-  voices: [
-    "Boto R$200 de gasolina hoje, amanha ja ta na metade.",
-    "Posto virou meu segundo patrao.",
-    "Nao tenho salario. Tenho meta.",
-    "Meu sonho e ter previsibilidade de renda.",
-    "O que me convence nao e promessa. E prova.",
-  ],
-  market: [
-    { label: "TAM Brasil", value: "1,26M", text: "motoristas qualificados estimados para VE em escala nacional." },
-    { label: "SAM Bahia fase 1", value: "42,5K", text: "motoristas qualificados em media nas cidades hub e RMS." },
-    { label: "SOM base 90 dias", value: "110", text: "veiculos ocupados ao final do mes 3 no cenario base." },
-    { label: "Receita anual base", value: "R$16,1M", text: "projecao com expansao da frota para 500 veiculos no ano 1." },
-  ],
-};
-
-export const manifestoLines = [
-  "Existe uma conta que ninguem te mostrou. Quando voce ve, nao da pra nao ver.",
-  "A Maldicao nao e o posto de gasolina. A Maldicao e a crenca de que voce nao tem outra opcao.",
-  "Nao somos apenas um aplicativo. Somos infraestrutura.",
-  "Bem-vindo ao unico lugar onde motorista de app e tratado como o empresario que e.",
-  "Seja Motorista Livre. Rode sem corrente.",
+  ["Creation Story", "A eDrive Go nasce da pergunta: e se o motorista nao precisasse pagar gasolina?"],
+  ["Creed", "Motorista Livre controla a propria equacao financeira."],
+  ["Icons", "Raio sem corrente, BYD, painel com zero gasolina, cabo de recarga e R$1.000."],
+  ["Rituals", "Ativacao, primeira semana eletrica, Calculo da Virada e 30 Dias Livre."],
+  ["Pagans", "O sempre foi assim, o ceticismo sem dados e a ideia de que eletrico e privilegio."],
+  ["Sacred Words", "Maldicao da Gasolina, Motorista Livre, Virada Eletrica e Rode sem corrente."],
+  ["Leader", "A lideranca que mostra numero, infraestrutura e motorista real."],
 ];

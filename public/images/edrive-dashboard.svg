@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Painel eDrive Go</title>
+  <desc id="desc">Composição visual de dashboard premium para a eDrive Go.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f5f1"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00c896"/>
+      <stop offset=".52" stop-color="#6f35ff"/>
+      <stop offset="1" stop-color="#ffd700"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <rect x="94" y="76" width="1012" height="608" rx="26" fill="#0b0d12"/>
+  <rect x="122" y="108" width="218" height="544" rx="18" fill="#11151c"/>
+  <rect x="372" y="108" width="704" height="100" rx="18" fill="#171b23"/>
+  <rect x="372" y="240" width="330" height="176" rx="18" fill="#171b23"/>
+  <rect x="746" y="240" width="330" height="176" rx="18" fill="#171b23"/>
+  <rect x="372" y="448" width="704" height="204" rx="18" fill="#171b23"/>
+  <rect x="404" y="476" width="214" height="24" rx="12" fill="#00c896"/>
+  <rect x="404" y="526" width="600" height="14" rx="7" fill="#333b47"/>
+  <rect x="404" y="562" width="520" height="14" rx="7" fill="#333b47"/>
+  <rect x="404" y="598" width="640" height="14" rx="7" fill="#333b47"/>
+  <rect x="154" y="146" width="132" height="28" rx="14" fill="url(#brand)"/>
+  <rect x="154" y="232" width="150" height="18" rx="9" fill="#313946"/>
+  <rect x="154" y="278" width="128" height="18" rx="9" fill="#313946"/>
+  <rect x="154" y="324" width="168" height="18" rx="9" fill="#313946"/>
+  <rect x="154" y="370" width="112" height="18" rx="9" fill="#313946"/>
+  <text x="404" y="170" fill="#ffffff" font-family="Sora, Arial, sans-serif" font-size="38" font-weight="800">A nova infraestrutura do Motorista Livre</text>
+  <text x="404" y="340" fill="#00c896" font-family="Sora, Arial, sans-serif" font-size="62" font-weight="800">R$1.000</text>
+  <text x="778" y="340" fill="#ffd700" font-family="Sora, Arial, sans-serif" font-size="62" font-weight="800">80+</text>
+</svg>

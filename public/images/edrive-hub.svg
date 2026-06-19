@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Hub eDrive Energy</title>
+  <desc id="desc">Ilustração editorial de hub de recarga elétrica urbano com carros, placas solares e luz verde.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f7fb"/>
+      <stop offset=".58" stop-color="#dce7ef"/>
+      <stop offset="1" stop-color="#b7c7d6"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00c896"/>
+      <stop offset=".55" stop-color="#6f35ff"/>
+      <stop offset="1" stop-color="#ffd700"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#06120f" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <path d="M0 574c164-48 314-61 470-37 130 20 241 67 373 55 127-12 226-69 357-61v229H0z" fill="#17211f"/>
+  <path d="M0 618c172-42 297-48 430-20 150 32 236 65 390 45 140-18 225-60 380-43v160H0z" fill="#0b0f12"/>
+  <g filter="url(#shadow)">
+    <path d="M118 396h964v82H118z" fill="#15171d"/>
+    <path d="M172 282h856l54 114H118z" fill="#262a33"/>
+    <path d="M208 306h170l34 66H176zM424 306h170l34 66H392zM640 306h170l34 66H608zM856 306h126l32 66H824z" fill="#2f3640"/>
+    <path d="M118 478h964v40H118z" fill="url(#brand)"/>
+  </g>
+  <g fill="#f8fbff">
+    <rect x="198" y="520" width="214" height="74" rx="24"/>
+    <rect x="502" y="520" width="214" height="74" rx="24"/>
+    <rect x="806" y="520" width="214" height="74" rx="24"/>
+  </g>
+  <g fill="#11151b">
+    <circle cx="248" cy="594" r="30"/>
+    <circle cx="360" cy="594" r="30"/>
+    <circle cx="552" cy="594" r="30"/>
+    <circle cx="664" cy="594" r="30"/>
+    <circle cx="856" cy="594" r="30"/>
+    <circle cx="968" cy="594" r="30"/>
+  </g>
+  <g stroke="#00c896" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M426 542h54c32 0 49 18 49 50"/>
+    <path d="M730 542h54c32 0 49 18 49 50"/>
+  </g>
+  <g>
+    <rect x="454" y="454" width="40" height="92" rx="10" fill="#0d1116"/>
+    <rect x="758" y="454" width="40" height="92" rx="10" fill="#0d1116"/>
+    <rect x="464" y="468" width="20" height="22" rx="5" fill="#00c896"/>
+    <rect x="768" y="468" width="20" height="22" rx="5" fill="#00c896"/>
+  </g>
+  <text x="170" y="448" fill="#fff" font-family="Sora, Arial, sans-serif" font-size="34" font-weight="800">eDrive Energy Hub</text>
+  <text x="170" y="494" fill="#111" font-family="Sora, Arial, sans-serif" font-size="22" font-weight="800">80+ carregadores • solar • mobilidade eletrica</text>
+</svg>

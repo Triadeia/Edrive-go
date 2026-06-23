@@ -8,6 +8,7 @@ import {
   FileText,
   Flame,
   Gauge,
+  ListTodo,
   Megaphone,
   Moon,
   Network,
@@ -25,6 +26,7 @@ export const navigation = [
     label: "Operacao",
     items: [
       { href: "/app/dashboard", label: "Visao geral", icon: Gauge },
+      { href: "/app/tarefas", label: "Tarefas", icon: ListTodo },
       { href: "/app/marca", label: "Brandbook eDrive", icon: BookOpenText },
       { href: "/app/movimento", label: "Movimento", icon: Megaphone },
     ],

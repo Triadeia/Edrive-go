@@ -785,8 +785,15 @@ img, svg { max-width: 100%; }
   font-weight: 850;
 }
 
+.tasks-metrics {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 @media (max-width: 1024px) {
   .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tasks-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .brandbook-hero,
   .brandbook-construction,
   .brandbook-voice {
@@ -815,6 +822,7 @@ img, svg { max-width: 100%; }
 
 @media (max-width: 640px) {
   .metric-grid { grid-template-columns: 1fr; }
+  .tasks-metrics { grid-template-columns: 1fr; }
   .brandbook-hero h1 {
     font-size: clamp(2.3rem, 15vw, 4rem);
   }

@@ -1,0 +1,181 @@
+export type HookItem = {
+  Hook_ID: string;
+  Texto: string;
+  Categoria: string;
+  Pilar: string;
+  Nivel_Consciencia: string;
+  Formato_Compatível: string;
+  Plataforma: string;
+  Apresentador: string;
+  Objetivo: string;
+  Mecanismo: string;
+  Risco_Compliance: string;
+  CTA_Compativel: string;
+  ICP_Principal?: string;
+  Persona_Principal?: string;
+  Segmento_Bussola?: string;
+  Score_ICP?: number;
+  Dor_Primaria?: string;
+  Prioridade_ICP?: string;
+  Status_Validacao_Claim?: string;
+};
+
+export type BodyItem = {
+  Body_ID: string;
+  Tipo: string;
+  Titulo: string;
+  Texto: string;
+  Pilar: string;
+  Nivel_Consciencia: string;
+  Formato: string;
+  Apresentador: string;
+  Duracao_Sugerida_s: number;
+  Mecanismo: string;
+  Risco_Compliance: string;
+  ICP_Principal?: string;
+  Persona_Principal?: string;
+  Segmento_Bussola?: string;
+  Score_ICP?: number;
+  Dor_Primaria?: string;
+  Prioridade_ICP?: string;
+  Status_Validacao_Claim?: string;
+};
+
+export type CtaItem = {
+  CTA_ID: string;
+  Texto: string;
+  Tipo: string;
+  Estagio_Funil: string;
+  Plataforma: string;
+  Nivel_Consciencia: string;
+  Risco_Compliance: string;
+  Regra: string;
+  Destino: string;
+  ICP_Principal?: string;
+  Persona_Principal?: string;
+  Segmento_Bussola?: string;
+  Score_ICP?: number;
+  Dor_Primaria?: string;
+  Prioridade_ICP?: string;
+  Status_Validacao_Claim?: string;
+};
+
+export type RoteiroItem = {
+  Roteiro_ID: string;
+  Video_ID: string;
+  Titulo: string;
+  Formato: string;
+  Plataforma: string;
+  Duracao_s: number;
+  Apresentador: string;
+  Nivel_Consciencia: string;
+  Pilar: string;
+  Hook_ID: string;
+  Hook: string;
+  Contexto: string;
+  Body_Inicial_ID: string;
+  Body_Inicial: string;
+  Body_Meio_Final_ID: string;
+  Body_Meio_Final: string;
+  CTA_ID: string;
+  CTA: string;
+  Texto_na_Tela: string;
+  B_Roll: string;
+  Legenda: string;
+  Hashtags: string;
+  Edicao: string;
+  Compliance: string;
+  Score_Compatibilidade: number;
+  ICP_Principal?: string;
+  Persona_Principal?: string;
+  Segmento_Bussola?: string;
+  Dor_Primaria?: string;
+  Prioridade_ICP?: string;
+  Status_Validacao_Claim?: string;
+};
+
+export type CalendarItem = {
+  Video_ID: string;
+  Dia: number;
+  Slot_Dia: number;
+  Titulo: string;
+  Pilar: string;
+  Formato: string;
+  Plataformas: string;
+  Apresentador: string;
+  Duracao_s: number;
+  Hook_ID: string;
+  B1_ID: string;
+  B2_ID: string;
+  CTA_ID: string;
+  Nivel_Consciencia: string;
+  Objetivo: string;
+  Status: string;
+  Prioridade: string;
+  Compliance: string;
+  Observacoes: string;
+  ICP_Principal?: string;
+  Persona_Principal?: string;
+  Segmento_Bussola?: string;
+  Dor_Primaria?: string;
+  Prioridade_ICP?: string;
+};
+
+export type ClaimItem = {
+  Claim: string;
+  Fonte_1: string;
+  Fonte_2: string;
+  Risco: string;
+  Decisao: string;
+};
+
+export type DataPayload = {
+  counts: Record<string, number>;
+  hooks: HookItem[];
+  bodies_b1: BodyItem[];
+  bodies_b2: BodyItem[];
+  ctas: CtaItem[];
+  roteiros: RoteiroItem[];
+  calendario: CalendarItem[];
+  claims_validar: ClaimItem[];
+  icp_segmentos: Array<Record<string, string | number>>;
+  buyer_personas: Array<Record<string, string>>;
+  painel_marca: Array<Record<string, string>>;
+  vocabulario_marca: Array<Record<string, string>>;
+};
+
+export type Filters = {
+  search: string;
+  pillar: string;
+  icp: string;
+  persona: string;
+  format: string;
+  platform: string;
+  awareness: string;
+  compliance: string;
+  priority: string;
+  status: string;
+};
+
+export type Variation = {
+  id: string;
+  title: string;
+  hook: HookItem;
+  b1: BodyItem;
+  b2: BodyItem;
+  cta: CtaItem;
+  pillar: string;
+  format: string;
+  platform: string;
+  presenter: string;
+  awareness: string;
+  icp: string;
+  persona: string;
+  score: number;
+  why: string[];
+  script: string;
+  screenText: string;
+  caption: string;
+  compliance: string;
+  status: string;
+};

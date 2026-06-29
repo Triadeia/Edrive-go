@@ -15,6 +15,7 @@ const staticSearchItems = [
   { href: "/app/dashboard", title: "Visao geral", group: "Painel", description: "Resumo da marca, movimento e acervo." },
   { href: "/app/tarefas", title: "Tarefas", group: "Operacao", description: "Lista, kanban, calendario e API de tarefas." },
   { href: "/app/marca", title: "Brandbook eDrive", group: "Marca", description: "Guidelines, logomarcas, paleta, voz e aplicacoes." },
+  { href: "/app/marketing/maquina-geracao-videos-em-escala", title: "Marketing", group: "Maquina de videos", description: "Cruzamento de conteudos, 90 variacoes e calendario editorial." },
   { href: "/app/marca/diretorio", title: "Diretorio", group: "Marca", description: "Mapa das paginas e capitulos do sistema." },
   { href: "/app/marca/documentos", title: "Documentos", group: "Acervo", description: "Biblioteca completa publicada." },
   { href: "/app/movimento", title: "Movimento", group: "Movimento", description: "Manifesto do Motorista Livre e rituais." },

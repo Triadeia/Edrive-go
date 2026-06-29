@@ -18,6 +18,7 @@ import {
   Sun,
   Target,
   Users,
+  Video,
   Zap,
 } from "lucide-react";
 
@@ -29,6 +30,7 @@ export const navigation = [
       { href: "/app/tarefas", label: "Tarefas", icon: ListTodo },
       { href: "/app/marca", label: "Brandbook eDrive", icon: BookOpenText },
       { href: "/app/movimento", label: "Movimento", icon: Megaphone },
+      { href: "/app/marketing/maquina-geracao-videos-em-escala", label: "Marketing", icon: Video },
     ],
   },
   {

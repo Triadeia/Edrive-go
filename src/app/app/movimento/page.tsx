@@ -24,7 +24,7 @@ export default function MovimentoPage() {
   return (
     <article className="space-y-6">
       <section className="panel overflow-hidden p-6 sm:p-8">
-        <p className="kicker">Movimento eDrive Go</p>
+        <p className="kicker">Movimento Libert Drive</p>
         <h1 className="page-title mt-4">A Maldicao da Gasolina tem nome. E tem fim.</h1>
         <p className="muted mt-5 max-w-3xl text-lg leading-8">
           A area de movimento segue a logica do painel Dr. Pitagoras: manifesto, inimigo comum, crenças, linguagem, rituais e jornada de pertencimento.
@@ -42,7 +42,7 @@ export default function MovimentoPage() {
       <section className="panel bg-[var(--sidebar)] p-8 text-white">
         <Quote className="mb-8 size-7 text-[var(--primary)]" />
         <blockquote className="max-w-4xl text-4xl font-black leading-tight">Existe uma conta que ninguem te mostrou. Quando voce ve, nao da pra nao ver.</blockquote>
-        <p className="mt-6 max-w-3xl leading-7 text-white/66">Nao somos apenas um aplicativo. Somos infraestrutura. O motorista entra pelo Go; a fidelizacao acontece pela Energy.</p>
+        <p className="mt-6 max-w-3xl leading-7 text-white/66">Nao somos apenas um aplicativo. Somos infraestrutura. O motorista entra pela Libert Drive; a fidelizacao acontece pela Libert Energy.</p>
         <p className="mt-6 text-sm font-black uppercase tracking-[0.14em] text-[var(--primary)]">Seja Motorista Livre. Rode sem corrente.</p>
       </section>
 

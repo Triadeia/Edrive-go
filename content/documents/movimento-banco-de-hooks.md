@@ -1,7 +1,7 @@
-# BANCO DE HOOKS DO MOVIMENTO EDRIVE GO
+# BANCO DE HOOKS DO MOVIMENTO LIBERT DRIVE
 ## 50 Hooks + 20 Headlines + 20 CTAs + 10 Roteiros Completos
 
-### Triadeia Company // Kit Completo de Comunicação — Movimento eDrive Go
+### Triadeia Company // Kit Completo de Comunicação — Movimento Libert Drive
 ---
 
 > *"O hook não vende. O hook para. Parar é o primeiro passo para decidir."*
@@ -68,7 +68,7 @@
 
 **C2.** Se alguém roubasse R$1.000 do seu bolso todo mês, você reagiria. A gasolina faz isso. Alguém te contou a saída?
 
-**C3.** O que você faria com R$1.000 a mais por mês? Essa pergunta tem resposta concreta se você souber o que é a eDrive Go.
+**C3.** O que você faria com R$1.000 a mais por mês? Essa pergunta tem resposta concreta se você souber o que é a Libert Drive.
 
 **C4.** R$1.000/mês × 12 meses = R$12.000. Esse é o preço de um ano de Maldição. Você ainda está pagando?
 
@@ -80,7 +80,7 @@
 
 **C8.** R$1.000/mês não é dinheiro para ferias. É dinheiro para os filhos. Para a reserva. Para o que você adia faz quanto tempo?
 
-**C9.** Todo mês você paga R$1.000 pra trabalhar. Existe um sistema que elimina esse custo. Chama eDrive Go.
+**C9.** Todo mês você paga R$1.000 pra trabalhar. Existe um sistema que elimina esse custo. Chama Libert Drive.
 
 **C10.** O motorista ao seu lado acabou de ganhar R$1.000 que você gastou de gasolina. Ele não é mais sortudo — só descobriu antes.
 
@@ -94,7 +94,7 @@
 
 **D3.** A diferença entre motorista comum e Motorista Livre: R$1.000/mês e uma decisão.
 
-**D4.** Quando você entra no Movimento eDrive Go, não entra sozinho. Entra com centenas de motoristas que já fizeram a conta antes de você.
+**D4.** Quando você entra no Movimento Libert Drive, não entra sozinho. Entra com centenas de motoristas que já fizeram a conta antes de você.
 
 **D5.** Sua célula de motoristas está crescendo. E todos eles pararam de pagar gasolina. Por que você ainda paga?
 
@@ -102,11 +102,11 @@
 
 **D7.** O grupo de WhatsApp de Motoristas Livres tem uma conversa que você nunca teve: "Quanto você economizou esse mês?"
 
-**D8.** Pertencer ao Movimento eDrive Go não é ser cliente de uma locadora. É ser parte de quem mudou a regra do jogo.
+**D8.** Pertencer ao Movimento Libert Drive não é ser cliente de uma locadora. É ser parte de quem mudou a regra do jogo.
 
 **D9.** Você vai continuar vendo colegas migrando para o elétrico sem perguntar como eles fizeram?
 
-**D10.** Quem entra no Movimento eDrive Go fica. Quem fica indica. Quem indica liberta mais um motorista da Maldição.
+**D10.** Quem entra no Movimento Libert Drive fica. Quem fica indica. Quem indica liberta mais um motorista da Maldição.
 
 ---
 
@@ -164,7 +164,7 @@
 
 **H12.** ENQUANTO VOCÊ LÊ ISSO, OUTRO MOTORISTA ACABOU DE PARAR DE PAGAR COMBUSTÍVEL.
 
-**H13.** O QUE É A EDRIVE GO: A LOCADORA QUE TRANSFORMOU MOTORISTA EM MOTORISTA LIVRE.
+**H13.** O QUE É A LIBERT DRIVE: A LOCADORA QUE TRANSFORMOU MOTORISTA EM MOTORISTA LIVRE.
 
 **H14.** 30 DIAS SEM GASOLINA. ESSA É A PROMESSA. ESSA É A REALIDADE. CONFIRME COM QUEM FEZ.
 
@@ -216,7 +216,7 @@
 
 **CTA14.** Curtiu? Segue o perfil para ver o que Motoristas Livres da RMS estão fazendo com o dinheiro que sobrou da gasolina.
 
-**CTA15.** Quer entrar no Movimento eDrive Go? Começa aqui: manda "MOTORISTA LIVRE" no direct.
+**CTA15.** Quer entrar no Movimento Libert Drive? Começa aqui: manda "MOTORISTA LIVRE" no direct.
 
 **CTA16.** Assiste até o fim e conta nos comentários: você se identificou com o Momento 1 (o abastecimento na madrugada)?
 
@@ -239,7 +239,7 @@
 ## ROTEIRO M01 — "A CONTA QUE NINGUÉM TE MOSTROU" (60 segundos)
 *[Hook de impacto + revelação do número + CTA]*
 
-**ABERTURA (0–5s):** Câmera no rosto do narrador (motorista real ou produtor da eDrive Go). Tom direto, sem trilha.
+**ABERTURA (0–5s):** Câmera no rosto do narrador (motorista real ou produtor da Libert Drive). Tom direto, sem trilha.
 > *"Eu vou te mostrar uma conta que ninguém nunca te apresentou — e que vai incomodar você."*
 
 **DESENVOLVIMENTO (5–30s):** Texto aparecendo na tela enquanto a voz fala.
@@ -250,7 +250,7 @@
 > *Essa crença tem nome: A Maldição da Gasolina."*
 
 **VIRADA (30–50s):**
-> *"A eDrive Go quebra essa maldição. Locação de veículo elétrico para motorista de app. Sem entrada. Sem gasolina. Com resultado a partir do primeiro mês.*
+> *"A Libert Drive quebra essa maldição. Locação de veículo elétrico para motorista de app. Sem entrada. Sem gasolina. Com resultado a partir do primeiro mês.*
 >
 > *R$1.000 de volta para o seu bolso. Todo mês. Verificável antes de você assinar qualquer coisa."*
 
@@ -295,7 +295,7 @@
 **DESENVOLVIMENTO (5–60s) — História do motorista:**
 > *"Fui motorista de app por 4 anos. Gastei de gasolina... cara, se eu calcular agora... mais de R$40.000. Sem perceber. Tratava isso como 'custo do trabalho'.*
 >
-> *Aí um colega me falou da eDrive Go. Locação de elétrico. Fui cético. 'Elétrico não é pra mim. É caro. E se acabar a bateria?'*
+> *Aí um colega me falou da Libert Drive. Locação de elétrico. Fui cético. 'Elétrico não é pra mim. É caro. E se acabar a bateria?'*
 >
 > *Fiz a conta. Locação + zero combustível vs. o que eu pagava. A diferença foi R$950 no primeiro mês.*
 >
@@ -323,7 +323,7 @@
 
 **CONTA AO VIVO (3–20s):** Tela com calculadora real ou texto aparecendo.
 > *"Gasolina por mês: R$1.000.*
-> *Locação elétrica eDrive Go: [valor do plano].*
+> *Locação elétrica Libert Drive: [valor do plano].*
 > *Recarga mensal: ~R$[valor]*
 > *Diferença: R$[valor] a favor do elétrico.*
 >
@@ -385,7 +385,7 @@
 > *"Hoje é dia de ativação."*
 
 **Documentação (5–60s):** Cobertura real (ou reconstruída) do momento de receber o carro.
-> *"[Nome do motorista] está entrando para o Movimento eDrive Go. Ele vem de [tempo] anos pagando gasolina.*
+> *"[Nome do motorista] está entrando para o Movimento Libert Drive. Ele vem de [tempo] anos pagando gasolina.*
 >
 > *Agora está recebendo as chaves do elétrico.*
 >
@@ -512,6 +512,6 @@
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / eDrive Go*
-*Kit Completo de Comunicação — Movimento eDrive Go*
+*Documento elaborado para o ecossistema Triadeia / Libert Drive*
+*Kit Completo de Comunicação — Movimento Libert Drive*
 *"O hook para. A história convence. A comunidade fecha."*

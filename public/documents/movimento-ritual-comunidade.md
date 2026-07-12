@@ -1,5 +1,5 @@
 # RITUAL DESIGN + ARQUITETURA DA COMUNIDADE
-## Movimento eDrive Go — Estrutura Completa de Pertencimento e Expansão
+## Movimento Libert Drive — Estrutura Completa de Pertencimento e Expansão
 
 ### Triadeia Company // Kit Completo de Comunicação
 ---
@@ -14,7 +14,7 @@
 
 ## Por Que Comunidade É Parte do Produto
 
-A eDrive Go não vende apenas locação de veículo elétrico. Ela entrega um sistema de pertencimento que torna a decisão de migrar para o elétrico não apenas financeiramente racional — mas emocionalmente desejável.
+A Libert Drive não vende apenas locação de veículo elétrico. Ela entrega um sistema de pertencimento que torna a decisão de migrar para o elétrico não apenas financeiramente racional — mas emocionalmente desejável.
 
 **A lógica do movimento:**
 
@@ -24,10 +24,10 @@ Um motorista que locou o carro pode encerrar o contrato. Um Motorista Livre que 
 
 **Esse é o valor oculto da arquitetura de comunidade.**
 
-## Os Três Eixos da Comunidade eDrive Go
+## Os Três Eixos da Comunidade Libert Drive
 
 **Eixo 1: Identidade**
-Pertencer à comunidade eDrive Go não é ser "cliente da locadora". É ser **Motorista Livre** — uma identidade que define como a pessoa se vê e se apresenta.
+Pertencer à comunidade Libert Drive não é ser "cliente da locadora". É ser **Motorista Livre** — uma identidade que define como a pessoa se vê e se apresenta.
 
 **Eixo 2: Resultado**
 A comunidade acelera resultado. Motorista que entra com suporte de quem já fez a virada aprende mais rápido, erra menos na logística de recarga, maximiza os ganhos mais cedo.
@@ -51,7 +51,7 @@ Este é o motorista que ainda não entrou no movimento — mas que está prestes
 **Perfil emocional:**
 - Insatisfeito com a gasolina, mas sem alternativa percebida
 - Cético sobre elétrico ("não é pra mim")
-- Pode ter visto conteúdo sobre a eDrive Go mas não agiu
+- Pode ter visto conteúdo sobre a Libert Drive mas não agiu
 - Normalizou R$1.000/mês em combustível como "custo do trabalho"
 
 **O que o move para a Fase 1:**
@@ -77,7 +77,7 @@ O momento em que o motorista decide fazer a Virada Elétrica e entra formalmente
 - Recebimento do Kit de Boas-Vindas do Movimento
 
 **Kit de Boas-Vindas do Movimento (conteúdo):**
-1. Cartão "Bem-vindo ao Movimento eDrive Go — Você é Motorista Livre"
+1. Cartão "Bem-vindo ao Movimento Libert Drive — Você é Motorista Livre"
 2. Guia rápido de recarga (físico + digital)
 3. Link de acesso ao grupo da Célula (grupo WhatsApp da sua região)
 4. Instruções do Ritual da Primeira Semana
@@ -99,7 +99,7 @@ O período mais crítico da jornada. É onde a Virada Elétrica prova (ou não) 
 - Descobre que a autonomia é suficiente para o seu padrão de rota
 - Faz o primeiro Cálculo da Virada ao vivo (comparativo do mês)
 - Começa a participar da Célula no WhatsApp
-- Recebe check-ins proativos da equipe eDrive Go (dias 3, 7, 15, 30)
+- Recebe check-ins proativos da equipe Libert Drive (dias 3, 7, 15, 30)
 
 **Rituais desta fase:**
 
@@ -113,8 +113,8 @@ O período mais crítico da jornada. É onde a Virada Elétrica prova (ou não) 
 
 **Marco dos 30 Dias:**
 - Ao completar 30 dias, o motorista recebe convite para gravar o Depoimento dos 30 Dias (vídeo de 30–60s).
-- Recebe badge digital: "30 Dias Livre — Motorista eDrive Go"
-- É mencionado publicamente no perfil da eDrive Go (com permissão)
+- Recebe badge digital: "30 Dias Livre — Motorista Libert Drive"
+- É mencionado publicamente no perfil da Libert Drive (com permissão)
 
 **Estado emocional dominante nessa fase:** oscilação entre euforia dos primeiros resultados e dúvidas operacionais. O movimento responde com suporte rápido, comunidade presente e celebração de conquistas pequenas.
 
@@ -154,7 +154,7 @@ O motorista que está há 6 meses ou mais no movimento se torna referência natu
 - Acesso antecipado a novidades e upgrades de veículo
 - Convite para participar de eventos de liderança da comunidade
 
-**Função estratégica:** O Motorista em fase de Referência é o principal argumento de venda da eDrive Go — não pelos argumentos que apresenta, mas pela existência que representa.
+**Função estratégica:** O Motorista em fase de Referência é o principal argumento de venda da Libert Drive — não pelos argumentos que apresenta, mas pela existência que representa.
 
 ---
 
@@ -163,7 +163,7 @@ O motorista que está há 6 meses ou mais no movimento se torna referência natu
 
 A fase mais avançada e mais valiosa do movimento. O Embaixador é o motorista cuja transformação é tão completa e cuja convicção é tão genuína que ele naturalmente atrai, convence e acompanha novos entrantes.
 
-**Critérios de um Embaixador eDrive Go:**
+**Critérios de um Embaixador Libert Drive:**
 1. Mínimo 6 meses no movimento com resultado documentado
 2. Já indicou pelo menos 2 colegas que ativaram
 3. Participa ativamente da Célula e do grupo geral
@@ -186,10 +186,10 @@ A fase mais avançada e mais valiosa do movimento. O Embaixador é o motorista c
 
 ---
 
-## Estrutura do Sistema de Comunidade eDrive Go
+## Estrutura do Sistema de Comunidade Libert Drive
 
 ```
-MOVIMENTO EDRIVE GO — COMUNIDADE OFICIAL
+MOVIMENTO LIBERT DRIVE — COMUNIDADE OFICIAL
 │
 ├── GRUPO GERAL — Motoristas Livres RMS
 │   ├── Anúncios oficiais
@@ -225,10 +225,10 @@ MOVIMENTO EDRIVE GO — COMUNIDADE OFICIAL
 - Celebração ativa de cada marco (o grupo não é mudo quando alguém conquista)
 
 **O que NÃO acontece nesses grupos:**
-- Disparo de publicidade da eDrive Go dentro da comunidade
+- Disparo de publicidade da Libert Drive dentro da comunidade
 - Pressão para indicar
 - Comparação entre motoristas
-- Reclamação de corrida/app sem relacionar à comunidade eDrive Go
+- Reclamação de corrida/app sem relacionar à comunidade Libert Drive
 
 **O que ACONTECE ativamente:**
 - Boas-vindas calorosas para novos entrantes
@@ -245,13 +245,13 @@ MOVIMENTO EDRIVE GO — COMUNIDADE OFICIAL
 ## RITUAL 1: A ATIVAÇÃO
 *Momento de entrada formal*
 
-**Quem lidera:** equipe eDrive Go
+**Quem lidera:** equipe Libert Drive
 **Duração:** 20–30 minutos
 **Quando:** no dia de entrega do veículo
 
 **Roteiro da Ativação:**
 1. Recebimento do motorista pelo nome (personalização)
-2. Apresentação breve do Movimento eDrive Go (não da empresa — do movimento)
+2. Apresentação breve do Movimento Libert Drive (não da empresa — do movimento)
 3. Cálculo da Maldição ao vivo: quanto esse motorista específico vai economizar
 4. Entrega das chaves com frase: *"A partir de hoje, você não abastece mais."*
 5. Foto do motorista com o carro (para conteúdo, com permissão)
@@ -260,7 +260,7 @@ MOVIMENTO EDRIVE GO — COMUNIDADE OFICIAL
 
 **Elemento simbólico:** a chave física (ou digital) como objeto de entrada — não como burocracia, mas como símbolo.
 
-**Conteúdo gerado:** foto da entrega + "Novo Motorista Livre" para stories da eDrive Go (com permissão).
+**Conteúdo gerado:** foto da entrega + "Novo Motorista Livre" para stories da Libert Drive (com permissão).
 
 ---
 
@@ -287,7 +287,7 @@ MOVIMENTO EDRIVE GO — COMUNIDADE OFICIAL
 ## RITUAL 3: O CÁLCULO DA VIRADA
 *Comparativo mensal — executado todo início de mês*
 
-**Quem executa:** o próprio motorista, com template da eDrive Go
+**Quem executa:** o próprio motorista, com template da Libert Drive
 **Frequência:** uma vez por mês, na primeira semana
 
 **Template do Cálculo:**
@@ -299,7 +299,7 @@ ANTES (meu custo estimado):
 Custo gasolina/mês: R$_____
 
 AGORA (meu custo real):
-Custo locação eDrive Go: R$_____
+Custo locação Libert Drive: R$_____
 Custo de recarga no mês: R$_____
 Total custo energético: R$_____
 
@@ -322,7 +322,7 @@ FRASE DO MÊS: ______________________
 
 **Entregável para o motorista:**
 - Badge digital "30 Dias Livre"
-- Menção no grupo geral + nas redes sociais da eDrive Go (com permissão)
+- Menção no grupo geral + nas redes sociais da Libert Drive (com permissão)
 - Convite para gravar o Depoimento dos 30 Dias (vídeo 30–60s)
 
 **Depoimento dos 30 Dias — roteiro sugerido:**
@@ -337,7 +337,7 @@ FRASE DO MÊS: ______________________
 - Badge digital "90 Dias Livre — Consolidado"
 - Acesso ao Grupo de Consolidados
 - Convite para participar de conteúdo mais longo da marca
-- Mensagem personalizada da equipe eDrive Go
+- Mensagem personalizada da equipe Libert Drive
 
 ### Marco dos 6 Meses — "Referência"
 
@@ -350,7 +350,7 @@ FRASE DO MÊS: ______________________
 ### Marco do 1 Ano — "Motorista Livre Pleno"
 
 **Entregável para o motorista:**
-- Carta personalizada da eDrive Go + equipe
+- Carta personalizada da Libert Drive + equipe
 - Badge "1 Ano Livre"
 - Participação como case oficial da marca
 - Avaliação de benefício especial de fidelidade
@@ -370,7 +370,7 @@ FRASE DO MÊS: ______________________
 2. Dados do período: quantos motoristas ativados, total economizado pela comunidade, novos Embaixadores
 3. Reconhecimento dos marcos: 30 dias, 90 dias, 6 meses, 1 ano — chamada pelo nome
 4. 2–3 depoimentos ao vivo de Motoristas Livres com histórias de transformação
-5. Novidades da eDrive Go (novos veículos, expansão, programa de benefícios)
+5. Novidades da Libert Drive (novos veículos, expansão, programa de benefícios)
 6. Juramento coletivo
 7. Foto coletiva — identidade visual do movimento
 8. Momento de rede: motoristas trocam contato, convidam colegas
@@ -411,7 +411,7 @@ Acredito que quem fez a virada tem o dever de contar que ela existe.
 ## RITUAL 7: A INDICAÇÃO COMO MISSÃO
 *O ato de libertar um colega*
 
-A indicação na eDrive Go não é programa de afiliados. É um ato de valor do movimento.
+A indicação na Libert Drive não é programa de afiliados. É um ato de valor do movimento.
 
 **A Linguagem da Indicação:**
 - Não dizer: "Indique e ganhe desconto"
@@ -420,7 +420,7 @@ A indicação na eDrive Go não é programa de afiliados. É um ato de valor do 
 **Protocolo de indicação:**
 1. Motorista identifica um colega que seria beneficiado pela Virada Elétrica
 2. Compartilha o link de indicação personalizado (com o nome do Motorista Livre)
-3. Colega entra em contato com a eDrive Go
+3. Colega entra em contato com a Libert Drive
 4. Se o colega ativar: indicador recebe benefício (desconto, mês grátis — conforme plano vigente)
 5. Indicador e indicado entram na mesma Célula (quando possível) — dupla de resultado
 
@@ -434,43 +434,43 @@ A indicação na eDrive Go não é programa de afiliados. É um ato de valor do 
 
 ---
 
-## A eDrive Go Como Porta de Entrada
+## A Libert Drive Como Porta de Entrada
 
-O Motorista Livre que entra no movimento eDrive Go faz uma coisa muito específica: ele aprende a questionar um sistema aceito. Aprende que o que "sempre foi assim" pode ser diferente. Aprende que número + comunidade + decisão mudam resultado.
+O Motorista Livre que entra no movimento Libert Drive faz uma coisa muito específica: ele aprende a questionar um sistema aceito. Aprende que o que "sempre foi assim" pode ser diferente. Aprende que número + comunidade + decisão mudam resultado.
 
 Essa habilidade — de questionar o sistema, de tomar decisão com dado, de pertencer a uma comunidade que cresce — é o DNA do ecossistema Triadeia como um todo.
 
 ## Pontos de Contato com o Ecossistema
 
-### eDrive Go → Tríade Saúde & Performance
+### Libert Drive → Tríade Saúde & Performance
 
 O motorista de app passa 8–12 horas por dia sentado. O sedentarismo é profissional, não escolha.
 
 **Ponte natural:** "Você livrou o seu negócio da Maldição da Gasolina. E o seu corpo? A Tríade tem o mesmo approach para a saúde: resultado real, sem atalho, com comunidade."
 
-**Ação possível:** parceria entre eDrive Go e Tríade para oferta conjunta a Motoristas Livres. O cuidado com o corpo como próxima fronteira de performance do trabalhador de mobilidade.
+**Ação possível:** parceria entre Libert Drive e Tríade para oferta conjunta a Motoristas Livres. O cuidado com o corpo como próxima fronteira de performance do trabalhador de mobilidade.
 
-### eDrive Go → VerificaPix
+### Libert Drive → VerificaPix
 
 Motoristas de app usam Pix intensivamente. São alvos frequentes de golpes e fraudes.
 
 **Ponte natural:** "Você controla agora o custo da gasolina. Mas você protege o dinheiro que entra? VerificaPix é a ferramenta que impede que a Maldição do Golpe faça o mesmo que a gasolina fazia."
 
-**Ação possível:** oferta de VerificaPix como benefício da comunidade eDrive Go. Discurso de "proteção completa do negócio do motorista."
+**Ação possível:** oferta de VerificaPix como benefício da comunidade Libert Drive. Discurso de "proteção completa do negócio do motorista."
 
-### eDrive Go → Receita Certa (Dr. Pitágoras)
+### Libert Drive → Receita Certa (Dr. Pitágoras)
 
 Motoristas de app são eleitores da RMS com renda média-baixa e alta sensibilidade a saúde, transporte e custo de vida.
 
 **Ponte natural:** a narrativa da Receita Certa (gestão com resultado comprovado) ressoa com a mentalidade do Motorista Livre (decisão baseada em número, não em promessa).
 
-**Ação possível:** presença do movimento eDrive Go em eventos de Receita Certa como exemplo de transformação pelo interior da RMS. Motoristas Livres como prova viva de que gestor comprometido com resultado muda vida concreta.
+**Ação possível:** presença do movimento Libert Drive em eventos de Receita Certa como exemplo de transformação pelo interior da RMS. Motoristas Livres como prova viva de que gestor comprometido com resultado muda vida concreta.
 
 ---
 
 ## A Visão de Ecossistema em Uma Frase
 
-> *"A Triadeia constrói movimentos que libertam pessoas de sistemas que as aprisionam sem que percebam. A eDrive Go liberta da gasolina. A Tríade liberta do sedentarismo. O VerificaPix liberta do golpe. A Receita Certa liberta do abandono político.*
+> *"A Triadeia constrói movimentos que libertam pessoas de sistemas que as aprisionam sem que percebam. A Libert Drive liberta da gasolina. A Tríade liberta do sedentarismo. O VerificaPix liberta do golpe. A Receita Certa liberta do abandono político.*
 >
 > *Quando você encontra um desses movimentos, você encontra todos."*
 
@@ -494,7 +494,7 @@ Motoristas de app são eleitores da RMS com renda média-baixa e alta sensibilid
 
 ## Loop de Melhoria da Comunidade
 
-A cada 30 dias, a equipe eDrive Go revisa:
+A cada 30 dias, a equipe Libert Drive revisa:
 
 1. **Quais perguntas mais aparecem no grupo?** → Criar conteúdo que responde antes de ser perguntado
 2. **Quem está com 25–28 dias sem postar?** → Check-in proativo (risco de churn silencioso)
@@ -518,6 +518,6 @@ A cada 30 dias, a equipe eDrive Go revisa:
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / eDrive Go*
-*Kit Completo de Comunicação — Movimento eDrive Go*
+*Documento elaborado para o ecossistema Triadeia / Libert Drive*
+*Kit Completo de Comunicação — Movimento Libert Drive*
 *"Rituais criam tribo. Tribo cria movimento. Movimento não precisa de desconto para manter membros."*

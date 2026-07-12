@@ -8,7 +8,7 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
   const [theme, setTheme] = useState<ThemeId>("night");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("edrive-theme") as ThemeId | null;
+    const stored = window.localStorage.getItem("libert-theme") as ThemeId | null;
     const initial = stored && themes.some((item) => item.id === stored) ? stored : "night";
     setTheme(initial);
     document.documentElement.dataset.theme = initial;
@@ -17,7 +17,7 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
   function chooseTheme(nextTheme: ThemeId) {
     setTheme(nextTheme);
     document.documentElement.dataset.theme = nextTheme;
-    window.localStorage.setItem("edrive-theme", nextTheme);
+    window.localStorage.setItem("libert-theme", nextTheme);
   }
 
   return (

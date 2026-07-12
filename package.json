@@ -1,12 +1,12 @@
 {
-  "name": "edrive-go-brand-panel",
+  "name": "libert-drive-brand-panel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src next.config.ts"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

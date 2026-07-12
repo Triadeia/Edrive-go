@@ -114,7 +114,7 @@ export function generateVariations(
             `CTA: ${cta.Texto}`
           ].join("\n\n"),
           screenText: `${hook.Mecanismo} | ${hook.Dor_Primaria || "faca a conta"}`,
-          caption: `${hook.Texto} ${cta.Texto} #edrivego #motoristalivre #byddolphin`,
+          caption: `${hook.Texto} ${cta.Texto} #libertdrive #motoristalivre #byddolphin`,
           compliance:
             hook.Status_Validacao_Claim === "VALIDAR_CLAIM" || b1.Status_Validacao_Claim === "VALIDAR_CLAIM"
               ? "VALIDAR_CLAIM"

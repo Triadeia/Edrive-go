@@ -56,7 +56,7 @@ export default function CustomerIntelligencePage() {
           <div className="mt-5 space-y-3">
             {customerSignals.map((voice) => (
               <p key={voice} className="flex gap-3 rounded-lg border border-[var(--border)] bg-[var(--muted)] p-4 text-sm font-bold leading-7">
-                <MessageSquareText className="mt-0.5 size-4 shrink-0 text-[var(--primary)]" />"{voice}"
+                <MessageSquareText className="mt-0.5 size-4 shrink-0 text-[var(--primary)]" />&ldquo;{voice}&rdquo;
               </p>
             ))}
           </div>

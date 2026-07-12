@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libert Drive — Deck Executivo</title>
+<style>
+  :root{--brand:#00c389;--brand2:#0a7d5a;--dark:#0f1a2b;--ink:#0f1a2b;--muted:#5a6b82;--line:#e3e8f0}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0b1220;color:var(--ink)}
+  .deck{max-width:1040px;margin:0 auto;padding:24px}
+  .slide{background:#fff;border-radius:16px;padding:44px 52px;margin:20px 0;min-height:520px;position:relative;box-shadow:0 12px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  .slide .n{position:absolute;top:20px;right:26px;color:#c7d0dd;font-size:12px;font-weight:700;letter-spacing:.1em}
+  .slide .k{position:absolute;top:20px;left:26px;color:var(--brand2);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+  h1{font-size:44px;margin:0 0 10px;color:var(--dark);line-height:1.1}
+  h2{font-size:30px;margin:0 0 16px;color:var(--dark);line-height:1.15}
+  p{font-size:17px;line-height:1.5;color:#2a3a52}
+  .lead{font-size:20px;color:#33455e}
+  ul{font-size:17px;line-height:1.6;color:#2a3a52;padding-left:22px}
+  li{margin:8px 0}
+  .cover{background:linear-gradient(135deg,#0f1a2b 0%,#0a7d5a 60%,#00c389 120%);color:#fff}
+  .cover h1,.cover h2{color:#fff}
+  .cover p{color:#d6fff0}
+  .pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:999px;font-size:13px;margin:5px 8px 0 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:12px}
+  .card{background:#f4f7fb;border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card .v{font-size:30px;font-weight:900;color:var(--brand2)}
+  .card .l{font-size:14px;color:var(--muted);margin-top:4px}
+  table{border-collapse:collapse;width:100%;font-size:15px;margin-top:10px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left}
+  th{background:#eef3f9}
+  .num{text-align:right}
+  .hl{color:var(--brand2);font-weight:800}
+  .warn{color:#b23b00;font-weight:700}
+  .footer{color:#7a8aa0;font-size:12px;text-align:center;margin:10px 0 30px}
+  @media print{
+    body{background:#fff}
+    .deck{max-width:none;padding:0}
+    .slide{box-shadow:none;border:1px solid #e3e8f0;border-radius:0;margin:0;min-height:0;height:200mm;page-break-after:always}
+    .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .slide .k,.slide .v,.pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<div class="slide cover">
+  <div class="n">01</div>
+  <div style="font-size:13px;letter-spacing:.28em;color:#9ff0d0">ECOSSISTEMA DE MOBILIDADE ELÉTRICA</div>
+  <h1>Libert Drive</h1>
+  <p class="lead" style="max-width:720px">Colocamos o motorista de aplicativo dirigindo um carro elétrico BYD — sem compra, com combustível quase zero, suporte total e um caminho para ter o próprio carro.</p>
+  <div style="margin-top:18px">
+    <span class="pill">Drive · Locação</span>
+    <span class="pill">Energy · Eletropostos</span>
+    <span class="pill">App · Recarga & Frotas</span>
+    <span class="pill">Telemetria própria</span>
+  </div>
+  <p style="margin-top:26px;font-size:14px">Luige — Presidente & Cofundador · Nilton Macario — Estrategista & Cofundador · Jul/2026</p>
+</div>
+
+<div class="slide">
+  <div class="k">O problema</div><div class="n">02</div>
+  <h2>O motorista de app queima renda no combustível</h2>
+  <ul>
+    <li>Combustível é o maior custo do motorista — pode passar de <b>R$ 2.000/mês</b>.</li>
+    <li>Comprar carro novo é inacessível; alugar a combustão ainda vem com tanque caro.</li>
+    <li>Falta suporte, tecnologia e um caminho para <b>evoluir</b> (ter o próprio carro).</li>
+  </ul>
+  <p class="warn" style="margin-top:14px">Resultado: motorista trabalha muito e sobra pouco. Existe uma dor grande e clara.</p>
+</div>
+
+<div class="slide">
+  <div class="k">A solução</div><div class="n">03</div>
+  <h2>Um elétrico rodando ainda esta semana — sem compra</h2>
+  <div class="grid">
+    <div class="card"><div class="v">≈ R$ 0</div><div class="l">de entrada para o motorista começar</div></div>
+    <div class="card"><div class="v">~R$ 2 mil</div><div class="l">de economia mensal potencial em combustível</div></div>
+    <div class="card"><div class="v">300 km</div><div class="l">de autonomia urbana do Dolphin Mini</div></div>
+    <div class="card"><div class="v">100%</div><div class="l">dos carros com telemetria própria + suporte</div></div>
+  </div>
+  <p style="margin-top:14px">Assinatura Libert Drive = carro elétrico + suporte + telemetria + trilha de aquisição (crédito/consórcio via parceiro regulado).</p>
+</div>
+
+<div class="slide">
+  <div class="k">Mercado & timing</div><div class="n">04</div>
+  <h2>A janela do elétrico está abrindo</h2>
+  <ul>
+    <li>BYD Dolphin Mini a partir de <b>~R$ 105,8 mil</b> (FIPE) — elétrico de entrada viável para app.</li>
+    <li>Rede de eletropostos <b>+50% em 2025</b> (de ~12 mil para ~18 mil pontos).</li>
+    <li>Custo de instalar recarga caiu <b>~10×</b> desde 2019 — porta de entrada para a Libert Energy.</li>
+    <li>Milhões de motoristas de app ativos com dor aguda de custo.</li>
+  </ul>
+  <p style="font-size:13px;color:#7a8aa0;margin-top:12px">Fontes: BYD/FIPE, AutoData, GreenV/YellotMob (jul/2026).</p>
+</div>
+
+<div class="slide">
+  <div class="k">Modelo de negócio</div><div class="n">05</div>
+  <h2>Asset-light e cash-on-delivery</h2>
+  <div class="grid">
+    <div>
+      <ul>
+        <li>Alugamos o carro da locadora e entregamos ao motorista por um valor maior.</li>
+        <li>Não imobilizamos ~R$ 11 mi comprando 100 carros — crescemos com a demanda.</li>
+        <li>Monetizamos serviços: ativação, consórcio/crédito, futuramente recarga e SaaS.</li>
+      </ul>
+    </div>
+    <div class="card" style="background:#0f1a2b;color:#d7f7ea;font-family:monospace;font-size:14px">
+      spread = preço_motorista − aluguel − custos<br><br>
+      receita = spread + ativações<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ comissões + serviços<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ (futuro) recarga + SaaS<br><br>
+      <span style="color:#7ef2c6">alavanca: migrar carro de<br>"alugado" → "próprio"<br>= margem 30× maior</span>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="k">Go-to-market</div><div class="n">06</div>
+  <h2>Lançamento digital: WhatsApp + webinar</h2>
+  <table>
+    <tr><th>Fase</th><th>Dias</th><th>Objetivo</th></tr>
+    <tr><td>Pré-lançamento</td><td>D1–7</td><td>Captação + encher grupos de WhatsApp</td></tr>
+    <tr><td>Aquecimento</td><td>D8–14</td><td>Prova social + qualificação (SDR)</td></tr>
+    <tr><td>Evento</td><td>D15–17</td><td>Webinar com oferta e escassez real</td></tr>
+    <tr><td>Fechamento</td><td>D18–21</td><td>Aplicação → aprovação → retirada</td></tr>
+  </table>
+  <p style="margin-top:12px">Concentrar demanda em janelas curtas <span class="hl">eleva conversão e derruba o CAC</span> — é o que torna a unidade econômica viável.</p>
+</div>
+
+<div class="slide">
+  <div class="k">Unit economics</div><div class="n">07</div>
+  <h2>Margem fina — e as alavancas que a viram</h2>
+  <table>
+    <tr><th>Aluguel ↓ / Preço →</th><th class="num">R$ 3.600</th><th class="num">R$ 3.900</th><th class="num">R$ 4.100</th></tr>
+    <tr><td><b>R$ 3.200</b></td><td class="num warn">−690</td><td class="num warn">−405</td><td class="num warn">−215</td></tr>
+    <tr><td><b>R$ 2.800 (base)</b></td><td class="num warn">−290</td><td class="num warn">−94</td><td class="num hl">+96</td></tr>
+    <tr><td><b>R$ 2.500 (meta)</b></td><td class="num hl">+10</td><td class="num hl">+206</td><td class="num hl">+396</td></tr>
+  </table>
+  <p style="margin-top:12px">Contribuição por carro/mês. As alavancas: <b>negociar aluguel</b>, <b>preço justificado pela economia de combustível</b>, <b>manutenção inclusa</b> e <b>receita de consórcio/crédito</b>.</p>
+</div>
+
+<div class="slide">
+  <div class="k">Roadmap</div><div class="n">08</div>
+  <h2>Do piloto ao ecossistema</h2>
+  <div class="grid3">
+    <div class="card"><div class="v">0–90d</div><div class="l">Piloto 10–20 carros → escalar 100. Validar CAC, inadimplência, ocupação.</div></div>
+    <div class="card"><div class="v">6–12m</div><div class="l">Frota própria nos carros de maior giro. Libert Drive App (gestão/telemetria SaaS).</div></div>
+    <div class="card"><div class="v">12m+</div><div class="l">Libert Energy (recarga). Programa de crédito. Captação/dívida estruturada.</div></div>
+  </div>
+  <p style="margin-top:14px">Sequência: <b>dirigir → carregar → gerir → adquirir</b>, tudo no ecossistema Libert Drive.</p>
+</div>
+
+<div class="slide">
+  <div class="k">Riscos</div><div class="n">09</div>
+  <h2>O que pode quebrar — e como blindar</h2>
+  <table>
+    <tr><th>Risco</th><th>Blindagem</th></tr>
+    <tr><td>Margem fina / aluguel alto</td><td>Negociar ≤ R$ 2.500 com manutenção inclusa; migrar p/ frota própria</td></tr>
+    <tr><td>Falta de caixa (vale da morte)</td><td>Cash-on-delivery; reserva; não alugar 100 sem demanda</td></tr>
+    <tr><td>Regulatório crédito/consórcio</td><td>Só via parceiro autorizado Bacen; nunca prometer contemplação</td></tr>
+    <tr><td>Inadimplência / carro parado</td><td>KYC, telemetria, cobrança preventiva, recolocação < 72h</td></tr>
+  </table>
+</div>
+
+<div class="slide">
+  <div class="k">O pedido</div><div class="n">10</div>
+  <h2>Nota de viabilidade: 6,5/10 → 8+ com as condições certas</h2>
+  <ul>
+    <li>Fechar aluguel <b>≤ R$ 2.500</b> com seguro e manutenção inclusos.</li>
+    <li>Provar conversão do lançamento <b>≥ 2×</b> a compra fria.</li>
+    <li>Contratar parceiro regulado de consórcio/crédito.</li>
+    <li>Demonstrar inadimplência <b>≤ 7%</b> no piloto.</li>
+    <li>Plano de migração para <b>frota própria</b> nos carros de maior giro.</li>
+  </ul>
+  <p class="lead" style="margin-top:16px;color:var(--brand2)"><b>Libert Drive — o motorista dirige o futuro, sem esperar para começar.</b></p>
+</div>
+
+<div class="footer">Libert Drive · Deck Executivo v1.0 · Jul/2026 · Todos os números são premissas editáveis a validar · Imprima em PDF (paisagem recomendada).</div>
+</div>
+</body>
+</html>

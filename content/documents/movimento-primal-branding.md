@@ -1,7 +1,7 @@
-# MOVIMENTO EDRIVE GO
+# MOVIMENTO LIBERT DRIVE
 ## Primal Branding Completo — 7 Elementos do Sistema de Crença
 
-### Triadeia Company // Ecossistema eDrive Go
+### Triadeia Company // Ecossistema Libert Drive
 ### Metodologia: Primal Branding (Patrick Hanlon) + Marketing Ideológico®
 
 ---
@@ -28,7 +28,7 @@ Quando esses 7 elementos estão alinhados, o movimento se autopropaga. Não prec
 ---
 
 # ELEMENTO 1 — CREATION STORY
-## A História de Origem do Movimento eDrive Go
+## A História de Origem do Movimento Libert Drive
 
 ---
 
@@ -42,36 +42,36 @@ Em um dia de trabalho de 10 horas, um motorista de app na RMS gasta entre R$60 e
 
 E todo mês ele paga essa conta. Sem reclamar. Porque "é assim que funciona." Porque "todo mundo paga gasolina." Porque ninguém mostrou outra saída.
 
-A eDrive Go nasceu no momento em que alguém fez a pergunta que deveria ter sido feita há anos:
+A Libert Drive nasceu no momento em que alguém fez a pergunta que deveria ter sido feita há anos:
 
 **E se o motorista não precisasse pagar gasolina?**
 
 Não como ilusão. Como sistema.
 
-A eDrive Go não é uma locadora de carros elétricos. É a resposta para uma pergunta que o mercado ignorou por tempo demais: por que o trabalhador que move a cidade ainda precisa pagar pela energia que o move?
+A Libert Drive não é uma locadora de carros elétricos. É a resposta para uma pergunta que o mercado ignorou por tempo demais: por que o trabalhador que move a cidade ainda precisa pagar pela energia que o move?
 
 ## A Sequência que Criou o Movimento
 
 A história começa com os números — e os números eram impossíveis de ignorar.
 
-Um motorista de app em Salvador com um carro a gasolina gasta, em média, R$1.000 por mês em combustível. Um motorista com um elétrico locado da eDrive Go gasta R$0. A diferença — R$1.000 — não é desconto. É libertação.
+Um motorista de app em Salvador com um carro a gasolina gasta, em média, R$1.000 por mês em combustível. Um motorista com um elétrico locado da Libert Drive gasta R$0. A diferença — R$1.000 — não é desconto. É libertação.
 
-Mas a eDrive Go entendeu que liberdade financeira, sozinha, não cria movimento. Cria cliente. Para criar movimento, precisava de algo mais profundo.
+Mas a Libert Drive entendeu que liberdade financeira, sozinha, não cria movimento. Cria cliente. Para criar movimento, precisava de algo mais profundo.
 
 Precisava nomear o inimigo.
 
 O inimigo não é o posto de gasolina. O inimigo é **a mentalidade de que motorista de app é um trabalhador de custo, não de lucro.** A crença de que quem dirige para sustentar a família está condenado a passar a maior parte do seu tempo de trabalho pagando para trabalhar.
 
-A eDrive Go existe para destruir essa crença.
+A Libert Drive existe para destruir essa crença.
 
 ## A Declaração de Origem
 
-> "Nós não abrimos a eDrive Go para alugar carros. Nós abrimos para provar que motorista de app pode trabalhar sem ser escravo da gasolina — e quando isso acontece, a vida inteira dele muda."
+> "Nós não abrimos a Libert Drive para alugar carros. Nós abrimos para provar que motorista de app pode trabalhar sem ser escravo da gasolina — e quando isso acontece, a vida inteira dele muda."
 
 ---
 
 # ELEMENTO 2 — CREED
-## O Credo do Movimento eDrive Go
+## O Credo do Movimento Libert Drive
 
 ---
 
@@ -90,22 +90,22 @@ Mil reais a mais por mês é: escola particular para o filho. É parcela do apar
 Motoristas que estão no elétrico há 6 meses não voltam para o combustível. Nunca. Porque não tem como voltar quando você sabe o que é trabalhar sem essa corrente.
 
 **Crença 5: Locação é a forma mais inteligente de acessar o elétrico — hoje.**
-Não precisa de entrada de R$80.000. Não precisa de financiamento de 60 meses. Não precisa esperar. A eDrive Go resolve agora. O motorista começa a ganhar mais amanhã.
+Não precisa de entrada de R$80.000. Não precisa de financiamento de 60 meses. Não precisa esperar. A Libert Drive resolve agora. O motorista começa a ganhar mais amanhã.
 
 **Crença 6: Tecnologia elétrica é ferramenta de justiça social.**
-O carro elétrico não é para rico. Era — até a eDrive Go. Agora, o mesmo motorista que não teria condições de comprar um BYD pode rodar um hoje. A eletricidade virou alavanca de quem trabalha.
+O carro elétrico não é para rico. Era — até a Libert Drive. Agora, o mesmo motorista que não teria condições de comprar um BYD pode rodar um hoje. A eletricidade virou alavanca de quem trabalha.
 
 **Crença 7: Motorista que não controla o custo de combustível não controla seu futuro.**
 Toda vez que o preço da gasolina sobe, um motorista de app perde. Ele não decide. Ele paga. Isso não é autonomia — é dependência travestida de trabalho independente.
 
 **Crença 8: Comunidade acelera resultado.**
-Motorista que entra no movimento eDrive Go não entra sozinho. Entra numa rede de pessoas que já fizeram a virada. Que já sabem o que funciona. Que já calcularam o que ganham. Comunidade não é bônus — é parte do produto.
+Motorista que entra no movimento Libert Drive não entra sozinho. Entra numa rede de pessoas que já fizeram a virada. Que já sabem o que funciona. Que já calcularam o que ganham. Comunidade não é bônus — é parte do produto.
 
 **Crença 9: Resultado não é promessa. Resultado é dado.**
-A eDrive Go não convence com discurso. Convence com número. Quanto você paga hoje de gasolina? Quanto vai pagar de locação? Qual a diferença? Pronto — esse é o argumento que fecha sozinho.
+A Libert Drive não convence com discurso. Convence com número. Quanto você paga hoje de gasolina? Quanto vai pagar de locação? Qual a diferença? Pronto — esse é o argumento que fecha sozinho.
 
 **Crença 10: Quem fez a virada elétrica tem responsabilidade de mostrar o caminho para quem ainda não fez.**
-O Motorista Livre que entra no Movimento eDrive Go não é apenas beneficiário da mudança. É multiplicador. Porque quando você para de pagar gasolina, todo motorista do seu grupo de WhatsApp vai querer saber como.
+O Motorista Livre que entra no Movimento Libert Drive não é apenas beneficiário da mudança. É multiplicador. Porque quando você para de pagar gasolina, todo motorista do seu grupo de WhatsApp vai querer saber como.
 
 ---
 
@@ -116,7 +116,7 @@ O Motorista Livre que entra no Movimento eDrive Go não é apenas beneficiário 
 
 ## Ícone Central: O Raio Sem Corrente
 
-O símbolo principal do Movimento eDrive Go é o **raio livre** — energia elétrica sem a âncora da corrente que prendia o motorista ao posto de gasolina.
+O símbolo principal do Movimento Libert Drive é o **raio livre** — energia elétrica sem a âncora da corrente que prendia o motorista ao posto de gasolina.
 
 Visualmente: um raio que parte de baixo para cima, sem base de corrente, representando:
 - Energia elétrica (produto)
@@ -153,7 +153,7 @@ O valor é um ícone em si. Aparecer em destaque em toda comunicação. R$1.000 
 
 | Cor | Código | Significado |
 |---|---|---|
-| Verde eDrive | #00C896 | Energia, natureza, lucro, vida |
+| Verde Libert Drive | #00C896 | Energia, natureza, lucro, vida |
 | Preto Noturno | #0A0A0A | Autoridade, seriedade, eficiência |
 | Branco Elétrico | #F5F5F5 | Limpeza, zero combustível, clareza |
 | Amarelo Relâmpago | #FFD700 | Energia, urgência, destaque |
@@ -164,7 +164,7 @@ O valor é um ícone em si. Aparecer em destaque em toda comunicação. R$1.000 
 ---
 
 # ELEMENTO 4 — RITUALS
-## Os Rituais do Movimento eDrive Go
+## Os Rituais do Movimento Libert Drive
 
 ---
 
@@ -175,7 +175,7 @@ O momento de entrada formal no movimento. Não é apenas a assinatura do contrat
 **O que acontece:**
 - O motorista recebe as chaves do elétrico (física ou simbolicamente no digital)
 - Calcula ao vivo o quanto vai deixar de pagar em combustível no primeiro mês
-- Recebe o acesso ao grupo da comunidade eDrive Go
+- Recebe o acesso ao grupo da comunidade Libert Drive
 - É bem-vindo por outros motoristas que já fizeram a virada
 
 **Frase de entrada:** *"A partir de hoje, você não abastece mais."*
@@ -202,7 +202,7 @@ Todo mês, na primeira semana, motoristas do movimento fazem o Cálculo da Virad
 
 Ao completar 30 dias no elétrico, o motorista é convidado a gravar um vídeo curto (30–60s) respondendo: *"O que mudou no seu mês depois que você parou de pagar gasolina?"*
 
-Esses depoimentos são o combustível do conteúdo orgânico da eDrive Go.
+Esses depoimentos são o combustível do conteúdo orgânico da Libert Drive.
 
 **Recompensa simbólica:** badge digital "30 Dias Livre" + menção especial na comunidade.
 
@@ -255,7 +255,7 @@ Não é inimigo — é desinformado. Não sabe que R$1.000/mês em gasolina tran
 
 O mercado de locação de veículos que nunca perguntou: "e se o motorista não precisasse de gasolina?" As locadoras que continuaram alugando carros a combustão para motoristas de app como se o elétrico não existisse. O sistema financeiro que trata motorista de app como risco e não como empresário. O mercado que normalizou que trabalhador de mobilidade deve destinar 30–40% da sua renda bruta ao combustível.
 
-Não tem nome. Não tem rosto. É o **sistema do custo aceito** — e o movimento eDrive Go existe para destruí-lo.
+Não tem nome. Não tem rosto. É o **sistema do custo aceito** — e o movimento Libert Drive existe para destruí-lo.
 
 ## Pagan 5: O Medo do Novo
 
@@ -266,7 +266,7 @@ Não é cético — é ansioso. Tem medo genuíno de troca de sistema. O movimen
 ---
 
 # ELEMENTO 6 — SACRED WORDS
-## O Vocabulário Proprietário do Movimento eDrive Go
+## O Vocabulário Proprietário do Movimento Libert Drive
 
 ---
 
@@ -276,7 +276,7 @@ Não é cético — é ansioso. Tem medo genuíno de troca de sistema. O movimen
 O conceito raiz. A situação em que o motorista perde renda para o combustível todo mês sem perceber que isso é uma escolha, não uma lei. Quando você nomeia a Maldição, o motorista percebe que foi amaldiçoado — e quer quebrar o feitiço.
 
 **Motorista Livre**
-Não é cliente da eDrive Go. É identidade. "Sou Motorista Livre" é a declaração de pertencimento ao movimento. O oposto de motorista preso — preso ao posto, ao preço, ao sistema.
+Não é cliente da Libert Drive. É identidade. "Sou Motorista Livre" é a declaração de pertencimento ao movimento. O oposto de motorista preso — preso ao posto, ao preço, ao sistema.
 
 **A Virada Elétrica**
 O momento em que o motorista migra do combustível para o elétrico. Não é "adesão ao produto". É uma virada — com antes e depois, com peso emocional e financeiro.
@@ -285,7 +285,7 @@ O momento em que o motorista migra do combustível para o elétrico. Não é "ad
 O estado desejado. Não "menos gasolina" ou "gasolina mais barata". Zero. Ausência total. Meta declarada e atingível.
 
 **Corrente do Combustível**
-A metáfora da prisão. O motorista não sabe que está acorrentado — a corrente é invisível mas pesa R$1.000 por mês. A eDrive Go corta a corrente.
+A metáfora da prisão. O motorista não sabe que está acorrentado — a corrente é invisível mas pesa R$1.000 por mês. A Libert Drive corta a corrente.
 
 **R$1.000 de Diferença**
 O número sagrado. Símbolo da transformação financeira. Sempre com destaque visual. Sempre concreto. Nunca abstrato.
@@ -324,7 +324,7 @@ O cálculo simples que mostra o ganho da virada. Sempre disponível, sempre hone
 ---
 
 # ELEMENTO 7 — LEADER
-## A Liderança do Movimento eDrive Go
+## A Liderança do Movimento Libert Drive
 
 ---
 
@@ -332,11 +332,11 @@ O cálculo simples que mostra o ganho da virada. Sempre disponível, sempre hone
 
 Em todo movimento que dura, há uma fonte de autoridade que combina credibilidade com missão. No Primal Branding, o Líder não precisa ser uma única pessoa — pode ser um conjunto de vozes que representam o sistema de crença.
 
-No caso da eDrive Go, a liderança do movimento opera em três níveis:
+No caso da Libert Drive, a liderança do movimento opera em três níveis:
 
 ## Nível 1: A Marca Como Líder Institucional
 
-A eDrive Go como entidade tem o papel de **profeta da transformação** — aquela que viu primeiro, que construiu o sistema, que sustenta a missão quando o mercado ainda duvida.
+A Libert Drive como entidade tem o papel de **profeta da transformação** — aquela que viu primeiro, que construiu o sistema, que sustenta a missão quando o mercado ainda duvida.
 
 **Voz da marca como líder:**
 - Direta, sem rodeios, baseada em números
@@ -346,9 +346,9 @@ A eDrive Go como entidade tem o papel de **profeta da transformação** — aque
 
 **Arquétipo:** Curador que virou Guerreiro. Cuida do motorista eliminando o que o prejudica.
 
-## Nível 2: O Time eDrive Go Como Guias
+## Nível 2: O Time Libert Drive Como Guias
 
-As pessoas por trás da eDrive Go — consultores, equipe de locação, suporte — são os guias do processo de virada. Não são apenas operacionais: são **facilitadores da transformação**.
+As pessoas por trás da Libert Drive — consultores, equipe de locação, suporte — são os guias do processo de virada. Não são apenas operacionais: são **facilitadores da transformação**.
 
 **Como o time se comunica como liderança:**
 - Com histórias de motoristas que libertaram (não com pitch de produto)
@@ -363,7 +363,7 @@ Motoristas que fizeram a virada há mais de 3 meses, que têm resultados documen
 
 Por quê? Porque são proof of concept humano. São a resposta viva para cada objeção.
 
-**Características do Embaixador eDrive Go:**
+**Características do Embaixador Libert Drive:**
 - Tem histórico de antes e depois documentado
 - Compartilha resultado sem ser pedido
 - Indica pelo valor, não apenas pelo benefício financeiro
@@ -379,11 +379,11 @@ Por quê? Porque são proof of concept humano. São a resposta viva para cada ob
 ---
 
 # VISÃO DE ECOSSISTEMA — TRIADEIA
-## eDrive Go Dentro do Sistema Maior
+## Libert Drive Dentro do Sistema Maior
 
 ---
 
-A eDrive Go não existe isolada. Faz parte do ecossistema Triadeia — um conjunto de projetos que compartilham uma filosofia central:
+A Libert Drive não existe isolada. Faz parte do ecossistema Triadeia — um conjunto de projetos que compartilham uma filosofia central:
 
 **"Ferramentas que libertam pessoas de sistemas que as aprisionam sem que percebam."**
 
@@ -392,7 +392,7 @@ A eDrive Go não existe isolada. Faz parte do ecossistema Triadeia — um conjun
 | **Tríade Saúde & Performance** | Pessoas físicas e profissionais | Do sedentarismo e da identidade de quem está abaixo do que é capaz |
 | **Dr. Pitágoras / Receita Certa** | Bahia do interior | Do abandono político e da política sem resultado |
 | **VerificaPix** | Usuários financeiros | Da fraude e da insegurança digital nas transações |
-| **eDrive Go** | Motoristas de app | Da escravidão ao combustível e ao custo que corrói o lucro |
+| **Libert Drive** | Motoristas de app | Da escravidão ao combustível e ao custo que corrói o lucro |
 
 **O DNA comum do ecossistema Triadeia:**
 1. Identificar o inimigo sistêmico que as pessoas aceitaram como inevitável
@@ -401,9 +401,9 @@ A eDrive Go não existe isolada. Faz parte do ecossistema Triadeia — um conjun
 4. Criar comunidade ao redor de quem já se libertou
 5. Expandir o movimento através de quem se torna prova viva
 
-**A eDrive Go é a porta de entrada do ecossistema Triadeia para o motorista de app.**
+**A Libert Drive é a porta de entrada do ecossistema Triadeia para o motorista de app.**
 
-Um motorista que faz a Virada Elétrica e entra na comunidade eDrive Go está potencialmente pronto para:
+Um motorista que faz a Virada Elétrica e entra na comunidade Libert Drive está potencialmente pronto para:
 - Cuidar melhor do próprio corpo (Tríade Saúde & Performance)
 - Organizar suas finanças com mais segurança (VerificaPix)
 - Votar com critério de resultado (Receita Certa)
@@ -417,15 +417,15 @@ O ecossistema não força conexão — ele atrai. Porque quem aprende a question
 | Elemento | Síntese |
 |---|---|
 | **Creation Story** | Nascemos quando percebemos que motorista de app pagava R$1.000/mês a um inimigo invisível — e que ninguém tinha criado a saída. |
-| **Creed** | Motorista que não controla o custo do combustível não controla seu futuro. A solução existe. A eDrive Go a entrega. |
+| **Creed** | Motorista que não controla o custo do combustível não controla seu futuro. A solução existe. A Libert Drive a entrega. |
 | **Icons** | O raio livre, o BYD nas ruas de Salvador, o painel sem combustível, R$1.000 em destaque. |
 | **Rituals** | Ativação, Primeira Semana Elétrica, Cálculo da Virada, Depoimento dos 30 Dias, Indicação, Summit. |
 | **Pagans** | O sistema do custo aceito, o mercado que nunca perguntou, o motorista que ainda não viu a saída. |
 | **Sacred Words** | Motorista Livre, Virada Elétrica, A Maldição, Zero Gasolina, R$1.000 de Diferença, Rodar Livre. |
-| **Leader** | A eDrive Go como institucional, o time como guias, os Embaixadores como prova viva do movimento. |
+| **Leader** | A Libert Drive como institucional, o time como guias, os Embaixadores como prova viva do movimento. |
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / eDrive Go*
+*Documento elaborado para o ecossistema Triadeia / Libert Drive*
 *Metodologia: Primal Branding (Patrick Hanlon) + Marketing Ideológico®*
-*Fase: Kit Completo de Comunicação — Movimento eDrive Go*
+*Fase: Kit Completo de Comunicação — Movimento Libert Drive*

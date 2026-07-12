@@ -1,5 +1,5 @@
 # MANIFESTO DO MOTORISTA LIVRE
-## O Documento Fundacional do Movimento eDrive Go
+## O Documento Fundacional do Movimento Libert Drive
 
 ### Triadeia Company // Kit Completo de Comunicação
 ---
@@ -52,7 +52,7 @@ Nós nascemos para quebrar essa crença.
 
 ---
 
-**O Movimento eDrive Go não é uma locadora de carros.**
+**O Movimento Libert Drive não é uma locadora de carros.**
 
 É a organização de pessoas que decidiram que não vão mais pagar pela crença de que não têm saída.
 
@@ -108,7 +108,7 @@ Porque não tem como "desaprender" que você estava sendo cobrado por uma inefic
 
 Você não chega aqui por acidente. Chega porque algo em você já sabia que a conta não fechava. Que trabalhar para pagar gasolina não era o plano. Que existia outra forma — e que só faltava alguém mostrar.
 
-Bem-vindo ao Movimento eDrive Go.
+Bem-vindo ao Movimento Libert Drive.
 
 Bem-vindo ao único lugar onde motorista de app é tratado como o empresário que é.
 
@@ -171,7 +171,7 @@ O primeiro mês com elétrico tem adaptação. Mas R$1.000 de gasolina aparecem 
 Sempre vão existir desafios no trabalho de motorista. Mas a dívida mensal com o combustível não precisa ser um deles.
 
 **Crença 9: Prova vale mais do que promessa.**
-A eDrive Go não pede confiança cega. Pede 5 minutos para ver os números. A decisão é sempre sua — mas ela vai ser informada por dado real, não por discurso de vendedor.
+A Libert Drive não pede confiança cega. Pede 5 minutos para ver os números. A decisão é sempre sua — mas ela vai ser informada por dado real, não por discurso de vendedor.
 
 **Crença 10: Quando você muda sua relação com o dinheiro do trabalho, você muda tudo.**
 R$1.000 a mais por mês muda como você pensa sobre o futuro. Muda o que é possível. Muda a conversa com a família. Muda o sonho que parecia distante. A virada elétrica não é só sobre o carro — é sobre quem você decide ser como trabalhador e como pessoa.
@@ -232,7 +232,7 @@ E essa escolha não tem volta.
 >
 > A gente chama isso de A Maldição da Gasolina.
 >
-> E a eDrive Go foi criada para quebrar ela.
+> E a Libert Drive foi criada para quebrar ela.
 >
 > Locação de veículo elétrico pra motorista de app. Sem entrada. Sem financiamento. Com uma comunidade de Motoristas Livres que já fizeram a mesma conta — e que não voltaram.
 >
@@ -244,7 +244,7 @@ E essa escolha não tem volta.
 
 > R$1.000 por mês em gasolina. Todo mês. Esse é o custo da Maldição.
 >
-> A eDrive Go quebra ela. Sem entrada. Com elétrico. Com resultado.
+> A Libert Drive quebra ela. Sem entrada. Com elétrico. Com resultado.
 >
 > Seja Motorista Livre.
 
@@ -258,6 +258,6 @@ E essa escolha não tem volta.
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / eDrive Go*
-*Movimento eDrive Go — Kit Completo de Comunicação*
+*Documento elaborado para o ecossistema Triadeia / Libert Drive*
+*Movimento Libert Drive — Kit Completo de Comunicação*
 *"Do motorista que paga gasolina para o Motorista Livre."*

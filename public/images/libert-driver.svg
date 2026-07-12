@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Motorista Livre Libert Drive</title>
+  <desc id="desc">Motorista de aplicativo diante de um carro elétrico em cena urbana.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#09090d"/>
+      <stop offset=".48" stop-color="#171127"/>
+      <stop offset="1" stop-color="#06271f"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9fbff"/>
+      <stop offset="1" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <path d="M0 608h1200v152H0z" fill="#08080b"/>
+  <path d="M80 536c128-82 229-139 362-125l142 14c89 9 140 31 206 95l87 84H122z" fill="#f5f5f7"/>
+  <path d="M236 457c73-34 147-43 230-35l112 11c62 6 99 25 149 76H250z" fill="url(#glass)"/>
+  <circle cx="272" cy="614" r="62" fill="#111827"/>
+  <circle cx="272" cy="614" r="25" fill="#00c896"/>
+  <circle cx="768" cy="614" r="62" fill="#111827"/>
+  <circle cx="768" cy="614" r="25" fill="#6f35ff"/>
+  <path d="M924 290c31 0 56 25 56 56v258H868V346c0-31 25-56 56-56z" fill="#1f2937"/>
+  <circle cx="924" cy="238" r="48" fill="#b68b67"/>
+  <path d="M866 602c12-87 27-135 58-135s48 48 60 135z" fill="#00c896"/>
+  <path d="M868 347h112v68H868z" fill="#6f35ff"/>
+  <text x="78" y="128" fill="#00c896" font-family="Sora, Arial, sans-serif" font-size="24" font-weight="800">MOTORISTA LIVRE</text>
+  <text x="78" y="190" fill="#fff" font-family="Sora, Arial, sans-serif" font-size="58" font-weight="800">Nao trabalha para a gasolina.</text>
+  <text x="80" y="238" fill="#b8c3cc" font-family="Sora, Arial, sans-serif" font-size="25" font-weight="500">Roda com eletrico, faz a conta e vira prova viva.</text>
+</svg>

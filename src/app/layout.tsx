@@ -10,8 +10,8 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "eDrive Go | Painel de Marca",
-  description: "Painel de branding, movimento e inteligencia do cliente da eDrive Go.",
+  title: "Libert Drive | Painel de Marca",
+  description: "Painel de branding, movimento e inteligencia do cliente da Libert Drive.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

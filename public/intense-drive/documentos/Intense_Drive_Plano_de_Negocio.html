@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libert Drive — Plano de Negócio Completo</title>
+<style>
+  :root{
+    --ink:#0f1a2b; --muted:#5a6b82; --line:#e3e8f0; --bg:#ffffff;
+    --brand:#00c389; --brand2:#0a7d5a; --accent:#0b63f6; --dark:#0f1a2b;
+    --warn:#b23b00; --danger:#c0392b; --soft:#f4f7fb; --soft2:#eef8f3;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);margin:0;line-height:1.55;background:#f0f2f6}
+  .page{max-width:960px;margin:0 auto;background:var(--bg);padding:56px 64px;}
+  h1,h2,h3,h4{line-height:1.2;color:var(--dark)}
+  h1{font-size:34px;margin:0 0 6px}
+  h2{font-size:25px;margin:46px 0 12px;padding-top:10px;border-top:3px solid var(--brand)}
+  h3{font-size:18.5px;margin:26px 0 8px;color:var(--brand2)}
+  h4{font-size:15px;margin:18px 0 6px;color:var(--ink)}
+  p{margin:9px 0}
+  small{color:var(--muted)}
+  a{color:var(--accent);text-decoration:none}
+  .lead{font-size:16.5px;color:#33455e}
+  .cover{background:linear-gradient(135deg,#0f1a2b 0%,#0a7d5a 60%,#00c389 100%);color:#fff;border-radius:16px;padding:42px 40px;margin-bottom:8px}
+  .cover h1{color:#fff;font-size:40px}
+  .cover .sub{color:#d6fff0;font-size:18px;margin-top:8px}
+  .cover .meta{margin-top:22px;font-size:13px;color:#bfeede}
+  .pill{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 12px;border-radius:999px;font-size:12.5px;margin:4px 6px 0 0}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13px}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  th{background:var(--soft);font-weight:700;color:#26374f}
+  tbody tr:nth-child(even){background:#fafcff}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .box{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .box.green{background:var(--soft2);border-color:#bfe9d6}
+  .box.warn{background:#fff6ee;border-color:#ffd9b8}
+  .box.danger{background:#fdecea;border-color:#f5c6c0}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
+  .tag.val{background:#fff2d8;color:#8a5a00;border:1px solid #ffe1a3}
+  .tag.fact{background:#e2f4ff;color:#0a5a95;border:1px solid #b8e0ff}
+  .tag.risk{background:#fdecea;color:#a03027;border:1px solid #f3b8b0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+  .kpi .v{font-size:22px;font-weight:800;color:var(--brand2)}
+  .kpi .l{font-size:12px;color:var(--muted)}
+  code{background:#0f1a2b;color:#7ef2c6;padding:2px 6px;border-radius:5px;font-size:12.5px}
+  .formula{background:#0f1a2b;color:#d7f7ea;border-radius:10px;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre-wrap;margin:12px 0}
+  .toc{columns:2;column-gap:34px;font-size:13.5px}
+  .toc a{display:block;padding:3px 0;color:#33455e;border-bottom:1px dotted #dde3ec}
+  ul,ol{margin:8px 0 8px 4px;padding-left:22px}
+  li{margin:4px 0}
+  .footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  .score{display:flex;align-items:center;gap:18px;background:#0f1a2b;color:#fff;border-radius:14px;padding:20px 24px}
+  .score .big{font-size:52px;font-weight:900;color:var(--brand)}
+  hr{border:none;border-top:1px solid var(--line);margin:26px 0}
+  @media print{
+    body{background:#fff}
+    .page{max-width:none;padding:0 8mm;box-shadow:none}
+    h2{page-break-after:avoid}
+    table,.box,.formula,.kpi{page-break-inside:avoid}
+    .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .no-print{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div style="font-size:13px;letter-spacing:.25em;color:#9ff0d0">ECOSSISTEMA DE MOBILIDADE ELÉTRICA</div>
+  <h1>Libert Drive</h1>
+  <div class="sub">Plano de negócio, modelo financeiro e projeto de execução — frota de 100 BYD Dolphin Mini para motoristas de aplicativo</div>
+  <div>
+    <span class="pill">Libert Drive · Locação</span>
+    <span class="pill">Libert Energy · Eletropostos</span>
+    <span class="pill">Libert Drive App · Recarga & Frotas</span>
+    <span class="pill">Telemetria própria</span>
+  </div>
+  <div class="meta">
+    Fundadores: <b>Luige</b> (Presidente & Cofundador) · <b>Nilton Macario</b> (Estrategista & Cofundador)<br>
+    Versão 1.0 · Julho 2026 · Documento confidencial · Todos os números são <b>premissas editáveis a validar</b>
+  </div>
+</div>
+
+<div class="box warn no-print" style="margin-top:18px">
+  <b>Como usar este documento.</b> Ele foi desenhado para virar planilha e software reais. Números marcados
+  <span class="tag val">premissa a validar</span> são estimativas de partida — troque-os pelos dados confirmados de locadora, contador e jurídico.
+  Números marcados <span class="tag fact">dado de mercado</span> vêm de fontes públicas (jul/2026, citadas ao final). Para gerar o PDF: abra no navegador e use <b>Imprimir → Salvar como PDF</b> (A4, margens padrão).
+</div>
+
+<h2 style="border-top:none;margin-top:26px">Índice dos entregáveis</h2>
+<div class="toc">
+  <a href="#e1">1. Resumo Executivo</a>
+  <a href="#e2">2. Tese Estratégica</a>
+  <a href="#e3">3. Modelo de Negócio</a>
+  <a href="#e4">4. Business Model Canvas</a>
+  <a href="#e5">5. Premissas Editáveis</a>
+  <a href="#e6">6. Modelo de Receita</a>
+  <a href="#e7">7. Estrutura de Custos</a>
+  <a href="#e8">8. DRE Mensal (36 meses)</a>
+  <a href="#e9">9. Fluxo de Caixa</a>
+  <a href="#e10">10. Unit Economics</a>
+  <a href="#e11">11. Simulação dos 100 Carros</a>
+  <a href="#e12">12. Cenários & Sensibilidade</a>
+  <a href="#e13">13. Marketing & Lançamento</a>
+  <a href="#e14">14. Plano Comercial</a>
+  <a href="#e15">15. Plano de Suporte</a>
+  <a href="#e16">16. Frota & Telemetria</a>
+  <a href="#e17">17. Crédito, Consórcio & Compliance</a>
+  <a href="#e18">18. Plano de Equipe</a>
+  <a href="#e19">19. Calculadora Web</a>
+  <a href="#e20">20. Especificação Técnica</a>
+  <a href="#e21">21. Estrutura da Planilha</a>
+  <a href="#e22">22. Fórmulas</a>
+  <a href="#e23">23. Roadmap 7/30/60/90/365</a>
+  <a href="#e24">24. Matriz de Riscos</a>
+  <a href="#e25">25. Dashboard de KPIs</a>
+  <a href="#e26">26. Perguntas Críticas</a>
+  <a href="#e27">27. Recomendações Finais</a>
+  <a href="#e28">28. Checklist de Execução</a>
+  <a href="#e29">29. Auditoria de Consistência</a>
+  <a href="#e30">30. Nota de Viabilidade</a>
+</div>
+
+<!-- ==================== 1 RESUMO EXECUTIVO ==================== -->
+<h2 id="e1">1. Resumo Executivo</h2>
+<p class="lead">A <b>Libert Drive</b> é o núcleo de um ecossistema de mobilidade elétrica que coloca motoristas de aplicativo dirigindo um <b>BYD Dolphin Mini</b> sem entrada pesada, com suporte completo, e abre um caminho de evolução financeira (crédito, consórcio, aquisição). Ao redor dela nascem três frentes de expansão: <b>Libert Energy</b> (eletropostos), <b>Libert Drive App</b> (recarga + gestão de frotas) e <b>telemetria própria</b> embarcada nos veículos.</p>
+
+<table>
+  <tr><th style="width:26%">Pergunta</th><th>Resposta</th></tr>
+  <tr><td><b>O que é</b></td><td>Ecossistema de mobilidade elétrica para motoristas de app. O carro-chefe (v1) é a locação/assinatura de 100 BYD Dolphin Mini, inicialmente alugados de uma locadora parceira e sublocados ao motorista.</td></tr>
+  <tr><td><b>Que problema resolve</b></td><td>O motorista de app tem custo de combustível altíssimo e barreira de acesso a carro novo. A Libert Drive entrega um elétrico (combustível quase zero), sem compra, com suporte e telemetria, e um caminho para "voltar a sonhar" com aquisição via crédito/consórcio.</td></tr>
+  <tr><td><b>Para quem</b></td><td>Motoristas de Uber/99/inDrive e pessoas que querem viver de mobilidade; começando por praças de alta densidade (piloto: Salvador/BA).</td></tr>
+  <tr><td><b>Como ganha dinheiro</b></td><td>(1) Spread da sublocação (preço ao motorista − aluguel da locadora); (2) taxa de ativação; (3) comissões de consórcio/crédito via parceiro regulado; (4) serviços agregados; (5) futuro: recarga (Energy), SaaS de telemetria e gestão de frota (App).</td></tr>
+  <tr><td><b>Por que 100 carros alugados</b></td><td>Valida demanda real sem imobilizar ~R$ 11 milhões em compra de frota (100 × ~R$ 110 mil). Testa preço, inadimplência, ocupação e operação antes de comprar.</td></tr>
+  <tr><td><b>Por que reduz capital inicial</b></td><td>O ativo (carro) fica no balanço da locadora. A Libert Drive investe em <b>capital intelectual, operação, marketing e crédito</b> — modelo <i>asset-light</i> e <i>cash-on-delivery</i>: cresce a frota conforme a demanda validada.</td></tr>
+  <tr><td><b>Por que WhatsApp + webinar</b></td><td>Público de motoristas é altamente ativo em grupos de WhatsApp e responde a prova social e "realização imediata". Lançamentos digitais concentram demanda em janelas curtas, elevando conversão e reduzindo CAC.</td></tr>
+</table>
+
+<h3>Principais riscos (resumo)</h3>
+<ul>
+  <li><b>Margem fina da sublocação:</b> aluguel da locadora é custo fixo por carro; se ocupação cair ou o aluguel for alto, a operação sangra caixa. <span class="tag risk">crítico</span></li>
+  <li><b>Regulatório de crédito/consórcio:</b> a Libert Drive <b>não</b> pode agir como instituição financeira/administradora sem licença; usar entrada/sinal exige estrutura jurídica. <span class="tag risk">alto</span></li>
+  <li><b>Inadimplência e carro parado:</b> cada carro parado paga aluguel sem gerar receita.</li>
+  <li><b>Dependência da locadora</b> (atraso na entrega, condições de contrato) e do CAC (custo de lead subindo).</li>
+</ul>
+
+<h3>Números a validar antes de assinar (top 6)</h3>
+<ol>
+  <li>Aluguel mensal real do Dolphin Mini para frota PJ/uso app (o que está incluso: seguro, manutenção, IPVA).</li>
+  <li>Preço que o motorista aceita pagar (dia/semana/mês) e sua sensibilidade.</li>
+  <li>Autorização de sublocação no contrato da locadora e garantias/caução exigidas.</li>
+  <li>CPL real das campanhas e taxa de conversão lead→contrato no lançamento.</li>
+  <li>Inadimplência esperada e política de recuperação do veículo.</li>
+  <li>Estrutura jurídica do braço de crédito/consórcio (parceiro autorizado Bacen).</li>
+</ol>
+
+<div class="box green">
+  <b>Tese de escala:</b> validar 100 carros em locação → migrar carros de maior giro para <b>compra sob demanda / financiamento</b> (elimina o aluguel e multiplica a margem por carro) → ativar <b>Libert Energy</b> (recarga como centro de custo que vira centro de lucro) e <b>Libert Drive App/Telemetria</b> como SaaS. <br>
+  <b>Tese de crédito/consórcio:</b> transformar a base de motoristas em pipeline de aquisição de veículos via parceiro regulado, gerando comissão recorrente e "realização financeira" ao motorista — sempre sem prometer contemplação.<br>
+  <b>Visão de longo prazo:</b> ser a plataforma de mobilidade elétrica <i>full-stack</i> para o motorista (dirigir → carregar → gerir → adquirir).
+</div>
+
+<!-- ==================== 2 TESE ESTRATÉGICA ==================== -->
+<h2 id="e2">2. Tese Estratégica da Libert Drive</h2>
+<p><b>Posicionamento:</b> "Não é locadora. É o ecossistema que tira o motorista do combustível caro e o coloca no elétrico — com suporte, tecnologia e um caminho para ter o próprio carro." A Libert Drive compete menos em preço e mais em <b>experiência + economia de combustível + futuro financeiro</b>.</p>
+
+<div class="grid3">
+  <div class="kpi"><div class="l">Diferencial 1</div><div class="v" style="font-size:16px">Elétrico = combustível quase zero</div><small>Argumento econômico central: motorista troca ~R$ 2.000/mês de combustível por recarga barata.</small></div>
+  <div class="kpi"><div class="l">Diferencial 2</div><div class="v" style="font-size:16px">Ecossistema, não avulso</div><small>Recarga (Energy), telemetria, suporte e trilha de crédito no mesmo lugar.</small></div>
+  <div class="kpi"><div class="l">Diferencial 3</div><div class="v" style="font-size:16px">Lançamento digital</div><small>Aquisição por WhatsApp/webinar com prova social e realização imediata.</small></div>
+</div>
+
+<h3>Por que agora</h3>
+<ul>
+  <li>Dolphin Mini a <span class="tag fact">dado de mercado</span> ~R$ 105,8 mil (FIPE) a R$ 119,99 mil (varejo) — elétrico de entrada viável para app.</li>
+  <li>Rede de eletropostos cresceu ~50% em 2025 (de ~12 mil para ~18 mil pontos) — infraestrutura amadurecendo. <span class="tag fact">dado de mercado</span></li>
+  <li>Custo de instalar recarga caiu ~10× desde 2019 — janela para a Libert Energy. <span class="tag fact">dado de mercado</span></li>
+  <li>Motorista de app tem dor aguda de custo de combustível e baixa barreira para migrar de plataforma de carro.</li>
+</ul>
+
+<h3>As 4 frentes (foco v1 em Drive; resto como fases)</h3>
+<table>
+  <tr><th>Frente</th><th>O que é</th><th>Papel no v1</th><th>Quando ativa</th></tr>
+  <tr><td><b>Libert Drive</b></td><td>Locação/assinatura de EVs para motoristas</td><td><b>Núcleo</b> — modelo financeiro detalhado aqui</td><td>Mês 0–3</td></tr>
+  <tr><td><b>Telemetria própria</b></td><td>Dispositivo + app embarcado nos Dolphin Mini</td><td>Habilitador de risco/suporte; custo modelado</td><td>Mês 1–6</td></tr>
+  <tr><td><b>Libert Drive App</b></td><td>App de recarga + gestão de frota (SaaS)</td><td>Roadmap; MVP de gestão interna primeiro</td><td>Mês 6–12</td></tr>
+  <tr><td><b>Libert Energy</b></td><td>Eletropostos próprios/parceiros</td><td>Roadmap; começa com convênios de recarga</td><td>Mês 9–18</td></tr>
+</table>
+<p><small>Este documento modela financeiramente a <b>Libert Drive</b> a fundo (decisão de escopo do v1). Energy, App e Telemetria aparecem como capítulos estratégicos, estimativas de investimento e roadmap — cada um recebe DRE próprio numa v2 quando a demanda do núcleo estiver validada.</small></p>
+
+<!-- ==================== 3 MODELO DE NEGÓCIO ==================== -->
+<h2 id="e3">3. Modelo de Negócio</h2>
+<p>Motor econômico do v1 em uma frase: <i>a Libert Drive aluga um carro da locadora por X, entrega ao motorista por Y &gt; X, e monetiza serviços em cima da relação (ativação, crédito/consórcio, futuramente recarga e dados).</i></p>
+<div class="formula">spread_por_carro   = preco_ao_motorista − aluguel_locadora − custos_operacionais_por_carro
+receita_total      = spread_frota + ativacoes + comissoes_credito + serviços + (futuro: recarga + SaaS)
+alavanca_de_valor  = migrar carros de MAIOR giro de "alugado" para "próprio/financiado"
+                     → elimina o aluguel e o spread por carro salta de ~R$100 para ~R$3.000</div>
+
+<h4>Fluxo operacional (do lead ao carro rodando)</h4>
+<ol>
+  <li>Lançamento digital capta lead → grupo WhatsApp → webinar/oferta.</li>
+  <li>Aplicação + pré-análise (KYC, CNH, antecedentes, score).</li>
+  <li>Aprovação → assinatura de contrato → caução/sinal → vistoria de saída.</li>
+  <li>Retirada do carro (telemetria ativada) → onboarding → motorista rodando.</li>
+  <li>Cobrança recorrente (semanal/mensal), suporte, retenção; upsell de consórcio/crédito.</li>
+  <li>Fim de contrato: renovação, troca de carro, devolução ou trilha de aquisição.</li>
+</ol>
+
+<div class="box"><b>Regra de ouro do caixa:</b> como o aluguel à locadora é fixo, <b>ocupação é rei</b>. O modelo só respira com ocupação alta (&gt;90%), inadimplência controlada (&lt;7%) e receita complementar. Tudo isto está parametrizado na planilha e na calculadora.</div>
+
+<!-- ==================== 4 BUSINESS MODEL CANVAS ==================== -->
+<h2 id="e4">4. Business Model Canvas</h2>
+<table>
+  <tr><th style="width:33%">1. Parcerias-chave</th><th style="width:34%">2. Atividades-chave</th><th style="width:33%">3. Proposta de valor</th></tr>
+  <tr>
+    <td>Locadoras (frota); administradora de consórcio autorizada Bacen; banco/fintech de crédito; seguradora; empresa de rastreamento/telemetria; rede de eletropostos; escritório jurídico e contábil; agência/tráfego; influenciadores de motoristas.</td>
+    <td>Aquisição digital (lançamentos); análise de crédito/KYC; gestão de frota e telemetria; onboarding e suporte; cobrança e recuperação; negociação com locadora; compliance.</td>
+    <td><b>Motorista:</b> dirigir um elétrico sem compra, com combustível quase zero, suporte e caminho para adquirir carro. <b>Parceiro/locadora:</b> demanda qualificada e gestão. <b>Investidor:</b> ecossistema asset-light escalável.</td>
+  </tr>
+  <tr><th>6. Recursos-chave</th><th>4. Relacionamento</th><th>5. Canais</th></tr>
+  <tr>
+    <td>Marca e capital intelectual; base/comunidade de motoristas; plataforma (calculadora, CRM, telemetria); contratos com parceiros; caixa de giro; equipe comercial e de operação.</td>
+    <td>Comunidade (grupos WhatsApp), suporte humano + self-service, customer success, programa de indicação, NPS, cobrança preventiva.</td>
+    <td>WhatsApp, webinars, landing pages, tráfego pago (Meta/Google), remarketing, indicações, pátio/loja física para retirada, app.</td>
+  </tr>
+  <tr><th colspan="1">8. Segmentos de clientes</th><th colspan="2">—</th></tr>
+  <tr>
+    <td>Motoristas de app ativos (Uber/99/inDrive); aspirantes a motorista; futuramente frotistas (B2B da telemetria/App) e clientes de recarga (Energy).</td>
+    <td colspan="2"><b>7. Estrutura de custos:</b> aluguel da frota (maior linha), seguro/manutenção, telemetria, marketing/CPL, folha comercial e de operação, suporte, administrativo, provisões (inadimplência, sinistro, churn), jurídico/compliance.<br><b>9. Fontes de receita:</b> mensalidade/semanalidade do motorista, taxa de ativação, comissões de consórcio/crédito, serviços agregados, indicação; futuro: recarga, SaaS de telemetria/gestão de frota.</td>
+  </tr>
+</table>
+
+<!-- ==================== 5 PREMISSAS ==================== -->
+<h2 id="e5">5. Premissas Editáveis (cenário Base)</h2>
+<p>Toda a modelagem parte destes valores. Eles vivem na aba <b>Premissas</b> da planilha e em <code>defaultAssumptions.ts</code> da calculadora — mudou aqui, recalcula tudo. <span class="tag val">premissa a validar</span> = confirmar com locadora, contador ou jurídico.</p>
+
+<h3>5.1 Frota</h3>
+<table>
+<tr><th>Variável</th><th class="num">Base</th><th>Un.</th><th>Observação</th></tr>
+<tr><td>total_carros</td><td class="num">100</td><td>un</td><td>Frota inicial</td></tr>
+<tr><td>custo_aluguel_veiculo_mes</td><td class="num">2.800</td><td>R$</td><td><span class="tag val">a validar</span> alvo p/ frota PJ 100un uso app; assinatura particular ref. ~R$ 2.673–2.688 <span class="tag fact">mercado</span></td></tr>
+<tr><td>seguro_mes</td><td class="num">0</td><td>R$</td><td>Assumido incluso no aluguel; senão ~R$ 350</td></tr>
+<tr><td>telemetria_mes</td><td class="num">45</td><td>R$</td><td>Telemetria própria (hw amortizado+SIM+plataforma); mercado R$ 40–90 <span class="tag fact">mercado</span></td></tr>
+<tr><td>manutencao_mes</td><td class="num">150</td><td>R$</td><td>EV = baixa manutenção; <b>zerar se incluso no aluguel</b></td></tr>
+<tr><td>pneus_mes / lavagem_mes / patio_admin_mes</td><td class="num">60 / 80 / 120</td><td>R$</td><td>Provisões operacionais por carro</td></tr>
+<tr><td>pct_carros_parados</td><td class="num">8%</td><td>%</td><td>Manutenção/troca de motorista/sinistro</td></tr>
+<tr><td>pct_sinistro_mes / custo_sinistro_medio</td><td class="num">1,5% / 2.500</td><td>% / R$</td><td>Provisão de franquia</td></tr>
+<tr><td>taxa_ocupacao</td><td class="num">92%</td><td>%</td><td>Meta madura</td></tr>
+</table>
+
+<h3>5.2 Oferta ao motorista</h3>
+<table>
+<tr><th>Variável</th><th class="num">Base</th><th>Un.</th><th>Observação</th></tr>
+<tr><td>valor_mensal_motorista</td><td class="num">3.900</td><td>R$</td><td><span class="tag val">a validar</span> ≈ R$ 900/sem ou R$ 150/dia. Justificado por economia de combustível do EV. Aluguel combustão ref. R$ 450–532/sem <span class="tag fact">mercado</span></td></tr>
+<tr><td>taxa_ativacao</td><td class="num">300</td><td>R$</td><td>Receita única na entrada</td></tr>
+<tr><td>entrada_sinal_caucao</td><td class="num">500</td><td>R$</td><td><b>Caução reembolsável — NÃO é receita</b> por padrão (ver §17)</td></tr>
+<tr><td>churn_mensal</td><td class="num">6%</td><td>%</td><td>Vida média ≈ 1/churn ≈ 16,7 meses</td></tr>
+<tr><td>inadimplencia_mensal / recuperação</td><td class="num">7% / 50%</td><td>%</td><td>Perda líquida ≈ 3,5% da receita</td></tr>
+</table>
+
+<h3>5.3 Marketing, Vendas, Suporte, Crédito, Impostos</h3>
+<div class="grid2">
+<table>
+<tr><th>Marketing</th><th class="num">Base</th></tr>
+<tr><td>cpl</td><td class="num">R$ 20</td></tr>
+<tr><td>investimento_marketing_mes</td><td class="num">R$ 30.000</td></tr>
+<tr><td>lead→grupo / grupo→webinar</td><td class="num">50% / 35%</td></tr>
+<tr><td>comparecimento / aplicação</td><td class="num">50% / 40%</td></tr>
+<tr><td>aprovação / fechamento</td><td class="num">50% / 40%</td></tr>
+</table>
+<table>
+<tr><th>Vendas & Equipe</th><th class="num">Base</th></tr>
+<tr><td>leads/SDR·mês</td><td class="num">400</td></tr>
+<tr><td>oportunidades/closer·mês</td><td class="num">120</td></tr>
+<tr><td>salário SDR / Closer</td><td class="num">2.500 / 3.500</td></tr>
+<tr><td>comissão/contrato</td><td class="num">200</td></tr>
+<tr><td>carros/gestor de frota</td><td class="num">60</td></tr>
+</table>
+<table>
+<tr><th>Suporte</th><th class="num">Base</th></tr>
+<tr><td>tickets/motorista·mês</td><td class="num">1,2</td></tr>
+<tr><td>capacidade/atendente·mês</td><td class="num">700</td></tr>
+<tr><td>salário atendente</td><td class="num">2.500</td></tr>
+</table>
+<table>
+<tr><th>Crédito & Impostos</th><th class="num">Base</th></tr>
+<tr><td>% interessados consórcio</td><td class="num">20%</td></tr>
+<tr><td>conversão consórcio</td><td class="num">15%</td></tr>
+<tr><td>comissão média consórcio</td><td class="num">R$ 1.200</td></tr>
+<tr><td>impostos s/ receita</td><td class="num">15% <span class="tag val">a validar</span></td></tr>
+<tr><td>despesas administrativas/mês</td><td class="num">R$ 25.000</td></tr>
+</table>
+</div>
+<p><small>Impostos sobre receita a 15% é um <b>placeholder</b>. Locação de bens tem tributação específica (ISS/PIS/COFINS ou Simples conforme CNAE e regime) — validar com o contador; a intermediação de consórcio é serviço e tem carga distinta.</small></p>
+
+<!-- ==================== 6 MODELO DE RECEITA ==================== -->
+<h2 id="e6">6. Modelo de Receita</h2>
+<h3>6.1 Receitas principais</h3>
+<table>
+<tr><th>Receita</th><th>Fórmula</th><th>Risco</th><th>Como validar</th></tr>
+<tr><td><b>Mensalidade/semanalidade</b></td><td>carros_ativos × valor_mensal_motorista</td><td>Ocupação e inadimplência</td><td>Piloto de preço; teste A/B de valor semanal vs mensal</td></tr>
+<tr><td><b>Taxa de ativação</b></td><td>novos_contratos × taxa_ativacao</td><td>Barreira de entrada</td><td>Medir queda de conversão com/sem taxa</td></tr>
+<tr><td><b>Comissão de consórcio</b></td><td>vendas_consorcio × comissão_média</td><td><span class="tag risk">regulatório</span> só via parceiro autorizado</td><td>Contrato de representação com administradora Bacen</td></tr>
+<tr><td><b>Comissão de crédito/financiamento</b></td><td>operações × comissão_parceiro</td><td><span class="tag risk">regulatório</span></td><td>Contrato de correspondente/parceria com banco</td></tr>
+</table>
+<h3>6.2 Receitas complementares</h3>
+<table>
+<tr><th>Receita</th><th>Descrição</th><th>Observação</th></tr>
+<tr><td>Carta contemplada</td><td>Comissão na intermediação da transferência</td><td>Só com autorização da administradora; jamais prometer contemplação</td></tr>
+<tr><td>Seguro comissionado</td><td>Comissão de corretora parceira</td><td>Requer corretora habilitada</td></tr>
+<tr><td>Serviços agregados</td><td>Higienização, assistência premium, plano de recarga</td><td>Margem alta, baixo risco</td></tr>
+<tr><td>Programa de indicação</td><td>Reduz CAC; não é receita direta</td><td>Bônus em crédito de mensalidade</td></tr>
+<tr><td>Gestão de frota / telemetria (SaaS)</td><td>Mensalidade B2B (Libert Drive App)</td><td>Fase 2 — receita recorrente de alta margem</td></tr>
+<tr><td>Recarga (Libert Energy)</td><td>Margem por kWh / assinatura de recarga</td><td>Fase 3</td></tr>
+<tr><td>Dados/telemetria agregados</td><td>Só se anonimizado e conforme LGPD</td><td><span class="tag risk">LGPD</span> nunca vender dado pessoal identificável</td></tr>
+</table>
+<div class="box"><b>Impacto no DRE/caixa:</b> mensalidade é recorrente e entra no caixa quase junto da competência (cobrança semanal ajuda o giro). Ativação e caução entram <b>à vista</b> (caução é passivo, não receita). Comissões de consórcio/crédito têm <b>defasagem</b> (ciclo de aprovação do parceiro) e risco de cancelamento — provisionar.</div>
+
+<!-- ==================== 7 CUSTOS ==================== -->
+<h2 id="e7">7. Estrutura de Custos Mensais (100 carros)</h2>
+<div class="grid2">
+<table>
+<tr><th>A. Frota (por carro/mês)</th><th class="num">Base</th></tr>
+<tr><td>Aluguel locadora</td><td class="num">2.800</td></tr>
+<tr><td>Seguro (se não incluso)</td><td class="num">0</td></tr>
+<tr><td>Telemetria própria</td><td class="num">45</td></tr>
+<tr><td>Manutenção</td><td class="num">150</td></tr>
+<tr><td>Pneus / lavagem / pátio</td><td class="num">260</td></tr>
+<tr><td>Provisão sinistro</td><td class="num">37,5</td></tr>
+<tr><td><b>Subtotal/carro</b></td><td class="num"><b>≈ 3.293</b></td></tr>
+<tr><td><b>Subtotal frota (×100)</b></td><td class="num"><b>≈ 329.250</b></td></tr>
+</table>
+<table>
+<tr><th>B. Comercial (mês)</th><th class="num">Base</th></tr>
+<tr><td>Tráfego pago</td><td class="num">30.000</td></tr>
+<tr><td>Ferramentas (CRM, WhatsApp API, webinar)</td><td class="num">5.000</td></tr>
+<tr><td>SDRs + Closers (folha)</td><td class="num">variável</td></tr>
+<tr><td>Comissões</td><td class="num">contratos×200</td></tr>
+<tr><td>Gerente comercial</td><td class="num">8.000</td></tr>
+</table>
+</div>
+<div class="grid2">
+<table>
+<tr><th>C. Operação (mês)</th><th class="num">Base</th></tr>
+<tr><td>Gestão de frota (1/60 carros)</td><td class="num">4.000/gestor</td></tr>
+<tr><td>Operadores de entrega/vistoria</td><td class="num">2.500 cada</td></tr>
+<tr><td>Analistas de crédito</td><td class="num">3.000 cada</td></tr>
+<tr><td>Cobrança / recuperação de veículo</td><td class="num">400/evento</td></tr>
+</table>
+<table>
+<tr><th>D+E. Admin & Suporte (mês)</th><th class="num">Base</th></tr>
+<tr><td>Contabilidade, jurídico, compliance, sistemas, escritório</td><td class="num">25.000 (bloco)</td></tr>
+<tr><td>Atendentes de suporte</td><td class="num">2.500 cada</td></tr>
+<tr><td>Taxas de pagamento/banco</td><td class="num">~2% receita</td></tr>
+</table>
+</div>
+<h4>F. Provisões (recomendadas, % da receita ou por evento)</h4>
+<p>Inadimplência líquida (~3,5%), churn (reposição/CAC), sinistro/franquia, judicialização, manutenção inesperada, fraude/chargeback, multas não recuperadas, e uma <b>reserva de caixa</b> de ao menos 3 meses de aluguel de frota. Todas estão na aba <b>Custos Operacionais</b> e <b>Provisões</b> da planilha.</p>
+
+<!-- ==================== 8 DRE ==================== -->
+<h2 id="e8">8. DRE Mensal (estrutura e exemplo)</h2>
+<p>A planilha traz a DRE completa em <b>36 colunas mensais</b> com rampa de ativação de carros (M1→M6 subindo até ~92 ativos). Abaixo, a <b>estrutura</b> e um <b>mês de regime</b> (steady-state, cenário Base) — todos os números recalculam ao editar as premissas.</p>
+<table>
+<tr><th>Linha da DRE</th><th>Fórmula</th><th class="num">Mês regime (Base)*</th></tr>
+<tr><td>1. Receita bruta</td><td>frota + ativação + complementar</td><td class="num">R$ 345.000</td></tr>
+<tr><td>2. (−) Deduções/impostos s/ receita</td><td>receita_bruta × 15%</td><td class="num">(51.750)</td></tr>
+<tr><td>3. Receita líquida</td><td>1 − 2</td><td class="num">293.250</td></tr>
+<tr><td>4. (−) Custo da frota</td><td>100 × custo_carro + sinistros</td><td class="num">(329.250)</td></tr>
+<tr><td>5. (−) Perda por inadimplência</td><td>receita_frota × 3,5%</td><td class="num">(11.550)</td></tr>
+<tr><td>6. = Margem bruta</td><td>3 − 4 − 5</td><td class="num" style="color:#c0392b">(47.550)</td></tr>
+<tr><td>7. (−) Despesas de marketing</td><td>tráfego + ferramentas</td><td class="num">(35.000)</td></tr>
+<tr><td>8. (−) Despesas comerciais</td><td>folha + comissões</td><td class="num">(20.000)</td></tr>
+<tr><td>9. (−) Despesas operacionais</td><td>frota/entrega/analistas</td><td class="num">(18.000)</td></tr>
+<tr><td>10. (−) Despesas administrativas</td><td>bloco admin</td><td class="num">(25.000)</td></tr>
+<tr><td>11. = EBITDA</td><td>6 − 7 − 8 − 9 − 10</td><td class="num" style="color:#c0392b">(145.550)</td></tr>
+<tr><td>12. (−) Depreciação</td><td>0 (frota alugada)</td><td class="num">0</td></tr>
+<tr><td>13. = EBIT / LAIR</td><td>11 − 12 − result. financeiro</td><td class="num">(145.550)</td></tr>
+<tr><td>14. (−) Impostos s/ lucro</td><td>0 (prejuízo)</td><td class="num">0</td></tr>
+<tr><td>15. = <b>Lucro líquido</b></td><td>13 − 14</td><td class="num" style="color:#c0392b"><b>(145.550)</b></td></tr>
+</table>
+<div class="box danger"><b>Leitura honesta do cenário Base com premissas conservadoras:</b> com aluguel a R$ 2.800, preço a R$ 3.900 e <b>manutenção/pneus NÃO inclusos no aluguel</b>, o custo por carro (~R$ 3.293) supera a receita líquida por carro (~R$ 3.199) — a margem de contribuição por carro é <b>levemente negativa</b> antes das receitas complementares. Isso <b>não</b> condena o negócio; mostra exatamente as 4 alavancas para virar o jogo:
+<ol style="margin-top:6px">
+<li><b>Zerar manutenção/pneus</b> se estiverem inclusos na assinatura (−R$ 210/carro) → contribuição vira ~+R$ 117/carro.</li>
+<li><b>Negociar aluguel</b> para ~R$ 2.500 (frota 100un) → +R$ 300/carro.</li>
+<li><b>Preço ao motorista</b> a R$ 4.100 (justificado pela economia de combustível) → +R$ 170/carro.</li>
+<li><b>Receita complementar</b> (consórcio/crédito, serviços) — o verdadeiro motor de lucro.</li>
+</ol>
+*Exemplo ilustrativo com premissas de partida. A combinação Agressiva (aluguel 2.500 + preço 4.100 + manutenção inclusa) leva o EBITDA a positivo — ver §12.</div>
+
+<!-- ==================== 9 FLUXO DE CAIXA ==================== -->
+<h2 id="e9">9. Fluxo de Caixa</h2>
+<p>A aba <b>Fluxo de Caixa</b> deriva da DRE e adiciona o timing: caução entra à vista (passivo), cobrança semanal antecipa entradas, aluguel da locadora sai mensal. O caixa acumulado parte de <b>caixa_inicial = R$ 300.000</b> (editável) e mostra o <b>vale da morte</b> (meses de queima até o break-even operacional).</p>
+<div class="formula">caixa_mes         = entradas_operacionais − saidas_operacionais − capex − impostos
+caixa_acumulado   = caixa_mes(t) + caixa_acumulado(t−1)
+runway_meses      = caixa_acumulado / |caixa_mes médio negativo|
+necessidade_caixa = max(0, − mínimo do caixa acumulado projetado) + reserva_seguranca</div>
+<div class="box warn"><b>Alerta de capital de giro:</b> como o aluguel de 100 carros (~R$ 280–330 mil/mês) começa <b>antes</b> da frota estar cheia, a Libert Drive precisa ou (a) escalonar a entrada dos carros junto com a demanda (recomendado — <i>cash-on-delivery</i>), ou (b) ter caixa para bancar o vale. <b>Não alugue 100 carros de uma vez sem demanda comprovada.</b></div>
+
+<!-- ==================== 10 UNIT ECONOMICS ==================== -->
+<h2 id="e10">10. Unit Economics</h2>
+<div class="grid3">
+  <div class="kpi"><div class="l">Receita mensal por carro ativo</div><div class="v">R$ 3.900</div></div>
+  <div class="kpi"><div class="l">Custo mensal por carro</div><div class="v">R$ 3.293</div></div>
+  <div class="kpi"><div class="l">Margem contribuição/carro (Base)</div><div class="v" style="color:#c0392b">≈ −R$ 94</div><small>+R$ 117 se manut. inclusa</small></div>
+  <div class="kpi"><div class="l">CAC (marketing)</div><div class="v">≈ R$ 2.860</div><small>R$30k / ~10,5 contratos</small></div>
+  <div class="kpi"><div class="l">CAC (com equipe)</div><div class="v">≈ R$ 4.700</div></div>
+  <div class="kpi"><div class="l">LTV (vida média 16,7m)</div><div class="v">depende da margem</div><small>margem×(1/churn)</small></div>
+</div>
+<h3>Indicadores e fórmulas</h3>
+<div class="formula">carros_ativos            = 100 × 0,92 × (1 − 0,08)             ≈ 85 carros
+CAC_marketing            = 30.000 / contratos(≈10,5)          ≈ R$ 2.857
+LTV                      = margem_mensal_motorista × (1/churn 0,06)
+LTV_CAC                  = LTV / CAC_total   (meta ≥ 3)
+payback_CAC              = CAC_total / margem_mensal_motorista
+break_even_carros        = despesas_fixas / margem_contribuicao_por_carro
+nº mínimo carros ativos  = ponto onde margem_frota cobre despesas fixas</div>
+<div class="box danger"><b>Gargalo nº 1 — o funil:</b> com CPL R$ 20 e as conversões-base, R$ 30 mil de marketing geram só ~10 contratos/mês. Descontando churn (~5 carros/mês), o crescimento líquido é ~5 carros/mês → encher 85 carros levaria &gt;12 meses. <b>O lançamento (WhatsApp/webinar) existe justamente para quebrar esse gargalo</b>, elevando taxa de comparecimento e fechamento em janelas concentradas. Se as conversões do lançamento forem 2–3× as da compra fria, o CAC despenca e o ramp-up cabe em 90 dias.</div>
+<div class="box green"><b>Gargalo nº 2 — a margem por carro:</b> resolvida por negociação de aluguel + preço + inclusão de manutenção + receita complementar. É o eixo do cenário Agressivo (§12). <b>A alavanca definitiva é migrar carros de "alugado" para "próprio/financiado"</b>: some o aluguel de R$ 2.800 e a contribuição por carro salta para ~R$ 3.000.</div>
+
+<!-- ==================== 11 SIMULAÇÃO 100 CARROS ==================== -->
+<h2 id="e11">11. Simulação dos 100 Carros (regime, cenário Base)</h2>
+<table>
+<tr><th>Indicador</th><th class="num">Valor</th><th>Cálculo</th></tr>
+<tr><td>Carros ativos</td><td class="num">≈ 85</td><td>100 × 92% × 92%</td></tr>
+<tr><td>Receita de frota</td><td class="num">R$ 331.500</td><td>85 × 3.900</td></tr>
+<tr><td>+ Ativações (≈10 novos)</td><td class="num">R$ 3.000</td><td>10 × 300</td></tr>
+<tr><td>+ Complementar (consórcio/serviços)</td><td class="num">R$ 10.500</td><td>ver §17</td></tr>
+<tr><td><b>Receita bruta</b></td><td class="num"><b>≈ R$ 345.000</b></td><td>—</td></tr>
+<tr><td>Custo da frota</td><td class="num">R$ 329.250</td><td>100 × 3.293</td></tr>
+<tr><td>Marketing + comercial + operação + admin</td><td class="num">R$ 98.000</td><td>blocos B–E</td></tr>
+<tr><td>Impostos + inadimplência</td><td class="num">R$ 63.300</td><td>15% + 3,5%</td></tr>
+<tr><td><b>Resultado (Base conservador)</b></td><td class="num" style="color:#c0392b"><b>≈ −R$ 145.000</b></td><td>ver §8</td></tr>
+</table>
+<p><small>Este é o retrato <b>pessimista de partida</b>. A mesma frota, no cenário Agressivo (aluguel 2.500, preço 4.100, manutenção inclusa, consórcio 22%), gira para <b>EBITDA positivo</b>. A calculadora e a planilha permitem testar cada combinação em segundos.</small></p>
+
+<!-- ==================== 12 CENÁRIOS ==================== -->
+<h2 id="e12">12. Cenários Conservador, Base, Agressivo e Stress</h2>
+<table>
+<tr><th>Variável</th><th class="num">Conservador</th><th class="num">Base</th><th class="num">Agressivo</th><th class="num">Stress</th></tr>
+<tr><td>CPL (R$)</td><td class="num">35</td><td class="num">20</td><td class="num">12</td><td class="num">60</td></tr>
+<tr><td>Taxa de fechamento</td><td class="num">30%</td><td class="num">40%</td><td class="num">50%</td><td class="num">25%</td></tr>
+<tr><td>Aluguel/carro (R$)</td><td class="num">3.200</td><td class="num">2.800</td><td class="num">2.500</td><td class="num">3.400</td></tr>
+<tr><td>Preço motorista (R$)</td><td class="num">3.600</td><td class="num">3.900</td><td class="num">4.100</td><td class="num">3.900</td></tr>
+<tr><td>Ocupação</td><td class="num">82%</td><td class="num">92%</td><td class="num">95%</td><td class="num">70%</td></tr>
+<tr><td>Inadimplência</td><td class="num">12%</td><td class="num">7%</td><td class="num">4%</td><td class="num">18%</td></tr>
+<tr><td>Churn</td><td class="num">9%</td><td class="num">6%</td><td class="num">4%</td><td class="num">12%</td></tr>
+<tr><td>Carros parados</td><td class="num">8%</td><td class="num">8%</td><td class="num">8%</td><td class="num">15%</td></tr>
+<tr><th>Contribuição/carro (aprox.)</th><th class="num" style="color:#c0392b">muito neg.</th><th class="num" style="color:#c0392b">≈ −R$ 94</th><th class="num" style="color:#0a7d5a">+R$ 600 a +900</th><th class="num" style="color:#c0392b">colapsa</th></tr>
+<tr><th>Decisão recomendada</th><td>Renegociar tudo antes de escalar</td><td>Otimizar 2–3 alavancas</td><td>Escalar e migrar p/ frota própria</td><td>Reduzir frota, focar caixa</td></tr>
+</table>
+<h3>12.1 Sensibilidade (EBITDA por carro em função de aluguel × preço)</h3>
+<table>
+<tr><th>Aluguel ↓ / Preço →</th><th class="num">R$ 3.600</th><th class="num">R$ 3.900</th><th class="num">R$ 4.100</th></tr>
+<tr><td><b>R$ 3.200</b></td><td class="num" style="color:#c0392b">−690</td><td class="num" style="color:#c0392b">−405</td><td class="num" style="color:#c0392b">−215</td></tr>
+<tr><td><b>R$ 2.800</b></td><td class="num" style="color:#c0392b">−290</td><td class="num" style="color:#c0392b">−94</td><td class="num" style="color:#0a7d5a">+96</td></tr>
+<tr><td><b>R$ 2.500</b></td><td class="num" style="color:#0a7d5a">+10</td><td class="num" style="color:#0a7d5a">+206</td><td class="num" style="color:#0a7d5a">+396</td></tr>
+</table>
+<p><small>Contribuição por carro antes de despesas fixas e receita complementar, líquida de impostos e inadimplência, manutenção/pneus fora do aluguel. A célula verde mais robusta (aluguel 2.500 + preço 4.100) é a meta de negociação. Tabela completa e dinâmica na aba <b>Sensibilidade</b>.</small></p>
+<div class="box"><b>Caixa necessário por cenário (ordem de grandeza):</b> Conservador exige mais caixa (vale mais fundo e longo); Base ~R$ 0,8–1,5 mi de giro até estabilizar (se encher a frota rápido); Agressivo pode se autofinanciar após o break-even; Stress exige plano de contingência (reduzir frota, cortar marketing, renegociar). Números exatos na aba <b>Cenários/Fluxo</b>.</div>
+
+<!-- ==================== 13 MARKETING ==================== -->
+<h2 id="e13">13. Plano de Marketing e Lançamento</h2>
+<h3>13.1 Funil (métricas, conversões, gargalos)</h3>
+<table>
+<tr><th>Etapa</th><th>Métrica</th><th class="num">Conserv.</th><th class="num">Base</th><th class="num">Agress.</th><th>Gargalo / ação</th></tr>
+<tr><td>Impressões→Cliques</td><td>CTR</td><td class="num">1%</td><td class="num">1,5%</td><td class="num">2,5%</td><td>Criativo/oferta</td></tr>
+<tr><td>Clique→Lead</td><td>Conv. LP</td><td class="num">15%</td><td class="num">25%</td><td class="num">35%</td><td>LP e promessa</td></tr>
+<tr><td>Lead→Grupo WhatsApp</td><td>entrada</td><td class="num">40%</td><td class="num">50%</td><td class="num">65%</td><td>Copy do convite</td></tr>
+<tr><td>Grupo→Webinar</td><td>presença</td><td class="num">25%</td><td class="num">35%</td><td class="num">45%</td><td>Aquecimento/lembretes</td></tr>
+<tr><td>Webinar→Aplicação</td><td>aplic.</td><td class="num">30%</td><td class="num">40%</td><td class="num">55%</td><td>Oferta e escassez</td></tr>
+<tr><td>Aplicação→Aprovação</td><td>aprov.</td><td class="num">40%</td><td class="num">50%</td><td class="num">65%</td><td>Perfil/score</td></tr>
+<tr><td>Aprovação→Contrato</td><td>fechamento</td><td class="num">30%</td><td class="num">40%</td><td class="num">50%</td><td>Closer/documentação</td></tr>
+<tr><td>Contrato→Retirada/Ativação</td><td>ativação</td><td class="num">85%</td><td class="num">90%</td><td class="num">95%</td><td>Logística de entrega</td></tr>
+<tr><td>Retenção 30/90d</td><td>retenção</td><td class="num">80/60%</td><td class="num">88/72%</td><td class="num">94/82%</td><td>Onboarding/suporte</td></tr>
+</table>
+<div class="formula">leads_gerados        = investimento_marketing / CPL
+participantes_webinar = leads × (lead→grupo) × (grupo→webinar) × comparecimento
+aplicacoes           = participantes_webinar × taxa_aplicacao
+aprovados            = aplicacoes × taxa_aprovacao
+contratos            = aprovados × taxa_fechamento
+investimento_p/ ocupar_100 = (carros_a_preencher / conversao_lead→contrato) × CPL</div>
+<h3>13.2 Canais</h3>
+<p>Grupos de WhatsApp (núcleo da comunidade), webinar ao vivo (evento de conversão), landing pages (captura + aplicação + obrigado), tráfego pago (Meta/Google), remarketing, indicações, influenciadores de motoristas, comunidades, conteúdo orgânico e lives, sequências de WhatsApp, e-mail e CRM.</p>
+<h3>13.3 Calendário de lançamento (21 dias)</h3>
+<table>
+<tr><th>Fase</th><th>Dias</th><th>Ação</th></tr>
+<tr><td>Pré-lançamento</td><td>D1–D7</td><td>Tráfego para captura; enchimento dos grupos; conteúdo de dor (custo do combustível) e sonho (elétrico)</td></tr>
+<tr><td>Aquecimento</td><td>D8–D14</td><td>Provas sociais, bastidores, depoimentos, lembretes do webinar; qualificação por SDR</td></tr>
+<tr><td>Evento</td><td>D15–D17</td><td>Webinar/live com oferta e escassez (vagas limitadas = nº de carros disponíveis)</td></tr>
+<tr><td>Fechamento</td><td>D18–D21</td><td>Follow-up dos closers, aplicação, aprovação, assinatura, agendamento de retirada</td></tr>
+</table>
+<p><small>A versão de 30 dias adiciona uma 2ª leva de captação e um webinar de repescagem. Roteiro do webinar, estrutura da oferta, argumentos, objeções/respostas, sequência de mensagens de WhatsApp e wireframes das páginas (captura, aplicação, obrigado, remarketing) estão detalhados na <b>Documentação de Marketing</b> (arquivo .md que acompanha a entrega).</small></p>
+
+<!-- ==================== 14 VENDAS ==================== -->
+<h2 id="e14">14. Plano Comercial</h2>
+<div class="formula">leads_necessarios   = contratos_desejados / conversao_lead→contrato
+investimento_mkt    = leads_necessarios × CPL
+SDRs                = teto(leads_mensais / capacidade_leads_por_SDR)      // 400/SDR
+closers             = teto(oportunidades / capacidade_por_closer)         // 120/closer
+analistas           = teto(aplicacoes / capacidade_por_analista)          // 250/analista
+onboarding          = teto(veiculos_entregues / entregas_por_operador)    // 40/operador
+CAC                 = investimento_aquisicao / contratos
+CAC_com_equipe      = (mkt + salarios_comerciais + comissoes) / contratos</div>
+<table>
+<tr><th>Estrutura comercial</th><th>Papel</th><th>Produtividade</th><th>Remuneração</th></tr>
+<tr><td>SDR</td><td>Qualifica leads, aquece grupo, agenda</td><td>~400 leads/mês</td><td>R$ 2.500 fixo + bônus</td></tr>
+<tr><td>Closer</td><td>Fecha, conduz aplicação e assinatura</td><td>~120 oport./mês</td><td>R$ 3.500 + R$ 200/contrato</td></tr>
+<tr><td>Analista de crédito</td><td>KYC, score, aprovação</td><td>~250 aplic./mês</td><td>R$ 3.000</td></tr>
+<tr><td>Operador de onboarding</td><td>Entrega, vistoria, ativação</td><td>~40 entregas/mês</td><td>R$ 2.500</td></tr>
+<tr><td>Gerente comercial</td><td>Metas, coaching, pipeline</td><td>—</td><td>R$ 8.000 + variável</td></tr>
+</table>
+<p>Pipeline no CRM: Novo → Qualificado → Webinar → Aplicação → Análise → Aprovado → Contrato → Retirada. SLA de 1º contato &lt; 5 min no lançamento. Métricas diárias (leads, agendamentos, fechamentos), semanais (conversões por etapa, CAC) e mensais (contratos, receita vendida, CAC com equipe). Scripts de qualificação e fechamento, critérios de aprovação e checklist documental na <b>Documentação Comercial</b>.</p>
+
+<!-- ==================== 15 SUPORTE ==================== -->
+<h2 id="e15">15. Plano de Suporte e Operação</h2>
+<p>Onboarding e treinamento do motorista, suporte de uso/telemetria, pane, sinistro, cobrança preventiva, renegociação, retenção, encerramento, devolução, substituição de motorista, recolocação rápida de carro parado, e políticas de multas, avarias, inadimplência e mau uso. NPS, SLA, base de conhecimento e scripts.</p>
+<div class="formula">atendentes = teto((carros_ativos × tickets_por_motorista) / capacidade_por_atendente)
+           = teto((85 × 1,2) / 700) = teto(0,146) = 1 atendente (cresce com a frota)
+custo_suporte_mes = atendentes × salario_atendente + ferramentas</div>
+<table>
+<tr><th>Indicador de suporte</th><th class="num">Base</th></tr>
+<tr><td>Tickets por carro/mês</td><td class="num">1,2</td></tr>
+<tr><td>Tempo médio de atendimento</td><td class="num">8–12 min</td></tr>
+<tr><td>Capacidade/atendente/mês</td><td class="num">700 tickets</td></tr>
+<tr><td>Tempo médio de recolocação de carro parado</td><td class="num">&lt; 72h (meta)</td></tr>
+<tr><td>NPS meta</td><td class="num">&gt; 60</td></tr>
+</table>
+<p><b>Impacto no caixa:</b> suporte forte reduz churn e inadimplência — cada ponto de inadimplência a menos vale ~R$ 3.300/mês na frota cheia; cada ponto de churn a menos reduz a pressão de CAC. Cobrança preventiva (lembrete antes do vencimento) é a intervenção de maior ROI.</p>
+
+<!-- ==================== 16 FROTA & TELEMETRIA ==================== -->
+<h2 id="e16">16. Gestão de Frota e Telemetria (própria)</h2>
+<p>Cadastro dos veículos, documentos, contratos, vistoria de entrada/saída, rastreamento, telemetria própria embarcada, score de uso do motorista, alertas de risco, quilometragem, padrão de direção, localização, manutenção preventiva/corretiva, pneus, bateria, carregamento, sinistros, multas, carro parado, reposição, recolhimento, gestão de chaves e pátio, auditoria.</p>
+<h3>16.1 Telemetria própria — investimento e retorno</h3>
+<table>
+<tr><th>Item</th><th class="num">Estimativa</th><th>Observação</th></tr>
+<tr><td>Hardware por carro (OBD/tracker)</td><td class="num">R$ 300–1.500 <span class="tag fact">mercado</span></td><td>CAPEX único; amortizar em 24–36m</td></tr>
+<tr><td>Instalação por carro</td><td class="num">R$ 100–500 <span class="tag fact">mercado</span></td><td>Único</td></tr>
+<tr><td>SIM + plataforma/mês</td><td class="num">R$ 40–90 <span class="tag fact">mercado</span></td><td>Own-build reduz p/ ~R$ 45 na escala</td></tr>
+</table>
+<p><b>Por que própria:</b> controle de risco (bloqueio/recuperação), dados de direção para precificar/segmentar motoristas, base para o <b>Libert Drive App</b> (SaaS de gestão de frota B2B) e diferencial competitivo. <span class="tag risk">LGPD</span> exige consentimento no contrato, finalidade declarada e segurança dos dados.</p>
+<h3>16.2 Indicadores de frota</h3>
+<div class="grid3">
+<div class="kpi"><div class="l">Utilização/ocupação</div><div class="v">92%</div></div>
+<div class="kpi"><div class="l">Receita por carro ativo</div><div class="v">R$ 3.900</div></div>
+<div class="kpi"><div class="l">Receita perdida/carro parado</div><div class="v">R$ 3.900/mês</div></div>
+<div class="kpi"><div class="l">Custo por km</div><div class="v">a medir no piloto</div></div>
+<div class="kpi"><div class="l">Tempo médio de manutenção</div><div class="v">meta &lt; 48h</div></div>
+<div class="kpi"><div class="l">% carros com telemetria ativa</div><div class="v">meta 100%</div></div>
+</div>
+
+<!-- ==================== 17 CRÉDITO/CONSÓRCIO/COMPLIANCE ==================== -->
+<h2 id="e17">17. Crédito, Consórcio e Compliance</h2>
+<div class="box danger"><b>Princípio inegociável:</b> a Libert Drive <b>não é</b> instituição financeira, administradora de consórcio nem corretora — e não pode agir como tal sem licença/parceria regulada. Todo o braço financeiro opera <b>por meio de parceiros autorizados pelo Banco Central / SUSEP</b>, com contrato de representação/intermediação, e <b>nunca promete contemplação</b>.</p></div>
+<table>
+<tr><th>Pode fazer diretamente</th><th>Só via parceiro regulado</th></tr>
+<tr><td>Locação/sublocação (com autorização da locadora); cobrar mensalidade, ativação e caução; indicar/encaminhar clientes; educar sobre crédito; captar interesse.</td><td>Vender/administrar consórcio; intermediar carta contemplada (com aval da administradora); originar financiamento (correspondente bancário); comissionar seguro (via corretora habilitada).</td></tr>
+</table>
+<h3>17.1 Uso de entrada/sinal do cliente — o ponto mais sensível</h3>
+<ul>
+<li><b>Separe patrimônio:</b> dinheiro da empresa, dinheiro do cliente, taxa de serviço, caução e valores vinculados em <b>contas/rubricas distintas</b>. Nunca misturar (evitar confusão patrimonial).</li>
+<li><b>Caução</b> é passivo reembolsável — não reconhecer como receita.</li>
+<li><b>Sinal para consórcio/crédito</b> só se houver operação real contratada com o parceiro; jamais receber "entrada" prometendo carta contemplada.</li>
+<li>Política clara de <b>reembolso</b> e <b>cancelamento</b>, contrato transparente, comunicação sem induzir erro.</li>
+</ul>
+<h3>17.2 Matrizes de risco (resumo)</h3>
+<table>
+<tr><th>Tipo</th><th>Risco principal</th><th>Mitigação</th></tr>
+<tr><td>Jurídico</td><td>Sublocação não autorizada; contrato frágil</td><td>Cláusula expressa da locadora; contrato revisado por advogado</td></tr>
+<tr><td>Regulatório</td><td>Operar consórcio/crédito sem licença</td><td>Só via administradora/banco autorizado; contrato de representação</td></tr>
+<tr><td>Reputacional</td><td>Promessa indevida de contemplação/ganho</td><td>Compliance de campanhas; revisão de copy; disclaimers</td></tr>
+<tr><td>LGPD</td><td>Uso indevido de dados/telemetria</td><td>Consentimento, finalidade, DPO, segurança, anonimização</td></tr>
+<tr><td>Financeiro</td><td>Chargeback, inadimplência, fraude documental</td><td>KYC, antifraude, provisões, recuperação</td></tr>
+</table>
+<p><b>Validar com:</b> advogado especializado (societário + regulatório + consumidor), contador (regime tributário e separação de rubricas) e parceiro financeiro autorizado (modelo de comissão e compliance). Checklists de documentos, contratos e parceiros na <b>Documentação de Compliance</b>.</p>
+
+<!-- ==================== 18 EQUIPE ==================== -->
+<h2 id="e18">18. Plano de Equipe (dimensionada pela demanda)</h2>
+<table>
+<tr><th>Função</th><th>Regra de dimensionamento</th><th class="num">Início (100 carros)</th></tr>
+<tr><td>Gestor de frota</td><td>teto(100 / 60)</td><td class="num">2</td></tr>
+<tr><td>Operador onboarding</td><td>teto(contratos / 40)</td><td class="num">1</td></tr>
+<tr><td>Analista de crédito</td><td>teto(aplicações / 250)</td><td class="num">1</td></tr>
+<tr><td>SDR</td><td>teto(leads / 400)</td><td class="num">4 (no lançamento)</td></tr>
+<tr><td>Closer</td><td>teto(oportunidades / 120)</td><td class="num">1–2</td></tr>
+<tr><td>Atendente suporte</td><td>teto(tickets / 700)</td><td class="num">1</td></tr>
+<tr><td>Gerente comercial / Ops / Compliance</td><td>fixo</td><td class="num">1 cada (pode acumular no início)</td></tr>
+</table>
+<p><small>A calculadora recalcula a equipe automaticamente a cada mudança de volume. Núcleo enxuto inicial: fundadores + ~8–10 pessoas, escalando com a frota.</small></p>
+
+<!-- ==================== 19 CALCULADORA ==================== -->
+<h2 id="e19">19. Calculadora Dinâmica para o Site</h2>
+<p>Especificada e <b>já entregue em código</b> (projeto Next.js na pasta <code>libert-drive-calculadora/</code>). Interface com sliders + inputs numéricos sincronizados e painel de resultados em tempo real, com 7 blocos:</p>
+<ol>
+<li><b>Frota</b> — nº de carros, aluguel, seguro, telemetria, manutenção, lavagem, % parados, sinistro, pátio → custo total da frota, custo/carro, ativos/inativos, receita perdida por inatividade, margem/carro.</li>
+<li><b>Oferta ao motorista</b> — valores dia/semana/mês, ativação, caução, prazo, churn, inadimplência, recuperação → receita bruta/líquida, receita/motorista, perdas, LTV, margem/motorista.</li>
+<li><b>Marketing</b> — CPL, investimento, taxas do funil → leads, WhatsApp, webinar, aplicações, aprovados, contratos, CAC, CAC c/ equipe, ROAS, investimento p/ ocupar N carros.</li>
+<li><b>Vendas</b> — capacidades e salários → SDRs/closers necessários, custo comercial fixo/variável/total, custo por contrato, gargalo do funil.</li>
+<li><b>Suporte/Operação</b> — tickets, capacidades, salários → atendentes/gestores/operadores/analistas, custo de suporte e operação, custo total de equipe, custo/carro e /motorista.</li>
+<li><b>Crédito/Consórcio</b> — % interessados, conversão, comissão, ticket, cancelamento, compliance → receita complementar, risco provisionado, impacto no EBITDA, alertas.</li>
+<li><b>DRE & Caixa</b> — consolida tudo: receita, custos, EBITDA, lucro, caixa inicial/mensal/acumulado, break-even, margens, payback, LTV/CAC, nº mínimo de carros/motoristas para empatar.</li>
+</ol>
+<p>Recursos: modos Conservador/Base/Agressivo/Stress, exportação CSV, link compartilhável por URL, persistência local, comparação de cenários lado a lado, e <b>alertas automáticos</b> quando uma premissa fica perigosa (ex.: "aluguel &gt; receita líquida por carro").</p>
+
+<!-- ==================== 20 SPEC TÉCNICA ==================== -->
+<h2 id="e20">20. Especificação Técnica (Next.js/TypeScript)</h2>
+<p>Stack: Next.js 14 (App Router), React 18, TypeScript, TailwindCSS, Vitest. <b>Engine de cálculo pura</b> separada da UI (testável). Estado central via <code>useReducer</code> + Context, sincronizado com URL e <code>localStorage</code>. Exportação CSV nativa (XLSX futura). Estrutura entregue:</p>
+<div class="formula">src/
+ ├ app/            page.tsx · layout.tsx · globals.css
+ ├ components/     CalculatorLayout · SliderInput · NumberInput · InputCard · ResultCard
+ │                 ScenarioSelector · DreTable · FunnelTable · TeamCalculator
+ │                 FleetCalculator · MarketingCalculator · OfferCalculator · CreditCalculator
+ │                 ExportButtons · ScenarioComparison · AlertBanner · Dashboard
+ ├ lib/            calculationEngine.ts · formulas.ts · scenarios.ts · validations.ts
+ │                 exportCsv.ts · urlState.ts · formatters.ts
+ ├ types/          business.ts · calculator.ts
+ ├ data/           defaultAssumptions.ts
+ └ tests/          calculationEngine.test.ts · formulas.test.ts   (24 testes)
+Funções puras: calculateFleetCosts · calculateOfferRevenue · calculateMarketingFunnel
+ · calculateSalesTeam · calculateSupportTeam · calculateCreditRevenue · calculateDRE
+ · calculateCashFlow · calculateUnitEconomics · calculateBreakEven · calculateScenarios
+ · validateAssumptions · exportScenarioToCSV</div>
+<p>README, Guia de Uso e Guia de Deploy (Vercel) acompanham o projeto. Para rodar: <code>npm install && npm test && npm run dev</code>.</p>
+
+<!-- ==================== 21 PLANILHA ==================== -->
+<h2 id="e21">21. Estrutura da Planilha (16 abas)</h2>
+<p>Entregue como <b>gerador que baixa o .xlsx real</b> com fórmulas nativas do Excel referenciando a aba <b>Premissas</b> (edite lá e tudo recalcula).</p>
+<table>
+<tr><th>#</th><th>Aba</th><th>Objetivo · conexões</th></tr>
+<tr><td>1</td><td>Premissas</td><td>Todas as variáveis editáveis (inputs destacados). Alimenta todas as abas.</td></tr>
+<tr><td>2</td><td>Frota</td><td>Carros ativos, custo/carro e total, inatividade, sinistros.</td></tr>
+<tr><td>3</td><td>Motoristas</td><td>Receita/motorista e /carro, perdas por churn/inadimplência, LTV.</td></tr>
+<tr><td>4–5</td><td>Marketing · Funil</td><td>Funil completo, CPL, CAC, ROAS; metas por cenário.</td></tr>
+<tr><td>6</td><td>Equipe</td><td>Dimensionamento por ARREDONDAR.PARA.CIMA; custo de folha.</td></tr>
+<tr><td>7</td><td>Crédito e Consórcio</td><td>Interessados, conversões, comissões, provisões, alertas de compliance.</td></tr>
+<tr><td>8</td><td>Custos Operacionais</td><td>Consolida frota+equipe+marketing+admin+provisões.</td></tr>
+<tr><td>9</td><td>DRE Mensal</td><td>36 meses com rampa de ativação; da receita ao lucro líquido.</td></tr>
+<tr><td>10</td><td>Fluxo de Caixa</td><td>Deriva da DRE; caixa mensal e acumulado.</td></tr>
+<tr><td>11</td><td>Unit Economics</td><td>Receita/custo/margem por carro, CAC, LTV, LTV/CAC, payback, break-even.</td></tr>
+<tr><td>12–13</td><td>Cenários · Sensibilidade</td><td>4 cenários lado a lado; tabela aluguel × preço.</td></tr>
+<tr><td>14</td><td>Dashboard</td><td>KPIs e status de break-even.</td></tr>
+<tr><td>15–16</td><td>Riscos · Roadmap</td><td>Matriz de 17 riscos; marcos 7/30/60/90/365.</td></tr>
+</table>
+
+<!-- ==================== 22 FÓRMULAS ==================== -->
+<h2 id="e22">22. Fórmulas Principais</h2>
+<div class="formula">carros_ativos       = total_carros × taxa_ocupacao × (1 − pct_carros_parados)
+receita_mensal_frota = carros_ativos × valor_mensal_motorista
+receita_bruta       = receita_mensal_frota + receita_ativacao + receita_complementar
+receita_liquida     = receita_bruta × (1 − impostos_receita)
+custo_frota         = total_carros × (aluguel + seguro + telemetria + manutencao + pneus + lavagem + patio)
+                       + pct_sinistro × total_carros × custo_sinistro
+leads_gerados       = investimento_marketing / CPL
+contratos           = leads × Πtaxas_do_funil
+CAC_total           = (mkt + salarios_comerciais + comissoes) / contratos
+SDRs                = teto(leads / capacidade_SDR)
+gestores_frota      = teto(total_carros / carros_por_gestor)
+margem_bruta        = receita_liquida − custo_frota − perda_inadimplencia
+EBITDA              = margem_bruta − desp_marketing − desp_comercial − desp_operacional − desp_admin
+lucro_liquido       = EBITDA − depreciacao − resultado_financeiro − impostos_lucro
+break_even_carros   = despesas_fixas / margem_contribuicao_por_carro
+LTV                 = margem_mensal_motorista × (1 / churn_mensal)
+LTV_CAC             = LTV / CAC_total
+payback_CAC_meses   = CAC_total / margem_mensal_motorista</div>
+
+<!-- ==================== 23 ROADMAP ==================== -->
+<h2 id="e23">23. Roadmap de Execução</h2>
+<table>
+<tr><th>Horizonte</th><th>Entregas</th></tr>
+<tr><td><b>7 dias</b></td><td>Validar premissas; conversas com locadoras (aluguel, sublocação, o que é incluso); validação jurídica inicial; estruturar oferta; landing page + CRM + pré-cadastro; pesquisa com motoristas; rodar a calculadora com dados reais.</td></tr>
+<tr><td><b>30 dias</b></td><td>Piloto comercial + lista de espera; 1º webinar; primeiros contratos; validar CAC, demanda, inadimplência e suporte; negociar parceiros (consórcio/crédito/seguro/telemetria).</td></tr>
+<tr><td><b>60 dias</b></td><td>Operação piloto com frota reduzida (10–20 carros); ajustar contrato, preço, funil, onboarding; validar telemetria; estruturar cobrança.</td></tr>
+<tr><td><b>90 dias</b></td><td>Escalar para os 100 carros conforme demanda; operação comercial completa; dashboard de gestão; decisão alugar-mais vs comprar-sob-demanda vs híbrido.</td></tr>
+<tr><td><b>12 meses</b></td><td>Expansão controlada; parcerias financeiras; compra sob demanda (migração asset-light→asset-own nos carros de maior giro); programa de indicação e de crédito; ativar Libert Drive App/Energy; otimizar DRE; captação/dívida estruturada se fizer sentido.</td></tr>
+</table>
+
+<!-- ==================== 24 RISCOS ==================== -->
+<h2 id="e24">24. Matriz de Riscos</h2>
+<table>
+<tr><th>Risco</th><th>Cat.</th><th>Prob.</th><th>Impacto</th><th>Mitigação / Contingência</th></tr>
+<tr><td>CPL acima do esperado</td><td>Mkt</td><td>Média</td><td>Alto</td><td>Diversificar canais; melhorar criativo/LP; lançamento p/ elevar conversão</td></tr>
+<tr><td>Baixa conversão / aprovação</td><td>Comercial</td><td>Média</td><td>Alto</td><td>Qualificação SDR; ajuste de perfil; oferta e escassez</td></tr>
+<tr><td>Inadimplência alta</td><td>Financeiro</td><td>Média</td><td>Alto</td><td>KYC, cobrança preventiva, caução, telemetria p/ recuperação</td></tr>
+<tr><td>Churn elevado</td><td>CS</td><td>Média</td><td>Alto</td><td>Onboarding, suporte, retenção, ajuste de preço</td></tr>
+<tr><td>Carros parados</td><td>Frota</td><td>Média</td><td>Alto</td><td>Recolocação &lt;72h; carro reserva; SLA manutenção</td></tr>
+<tr><td>Sinistros / multas</td><td>Frota</td><td>Média</td><td>Médio</td><td>Seguro, franquia provisão, score de direção</td></tr>
+<tr><td>Problemas com locadora / atraso</td><td>Operacional</td><td>Média</td><td>Alto</td><td>2ª locadora; SLA contratual; escalonar entrega</td></tr>
+<tr><td>Regulatório crédito/consórcio</td><td>Legal</td><td>Média</td><td><b>Crítico</b></td><td>Só via parceiro autorizado; jurídico dedicado</td></tr>
+<tr><td>Promessa indevida em campanha</td><td>Reputação</td><td>Média</td><td>Alto</td><td>Compliance de copy; disclaimers; treinamento</td></tr>
+<tr><td>LGPD (telemetria/dados)</td><td>Legal</td><td>Média</td><td>Alto</td><td>Consentimento, DPO, segurança, anonimização</td></tr>
+<tr><td>Falta de caixa / vale da morte</td><td>Financeiro</td><td>Alta</td><td><b>Crítico</b></td><td>Cash-on-delivery; reserva; não alugar 100 sem demanda</td></tr>
+<tr><td>Crescimento rápido sem controle</td><td>Operacional</td><td>Média</td><td>Alto</td><td>Escalar por gates de métrica; playbooks; dashboard</td></tr>
+</table>
+
+<!-- ==================== 25 DASHBOARD ==================== -->
+<h2 id="e25">25. Dashboard de KPIs</h2>
+<div class="grid2">
+<table><tr><th>Marketing</th></tr>
+<tr><td>CPL · Leads · Conversão por canal · Custo por aplicação/aprovado/contrato · ROAS · CAC</td></tr></table>
+<table><tr><th>Vendas</th></tr>
+<tr><td>Leads atendidos · Agendamentos · Comparecimento · Aplicações · Aprovações · Contratos · Taxa de fechamento · Tempo até contrato · Receita vendida</td></tr></table>
+<table><tr><th>Frota</th></tr>
+<tr><td>Carros ativos/parados · Ocupação · Receita/custo por carro · Sinistros · Multas · Manutenção · % telemetria ativa</td></tr></table>
+<table><tr><th>Financeiro</th></tr>
+<tr><td>Receita bruta/líquida · Margem bruta · EBITDA · Caixa · Inadimplência · Churn · Break-even · Lucro líquido</td></tr></table>
+<table><tr><th>Suporte</th></tr>
+<tr><td>Tickets · SLA · NPS · Reclamações · Retenção · Cobrança preventiva</td></tr></table>
+<table><tr><th>Crédito/Consórcio</th></tr>
+<tr><td>Interessados · Aplicações · Aprovados · Cartas vendidas · Comissões · Cancelamentos · Alertas de compliance</td></tr></table>
+</div>
+
+<!-- ==================== 26 PERGUNTAS ==================== -->
+<h2 id="e26">26. Perguntas Críticas para Fechar o Modelo</h2>
+<div class="grid2">
+<div class="box"><b>Locadora & frota</b><ul>
+<li>Aluguel mensal real do Dolphin Mini (frota PJ, uso app)?</li>
+<li>O que está incluso (seguro, manutenção, IPVA, franquia)?</li>
+<li>Sublocação é permitida em contrato?</li>
+<li>Garantias/caução exigidas? Prazo mínimo? Limite de km e custo por km extra?</li>
+<li>Ponto de retirada, pátio, telemetria (própria permitida)?</li>
+</ul></div>
+<div class="box"><b>Motorista & operação</b><ul>
+<li>Preço aceito (dia/semana/mês) e elasticidade?</li>
+<li>Perfil mínimo, documentação, score, antifraude?</li>
+<li>Políticas de inadimplência, devolução, sinistro, multas?</li>
+</ul></div>
+<div class="box"><b>Financeiro & legal</b><ul>
+<li>Regime tributário e estrutura societária?</li>
+<li>Parceiro de consórcio (administradora autorizada) e de crédito?</li>
+<li>Modelo de comissão? Política de publicidade/compliance?</li>
+</ul></div>
+<div class="box"><b>Go-to-market</b><ul>
+<li>Oferta do webinar e preço-âncora?</li>
+<li>Capacidade real do time no lançamento?</li>
+<li>Meta de margem, caixa mínimo e plano de contingência?</li>
+</ul></div>
+</div>
+
+<!-- ==================== 27 RECOMENDAÇÕES ==================== -->
+<h2 id="e27">27. Recomendações Finais</h2>
+<ol>
+<li><b>Negocie o aluguel antes de tudo.</b> É a variável nº 1 de viabilidade. Meta: ≤ R$ 2.500/carro com seguro e manutenção inclusos, para frota de 100un.</li>
+<li><b>Comece pequeno e prove.</b> Piloto de 10–20 carros valida preço, inadimplência e ocupação sem abrir o vale de caixa.</li>
+<li><b>Use o lançamento para quebrar o gargalo do funil</b>, não como enfeite — é o que torna o CAC viável.</li>
+<li><b>Trate crédito/consórcio como receita complementar via parceiro regulado</b>, nunca como o pilar (e nunca prometa contemplação).</li>
+<li><b>Planeje a migração para frota própria</b> nos carros de maior giro — é onde a margem explode.</li>
+<li><b>Mantenha caixa e cash-on-delivery.</b> Não alugue 100 carros sem demanda validada.</li>
+<li><b>Telemetria própria desde o dia 1</b> — risco, dados e base para o SaaS futuro.</li>
+</ol>
+
+<!-- ==================== 28 CHECKLIST ==================== -->
+<h2 id="e28">28. Checklist de Execução</h2>
+<table>
+<tr><th>Antes de assinar com a locadora</th><th>Durante o piloto (coletar dados)</th></tr>
+<tr><td>☐ Aluguel e itens inclusos confirmados<br>☐ Sublocação autorizada por escrito<br>☐ Caução/garantias definidas<br>☐ Contrato revisado por advogado<br>☐ Regime tributário definido com contador<br>☐ Parceiro de consórcio/crédito contratado<br>☐ Estrutura de contas separadas (empresa/cliente/caução)<br>☐ Telemetria homologada e LGPD ok<br>☐ Caixa/reserva dimensionados</td><td>☐ CPL e conversões reais por etapa<br>☐ Inadimplência e recuperação reais<br>☐ Churn e NPS<br>☐ Ocupação e dias de carro parado<br>☐ Custo por km e manutenção real do EV<br>☐ Tempo de recolocação<br>☐ Conversão de consórcio/crédito<br>☐ Custo real de suporte por carro<br>☐ Sinistros e multas</td></tr>
+</table>
+
+<!-- ==================== 29 AUDITORIA ==================== -->
+<h2 id="e29">29. Auditoria de Consistência dos Números</h2>
+<table>
+<tr><th>#</th><th>Verificação</th><th>Resultado</th></tr>
+<tr><td>1</td><td>O modelo fecha matematicamente?</td><td>Sim — engine pura + 24 testes; fórmulas encadeadas receita→lucro.</td></tr>
+<tr><td>2</td><td>DRE coerente com o fluxo de caixa?</td><td>Sim — aba Fluxo deriva da DRE; diferença só de timing (caução/antecipação).</td></tr>
+<tr><td>3</td><td>Receitas separadas por tipo?</td><td>Sim — frota, ativação, complementar (consórcio/crédito/serviços).</td></tr>
+<tr><td>4</td><td>Custos fixos vs variáveis separados?</td><td>Sim — frota (fixo por carro), variáveis (CPL, comissão), fixos (admin).</td></tr>
+<tr><td>5</td><td>CAC calculado corretamente?</td><td>Sim — marketing-only e com-equipe; ~R$ 2.860 e ~R$ 4.700 no Base.</td></tr>
+<tr><td>6</td><td>LTV depende de quê?</td><td>Margem mensal por motorista e churn (vida = 1/churn ≈ 16,7m).</td></tr>
+<tr><td>7</td><td>Break-even claro?</td><td>Sim — em carros e em operação; sinalizado quando &gt; 100 carros.</td></tr>
+<tr><td>8</td><td>Equipe comporta a operação?</td><td>Sim — dimensionada por teto() sobre volume; recalcula sozinha.</td></tr>
+<tr><td>9</td><td>Riscos jurídicos destacados?</td><td>Sim — §17 e matriz; crédito/consórcio e LGPD marcados como críticos.</td></tr>
+<tr><td>10</td><td>Calculadora tem inputs/outputs suficientes?</td><td>Sim — 7 blocos, todos os campos pedidos, alertas automáticos.</td></tr>
+<tr><td>11</td><td>Planilha criável a partir da spec?</td><td>Sim — 16 abas, gerador .xlsx com fórmulas entregue.</td></tr>
+<tr><td>12</td><td>Serve para orientar execução real?</td><td>Sim — roadmap, checklists e perguntas críticas incluídos.</td></tr>
+</table>
+<div class="box warn"><b>Ressalva honesta da auditoria:</b> no cenário Base com premissas de partida <i>conservadoras</i> (manutenção fora do aluguel), a margem de contribuição por carro é levemente negativa. O modelo está <b>correto</b> — ele revela que a viabilidade depende de alavancas explícitas (§8, §10, §12), não de otimismo. Ajuste as premissas com dados reais e reavalie.</div>
+
+<!-- ==================== 30 NOTA DE VIABILIDADE ==================== -->
+<h2 id="e30">30. Nota de Viabilidade</h2>
+<div class="score">
+  <div class="big">6,5<span style="font-size:22px;color:#9ff0d0">/10</span></div>
+  <div>
+    <b>Viável com condições — vira 8+ se as alavancas certas forem confirmadas.</b><br>
+    <small>Mercado, timing e visão de ecossistema são fortes (elétrico + economia de combustível + rede de recarga crescendo). O risco está na <b>margem fina da sublocação</b> e na <b>dependência de negociar aluguel, ocupação e receita complementar</b>. Não é um negócio de rodar no automático: exige execução disciplinada de preço, funil e caixa.</small>
+  </div>
+</div>
+<table style="margin-top:14px">
+<tr><th>Fator</th><th class="num">Nota</th><th>Comentário</th></tr>
+<tr><td>Tamanho e dor do mercado</td><td class="num">9</td><td>Motoristas de app + custo de combustível = dor real e grande</td></tr>
+<tr><td>Timing (EV + recarga)</td><td class="num">8</td><td>Infra crescendo ~50%/ano; custo de recarga caindo</td></tr>
+<tr><td>Modelo asset-light inicial</td><td class="num">7</td><td>Reduz capital, mas transfere margem à locadora</td></tr>
+<tr><td>Unit economics (v1)</td><td class="num">5</td><td>Margem por carro fina; depende de alavancas</td></tr>
+<tr><td>Diferenciação (ecossistema/telemetria)</td><td class="num">8</td><td>Energy + App + dados criam fosso ao longo do tempo</td></tr>
+<tr><td>Risco regulatório (crédito/consórcio)</td><td class="num">5</td><td>Gerenciável só com parceiros autorizados e jurídico</td></tr>
+<tr><td>Execução / go-to-market</td><td class="num">7</td><td>Lançamento digital é a competência decisiva</td></tr>
+</table>
+<p><b>Como subir a nota para 8+:</b> (1) fechar aluguel ≤ R$ 2.500 com manutenção/seguro inclusos; (2) provar conversão do lançamento ≥ 2× a fria; (3) contratar parceiro regulado de consórcio/crédito; (4) demonstrar inadimplência ≤ 7% no piloto; (5) plano de migração para frota própria nos carros de maior giro.</p>
+
+<div class="footer">
+  <b>Libert Drive · Plano de Negócio v1.0 · Julho 2026.</b> Documento de trabalho: todos os valores são premissas editáveis a validar com locadora, contador e advogado. Não constitui aconselhamento jurídico, contábil ou financeiro.<br><br>
+  <b>Fontes de mercado (jul/2026):</b> BYD Brasil / FIPE / Mobiauto (preço Dolphin Mini); Vrum, Rentcars, Localiza Meoo (assinatura); TUNU, 99, Kovi, Unidas (aluguel para app); GreenV, YellotMob, AutoData (eletropostos); Conversion, Agência Mestre, babitonhela (CPL); Rodobens, Serasa, Banco Central (consórcio/carta contemplada); Infleet, Rastreio Veicular, Contele (telemetria).
+</div>
+
+</div>
+</body>
+</html>

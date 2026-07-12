@@ -2,6 +2,7 @@
 node_modules
 .vercel
 .env*.local
+*.tsbuildinfo
 dist
 out
 *.log
@@ -9,3 +10,4 @@ out
 ._*
 .playwright-cli
 output
+.env*

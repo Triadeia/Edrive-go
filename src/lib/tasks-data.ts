@@ -4,7 +4,7 @@ export const taskPriorities = ["Urgente", "Alta", "Media", "Baixa"] as const;
 export type TaskStatus = (typeof taskStatuses)[number];
 export type TaskPriority = (typeof taskPriorities)[number];
 
-export interface EdriveTask {
+export interface LibertTask {
   id: string;
   title: string;
   description: string;
@@ -19,18 +19,18 @@ export interface EdriveTask {
   updatedAt: string;
 }
 
-export type TaskInput = Omit<EdriveTask, "id" | "score" | "createdAt" | "updatedAt"> & { score?: number };
+export type TaskInput = Omit<LibertTask, "id" | "score" | "createdAt" | "updatedAt"> & { score?: number };
 
-export const seedTasks: EdriveTask[] = [
-  ["task-brandbook", "Finalizar brandbook premium eDrive Go", "Revisar guidelines, logomarcas, paleta, aplicacoes e movimento.", "Concluida", "Urgente", "Nilton", "Marca", "Brandbook eDrive Go", "2026-06-24", 98],
-  ["task-movimento", "Publicar narrativa Motorista Livre", "Organizar manifesto, crenças, rituais e frases de impacto.", "Em andamento", "Urgente", "Copy", "Movimento", "Movimento eDrive Go", "2026-06-25", 94],
+export const seedTasks: LibertTask[] = [
+  ["task-brandbook", "Finalizar brandbook premium Libert Drive", "Revisar guidelines, logomarcas, paleta, aplicacoes e movimento.", "Concluida", "Urgente", "Nilton", "Marca", "Brandbook Libert Drive", "2026-06-24", 98],
+  ["task-movimento", "Publicar narrativa Motorista Livre", "Organizar manifesto, crenças, rituais e frases de impacto.", "Em andamento", "Urgente", "Copy", "Movimento", "Movimento Libert Drive", "2026-06-25", 94],
   ["task-docs", "Organizar documentos clicaveis", "Garantir leitura completa dos documentos no painel.", "Concluida", "Alta", "Produto", "Acervo", "Documentos", "2026-06-26", 91],
   ["task-icp", "Refinar ICPs e dores do motorista", "Transformar voz do cliente em filtros de decisao e mensagens.", "A Fazer", "Alta", "Inteligencia", "Cliente", "Inteligencia do Cliente", "2026-06-27", 88],
-  ["task-kpi", "Criar painel de tarefas do modulo 01", "Subir area de tarefas com lista, kanban, calendario e API.", "Em andamento", "Urgente", "Codex", "Produto Digital", "Painel eDrive Go", "2026-06-23", 96],
+  ["task-kpi", "Criar painel de tarefas do modulo 01", "Subir area de tarefas com lista, kanban, calendario e API.", "Em andamento", "Urgente", "Codex", "Produto Digital", "Painel Libert Drive", "2026-06-23", 96],
   ["task-fotos", "Substituir imagens geradas por fotos oficiais", "Adicionar fotos reais de hub, frota, motorista e recarga quando liberadas.", "Backlog", "Media", "Design", "Visual", "Assets oficiais", "2026-07-01", 72],
   ["task-vercel", "Validar deploy de producao", "Conferir rotas publicadas, API de tarefas e responsividade.", "A Fazer", "Alta", "Codex", "Produto Digital", "Vercel", "2026-06-23", 86],
   ["task-copy", "Criar biblioteca de headlines para anuncios", "Separar hooks por Maldicao da Gasolina, Virada Eletrica e economia.", "Backlog", "Media", "Copy", "Conteudo", "Banco de Hooks", "2026-07-03", 70],
-  ["task-energy", "Explicar relacao Go + Energy", "Criar bloco visual mostrando entrada pelo Go e fidelizacao pela Energy.", "Em revisao", "Alta", "Estrategia", "Ecossistema", "eDrive Energy", "2026-06-28", 82],
+  ["task-energy", "Explicar relacao Libert Drive + Libert Energy", "Criar bloco visual mostrando entrada pela Libert Drive e fidelizacao pela Libert Energy.", "Em revisao", "Alta", "Estrategia", "Ecossistema", "Libert Energy", "2026-06-28", 82],
   ["task-comunidade", "Desenhar ritos da comunidade", "Transformar ativacao, primeira recarga e 30 dias livre em tarefas operacionais.", "Bloqueada", "Media", "Comunidade", "Movimento", "Motorista Livre", "2026-07-05", 66],
 ].map(([id, title, description, status, priority, owner, area, project, dueDate, score], index) => {
   const createdAt = new Date(Date.UTC(2026, 5, 20, 10, index)).toISOString();
@@ -47,10 +47,10 @@ export const seedTasks: EdriveTask[] = [
     score,
     createdAt,
     updatedAt: createdAt,
-  } as EdriveTask;
+  } as LibertTask;
 });
 
-export function makeTask(input: TaskInput): EdriveTask {
+export function makeTask(input: TaskInput): LibertTask {
   const now = new Date().toISOString();
   return {
     id: `task-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
@@ -69,15 +69,15 @@ export function scoreTask(priority: TaskPriority, status: TaskStatus, dueDate: s
   return Math.min(100, priorityScore + statusScore + dueScore);
 }
 
-export function normalizeTask(input: Partial<EdriveTask> & { title?: string }): TaskInput {
+export function normalizeTask(input: Partial<LibertTask> & { title?: string }): TaskInput {
   return {
-    title: String(input.title || "Nova tarefa eDrive Go").slice(0, 140),
+    title: String(input.title || "Nova tarefa Libert Drive").slice(0, 140),
     description: String(input.description || "").slice(0, 500),
     status: taskStatuses.includes(input.status as TaskStatus) ? input.status as TaskStatus : "A Fazer",
     priority: taskPriorities.includes(input.priority as TaskPriority) ? input.priority as TaskPriority : "Media",
-    owner: String(input.owner || "Equipe eDrive").slice(0, 80),
+    owner: String(input.owner || "Equipe Libert Drive").slice(0, 80),
     area: String(input.area || "Operacao").slice(0, 80),
-    project: String(input.project || "Painel eDrive Go").slice(0, 100),
+    project: String(input.project || "Painel Libert Drive").slice(0, 100),
     dueDate: /^\d{4}-\d{2}-\d{2}$/.test(String(input.dueDate)) ? String(input.dueDate) : new Date().toISOString().slice(0, 10),
   };
 }

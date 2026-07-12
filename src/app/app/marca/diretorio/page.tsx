@@ -25,7 +25,7 @@ export default function DirectoryPage() {
     <article>
       <header className="mb-8 max-w-3xl">
         <span className="kicker">Biblioteca navegavel</span>
-        <h1 className="page-title mt-4">Tudo que forma a experiencia eDrive Go.</h1>
+        <h1 className="page-title mt-4">Tudo que forma a experiencia Libert Drive.</h1>
         <p className="muted mt-5 max-w-2xl text-lg leading-8">Capitulos do brandbook, documentos completos, movimento e inteligencia em um unico diretorio visual.</p>
       </header>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

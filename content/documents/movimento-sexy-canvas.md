@@ -1,4 +1,4 @@
-# SEXY CANVAS — EDRIVE GO
+# SEXY CANVAS — LIBERT DRIVE
 ## Identidade de Marca Completa: Posicionamento, Voz, Personalidade e Sistema de Comunicação
 
 ### Triadeia Company // Kit Completo de Comunicação
@@ -33,13 +33,13 @@ Sem Sexy Canvas, a marca improvisa. Com ele, a marca tem sistema.
 
 ## O GRANDE PORQUÊ
 
-> A eDrive Go existe porque acreditamos que motorista de app não deveria trabalhar para pagar combustível. Deveria trabalhar para si mesmo.
+> A Libert Drive existe porque acreditamos que motorista de app não deveria trabalhar para pagar combustível. Deveria trabalhar para si mesmo.
 
 **A crença central:**
-Existe um sistema silencioso que consome entre 30% e 40% da renda bruta de todo motorista de app do Brasil — e esse sistema tem nome: a dependência do combustível fóssil. A eDrive Go não é uma empresa de locação. É a resposta organizada e acessível a essa injustiça estrutural.
+Existe um sistema silencioso que consome entre 30% e 40% da renda bruta de todo motorista de app do Brasil — e esse sistema tem nome: a dependência do combustível fóssil. A Libert Drive não é uma empresa de locação. É a resposta organizada e acessível a essa injustiça estrutural.
 
 **O que mudamos no mundo quando existimos:**
-Cada motorista que faz a Virada Elétrica com a eDrive Go deixa de financiar a flutuação do petróleo com seu trabalho. Começa a controlar a equação financeira do próprio negócio. Torna-se menos vulnerável e mais livre.
+Cada motorista que faz a Virada Elétrica com a Libert Drive deixa de financiar a flutuação do petróleo com seu trabalho. Começa a controlar a equação financeira do próprio negócio. Torna-se menos vulnerável e mais livre.
 
 **A visão de longo prazo:**
 Toda frota de motoristas de app da RMS e do Brasil rodando sem gasolina. Um mercado de trabalho de mobilidade onde o custo energético é eliminado como variável de risco. Um ecossistema em que motorista é visto e tratado como empresário.
@@ -95,7 +95,7 @@ Com prova. Com números. Com motoristas reais que já fizeram a virada. Nunca co
 
 ## O HERÓI: O Motorista em Transição
 
-Não o motorista conformado. Não o motorista que desistiu. O herói da eDrive Go é o motorista que **já está incomodado com a gasolina mas ainda não encontrou a saída**.
+Não o motorista conformado. Não o motorista que desistiu. O herói da Libert Drive é o motorista que **já está incomodado com a gasolina mas ainda não encontrou a saída**.
 
 **Perfil do Herói:**
 - Motorista de app (Uber, 99, inDrive) com mínimo 3 meses de experiência
@@ -133,7 +133,7 @@ Não o motorista conformado. Não o motorista que desistiu. O herói da eDrive G
 
 **O Marcos** — 45 anos, ex-funcionário CLT, está no app há 1 ano depois de demissão, vê o trabalho como transição e precisa maximizar o que entra.
 
-*(Ver arquivo `edrive-go-icps-buyer-personas.md` para perfis completos com 15 medos e diálogos reais.)*
+*(Ver arquivo `libert-drive-icps-buyer-personas.md` para perfis completos com 15 medos e diálogos reais.)*
 
 ---
 
@@ -171,12 +171,12 @@ Cético sobre elétrico          Embaixador do elétrico
 | Cenário | Gasto Combustível | Receita Líquida Estimada |
 |---|---|---|
 | Carro a gasolina (atual) | R$1.000–1.200/mês | 30–40% da bruta vai embora |
-| Elétrico eDrive Go | R$0 combustível + locação | Diferença líquida: ~R$1.000/mês |
+| Elétrico Libert Drive | R$0 combustível + locação | Diferença líquida: ~R$1.000/mês |
 
 ---
 
 # BLOCO 5 — A VOZ
-## Como a eDrive Go Fala
+## Como a Libert Drive Fala
 
 ---
 
@@ -192,7 +192,7 @@ Cético sobre elétrico          Embaixador do elétrico
 
 ## ARQUÉTIPO DE VOZ: O Libertador com Dados
 
-A eDrive Go fala como alguém que encontrou a saída de um labirinto — e voltou para mostrar onde fica a porta.
+A Libert Drive fala como alguém que encontrou a saída de um labirinto — e voltou para mostrar onde fica a porta.
 
 **Não é guru.** Não faz discurso de palco. Não vende sonho.
 
@@ -222,7 +222,7 @@ A eDrive Go fala como alguém que encontrou a saída de um labirinto — e volto
 
 | Diga | Não diga |
 |---|---|
-| "Motorista Livre" | "Cliente eDrive" |
+| "Motorista Livre" | "Cliente Libert Drive" |
 | "A Maldição da Gasolina" | "O custo do combustível" |
 | "Virada Elétrica" | "Migração para elétrico" |
 | "Você não vai voltar" | "A experiência é boa" |
@@ -235,14 +235,14 @@ A eDrive Go fala como alguém que encontrou a saída de um labirinto — e volto
 ---
 
 # BLOCO 6 — IDENTIDADE VISUAL
-## Como a eDrive Go Aparece
+## Como a Libert Drive Aparece
 
 ---
 
 ## PRINCÍPIOS VISUAIS
 
 **1. Elétrico é verde — mas não ecológico. É financeiro.**
-O verde da eDrive Go não é o verde de ONG ambiental. É o verde de dinheiro no bolso. De lucro líquido. De resultado. Essa distinção é crucial na comunicação: o motorista não adere pelo ambiente — adere pelo financeiro. A comunicação visual reforça isso.
+O verde da Libert Drive não é o verde de ONG ambiental. É o verde de dinheiro no bolso. De lucro líquido. De resultado. Essa distinção é crucial na comunicação: o motorista não adere pelo ambiente — adere pelo financeiro. A comunicação visual reforça isso.
 
 **2. Zero gasolina como ausência visual.**
 Nunca bomba de combustível. Nunca posto. Nunca mangueira. Quando esses elementos aparecem, é como inimigo — não como realidade do produto.
@@ -257,7 +257,7 @@ R$1.000 — em destaque, em negrito, em tamanho maior que o restante do texto. O
 
 | Cor | Uso | Significado |
 |---|---|---|
-| Verde eDrive #00C896 | Principal, logos, CTAs | Lucro, liberdade, energia |
+| Verde Libert Drive #00C896 | Principal, logos, CTAs | Lucro, liberdade, energia |
 | Preto Noturno #0A0A0A | Fundo, textos fortes | Seriedade, autoridade |
 | Branco Elétrico #F5F5F5 | Espaço, textos secundários | Limpeza, clareza |
 | Amarelo Relâmpago #FFD700 | Destaques, números, urgência | Energia, alerta positivo |
@@ -284,7 +284,7 @@ R$1.000 — em destaque, em negrito, em tamanho maior que o restante do texto. O
 
 ## PROMESSA CENTRAL
 
-> **"Se você rodar com a eDrive Go por 30 dias e não ganhar mais do que paga, nós conversamos."**
+> **"Se você rodar com a Libert Drive por 30 dias e não ganhar mais do que paga, nós conversamos."**
 
 *(A matemática é tão clara que a promessa pode ser essa.)*
 
@@ -296,7 +296,7 @@ R$1.000 — em destaque, em negrito, em tamanho maior que o restante do texto. O
 
 > *"Você não vai entrar sozinho. E nunca vai se sentir sozinho no processo."*
 
-## O QUE A EDRIVE GO NUNCA PROMETE
+## O QUE A LIBERT DRIVE NUNCA PROMETE
 
 - Que vai ser perfeito desde o primeiro dia (há curva de adaptação)
 - Que o elétrico é isento de qualquer custo (recarga tem custo — mas drasticamente menor)
@@ -308,7 +308,7 @@ R$1.000 — em destaque, em negrito, em tamanho maior que o restante do texto. O
 ---
 
 # BLOCO 8 — POSICIONAMENTO COMPETITIVO
-## Onde a eDrive Go Está No Mapa
+## Onde a Libert Drive Está No Mapa
 
 ---
 
@@ -319,16 +319,16 @@ R$1.000 — em destaque, em negrito, em tamanho maior que o restante do texto. O
                         ↑
                         |
     PROPRIEDADE ←───────┼───────→ LOCAÇÃO/ACESSO
-                        |         ← eDrive Go
+                        |         ← Libert Drive
                         |
                     COMBUSTÍVEL
 ```
 
-A eDrive Go ocupa um território completamente único: **locação de veículo elétrico para motorista de app** — uma combinação que nenhum outro player tinha sistemático antes.
+A Libert Drive ocupa um território completamente único: **locação de veículo elétrico para motorista de app** — uma combinação que nenhum outro player tinha sistemático antes.
 
 ## DIFERENCIAÇÃO EM 5 DIMENSÕES
 
-| Dimensão | eDrive Go | Locadora Tradicional | Financiamento de EV |
+| Dimensão | Libert Drive | Locadora Tradicional | Financiamento de EV |
 |---|---|---|---|
 | **Custo de entrada** | Sem entrada, sem financiamento | Depósito + mensalidade | R$15.000–30.000 de entrada |
 | **Combustível** | Zero | R$800–1.200/mês | Zero (mas você pagou pelo carro) |
@@ -338,7 +338,7 @@ A eDrive Go ocupa um território completamente único: **locação de veículo e
 
 ## DECLARAÇÃO DE POSICIONAMENTO
 
-> *"Para motoristas de app que trabalham pelo menos 20 dias por mês e estão cansados de perder R$800–1.200/mês em gasolina, a eDrive Go é a única locadora de veículos elétricos construída especificamente para o mercado de mobilidade — que oferece acesso imediato ao elétrico sem entrada, sem financiamento, e com uma comunidade de Motoristas Livres que já fizeram a mesma virada."*
+> *"Para motoristas de app que trabalham pelo menos 20 dias por mês e estão cansados de perder R$800–1.200/mês em gasolina, a Libert Drive é a única locadora de veículos elétricos construída especificamente para o mercado de mobilidade — que oferece acesso imediato ao elétrico sem entrada, sem financiamento, e com uma comunidade de Motoristas Livres que já fizeram a mesma virada."*
 
 ---
 
@@ -346,7 +346,7 @@ A eDrive Go ocupa um território completamente único: **locação de veículo e
 
 | Bloco | Resposta em Uma Frase |
 |---|---|
-| **Por Quê** | Motorista não deveria trabalhar para pagar combustível — a eDrive Go é a saída que o mercado ignorou. |
+| **Por Quê** | Motorista não deveria trabalhar para pagar combustível — a Libert Drive é a saída que o mercado ignorou. |
 | **Inimigo** | A Maldição da Gasolina: o custo aceito como inevitável que corrói a renda do motorista. |
 | **Herói** | O motorista de app que já está incomodado com a gasolina mas ainda não encontrou a saída. |
 | **Transformação** | De motorista de custo para Motorista Livre — R$1.000/mês a mais, sem abrir mão da roda. |
@@ -356,6 +356,6 @@ A eDrive Go ocupa um território completamente único: **locação de veículo e
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / eDrive Go*
+*Documento elaborado para o ecossistema Triadeia / Libert Drive*
 *Metodologia: Sexy Canvas + Brand Strategy Framework*
-*Fase: Kit Completo de Comunicação — Movimento eDrive Go*
+*Fase: Kit Completo de Comunicação — Movimento Libert Drive*

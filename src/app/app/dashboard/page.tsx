@@ -19,7 +19,7 @@ export default function DashboardPage() {
     <div>
       <header className="mb-6 grid gap-5 xl:grid-cols-[1.05fr_.95fr]">
         <section className="panel overflow-hidden p-6 sm:p-8">
-          <p className="kicker">eDrive Go // Painel principal</p>
+          <p className="kicker">Libert Drive // Painel principal</p>
           <h1 className="page-title mt-4 max-w-4xl">A nova infraestrutura do Motorista Livre.</h1>
           <p className="muted mt-5 max-w-3xl text-base leading-8">
             Painel de marca, movimento, documentos e inteligencia do cliente reconstruido sobre a logica do painel Triade: denso, navegavel e pronto para evoluir.
@@ -34,7 +34,7 @@ export default function DashboardPage() {
           </div>
         </section>
         <section className="panel overflow-hidden">
-          <Image src="/images/edrive-dashboard.svg" width={1200} height={760} alt="Painel visual eDrive Go" className="h-full min-h-[320px] w-full object-cover" priority />
+          <Image src="/images/libert-dashboard.svg" width={1200} height={760} alt="Painel visual Libert Drive" className="h-full min-h-[320px] w-full object-cover" priority />
         </section>
       </header>
 

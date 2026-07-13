@@ -2,10 +2,9 @@
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import vm from "node:vm";
 
 const DEFAULT_ZIP =
   "/Volumes/SSD-Nilton/[03] Edrive go /PAINEL TAREFAS - EDRIVE GO - CLAUDE DESIGNER/EDrive Go dashboard launch.zip";
@@ -16,63 +15,243 @@ const APP_ENTRY = `${DASHBOARD_ROOT}/tarefas.js`;
 const GENERATED_AT = "2026-07-12T03:00:00.000Z";
 const UUID_NAMESPACE = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
 
+const DEFAULT_SPACES = [
+  {
+    id: "comando",
+    emoji: "🎯",
+    name: "Comando & Gestão",
+    lists: ["PMO", "Juridico", "Orcamento"],
+  },
+  {
+    id: "local",
+    emoji: "📍",
+    name: "Local & Operação",
+    lists: ["Local", "Operacao", "Seguranca", "Equipe", "Buffet", "Grafica"],
+  },
+  {
+    id: "veiculos",
+    emoji: "🚗",
+    name: "Veículos & Entrega",
+    lists: ["Veiculos", "Motoristas", "DDay"],
+  },
+  {
+    id: "comercial",
+    emoji: "📣",
+    name: "Marketing & Vendas",
+    lists: ["Marketing", "Vendas", "Convidados", "Imprensa", "Cerimonial"],
+  },
+  {
+    id: "conteudo",
+    emoji: "🎬",
+    name: "Conteúdo & Pós",
+    lists: ["Audiovisual", "Podcast", "PosEvento"],
+  },
+];
+
+const DEFAULT_TEAM = [
+  { nome: "Will Trindade", role: "Diretor da Operação", cor: "#7c3aed" },
+  { nome: "Eduard", role: "Jurídico", cor: "#2563eb" },
+  { nome: "Luci", role: "Social · Conteúdo · CRM", cor: "#db2777" },
+  { nome: "Vinicius", role: "Audiovisual · Marketing", cor: "#0d9488" },
+  { nome: "Ian", role: "Audiovisual · Edição", cor: "#d97706" },
+  { nome: "Nilton Macario", role: "Growth · Vendas", cor: "#65a30d" },
+];
+
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
-const zipPath = resolve(process.argv[2] ?? DEFAULT_ZIP);
-const outputPath = resolve(
-  process.argv[3] ??
-    resolve(repositoryRoot, "src/data/tasks/launch-workspace-seed.json"),
-);
 
-function readZipEntry(entry) {
+function readZipEntry(zipPath, entry) {
   return execFileSync("unzip", ["-p", zipPath, entry], {
     encoding: "utf8",
     maxBuffer: 16 * 1024 * 1024,
   });
 }
 
-function evaluateLiteral(source, expression, label) {
-  return vm.runInNewContext(`(${expression})`, Object.create(null), {
-    filename: `${APP_ENTRY}:${label}`,
-    timeout: 1_000,
-  });
+function sourceRegion(source, startMarker, endMarker, label) {
+  const start = source.indexOf(startMarker);
+  const end = source.indexOf(endMarker, start + startMarker.length);
+  if (start < 0 || end < 0) {
+    throw new Error(`Could not validate ${label} in ${APP_ENTRY}`);
+  }
+  return source.slice(start, end);
 }
 
-function readDashboardStructure() {
-  const source = readZipEntry(APP_ENTRY);
-  const spacesMatch = source.match(
-    /var DEFAULT_SPACES = \(function \(\) \{\s*var base = (\[[\s\S]*?\]);\s*var i = 0;/,
+function requireMarkers(source, markers, label) {
+  const missing = markers.filter((marker) => !source.includes(marker));
+  if (missing.length > 0) {
+    throw new Error(`Unexpected ${label} in ${APP_ENTRY}: missing ${missing[0]}`);
+  }
+}
+
+function readDashboardStructure(zipPath) {
+  const source = readZipEntry(zipPath, APP_ENTRY);
+  const spacesSource = sourceRegion(
+    source,
+    "var DEFAULT_SPACES = (function () {",
+    "var i = 0;",
+    "DEFAULT_SPACES",
   );
-  const teamMatch = source.match(
-    /var DEFAULT_TEAM = (\[[\s\S]*?\]);\s*var SPACES =/,
+  const teamSource = sourceRegion(
+    source,
+    "var DEFAULT_TEAM = [",
+    "var SPACES =",
+    "DEFAULT_TEAM",
   );
 
-  if (!spacesMatch || !teamMatch) {
-    throw new Error(`Could not read DEFAULT_SPACES/DEFAULT_TEAM from ${APP_ENTRY}`);
+  requireMarkers(
+    spacesSource,
+    [
+      "id: 'comando'",
+      "emoji: '🎯'",
+      "name: 'Comando & Gestão'",
+      "lists: ['PMO', 'Juridico', 'Orcamento']",
+      "id: 'local'",
+      "emoji: '📍'",
+      "name: 'Local & Operação'",
+      "lists: ['Local', 'Operacao', 'Seguranca', 'Equipe', 'Buffet', 'Grafica']",
+      "id: 'veiculos'",
+      "emoji: '🚗'",
+      "name: 'Veículos & Entrega'",
+      "lists: ['Veiculos', 'Motoristas', 'DDay']",
+      "id: 'comercial'",
+      "emoji: '📣'",
+      "name: 'Marketing & Vendas'",
+      "lists: ['Marketing', 'Vendas', 'Convidados', 'Imprensa', 'Cerimonial']",
+      "id: 'conteudo'",
+      "emoji: '🎬'",
+      "name: 'Conteúdo & Pós'",
+      "lists: ['Audiovisual', 'Podcast', 'PosEvento']",
+    ],
+    "DEFAULT_SPACES",
+  );
+  requireMarkers(
+    teamSource,
+    [
+      "{ nome: 'Will Trindade', role: 'Diretor da Operação', cor: '#7c3aed' }",
+      "{ nome: 'Eduard', role: 'Jurídico', cor: '#2563eb' }",
+      "{ nome: 'Luci', role: 'Social · Conteúdo · CRM', cor: '#db2777' }",
+      "{ nome: 'Vinicius', role: 'Audiovisual · Marketing', cor: '#0d9488' }",
+      "{ nome: 'Ian', role: 'Audiovisual · Edição', cor: '#d97706' }",
+      "{ nome: 'Nilton Macario', role: 'Growth · Vendas', cor: '#65a30d' }",
+    ],
+    "DEFAULT_TEAM",
+  );
+
+  const spaceCount = (spacesSource.match(/\bid\s*:/g) ?? []).length;
+  const listCount = DEFAULT_SPACES.reduce(
+    (total, space) => total + space.lists.length,
+    0,
+  );
+  const memberCount = (teamSource.match(/\bnome\s*:/g) ?? []).length;
+  if (spaceCount !== 5 || listCount !== 20 || memberCount !== 6) {
+    throw new Error(`Unexpected workspace structure in ${APP_ENTRY}`);
   }
 
-  return {
-    spaces: evaluateLiteral(source, spacesMatch[1], "DEFAULT_SPACES"),
-    team: evaluateLiteral(source, teamMatch[1], "DEFAULT_TEAM"),
-  };
+  return { spaces: DEFAULT_SPACES, team: DEFAULT_TEAM };
 }
 
-function readTasksData() {
-  const context = vm.createContext({ window: {} });
-  const source = readZipEntry(DATA_ENTRY);
+function dataSourceReader(source) {
+  let position = source.charCodeAt(0) === 0xfeff ? 1 : 0;
 
-  vm.runInContext(source, context, {
-    filename: DATA_ENTRY,
-    timeout: 2_000,
-  });
+  function skipTrivia() {
+    while (position < source.length) {
+      if (/\s/.test(source[position])) {
+        position += 1;
+      } else if (source.startsWith("//", position)) {
+        const newline = source.indexOf("\n", position + 2);
+        position = newline < 0 ? source.length : newline + 1;
+      } else if (source.startsWith("/*", position)) {
+        const end = source.indexOf("*/", position + 2);
+        if (end < 0) throw new Error("Unterminated comment in data source");
+        position = end + 2;
+      } else {
+        break;
+      }
+    }
+  }
 
-  const headers = context.window.EDRIVE_HEADER;
-  const tasks = context.window.EDRIVE_TASKS;
-  if (!Array.isArray(headers) || !Array.isArray(tasks)) {
+  function expect(marker) {
+    skipTrivia();
+    if (!source.startsWith(marker, position)) {
+      throw new Error(`Unexpected data source content at offset ${position}`);
+    }
+    position += marker.length;
+  }
+
+  function jsonArray(label) {
+    skipTrivia();
+    if (source[position] !== "[") {
+      throw new Error(`${label} must be a JSON array`);
+    }
+
+    const start = position;
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+    for (; position < source.length; position += 1) {
+      const character = source[position];
+      if (inString) {
+        if (escaped) {
+          escaped = false;
+        } else if (character === "\\") {
+          escaped = true;
+        } else if (character === '"') {
+          inString = false;
+        }
+      } else if (character === '"') {
+        inString = true;
+      } else if (character === "[") {
+        depth += 1;
+      } else if (character === "]") {
+        depth -= 1;
+        if (depth === 0) {
+          position += 1;
+          return JSON.parse(source.slice(start, position));
+        }
+      }
+    }
+
+    throw new Error(`Unterminated ${label} JSON array`);
+  }
+
+  function finish() {
+    skipTrivia();
+    if (position !== source.length) {
+      throw new Error(`Unexpected data source content at offset ${position}`);
+    }
+  }
+
+  return { expect, finish, jsonArray };
+}
+
+function parseTasksDataSource(source) {
+  const reader = dataSourceReader(source);
+  reader.expect("window.EDRIVE_HEADER");
+  reader.expect("=");
+  const headers = reader.jsonArray("EDRIVE_HEADER");
+  reader.expect(";");
+  reader.expect("window.EDRIVE_TASKS");
+  reader.expect("=");
+  const tasks = reader.jsonArray("EDRIVE_TASKS");
+  reader.expect(";");
+  reader.finish();
+
+  if (
+    !Array.isArray(headers) ||
+    !headers.every((header) => typeof header === "string") ||
+    !Array.isArray(tasks) ||
+    !tasks.every(
+      (task) => task !== null && typeof task === "object" && !Array.isArray(task),
+    )
+  ) {
     throw new Error(`Could not read EDRIVE_HEADER/EDRIVE_TASKS from ${DATA_ENTRY}`);
   }
 
   return { headers, tasks };
+}
+
+function readTasksData(zipPath) {
+  return parseTasksDataSource(readZipEntry(zipPath, DATA_ENTRY));
 }
 
 function uuidV5(name) {
@@ -164,9 +343,9 @@ function sourceMeta(raw, headers) {
   return Object.fromEntries(headers.map((header) => [header, String(raw[header] ?? "")]));
 }
 
-function buildSeed() {
-  const { spaces: rawSpaces, team: rawTeam } = readDashboardStructure();
-  const { headers, tasks: rawTasks } = readTasksData();
+function buildSeed(zipPath) {
+  const { spaces: rawSpaces, team: rawTeam } = readDashboardStructure(zipPath);
+  const { headers, tasks: rawTasks } = readTasksData(zipPath);
 
   const members = rawTeam.map((member) => ({
     id: stableId("member", member.nome),
@@ -262,6 +441,21 @@ function buildSeed() {
   };
 }
 
-const serialized = `${JSON.stringify(buildSeed(), null, 2)}\n`;
-mkdirSync(dirname(outputPath), { recursive: true });
-writeFileSync(outputPath, serialized, "utf8");
+if (process.argv[2] === "--validate-data-source") {
+  if (!process.argv[3]) {
+    throw new Error("Usage: build-launch-seed.mjs --validate-data-source <file>");
+  }
+  const { headers, tasks } = parseTasksDataSource(
+    readFileSync(resolve(process.argv[3]), "utf8"),
+  );
+  process.stdout.write(`${JSON.stringify({ headers: headers.length, tasks: tasks.length })}\n`);
+} else {
+  const zipPath = resolve(process.argv[2] ?? DEFAULT_ZIP);
+  const outputPath = resolve(
+    process.argv[3] ??
+      resolve(repositoryRoot, "src/data/tasks/launch-workspace-seed.json"),
+  );
+  const serialized = `${JSON.stringify(buildSeed(zipPath), null, 2)}\n`;
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, serialized, "utf8");
+}

@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import {
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -51,6 +57,14 @@ const EXPECTED_HEADERS = [
 
 const UUID_V5_PATTERN =
   /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+const GENERATOR = fileURLToPath(
+  new URL("../../../scripts/build-launch-seed.mjs", import.meta.url),
+);
+
+const DATA_SOURCE_FIXTURE = fileURLToPath(
+  new URL("../../data/tasks/fixtures/tarefas_dados.min.js", import.meta.url),
+);
 
 function cloneLaunchSeed() {
   return structuredClone(launchWorkspaceSeed);
@@ -309,6 +323,52 @@ test("documents all 28 source headers and retains them in sourceMeta", () => {
   }
 });
 
+test("launch seed source parsing uses no JavaScript execution primitives", () => {
+  const generatorSource = readFileSync(GENERATOR, "utf8");
+
+  assert.doesNotMatch(generatorSource, /node:vm/);
+  assert.doesNotMatch(generatorSource, /runIn(?:New)?Context/);
+  assert.doesNotMatch(generatorSource, /\beval\s*\(/);
+  assert.doesNotMatch(generatorSource, /\bFunction\s*\(/);
+});
+
+test("validates a versioned data-source fixture without the external ZIP", () => {
+  const output = execFileSync(
+    process.execPath,
+    [GENERATOR, "--validate-data-source", DATA_SOURCE_FIXTURE],
+    { encoding: "utf8" },
+  );
+
+  assert.deepEqual(JSON.parse(output), { headers: 2, tasks: 1 });
+});
+
+test("rejects extra JavaScript without executing it", () => {
+  const tempDirectory = mkdtempSync(join(tmpdir(), "edrive-seed-parser-"));
+  const sourcePath = join(tempDirectory, "malicious.js");
+  const markerPath = join(tempDirectory, "payload-executed");
+  const validSource = readFileSync(DATA_SOURCE_FIXTURE, "utf8");
+  const maliciousSource = validSource.replace(
+    "window.EDRIVE_TASKS",
+    `process.getBuiltinModule("node:fs").writeFileSync(${JSON.stringify(markerPath)}, "executed");\nwindow.EDRIVE_TASKS`,
+  );
+  writeFileSync(sourcePath, maliciousSource, "utf8");
+
+  try {
+    assert.throws(
+      () =>
+        execFileSync(
+          process.execPath,
+          [GENERATOR, "--validate-data-source", sourcePath],
+          { encoding: "utf8", stdio: "pipe" },
+        ),
+      /Command failed/,
+    );
+    assert.equal(existsSync(markerPath), false);
+  } finally {
+    rmSync(tempDirectory, { force: true, recursive: true });
+  }
+});
+
 test(
   "generates byte-identical canonical JSON on repeated runs",
   { skip: !existsSync(SOURCE_ZIP) },
@@ -316,13 +376,10 @@ test(
     const tempDirectory = mkdtempSync(join(tmpdir(), "edrive-launch-seed-"));
     const firstOutput = join(tempDirectory, "first.json");
     const secondOutput = join(tempDirectory, "second.json");
-    const generator = fileURLToPath(
-      new URL("../../../scripts/build-launch-seed.mjs", import.meta.url),
-    );
 
     try {
-      execFileSync(process.execPath, [generator, SOURCE_ZIP, firstOutput]);
-      execFileSync(process.execPath, [generator, SOURCE_ZIP, secondOutput]);
+      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, firstOutput]);
+      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, secondOutput]);
 
       const first = readFileSync(firstOutput);
       const second = readFileSync(secondOutput);

@@ -223,6 +223,27 @@ function normalizePositions<T extends { position: number }>(items: T[]): void {
     });
 }
 
+function insertAtPosition<T extends { position: number }>(
+  items: T[],
+  item: T,
+  requestedPosition: number,
+): void {
+  if (!Number.isInteger(requestedPosition) || requestedPosition < 0) {
+    throw new WorkspaceStoreError(
+      "validation",
+      "Position must be a non-negative integer",
+    );
+  }
+  const ordered = items
+    .filter((candidate) => candidate !== item)
+    .sort((left, right) => left.position - right.position);
+  ordered.splice(Math.min(requestedPosition, ordered.length), 0, item);
+  ordered.forEach((candidate, index) => {
+    candidate.position = index;
+  });
+  items.splice(0, items.length, ...ordered);
+}
+
 export class WorkspaceStore {
   private snapshot: WorkspaceEnvelope;
   private readonly storage?: KeyValueStorage;
@@ -423,8 +444,7 @@ export class WorkspaceStore {
         ...clone(input),
         position: input.position ?? draft.spaces.length,
       };
-      draft.spaces.push(space);
-      normalizePositions(draft.spaces);
+      insertAtPosition(draft.spaces, space, space.position);
       return space;
     });
   }
@@ -443,7 +463,11 @@ export class WorkspaceStore {
         `Space ${spaceId}`,
       );
       Object.assign(space, clone(patch));
-      normalizePositions(draft.spaces);
+      if (patch.position === undefined) {
+        normalizePositions(draft.spaces);
+      } else {
+        insertAtPosition(draft.spaces, space, patch.position);
+      }
       return space;
     });
   }

@@ -203,6 +203,29 @@ test("updates a space name and emoji without changing its ID", () => {
   assert.equal(updated.emoji, "⚡");
 });
 
+test("updateSpace inserts the last space at index zero and normalizes positions", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const before = store.getSnapshot().spaces.sort((left, right) => left.position - right.position);
+  const moved = before.at(-1);
+  assert.ok(moved);
+
+  store.updateSpace(moved.id, { position: 0 });
+
+  const after = store.getSnapshot().spaces.sort((left, right) => left.position - right.position);
+  assert.equal(after[0].id, moved.id);
+  assert.deepEqual(after.map(({ position }) => position), [0, 1, 2, 3, 4]);
+});
+
+test("createSpace inserts at index one and normalizes positions", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+
+  const created = store.createSpace({ name: "Inserted", emoji: "🧭", position: 1 });
+
+  const spaces = store.getSnapshot().spaces.sort((left, right) => left.position - right.position);
+  assert.equal(spaces[1].id, created.id);
+  assert.deepEqual(spaces.map(({ position }) => position), [0, 1, 2, 3, 4, 5]);
+});
+
 test("updates a list and moves it between valid spaces while tasks retain listId", () => {
   const store = new WorkspaceStore({ storage: new MemoryStorage() });
   const list = store.getSnapshot().lists[0];

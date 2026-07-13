@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, BookOpenText, CheckCircle2, Clock3, FileText, Megaphone, Target } from "lucide-react";
-import { dashboardPriorities, kpis, marketCards, movementBeliefs, sourceNotes, visualAssets } from "@/lib/brand-data";
+import { dashboardHero, dashboardPriorities, kpis, marketCards, movementBeliefs, sourceNotes, visualAssets } from "@/lib/brand-data";
 import { documents } from "@/lib/documents";
 
 function Badge({ children, tone = "green" }: { children: React.ReactNode; tone?: "green" | "amber" | "blue" | "purple" }) {
@@ -34,7 +34,14 @@ export default function DashboardPage() {
           </div>
         </section>
         <section className="panel overflow-hidden">
-          <Image src="/images/edrive-go-dashboard.svg" width={1200} height={760} alt="Painel visual eDrive Go" className="h-full min-h-[320px] w-full object-cover" priority />
+          <Image
+            src={dashboardHero.src}
+            width={dashboardHero.width}
+            height={dashboardHero.height}
+            alt={dashboardHero.alt}
+            className="h-full min-h-[320px] w-full object-cover"
+            priority
+          />
         </section>
       </header>
 
@@ -123,12 +130,21 @@ export default function DashboardPage() {
         <div className="panel overflow-hidden">
           <div className="border-b border-[var(--border)] p-5">
             <p className="kicker">Galeria visual</p>
-            <h2 className="mt-2 text-xl font-black">Imagens criadas para substituir a ausência do Instagram</h2>
+            <h2 className="mt-2 text-xl font-black">Eletroposto, lançamento e entrega eDrive Go</h2>
           </div>
           <div className="grid gap-4 p-5 md:grid-cols-3">
             {visualAssets.map((asset) => (
               <article key={asset.title} className="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--muted)]">
-                <Image src={asset.src} width={1200} height={760} alt={asset.title} className="aspect-[4/3] w-full object-cover" />
+                <div className="aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={asset.src}
+                    width={asset.width}
+                    height={asset.height}
+                    alt={asset.alt}
+                    className={`h-full w-full object-cover ${asset.imageClassName}`}
+                    style={{ objectPosition: asset.objectPosition }}
+                  />
+                </div>
                 <div className="p-4"><p className="font-black">{asset.title}</p><p className="muted mt-2 text-xs leading-relaxed">{asset.caption}</p></div>
               </article>
             ))}

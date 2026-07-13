@@ -73,8 +73,15 @@ export const dashboardPriorities = [
   { score: "02", title: "Transformar a Maldicao da Gasolina em eixo narrativo", project: "Movimento", status: "Publicado", priority: "Alta" },
   { score: "03", title: "Publicar documentos completos por pagina navegavel", project: "Acervo", status: "Publicado", priority: "Alta" },
   { score: "04", title: "Organizar ICPs, TAM/SAM/SOM e voz do motorista", project: "Inteligencia", status: "Publicado", priority: "Media" },
-  { score: "05", title: "Criar galeria visual pronta para imagens reais do Instagram", project: "Visual", status: "Aguardando fonte", priority: "Media" },
+  { score: "05", title: "Publicar galeria oficial do eletroposto e do lançamento", project: "Visual", status: "Publicado", priority: "Media" },
 ];
+
+export const dashboardHero = {
+  src: "/images/edrive-go-official/entrega-chave-edrive-go.webp",
+  alt: "Entrega oficial de um veiculo eletrico eDrive Go",
+  width: 1672,
+  height: 941,
+};
 
 export const brandSections = [
   {
@@ -187,9 +194,36 @@ export const palette = [
 ];
 
 export const visualAssets = [
-  { title: "Hub de recarga", src: "/images/edrive-go-hub.svg", caption: "Visual gerado para representar hub eDrive Go Energy. Substituir por foto oficial/Instagram quando liberada." },
-  { title: "Motorista Livre", src: "/images/edrive-gor.svg", caption: "Imagem editorial gerada para o conceito de motorista da nova geracao." },
-  { title: "Painel do ecossistema", src: "/images/edrive-go-dashboard.svg", caption: "Composicao visual para dashboard e cards institucionais." },
+  {
+    title: "Eletroposto eDrive Go Energy",
+    src: "/images/edrive-go-official/eletroposto-edrive-energy.webp",
+    alt: "Eletroposto eDrive Go Energy com cobertura solar e veículos em recarga",
+    caption: "Imagem real do eletroposto eDrive Go Energy, com estrutura solar, vagas de recarga e operação em funcionamento.",
+    width: 1846,
+    height: 948,
+    imageClassName: "scale-[1.08]",
+    objectPosition: "center 48%",
+  },
+  {
+    title: "Fachada do lançamento",
+    src: "/images/edrive-go-official/fachada-lancamento-edrive-go.webp",
+    alt: "Projeto da fachada preta da recepção do lançamento eDrive Go",
+    caption: "Planejamento oficial da recepção eDrive Go com enxoval preto, sinalização e atendimento do evento.",
+    width: 1122,
+    height: 1402,
+    imageClassName: "",
+    objectPosition: "center 40%",
+  },
+  {
+    title: "Entrega oficial de veículos",
+    src: "/images/edrive-go-official/entrega-chave-edrive-go.webp",
+    alt: "Entrega de chave de um veículo elétrico no lançamento eDrive Go",
+    caption: "Vista frontal da experiência de entrega de chaves, com frota elétrica, equipe e identidade visual do lançamento.",
+    width: 1672,
+    height: 941,
+    imageClassName: "",
+    objectPosition: "center",
+  },
 ];
 
 export const recommendedPhrases = [
@@ -237,7 +271,7 @@ export const marketCards = [
 ];
 
 export const sourceNotes = [
-  { title: "Instagram eDrive Go / Energy", text: "A consulta direta ao Instagram foi bloqueada no ambiente de automacao. A galeria foi preparada com imagens geradas e os assets oficiais locais; fotos reais podem ser adicionadas depois em public/images." },
+  { title: "Acervo oficial eDrive Go", text: "A galeria usa o registro real do eletroposto e os planejamentos visuais aprovados para a fachada e a entrega de veículos do lançamento." },
   { title: "Painel Triade", text: "A URL publica redireciona para login. A estrutura foi analisada pelo codigo clonado: sidebar fixa, topbar, cards densos, brandbook, diretorio e documentos individuais." },
   { title: "Dr. Pitagoras", text: "A area de movimento e documentos publicos serviu de referencia para pagina de manifesto e documento individual em /app/marca/documentos/[id]." },
 ];

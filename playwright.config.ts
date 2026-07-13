@@ -4,6 +4,7 @@ const localBaseURL = "http://127.0.0.1:3000";
 const remoteBaseURL = process.env.PLAYWRIGHT_BASE_URL;
 
 export default defineConfig({
+  testDir: "./e2e",
   use: {
     baseURL: remoteBaseURL ?? localBaseURL,
     trace: "retain-on-failure",

@@ -6,7 +6,7 @@ import {
 } from "./workspace-store";
 
 function neutralizeFormula(value: string): string {
-  return /^[=+\-@]/.test(value) ? `'${value}` : value;
+  return /^\s*[=+\-@]/.test(value) ? `'${value}` : value;
 }
 
 function csvCell(value: unknown): string {

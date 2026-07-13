@@ -86,6 +86,7 @@ export const workspaceEnvelopeSchema = z
         id: uuid,
         spaceId: uuid,
         name: z.string().min(1),
+        color: z.string().regex(/^#[0-9a-f]{6}$/i).optional(),
         position: z.number().int().nonnegative(),
       }),
     ),

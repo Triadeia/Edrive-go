@@ -430,12 +430,20 @@ export class WorkspaceStore {
   }
 
   renameSpace(spaceId: string, name: string): WorkspaceSpace {
-    return this.mutate("rename space", (draft) => {
+    return this.updateSpace(spaceId, { name });
+  }
+
+  updateSpace(
+    spaceId: string,
+    patch: Partial<Omit<WorkspaceSpace, "id">>,
+  ): WorkspaceSpace {
+    return this.mutate("update space", (draft) => {
       const space = requireEntity(
         draft.spaces.find(({ id }) => id === spaceId),
         `Space ${spaceId}`,
       );
-      space.name = name;
+      Object.assign(space, clone(patch));
+      normalizePositions(draft.spaces);
       return space;
     });
   }
@@ -523,12 +531,42 @@ export class WorkspaceStore {
   }
 
   renameList(listId: string, name: string): WorkspaceList {
-    return this.mutate("rename list", (draft) => {
+    return this.updateList(listId, { name });
+  }
+
+  updateList(
+    listId: string,
+    patch: Partial<Omit<WorkspaceList, "id">>,
+  ): WorkspaceList {
+    return this.mutate("update list", (draft) => {
       const list = requireEntity(
         draft.lists.find(({ id }) => id === listId),
         `List ${listId}`,
       );
-      list.name = name;
+      const previousSpaceId = list.spaceId;
+      const targetSpaceId = patch.spaceId ?? previousSpaceId;
+      requireEntity(
+        draft.spaces.find(({ id }) => id === targetSpaceId),
+        `Space ${targetSpaceId}`,
+      );
+
+      const previousSiblings = draft.lists.filter(
+        (candidate) => candidate.spaceId === previousSpaceId && candidate.id !== list.id,
+      );
+      normalizePositions(previousSiblings);
+      const targetSiblings = draft.lists
+        .filter((candidate) => candidate.spaceId === targetSpaceId && candidate.id !== list.id)
+        .sort((left, right) => left.position - right.position);
+      const requestedPosition = patch.position ?? (
+        targetSpaceId === previousSpaceId ? list.position : targetSiblings.length
+      );
+      const position = Math.max(0, Math.min(requestedPosition, targetSiblings.length));
+
+      Object.assign(list, clone(patch), { spaceId: targetSpaceId });
+      targetSiblings.splice(position, 0, list);
+      targetSiblings.forEach((candidate, index) => {
+        candidate.position = index;
+      });
       return list;
     });
   }

@@ -112,6 +112,23 @@ test("moves a task to an exact list/status position", () => {
   assert.deepEqual(orderedIds, [second.id, first.id]);
 });
 
+test("moves a task between lists without changing its identity", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const task = store.createTask(taskInput(store, "T900"));
+  const destinationList = store.getSnapshot().lists[1];
+
+  const moved = store.moveTask(task.id, {
+    listId: destinationList.id,
+    status: "in_review",
+    position: 0,
+  });
+
+  assert.equal(moved.id, task.id);
+  assert.equal(moved.listId, destinationList.id);
+  assert.equal(moved.position, 0);
+  assert.equal(moved.status, "in_review");
+});
+
 test("renaming a member preserves stable task assignee IDs", () => {
   const store = new WorkspaceStore({ storage: new MemoryStorage() });
   const member = store.createMember({ name: "Ana", role: "PM", color: "#112233" });
@@ -173,6 +190,131 @@ test("reorders spaces and lists by stable IDs", () => {
       .map(({ id }) => id),
     listIds,
   );
+});
+
+test("updates a space name and emoji without changing its ID", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const space = store.getSnapshot().spaces[0];
+
+  const updated = store.updateSpace(space.id, { name: "Operations", emoji: "⚡" });
+
+  assert.equal(updated.id, space.id);
+  assert.equal(updated.name, "Operations");
+  assert.equal(updated.emoji, "⚡");
+});
+
+test("updates a list and moves it between valid spaces while tasks retain listId", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const list = store.getSnapshot().lists[0];
+  const destinationSpace = store.getSnapshot().spaces.find(({ id }) => id !== list.spaceId);
+  assert.ok(destinationSpace);
+  const task = store.createTask(taskInput(store, "T900", { listId: list.id }));
+
+  const updated = store.updateList(list.id, {
+    name: "Execution",
+    color: "#123abc",
+    spaceId: destinationSpace.id,
+  });
+
+  assert.equal(updated.id, list.id);
+  assert.equal(updated.name, "Execution");
+  assert.equal(Reflect.get(updated, "color"), "#123abc");
+  assert.equal(updated.spaceId, destinationSpace.id);
+  assert.equal(store.getSnapshot().tasks.find(({ id }) => id === task.id)?.listId, list.id);
+});
+
+test("rejects moving a list to an unknown space without writing", () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({ storage });
+  const list = store.getSnapshot().lists[0];
+  const before = store.getSnapshot();
+
+  assert.throws(
+    () => store.updateList(list.id, { spaceId: crypto.randomUUID() }),
+    WorkspaceStoreError,
+  );
+  assert.equal(storage.writes, 0);
+  assert.deepEqual(store.getSnapshot(), before);
+});
+
+test("deleting a populated space migrates tasks and positions atomically", () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({ storage });
+  const destinationList = store.getSnapshot().lists[0];
+  const space = store.createSpace({ name: "Temporary", emoji: "🧪" });
+  const list = store.createList({ spaceId: space.id, name: "Temporary list" });
+  const first = store.createTask(taskInput(store, "T900", { listId: list.id }));
+  const second = store.createTask(taskInput(store, "T901", { listId: list.id }));
+  const writesBefore = storage.writes;
+
+  store.deleteSpace(space.id, { destinationListId: destinationList.id });
+
+  const snapshot = store.getSnapshot();
+  const migrated = snapshot.tasks
+    .filter(({ id }) => id === first.id || id === second.id)
+    .sort((left, right) => left.position - right.position);
+  assert.equal(storage.writes, writesBefore + 1);
+  assert.equal(snapshot.spaces.some(({ id }) => id === space.id), false);
+  assert.equal(snapshot.lists.some(({ id }) => id === list.id), false);
+  assert.deepEqual(migrated.map(({ listId }) => listId), [destinationList.id, destinationList.id]);
+  assert.deepEqual(migrated.map(({ position }) => position), [0, 1]);
+});
+
+test("unsafe space deletion rolls back the complete snapshot", () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({ storage });
+  const space = store.createSpace({ name: "Temporary", emoji: "🧪" });
+  const list = store.createList({ spaceId: space.id, name: "Temporary list" });
+  store.createTask(taskInput(store, "T900", { listId: list.id }));
+  const rawBefore = storage.getItem(WORKSPACE_STORAGE_KEY);
+  const snapshotBefore = store.getSnapshot();
+  const writesBefore = storage.writes;
+
+  assert.throws(
+    () => store.deleteSpace(space.id, { destinationListId: list.id }),
+    WorkspaceStoreError,
+  );
+  assert.equal(storage.writes, writesBefore);
+  assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), rawBefore);
+  assert.deepEqual(store.getSnapshot(), snapshotBefore);
+});
+
+test("protects the last space without writing", () => {
+  const storage = new MemoryStorage();
+  const initial = new WorkspaceStore({ storage }).getSnapshot();
+  initial.spaces = initial.spaces.slice(0, 1);
+  initial.lists = initial.lists.filter(({ spaceId }) => spaceId === initial.spaces[0].id).slice(0, 1);
+  storage.setItem(WORKSPACE_STORAGE_KEY, JSON.stringify(initial));
+  const store = new WorkspaceStore({ storage });
+  const writesBefore = storage.writes;
+
+  assert.throws(
+    () => store.deleteSpace(initial.spaces[0].id, { destinationListId: initial.lists[0].id }),
+    WorkspaceStoreError,
+  );
+  assert.equal(storage.writes, writesBefore);
+});
+
+test("created entities use UUID v4 and persist under the versioned envelope key", () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({ storage });
+  const member = store.createMember({ name: "Ana", role: "PM", color: "#112233" });
+  const space = store.createSpace({ name: "Temporary", emoji: "🧪" });
+  const list = store.createList({ spaceId: space.id, name: "Temporary list" });
+  const task = store.createTask(
+    taskInput(store, "T900", { checklist: [{ title: "Proof", completed: false }] }),
+  );
+  const v4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+  assert.equal(WORKSPACE_STORAGE_KEY, "edrive-go:task-workspace:v1");
+  for (const id of [member.id, space.id, list.id, task.id, task.checklist[0].id]) {
+    assert.match(id, v4);
+  }
+  const stored = storage.getItem(WORKSPACE_STORAGE_KEY);
+  assert.ok(stored);
+  const envelope = JSON.parse(stored);
+  assert.equal(envelope.version, 1);
+  assert.equal(envelope.tasks.some(({ id }: { id: string }) => id === task.id), true);
 });
 
 test("rejects deleting the last list or deleting without a destination", () => {
@@ -286,4 +428,92 @@ test("exports versioned JSON and safe CSV with all 28 original headers", () => {
   assert.match(csv, /'@formula/);
   assert.equal(JSON.parse(json).version, 1);
   assert.equal(JSON.parse(json).tasks[0].title, "=SUM(1,2)\n\"danger\"");
+});
+
+test("CSV current task fields overwrite all corresponding source metadata", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const member = store.createMember({ name: "Current assignee", role: "PM", color: "#112233" });
+  const sourceMeta = Object.fromEntries(
+    LAUNCH_SOURCE_HEADER_MAP.map(({ header }) => [header, "STALE"]),
+  );
+  sourceMeta.Responsavel_Funcao = "Current role metadata";
+  sourceMeta.Tipo_Custo = "Current cost metadata";
+  store.createTask(
+    taskInput(store, "T900", {
+      title: "Current title",
+      subarea: "Current subarea",
+      phase: "Current phase",
+      assigneeId: member.id,
+      backupAssignee: "Current backup",
+      priority: "urgent",
+      status: "done",
+      startAt: "2026-07-13T12:34:00-03:00",
+      dueAt: "2026-07-14T18:45:00-03:00",
+      tags: ["Current center"],
+      vendor: "Current vendor",
+      cost: 42.5,
+      blockers: "Current blockers",
+      approval: "Current approval",
+      evidence: "Current evidence",
+      definitionOfDone: "Current DoD",
+      risk: "Current risk",
+      nextAction: "Current action",
+      notes: "Current notes",
+      source: "Current source",
+      sourceUrl: "https://current.example",
+      sourceMeta,
+    }),
+  );
+
+  const [headerLine, rowLine] = exportWorkspaceCsv(store.getSnapshot()).split("\n");
+  const headers = headerLine.split(",");
+  const values = rowLine.split(",");
+  const row = Object.fromEntries(headers.map((header, index) => [header, values[index]]));
+
+  assert.equal(headers.length, 28);
+  assert.deepEqual(row, {
+    ID: "T900",
+    Frente: store.getSnapshot().lists[0].name,
+    Subfrente: "Current subarea",
+    Fase: "Current phase",
+    Descricao_da_Tarefa: "Current title",
+    Responsavel_Funcao: "Current role metadata",
+    Responsavel_Nominal_Sugerido: "Current assignee",
+    Responsavel_Substituto: "Current backup",
+    Prioridade: "urgent",
+    Status: "done",
+    Data_Inicio: "2026-07-13",
+    Hora_Inicio: "12:34",
+    Prazo: "2026-07-14",
+    Hora_Limite: "18:45",
+    Dependencias: "",
+    Bloqueadores: "Current blockers",
+    Aprovacao_Necessaria: "Current approval",
+    Fornecedor: "Current vendor",
+    Custo_Previsto: "42.5",
+    Tipo_Custo: "Current cost metadata",
+    Centro_Custo: "Current center",
+    Evidencia_Exigida: "Current evidence",
+    Definicao_de_Concluido: "Current DoD",
+    Risco_Associado: "Current risk",
+    Proxima_Acao: "Current action",
+    Observacoes: "Current notes",
+    Fonte_da_Informacao: "Current source",
+    Link_Comprovante: "https://current.example",
+  });
+});
+
+test("CSV neutralizes formula injection after leading whitespace", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  store.createTask(
+    taskInput(store, "T900", {
+      title: " \t=SUM(1,2)",
+      notes: "\n@danger",
+    }),
+  );
+
+  const csv = exportWorkspaceCsv(store.getSnapshot());
+
+  assert.match(csv, /"' \t=SUM\(1,2\)"/);
+  assert.match(csv, /"'\n@danger"/);
 });

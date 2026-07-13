@@ -4,9 +4,16 @@ import { workspaceEnvelopeSchema } from "./workspace-schema";
 import { launchWorkspaceSeed } from "./workspace-seed";
 
 export const WORKSPACE_STORAGE_KEY = "edrive-go:task-workspace:v1";
+export const WORKSPACE_MUTATION_LOCK_KEY = `${WORKSPACE_STORAGE_KEY}:mutation-lock`;
+export const WORKSPACE_MUTATION_INTENT_PREFIX = `${WORKSPACE_STORAGE_KEY}:mutation-intent:`;
+
+const MUTATION_LEASE_MS = 2_000;
+const MUTATION_SETTLE_MS = 2;
 
 export interface KeyValueStorage {
+  readonly length?: number;
   getItem(key: string): string | null;
+  key?(index: number): string | null;
   setItem(key: string, value: string): void;
   removeItem(key: string): void;
 }
@@ -283,11 +290,35 @@ function canonicalMutationResult<T>(
   return result;
 }
 
+interface MutationLease {
+  owner: string;
+  announcedAt: number;
+  expiresAt: number;
+}
+
+function parseMutationLease(raw: string | null): MutationLease | undefined {
+  if (raw === null) return undefined;
+  try {
+    const value = JSON.parse(raw) as Partial<MutationLease>;
+    if (
+      typeof value.owner !== "string" ||
+      typeof value.announcedAt !== "number" ||
+      typeof value.expiresAt !== "number"
+    ) {
+      return undefined;
+    }
+    return value as MutationLease;
+  } catch {
+    return undefined;
+  }
+}
+
 export class WorkspaceStore {
   private snapshot: WorkspaceEnvelope;
   private readonly storage?: KeyValueStorage;
   private readonly idFactory: () => string;
   private readonly now: () => Date | string;
+  private readonly storeId = globalThis.crypto.randomUUID();
   private storageBaseline: string | null;
 
   constructor(options: WorkspaceStoreOptions = {}) {
@@ -307,6 +338,7 @@ export class WorkspaceStore {
   }
 
   refresh(): WorkspaceEnvelope {
+    if (!this.storage) return this.getSnapshot();
     const stored = this.readStoredValue();
     const snapshot = stored === null
       ? validateWorkspaceEnvelope(initialWorkspace())
@@ -627,13 +659,9 @@ export class WorkspaceStore {
       const requestedPosition = patch.position ?? (
         targetSpaceId === previousSpaceId ? list.position : targetSiblings.length
       );
-      const position = Math.max(0, Math.min(requestedPosition, targetSiblings.length));
 
       Object.assign(list, clone(patch), { spaceId: targetSpaceId });
-      targetSiblings.splice(position, 0, list);
-      targetSiblings.forEach((candidate, index) => {
-        candidate.position = index;
-      });
+      insertAtPosition(targetSiblings, list, requestedPosition);
       return list;
     });
   }
@@ -731,24 +759,31 @@ export class WorkspaceStore {
     const canonicalResult = canonicalMutationResult(validated, draft, result);
 
     if (this.storage) {
-      const stored = this.readStoredValue();
-      if (stored !== this.storageBaseline) {
-        throw new WorkspaceStoreError(
-          "conflict",
-          "Task workspace changed in another store; refresh before retrying",
-        );
-      }
-      const serialized = JSON.stringify(validated);
+      const releaseLease = this.acquireMutationLease();
       try {
-        this.storage.setItem(WORKSPACE_STORAGE_KEY, serialized);
-      } catch (error) {
-        throw new WorkspaceStoreError(
-          "storage_write",
-          `Unable to persist task workspace: ${errorMessage(error)}`,
-          { cause: error },
-        );
+        const stored = this.readStoredValue();
+        if (stored !== this.storageBaseline) {
+          throw new WorkspaceStoreError(
+            "conflict",
+            "Task workspace changed in another store; refresh before retrying",
+          );
+        }
+        this.assertMutationLeaseOwnership();
+        const serialized = JSON.stringify(validated);
+        try {
+          this.storage.setItem(WORKSPACE_STORAGE_KEY, serialized);
+        } catch (error) {
+          throw new WorkspaceStoreError(
+            "storage_write",
+            `Unable to persist task workspace: ${errorMessage(error)}`,
+            { cause: error },
+          );
+        }
+        this.assertMutationLeaseOwnership();
+        this.storageBaseline = serialized;
+      } finally {
+        releaseLease();
       }
-      this.storageBaseline = serialized;
     }
     this.snapshot = validated;
     return clone(canonicalResult);
@@ -757,6 +792,126 @@ export class WorkspaceStore {
   private timestamp(): string {
     const value = this.now();
     return (value instanceof Date ? value : new Date(value)).toISOString();
+  }
+
+  private acquireMutationLease(): () => void {
+    const storage = this.storage;
+    if (!storage) return () => undefined;
+
+    const announcedAt = Date.now();
+    const intentKey = `${WORKSPACE_MUTATION_INTENT_PREFIX}${this.storeId}`;
+    const lease: MutationLease = {
+      owner: this.storeId,
+      announcedAt,
+      expiresAt: announcedAt + MUTATION_LEASE_MS,
+    };
+    const cleanupIntent = () => {
+      try {
+        storage.removeItem(intentKey);
+      } catch {
+        // A stale intent expires and can be removed by the next writer.
+      }
+    };
+    const cleanupLock = () => {
+      try {
+        const activeLock = parseMutationLease(storage.getItem(WORKSPACE_MUTATION_LOCK_KEY));
+        if (activeLock?.owner === this.storeId) {
+          storage.removeItem(WORKSPACE_MUTATION_LOCK_KEY);
+        }
+      } catch {
+        // A stale lock expires and can be removed by the next writer.
+      }
+    };
+
+    try {
+      storage.setItem(intentKey, JSON.stringify(lease));
+      this.settleMutationIntents();
+      const winner = this.firstActiveMutationIntent(Date.now());
+      if (winner && winner.owner !== this.storeId) {
+        throw new WorkspaceStoreError(
+          "conflict",
+          "Another task workspace mutation owns the current intent window",
+        );
+      }
+
+      const activeLock = parseMutationLease(storage.getItem(WORKSPACE_MUTATION_LOCK_KEY));
+      if (
+        activeLock &&
+        activeLock.owner !== this.storeId &&
+        activeLock.expiresAt > Date.now()
+      ) {
+        throw new WorkspaceStoreError(
+          "conflict",
+          "Another task workspace mutation holds the active lease",
+        );
+      }
+      storage.setItem(WORKSPACE_MUTATION_LOCK_KEY, JSON.stringify(lease));
+      this.assertMutationLeaseOwnership();
+    } catch (error) {
+      cleanupLock();
+      cleanupIntent();
+      if (error instanceof WorkspaceStoreError) throw error;
+      throw new WorkspaceStoreError(
+        "storage_write",
+        `Unable to coordinate task workspace mutation: ${errorMessage(error)}`,
+        { cause: error },
+      );
+    }
+
+    return () => {
+      cleanupLock();
+      cleanupIntent();
+    };
+  }
+
+  private settleMutationIntents(): void {
+    if (!this.storage?.key || typeof this.storage.length !== "number") return;
+    const deadline = Date.now() + MUTATION_SETTLE_MS;
+    while (Date.now() < deadline) {
+      // The bounded settle window lets concurrent tabs announce their intents.
+    }
+  }
+
+  private firstActiveMutationIntent(now: number): MutationLease | undefined {
+    const storage = this.storage;
+    if (!storage?.key || typeof storage.length !== "number") return undefined;
+
+    const intents: Array<MutationLease & { order: number }> = [];
+    const expiredKeys: string[] = [];
+    for (let index = 0; index < storage.length; index += 1) {
+      const key = storage.key(index);
+      if (!key?.startsWith(WORKSPACE_MUTATION_INTENT_PREFIX)) continue;
+      const intent = parseMutationLease(storage.getItem(key));
+      if (!intent || intent.expiresAt <= now) {
+        expiredKeys.push(key);
+        continue;
+      }
+      intents.push({ ...intent, order: index });
+    }
+    for (const key of expiredKeys) storage.removeItem(key);
+    return intents.sort(
+      (left, right) =>
+        left.announcedAt - right.announcedAt ||
+        left.order - right.order ||
+        left.owner.localeCompare(right.owner),
+    )[0];
+  }
+
+  private assertMutationLeaseOwnership(): void {
+    const winningIntent = this.firstActiveMutationIntent(Date.now());
+    const activeLock = parseMutationLease(
+      this.storage?.getItem(WORKSPACE_MUTATION_LOCK_KEY) ?? null,
+    );
+    if (
+      (winningIntent && winningIntent.owner !== this.storeId) ||
+      activeLock?.owner !== this.storeId ||
+      activeLock.expiresAt <= Date.now()
+    ) {
+      throw new WorkspaceStoreError(
+        "conflict",
+        "Task workspace mutation lease ownership was lost",
+      );
+    }
   }
 
   private nextExternalId(workspace: WorkspaceEnvelope): string {

@@ -15,13 +15,21 @@ class MemoryStorage implements KeyValueStorage {
   writes = 0;
   failNextWrite = false;
 
+  get length() {
+    return this.values.size;
+  }
+
+  key(index: number) {
+    return [...this.values.keys()][index] ?? null;
+  }
+
   getItem(key: string) {
     return this.values.get(key) ?? null;
   }
 
   setItem(key: string, value: string) {
-    this.writes += 1;
-    if (this.failNextWrite) {
+    if (key === WORKSPACE_STORAGE_KEY) this.writes += 1;
+    if (key === WORKSPACE_STORAGE_KEY && this.failNextWrite) {
       this.failNextWrite = false;
       throw new DOMException("Quota exceeded", "QuotaExceededError");
     }
@@ -321,6 +329,22 @@ test("rejects moving a list to an unknown space without writing", () => {
   assert.deepEqual(store.getSnapshot(), before);
 });
 
+test("updateList rejects invalid positions without writing", () => {
+  for (const position of [Number.NaN, -1, 1.5]) {
+    const storage = new MemoryStorage();
+    const store = new WorkspaceStore({ storage });
+    const list = store.getSnapshot().lists[0];
+    const before = store.getSnapshot();
+
+    assert.throws(
+      () => store.updateList(list.id, { position }),
+      WorkspaceStoreError,
+    );
+    assert.equal(storage.writes, 0);
+    assert.deepEqual(store.getSnapshot(), before);
+  }
+});
+
 test("deleting a populated space migrates tasks and positions atomically", () => {
   const storage = new MemoryStorage();
   const store = new WorkspaceStore({ storage });
@@ -483,6 +507,56 @@ test("rejects a stale store write and refreshes safely before retrying", () => {
   const members = staleStore.getSnapshot().members;
   assert.equal(members.some(({ id }) => id === firstMember.id), true);
   assert.equal(members.some(({ id }) => id === secondMember.id), true);
+});
+
+test("an active earlier mutation intent prevents a second writer from overwriting", () => {
+  const storage = new MemoryStorage();
+  const firstStore = new WorkspaceStore({ storage });
+  const secondStore = new WorkspaceStore({ storage });
+  firstStore.createMember({
+    name: "Persisted first writer",
+    role: "PM",
+    color: "#112233",
+  });
+  secondStore.refresh();
+  const rawAfterFirstWrite = storage.getItem(WORKSPACE_STORAGE_KEY);
+  const writesAfterFirstWrite = storage.writes;
+  const intentKey = `${WORKSPACE_STORAGE_KEY}:mutation-intent:first-tab`;
+  storage.setItem(
+    intentKey,
+    JSON.stringify({
+      owner: "first-tab",
+      announcedAt: Date.now() - 1,
+      expiresAt: Date.now() + 60_000,
+    }),
+  );
+
+  assert.throws(
+    () =>
+      secondStore.createMember({
+        name: "Blocked second writer",
+        role: "PM",
+        color: "#445566",
+      }),
+    (error: unknown) => error instanceof WorkspaceStoreError && error.code === "conflict",
+  );
+  assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), rawAfterFirstWrite);
+  assert.equal(storage.writes, writesAfterFirstWrite);
+  assert.ok(storage.getItem(intentKey), "the winning owner's intent is untouched");
+});
+
+test("refresh without storage preserves in-memory mutations", () => {
+  const store = new WorkspaceStore({ storage: null });
+  const member = store.createMember({
+    name: "Memory only",
+    role: "PM",
+    color: "#112233",
+  });
+
+  const refreshed = store.refresh();
+
+  assert.equal(refreshed.members.some(({ id }) => id === member.id), true);
+  assert.equal(store.getSnapshot().members.some(({ id }) => id === member.id), true);
 });
 
 test("mutation returns the canonical Zod-stripped entity", () => {

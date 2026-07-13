@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   WORKSPACE_STORAGE_KEY,
+  WORKSPACE_BROWSER_LOCK_NAME,
   WorkspaceStore,
   WorkspaceStoreError,
   type CreateTaskInput,
@@ -14,6 +15,7 @@ import {
   type WorkspaceList,
   type WorkspaceMember,
   type WorkspaceSpace,
+  getBrowserWorkspaceLockManager,
 } from "@/lib/tasks/workspace-store";
 
 function friendlyError(error: unknown): string {
@@ -43,6 +45,8 @@ export function useTaskWorkspace() {
       setWorkspace(store.getSnapshot());
       setError(null);
     } catch (loadError) {
+      storeRef.current = null;
+      setWorkspace(null);
       setError(friendlyError(loadError));
     }
   }, []);
@@ -76,6 +80,20 @@ export function useTaskWorkspace() {
     error,
     clearError: () => setError(null),
     reload: loadStore,
+    recoverCorruptedWorkspace: async () => {
+      try {
+        const removeCorruptedData = () => window.localStorage.removeItem(WORKSPACE_STORAGE_KEY);
+        const lockManager = getBrowserWorkspaceLockManager();
+        if (lockManager) {
+          await lockManager.request(WORKSPACE_BROWSER_LOCK_NAME, removeCorruptedData);
+        } else {
+          removeCorruptedData();
+        }
+        loadStore();
+      } catch (recoveryError) {
+        setError(friendlyError(recoveryError));
+      }
+    },
     importLaunchSeed: () => run((store) => store.importLaunchSeed()),
     resetBrowserWorkspace: () => run((store) => store.resetWorkspace()),
     createTask: (input: CreateTaskInput) => run((store) => store.createTask(input)),

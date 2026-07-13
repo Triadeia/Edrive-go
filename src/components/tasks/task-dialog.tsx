@@ -1,9 +1,11 @@
 "use client";
 
 import { Plus, Trash2, X } from "lucide-react";
-import { cloneElement, useEffect, useMemo, useState, type ReactElement } from "react";
+import { cloneElement, useMemo, useRef, useState, type ReactElement } from "react";
 
 import { priorityLabels, statusLabels } from "./task-views";
+import { AccessibleDialog } from "./accessible-dialog";
+import { bahiaWallClock, isoFromBahiaWallClock } from "@/lib/tasks/workspace-dates";
 import type { CreateTaskInput, UpdateTaskInput, WorkspaceEnvelope, WorkspaceTask } from "@/lib/tasks/workspace-store";
 
 type TaskDraft = CreateTaskInput;
@@ -24,14 +26,11 @@ function blankToNull(value: string): string | null {
 }
 
 function localDateTime(iso: string | null): string {
-  if (!iso) return "";
-  const date = new Date(iso);
-  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60_000);
-  return local.toISOString().slice(0, 16);
+  return iso ? bahiaWallClock(iso) : "";
 }
 
 function toIso(value: string): string | null {
-  return value ? new Date(value).toISOString() : null;
+  return value ? isoFromBahiaWallClock(value) : null;
 }
 
 function makeDraft(workspace: WorkspaceEnvelope, task?: WorkspaceTask | null, initialDate?: string): TaskDraft {
@@ -39,7 +38,7 @@ function makeDraft(workspace: WorkspaceEnvelope, task?: WorkspaceTask | null, in
     const { id: _id, createdAt: _createdAt, updatedAt: _updatedAt, ...input } = task;
     return structuredClone(input);
   }
-  const dueAt = initialDate ? new Date(`${initialDate}T18:00:00`).toISOString() : null;
+  const dueAt = initialDate ? isoFromBahiaWallClock(`${initialDate}T18:00`) : null;
   return {
     title: "",
     description: "",
@@ -75,11 +74,12 @@ export function TaskDialog({ workspace, task, initialDate, onClose, onSave }: {
   task: WorkspaceTask | null;
   initialDate?: string;
   onClose: () => void;
-  onSave: (input: CreateTaskInput | UpdateTaskInput) => void;
+  onSave: (input: CreateTaskInput | UpdateTaskInput) => Promise<void>;
 }) {
   const [draft, setDraft] = useState<TaskDraft>(() => makeDraft(workspace, task, initialDate));
+  const pendingRef = useRef(false);
+  const [pending, setPending] = useState(false);
   const [newChecklist, setNewChecklist] = useState("");
-  useEffect(() => setDraft(makeDraft(workspace, task, initialDate)), [workspace, task, initialDate]);
   const dependencyOptions = useMemo(() => workspace.tasks.filter((candidate) => candidate.id !== task?.id && !draft.dependencies.some((dependency) => dependency.taskId === candidate.id)), [draft.dependencies, task?.id, workspace.tasks]);
 
   const patch = <K extends keyof TaskDraft>(key: K, value: TaskDraft[K]) => setDraft((current) => ({ ...current, [key]: value }));
@@ -94,12 +94,11 @@ export function TaskDialog({ workspace, task, initialDate, onClose, onSave }: {
   };
 
   return (
-    <div className="modal-backdrop" role="presentation">
-      <section className="modal-card max-w-5xl" role="dialog" aria-modal="true" aria-labelledby="task-dialog-title">
+    <AccessibleDialog className="max-w-5xl" labelledBy="task-dialog-title" onClose={onClose}>
         <header className="modal-header"><div><p className="kicker">{task ? `Editar ${task.externalId}` : "Nova tarefa"}</p><h2 id="task-dialog-title" className="mt-1 text-2xl font-black">Dados operacionais</h2></div><button type="button" className="icon-button" aria-label="Fechar formulário de tarefa" onClick={onClose}><X className="size-5" /></button></header>
-        <form className="max-h-[76vh] overflow-y-auto p-5" onSubmit={(event) => { event.preventDefault(); if (draft.title.trim()) onSave({ ...draft, title: draft.title.trim() }); }}>
+        <form className="max-h-[76vh] overflow-y-auto p-5" onSubmit={async (event) => { event.preventDefault(); if (!draft.title.trim() || pendingRef.current) return; pendingRef.current = true; setPending(true); try { await onSave({ ...draft, title: draft.title.trim() }); } finally { pendingRef.current = false; setPending(false); } }}>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <Field label="Título" className="md:col-span-2 lg:col-span-3"><input required value={draft.title} onChange={(event) => patch("title", event.target.value)} /></Field>
+            <Field label="Título" className="md:col-span-2 lg:col-span-3"><input data-dialog-autofocus required value={draft.title} onChange={(event) => patch("title", event.target.value)} /></Field>
             <Field label="Descrição" className="md:col-span-2 lg:col-span-3"><textarea rows={3} value={draft.description} onChange={(event) => patch("description", event.target.value)} /></Field>
             <Field label="Status"><select value={draft.status} onChange={(event) => patch("status", event.target.value as TaskDraft["status"])}>{Object.entries(statusLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></Field>
             <Field label="Prioridade"><select value={draft.priority} onChange={(event) => patch("priority", event.target.value as TaskDraft["priority"])}>{Object.entries(priorityLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></Field>
@@ -136,10 +135,9 @@ export function TaskDialog({ workspace, task, initialDate, onClose, onSave }: {
             <label className="mt-3 block text-xs font-black">Adicionar dependência<select className="form-control mt-1" value="" onChange={(event) => addDependency(event.target.value)}><option value="">Selecionar tarefa</option>{dependencyOptions.map((candidate) => <option key={candidate.id} value={candidate.id}>{candidate.externalId} — {candidate.title}</option>)}</select></label>
           </section>
 
-          <footer className="mt-6 flex justify-end gap-2 border-t border-[var(--border)] pt-4"><button type="button" className="secondary-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button">Salvar tarefa</button></footer>
+          <footer className="mt-6 flex justify-end gap-2 border-t border-[var(--border)] pt-4"><button type="button" className="secondary-button" disabled={pending} onClick={onClose}>Cancelar</button><button type="submit" className="primary-button" disabled={pending}>{pending ? "Salvando…" : "Salvar tarefa"}</button></footer>
         </form>
-      </section>
-    </div>
+    </AccessibleDialog>
   );
 }
 

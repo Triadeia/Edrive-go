@@ -2,13 +2,12 @@ import { TasksWorkspace } from "@/components/tasks-workspace";
 
 export default function TasksPage() {
   return (
-    <article className="space-y-6">
-      <section className="panel overflow-hidden p-6 sm:p-8">
-        <p className="kicker">Execucao conectada</p>
-        <h1 className="page-title mt-4 max-w-4xl">Tarefas do painel eDrive Go.</h1>
-        <p className="muted mt-5 max-w-3xl text-base leading-8">
-          Planeje, priorize e acompanhe o trabalho do modulo 01 com backend via API, interface local responsiva,
-          kanban, calendario, filtros e comando rapido.
+    <article className="space-y-4">
+      <section className="panel overflow-hidden p-5 sm:p-6">
+        <p className="kicker">Operação e lançamento</p>
+        <h1 className="mt-2 text-3xl font-black sm:text-4xl">Gestor de tarefas eDrive Go</h1>
+        <p className="muted mt-3 max-w-3xl text-sm leading-6">
+          Organize responsáveis, spaces, listas e o checklist do lançamento em um workspace persistente no navegador atual.
         </p>
       </section>
       <TasksWorkspace />

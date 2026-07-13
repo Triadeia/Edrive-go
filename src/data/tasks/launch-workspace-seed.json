@@ -1,8 +1,9 @@
 {
   "version": 1,
   "workspace": {
-    "id": "workspace-edrive-go-launch-2026-07-18",
+    "id": "d0e64888-aecd-5f07-9e28-544f3782942d",
     "name": "eDrive Go — Lançamento 18/07/2026",
+    "eventName": "Lançamento eDrive Go",
     "eventDate": "2026-07-18",
     "timezone": "America/Bahia",
     "currency": "BRL",
@@ -14,37 +15,37 @@
   },
   "members": [
     {
-      "id": "member-will-trindade",
+      "id": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "name": "Will Trindade",
       "role": "Diretor da Operação",
       "color": "#7c3aed"
     },
     {
-      "id": "member-eduard",
+      "id": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "name": "Eduard",
       "role": "Jurídico",
       "color": "#2563eb"
     },
     {
-      "id": "member-luci",
+      "id": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "name": "Luci",
       "role": "Social · Conteúdo · CRM",
       "color": "#db2777"
     },
     {
-      "id": "member-vinicius",
+      "id": "b61430e6-8445-5fce-8ace-6c29d04a8a90",
       "name": "Vinicius",
       "role": "Audiovisual · Marketing",
       "color": "#0d9488"
     },
     {
-      "id": "member-ian",
+      "id": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "name": "Ian",
       "role": "Audiovisual · Edição",
       "color": "#d97706"
     },
     {
-      "id": "member-nilton-macario",
+      "id": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "name": "Nilton Macario",
       "role": "Growth · Vendas",
       "color": "#65a30d"
@@ -52,31 +53,31 @@
   ],
   "spaces": [
     {
-      "id": "space-comando",
+      "id": "b8d24d95-b74d-5092-b40e-8dcd013025a8",
       "name": "Comando & Gestão",
       "emoji": "🎯",
       "position": 0
     },
     {
-      "id": "space-local",
+      "id": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Local & Operação",
       "emoji": "📍",
       "position": 1
     },
     {
-      "id": "space-veiculos",
+      "id": "5a528180-149b-5e2e-a278-6929a4bf9c5c",
       "name": "Veículos & Entrega",
       "emoji": "🚗",
       "position": 2
     },
     {
-      "id": "space-comercial",
+      "id": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Marketing & Vendas",
       "emoji": "📣",
       "position": 3
     },
     {
-      "id": "space-conteudo",
+      "id": "6cda00b4-dbb5-5466-9633-ed47c9d0f39a",
       "name": "Conteúdo & Pós",
       "emoji": "🎬",
       "position": 4
@@ -84,129 +85,129 @@
   ],
   "lists": [
     {
-      "id": "list-pmo",
-      "spaceId": "space-comando",
+      "id": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
+      "spaceId": "b8d24d95-b74d-5092-b40e-8dcd013025a8",
       "name": "PMO",
       "position": 0
     },
     {
-      "id": "list-juridico",
-      "spaceId": "space-comando",
+      "id": "f16091c1-a4aa-51bf-93c3-9af6e470cb2e",
+      "spaceId": "b8d24d95-b74d-5092-b40e-8dcd013025a8",
       "name": "Juridico",
       "position": 1
     },
     {
-      "id": "list-orcamento",
-      "spaceId": "space-comando",
+      "id": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
+      "spaceId": "b8d24d95-b74d-5092-b40e-8dcd013025a8",
       "name": "Orcamento",
       "position": 2
     },
     {
-      "id": "list-local",
-      "spaceId": "space-local",
+      "id": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Local",
       "position": 0
     },
     {
-      "id": "list-operacao",
-      "spaceId": "space-local",
+      "id": "4f7d8d26-afe6-5d40-adce-8bb37cb1c41e",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Operacao",
       "position": 1
     },
     {
-      "id": "list-seguranca",
-      "spaceId": "space-local",
+      "id": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Seguranca",
       "position": 2
     },
     {
-      "id": "list-equipe",
-      "spaceId": "space-local",
+      "id": "93b5a27a-1170-57cb-998e-cad3900eb79e",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Equipe",
       "position": 3
     },
     {
-      "id": "list-buffet",
-      "spaceId": "space-local",
+      "id": "ee105eb7-231a-5645-816a-15f6fb05cdd9",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Buffet",
       "position": 4
     },
     {
-      "id": "list-grafica",
-      "spaceId": "space-local",
+      "id": "d84fe23f-782a-5045-86b3-9a34ad92f59d",
+      "spaceId": "c2ae68c5-4686-56d2-a6a2-19b38da920b1",
       "name": "Grafica",
       "position": 5
     },
     {
-      "id": "list-veiculos",
-      "spaceId": "space-veiculos",
+      "id": "e0e16101-72ad-5903-b49d-952cba602fc0",
+      "spaceId": "5a528180-149b-5e2e-a278-6929a4bf9c5c",
       "name": "Veiculos",
       "position": 0
     },
     {
-      "id": "list-motoristas",
-      "spaceId": "space-veiculos",
+      "id": "87f809f5-38b6-54fb-b6da-666ff6565954",
+      "spaceId": "5a528180-149b-5e2e-a278-6929a4bf9c5c",
       "name": "Motoristas",
       "position": 1
     },
     {
-      "id": "list-dday",
-      "spaceId": "space-veiculos",
+      "id": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
+      "spaceId": "5a528180-149b-5e2e-a278-6929a4bf9c5c",
       "name": "DDay",
       "position": 2
     },
     {
-      "id": "list-marketing",
-      "spaceId": "space-comercial",
+      "id": "0423b536-895a-5b17-b61c-43ded676f444",
+      "spaceId": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Marketing",
       "position": 0
     },
     {
-      "id": "list-vendas",
-      "spaceId": "space-comercial",
+      "id": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
+      "spaceId": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Vendas",
       "position": 1
     },
     {
-      "id": "list-convidados",
-      "spaceId": "space-comercial",
+      "id": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
+      "spaceId": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Convidados",
       "position": 2
     },
     {
-      "id": "list-imprensa",
-      "spaceId": "space-comercial",
+      "id": "2855b73b-0d95-5390-8b48-f377b72420ba",
+      "spaceId": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Imprensa",
       "position": 3
     },
     {
-      "id": "list-cerimonial",
-      "spaceId": "space-comercial",
+      "id": "d3221b94-352b-502f-9170-bccde85d5d86",
+      "spaceId": "a2ddd663-db18-575f-96d5-badca7e1f862",
       "name": "Cerimonial",
       "position": 4
     },
     {
-      "id": "list-audiovisual",
-      "spaceId": "space-conteudo",
+      "id": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
+      "spaceId": "6cda00b4-dbb5-5466-9633-ed47c9d0f39a",
       "name": "Audiovisual",
       "position": 0
     },
     {
-      "id": "list-podcast",
-      "spaceId": "space-conteudo",
+      "id": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
+      "spaceId": "6cda00b4-dbb5-5466-9633-ed47c9d0f39a",
       "name": "Podcast",
       "position": 1
     },
     {
-      "id": "list-posevento",
-      "spaceId": "space-conteudo",
+      "id": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
+      "spaceId": "6cda00b4-dbb5-5466-9633-ed47c9d0f39a",
       "name": "PosEvento",
       "position": 2
     }
   ],
   "tasks": [
     {
-      "id": "task-t001",
+      "id": "c317b44a-926c-5419-82d2-550940673ce5",
       "externalId": "T001",
       "title": "Formar sala de comando e nomear Diretor do Evento e Diretor de Operacoes",
       "description": "",
@@ -214,7 +215,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Governanca",
       "phase": "D-6",
       "startAt": "2026-07-12T09:00:00-03:00",
@@ -270,15 +271,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t002",
+      "id": "4aee8128-378a-5efe-9a76-21a7263e8835",
       "externalId": "T002",
       "title": "Abrir canal unico de comunicacao da operacao",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Governanca",
       "phase": "D-6",
       "startAt": "2026-07-12T10:00:00-03:00",
@@ -300,7 +301,7 @@
       "dependencies": [
         {
           "externalId": "T001",
-          "taskId": "task-t001"
+          "taskId": "c317b44a-926c-5419-82d2-550940673ce5"
         }
       ],
       "checklist": [],
@@ -339,7 +340,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t003",
+      "id": "b9b93ab9-6c64-5b41-84ad-517afa8d343f",
       "externalId": "T003",
       "title": "Confirmar data definitiva do evento como 18/07/2026 com todas as frentes",
       "description": "",
@@ -347,7 +348,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Governanca",
       "phase": "D-6",
       "startAt": "2026-07-12T10:00:00-03:00",
@@ -403,15 +404,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t004",
+      "id": "ab87e2eb-e45e-5777-93eb-b0e6d82ec651",
       "externalId": "T004",
       "title": "Abrir registro de riscos e definir criterios de NO-GO",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Riscos",
       "phase": "D-6",
       "startAt": "2026-07-12T14:00:00-03:00",
@@ -467,15 +468,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t005",
+      "id": "067770d4-67cf-58f3-9c64-fa8746470cce",
       "externalId": "T005",
       "title": "Listar bloqueadores P0 e atribuir responsavel a cada um",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Governanca",
       "phase": "D-6",
       "startAt": "2026-07-12T15:00:00-03:00",
@@ -497,7 +498,7 @@
       "dependencies": [
         {
           "externalId": "T001",
-          "taskId": "task-t001"
+          "taskId": "c317b44a-926c-5419-82d2-550940673ce5"
         }
       ],
       "checklist": [],
@@ -536,7 +537,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t006",
+      "id": "3ed113ce-6e1c-5bf1-853d-ada153e8bfda",
       "externalId": "T006",
       "title": "Organizar base unica de convidados, motoristas, fornecedores e imprensa",
       "description": "",
@@ -544,7 +545,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Governanca",
       "phase": "D-6",
       "startAt": "2026-07-12T16:00:00-03:00",
@@ -600,7 +601,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t007",
+      "id": "3c810d94-cd84-593b-8f10-fbd19e44120b",
       "externalId": "T007",
       "title": "Definir formato de lancamento do podcast (trailer + 3 episodios)",
       "description": "",
@@ -608,7 +609,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Podcast",
       "phase": "D-6",
       "startAt": "2026-07-12T16:00:00-03:00",
@@ -664,7 +665,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t008",
+      "id": "7844b63d-0679-58c4-a651-e33de5a7ad2d",
       "externalId": "T008",
       "title": "Definir quem sera o mestre de cerimonias",
       "description": "",
@@ -672,7 +673,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Cerimonial",
       "phase": "D-6",
       "startAt": "2026-07-12T17:00:00-03:00",
@@ -728,15 +729,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t009",
+      "id": "758d51df-aa4c-587c-a235-229567e686c8",
       "externalId": "T009",
       "title": "Separar documentos e minutas para analise juridica",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Juridico",
       "phase": "D-6",
       "startAt": "2026-07-12T18:00:00-03:00",
@@ -792,7 +793,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t010",
+      "id": "1f722f8d-754c-5be0-b9e2-c53a0fb313cc",
       "externalId": "T010",
       "title": "Realizar reuniao de abertura da sala de comando",
       "description": "",
@@ -800,7 +801,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Reunioes",
       "phase": "D-6",
       "startAt": "2026-07-12T19:00:00-03:00",
@@ -822,7 +823,7 @@
       "dependencies": [
         {
           "externalId": "T001",
-          "taskId": "task-t001"
+          "taskId": "c317b44a-926c-5419-82d2-550940673ce5"
         }
       ],
       "checklist": [],
@@ -861,15 +862,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t011",
+      "id": "7c27fa69-ee8f-56bf-889f-4dd11596397e",
       "externalId": "T011",
       "title": "Enviar e-mail a Gilson (Outlet Premium Salvador) solicitando a liberacao formal por escrito, ja que a liberacao verbal foi confirmada",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Local",
       "phase": "D-5",
       "startAt": "2026-07-12T18:30:00-03:00",
@@ -925,15 +926,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t012",
+      "id": "38edf493-2809-5006-b358-508fcb38a30d",
       "externalId": "T012",
       "title": "Confirmar horarios de acesso da producao (05h30-06h30) dentro do mesmo e-mail de liberacao com Gilson",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Local",
       "phase": "D-5",
       "startAt": "2026-07-13T09:30:00-03:00",
@@ -955,7 +956,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -994,7 +995,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t013",
+      "id": "5cd01206-2f73-5a4e-adb5-df03b5604ec4",
       "externalId": "T013",
       "title": "Confirmar por escrito escopo, horarios e equipe do buffet Suyle Festas",
       "description": "",
@@ -1002,7 +1003,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Buffet",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1058,7 +1059,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t014",
+      "id": "9ad187e4-3ca5-5239-85f0-929b6f44b78d",
       "externalId": "T014",
       "title": "Aprovar formalmente proposta On Print 1001/07 e fixar data de instalacao",
       "description": "",
@@ -1066,7 +1067,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Grafica",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1122,15 +1123,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t015",
+      "id": "8f16deec-c539-52d5-88fe-cdfe3462514e",
       "externalId": "T015",
       "title": "Decidir Cenario A ou B de promotores (DEC-PROMOTORES-001)",
       "description": "",
       "status": "done",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Promotores",
       "phase": "D-5",
       "startAt": "2026-07-12T18:00:00-03:00",
@@ -1152,7 +1153,7 @@
       "dependencies": [
         {
           "externalId": "T013",
-          "taskId": "task-t013"
+          "taskId": "5cd01206-2f73-5a4e-adb5-df03b5604ec4"
         }
       ],
       "checklist": [],
@@ -1191,7 +1192,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t016",
+      "id": "3595e95d-bb19-58ca-a53b-a53c3af7959d",
       "externalId": "T016",
       "title": "Levantar orcamento complementar para lacunas de impressao (chave gigante, placas, credenciais)",
       "description": "",
@@ -1199,7 +1200,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Compras",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -1221,7 +1222,7 @@
       "dependencies": [
         {
           "externalId": "T014",
-          "taskId": "task-t014"
+          "taskId": "9ad187e4-3ca5-5239-85f0-929b6f44b78d"
         }
       ],
       "checklist": [],
@@ -1260,15 +1261,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t017",
+      "id": "04062b59-c99e-5fc2-9f4c-12981f644f94",
       "externalId": "T017",
       "title": "Contratar fornecedor de audiovisual, som e podcast",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Audiovisual",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1324,7 +1325,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t018",
+      "id": "cfa7c479-11f5-5052-a76b-1586a96fbc9d",
       "externalId": "T018",
       "title": "Comprar camisetas pretas basicas e solicitar grade de tamanhos",
       "description": "",
@@ -1332,7 +1333,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Uniformes",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1388,7 +1389,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t019",
+      "id": "de877af4-e981-5dab-9f04-9bdf4d761f8a",
       "externalId": "T019",
       "title": "Separar camisas sociais pretas e enviar para bordado",
       "description": "",
@@ -1396,7 +1397,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Uniformes",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -1418,7 +1419,7 @@
       "dependencies": [
         {
           "externalId": "T018",
-          "taskId": "task-t018"
+          "taskId": "cfa7c479-11f5-5052-a76b-1586a96fbc9d"
         }
       ],
       "checklist": [],
@@ -1457,7 +1458,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t020",
+      "id": "d0416331-1162-5a21-a486-74664e6b9be6",
       "externalId": "T020",
       "title": "Disparar convites institucionais e iniciar contatos com BYD, prefeituras e autoridades",
       "description": "",
@@ -1465,7 +1466,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Convites",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1521,15 +1522,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t021",
+      "id": "6b1f9d45-6b52-52f7-be88-fb811060f910",
       "externalId": "T021",
       "title": "Abrir campanha de pre-cadastro de motoristas",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Campanha",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -1585,7 +1586,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t022",
+      "id": "05bb8603-4b65-589d-ba12-46918f7cbe1f",
       "externalId": "T022",
       "title": "Preparar lista documental exigida dos motoristas",
       "description": "",
@@ -1593,7 +1594,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-motoristas",
+      "listId": "87f809f5-38b6-54fb-b6da-666ff6565954",
       "subarea": "Documentacao",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -1615,7 +1616,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -1654,7 +1655,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t023",
+      "id": "1f22bd23-c538-588f-9853-2b702e630802",
       "externalId": "T023",
       "title": "Validar e aprovar provas graficas",
       "description": "",
@@ -1662,7 +1663,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Artes",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -1684,7 +1685,7 @@
       "dependencies": [
         {
           "externalId": "T014",
-          "taskId": "task-t014"
+          "taskId": "9ad187e4-3ca5-5239-85f0-929b6f44b78d"
         }
       ],
       "checklist": [],
@@ -1723,7 +1724,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t024",
+      "id": "2bb0b839-51a2-5485-b574-4fa6e5d439f0",
       "externalId": "T024",
       "title": "Confirmar producao da chave gigante",
       "description": "",
@@ -1731,7 +1732,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Chave gigante",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -1753,7 +1754,7 @@
       "dependencies": [
         {
           "externalId": "T016",
-          "taskId": "task-t016"
+          "taskId": "3595e95d-bb19-58ca-a53b-a53c3af7959d"
         }
       ],
       "checklist": [],
@@ -1792,15 +1793,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t025",
+      "id": "bbed7854-481c-539e-a8b3-78379d041177",
       "externalId": "T025",
       "title": "Confirmar e gerar todos os QR Codes com UTM",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "QR Code",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -1822,7 +1823,7 @@
       "dependencies": [
         {
           "externalId": "T021",
-          "taskId": "task-t021"
+          "taskId": "6b1f9d45-6b52-52f7-be88-fb811060f910"
         }
       ],
       "checklist": [],
@@ -1861,15 +1862,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t026",
+      "id": "520f67c3-d589-5900-b803-ccaf9aff2ad4",
       "externalId": "T026",
       "title": "Validar landing page e testar links/UTMs",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Landing page",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -1891,7 +1892,7 @@
       "dependencies": [
         {
           "externalId": "T021",
-          "taskId": "task-t021"
+          "taskId": "6b1f9d45-6b52-52f7-be88-fb811060f910"
         }
       ],
       "checklist": [],
@@ -1930,15 +1931,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t027",
+      "id": "28b50df6-e160-5d4c-84f0-1ee3b63708f1",
       "externalId": "T027",
       "title": "Confirmar contratos e termos finais aprovados pelo juridico",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-motoristas",
+      "listId": "87f809f5-38b6-54fb-b6da-666ff6565954",
       "subarea": "Juridico",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -1960,7 +1961,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -1999,7 +2000,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t028",
+      "id": "2c2a61fa-2234-5947-b313-2cc153f96f55",
       "externalId": "T028",
       "title": "Fazer pre-checagem documental dos 30 motoristas",
       "description": "",
@@ -2007,7 +2008,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-motoristas",
+      "listId": "87f809f5-38b6-54fb-b6da-666ff6565954",
       "subarea": "Documentacao",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -2029,7 +2030,7 @@
       "dependencies": [
         {
           "externalId": "T022",
-          "taskId": "task-t022"
+          "taskId": "05bb8603-4b65-589d-ba12-46918f7cbe1f"
         }
       ],
       "checklist": [],
@@ -2068,7 +2069,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t029",
+      "id": "aa9111a8-4bcb-5727-b62f-9a3941dd3f96",
       "externalId": "T029",
       "title": "Confirmar 3 convidados principais do podcast e substitutos",
       "description": "",
@@ -2076,7 +2077,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Convidados",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -2098,7 +2099,7 @@
       "dependencies": [
         {
           "externalId": "T007",
-          "taskId": "task-t007"
+          "taskId": "3c810d94-cd84-593b-8f10-fbd19e44120b"
         }
       ],
       "checklist": [],
@@ -2137,7 +2138,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t030",
+      "id": "94d66fd1-3221-55e8-a00d-17bbd39ca807",
       "externalId": "T030",
       "title": "Fechar roteiro do mestre de cerimonias",
       "description": "",
@@ -2145,7 +2146,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Roteiro",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -2167,7 +2168,7 @@
       "dependencies": [
         {
           "externalId": "T008",
-          "taskId": "task-t008"
+          "taskId": "7844b63d-0679-58c4-a651-e33de5a7ad2d"
         }
       ],
       "checklist": [],
@@ -2206,15 +2207,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t031",
+      "id": "3c7f0dbe-6dc2-5d27-aae5-19faf9f7a14e",
       "externalId": "T031",
       "title": "Fechar roteiro de vendas e treinar equipe de atendimento",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-vendas",
+      "listId": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
       "subarea": "Treinamento",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -2236,7 +2237,7 @@
       "dependencies": [
         {
           "externalId": "T015",
-          "taskId": "task-t015"
+          "taskId": "8f16deec-c539-52d5-88fe-cdfe3462514e"
         }
       ],
       "checklist": [],
@@ -2275,15 +2276,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t032",
+      "id": "54ffb2c5-0881-5591-96a5-6b3b0cf6d7bd",
       "externalId": "T032",
       "title": "Realizar visita tecnica ou validacao remota detalhada do Outlet",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Local",
       "phase": "D-4",
       "startAt": "2026-07-14T11:00:00-03:00",
@@ -2305,7 +2306,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -2344,15 +2345,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t033",
+      "id": "3337b9b7-46fa-565c-a847-be3066df5699",
       "externalId": "T033",
       "title": "Definir plano de chuva",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Riscos",
       "phase": "D-4",
       "startAt": "2026-07-14T14:00:00-03:00",
@@ -2374,7 +2375,7 @@
       "dependencies": [
         {
           "externalId": "T032",
-          "taskId": "task-t032"
+          "taskId": "54ffb2c5-0881-5591-96a5-6b3b0cf6d7bd"
         }
       ],
       "checklist": [],
@@ -2413,7 +2414,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t034",
+      "id": "e875cb0e-208b-5c80-8555-2ffa9528b277",
       "externalId": "T034",
       "title": "Fechar lista preliminar de convidados",
       "description": "",
@@ -2421,7 +2422,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Convidados",
       "phase": "D-3",
       "startAt": "2026-07-15T09:00:00-03:00",
@@ -2443,7 +2444,7 @@
       "dependencies": [
         {
           "externalId": "T020",
-          "taskId": "task-t020"
+          "taskId": "d0416331-1162-5a21-a486-74664e6b9be6"
         }
       ],
       "checklist": [],
@@ -2482,7 +2483,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t035",
+      "id": "b8272b24-2d3d-53b5-aa62-83b78b7fd90b",
       "externalId": "T035",
       "title": "Fazer primeira rodada de confirmacoes de presenca",
       "description": "",
@@ -2490,7 +2491,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "RSVP",
       "phase": "D-3",
       "startAt": "2026-07-15T09:00:00-03:00",
@@ -2512,7 +2513,7 @@
       "dependencies": [
         {
           "externalId": "T034",
-          "taskId": "task-t034"
+          "taskId": "e875cb0e-208b-5c80-8555-2ffa9528b277"
         }
       ],
       "checklist": [],
@@ -2551,7 +2552,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t036",
+      "id": "0fadf11f-f258-5e58-85c6-84cc48fbc91a",
       "externalId": "T036",
       "title": "Confirmar presenca de imprensa e agenda de entrevistas",
       "description": "",
@@ -2559,7 +2560,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Confirmacao",
       "phase": "D-3",
       "startAt": "2026-07-15T09:00:00-03:00",
@@ -2615,7 +2616,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t037",
+      "id": "a240d9f4-7432-5d08-a3b3-321cba2319f0",
       "externalId": "T037",
       "title": "Fechar mapa dos 30 veiculos e vincular motorista a veiculo",
       "description": "",
@@ -2623,7 +2624,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Mapeamento",
       "phase": "D-3",
       "startAt": "2026-07-15T09:00:00-03:00",
@@ -2645,7 +2646,7 @@
       "dependencies": [
         {
           "externalId": "T028",
-          "taskId": "task-t028"
+          "taskId": "2c2a61fa-2234-5947-b313-2cc153f96f55"
         }
       ],
       "checklist": [],
@@ -2684,7 +2685,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t038",
+      "id": "0f87f93f-826a-5cef-b636-380590d52aef",
       "externalId": "T038",
       "title": "Criar controle de chaves e envelopes numerados",
       "description": "",
@@ -2692,7 +2693,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Chaves",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -2714,7 +2715,7 @@
       "dependencies": [
         {
           "externalId": "T037",
-          "taskId": "task-t037"
+          "taskId": "a240d9f4-7432-5d08-a3b3-321cba2319f0"
         }
       ],
       "checklist": [],
@@ -2753,15 +2754,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t039",
+      "id": "b27639be-8a58-56cf-bf13-091be684dfc6",
       "externalId": "T039",
       "title": "Definir as 5 ondas de 6 veiculos e uso dos 6 lacos",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Ondas",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -2817,7 +2818,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t040",
+      "id": "39bcaf3a-bb98-5293-bbcf-c2f41cc957c6",
       "externalId": "T040",
       "title": "Confirmar limpeza e carga da frota antes do evento",
       "description": "",
@@ -2825,7 +2826,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Limpeza",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -2847,7 +2848,7 @@
       "dependencies": [
         {
           "externalId": "T037",
-          "taskId": "task-t037"
+          "taskId": "a240d9f4-7432-5d08-a3b3-321cba2319f0"
         }
       ],
       "checklist": [],
@@ -2886,7 +2887,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t041",
+      "id": "aae4ff9b-4ba5-5b25-b2b4-dfc2f2bda83e",
       "externalId": "T041",
       "title": "Produzir trailer/episodio zero do podcast",
       "description": "",
@@ -2894,7 +2895,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Producao",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -2916,7 +2917,7 @@
       "dependencies": [
         {
           "externalId": "T029",
-          "taskId": "task-t029"
+          "taskId": "aa9111a8-4bcb-5727-b62f-9a3941dd3f96"
         }
       ],
       "checklist": [],
@@ -2955,15 +2956,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t042",
+      "id": "64159be7-459f-5190-901c-459e37eb3b97",
       "externalId": "T042",
       "title": "Produzir conteudo de aquecimento pre-evento",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Conteudo",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -3019,7 +3020,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t043",
+      "id": "510f5e3c-a443-5ecc-8304-5e3ddf7ebc92",
       "externalId": "T043",
       "title": "Revisar orcamento consolidado frente a novas cotacoes",
       "description": "",
@@ -3027,7 +3028,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Revisao",
       "phase": "D-3",
       "startAt": "2026-07-15T16:00:00-03:00",
@@ -3049,7 +3050,7 @@
       "dependencies": [
         {
           "externalId": "T016",
-          "taskId": "task-t016"
+          "taskId": "3595e95d-bb19-58ca-a53b-a53c3af7959d"
         }
       ],
       "checklist": [],
@@ -3088,7 +3089,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t044",
+      "id": "c4f1ec02-36ea-54fd-9c2e-d021bb7b7e59",
       "externalId": "T044",
       "title": "Conferir producao da grafica On Print",
       "description": "",
@@ -3096,7 +3097,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Producao",
       "phase": "D-2",
       "startAt": "2026-07-16T09:00:00-03:00",
@@ -3118,7 +3119,7 @@
       "dependencies": [
         {
           "externalId": "T023",
-          "taskId": "task-t023"
+          "taskId": "1f22bd23-c538-588f-9853-2b702e630802"
         }
       ],
       "checklist": [],
@@ -3157,7 +3158,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t045",
+      "id": "245d70c3-ca61-5960-96c1-3541aef705fa",
       "externalId": "T045",
       "title": "Conferir bordados e uniformes",
       "description": "",
@@ -3165,7 +3166,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Uniformes",
       "phase": "D-2",
       "startAt": "2026-07-16T09:00:00-03:00",
@@ -3187,7 +3188,7 @@
       "dependencies": [
         {
           "externalId": "T019",
-          "taskId": "task-t019"
+          "taskId": "de877af4-e981-5dab-9f04-9bdf4d761f8a"
         }
       ],
       "checklist": [],
@@ -3226,7 +3227,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t046",
+      "id": "752b310c-4599-5a3d-8a68-04399874b579",
       "externalId": "T046",
       "title": "Imprimir documentos e montar kits por motorista",
       "description": "",
@@ -3234,7 +3235,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Impressao",
       "phase": "D-2",
       "startAt": "2026-07-16T09:00:00-03:00",
@@ -3256,7 +3257,7 @@
       "dependencies": [
         {
           "externalId": "T027",
-          "taskId": "task-t027"
+          "taskId": "28b50df6-e160-5d4c-84f0-1ee3b63708f1"
         }
       ],
       "checklist": [],
@@ -3295,15 +3296,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t047",
+      "id": "98a60268-001a-5feb-b287-0f3c5e113aec",
       "externalId": "T047",
       "title": "Conferir som, podcast e equipamentos audiovisuais",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Equipamento",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -3325,7 +3326,7 @@
       "dependencies": [
         {
           "externalId": "T017",
-          "taskId": "task-t017"
+          "taskId": "04062b59-c99e-5fc2-9f4c-12981f644f94"
         }
       ],
       "checklist": [],
@@ -3364,15 +3365,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t048",
+      "id": "ddae7b43-1b7c-5031-99ad-8ff41d568ec6",
       "externalId": "T048",
       "title": "Confirmar baterias, cartoes, cabos, SSDs e backups",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Backup",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -3394,7 +3395,7 @@
       "dependencies": [
         {
           "externalId": "T047",
-          "taskId": "task-t047"
+          "taskId": "98a60268-001a-5feb-b287-0f3c5e113aec"
         }
       ],
       "checklist": [],
@@ -3433,15 +3434,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t049",
+      "id": "9ffc9401-0aff-56d9-aca7-afca513cb552",
       "externalId": "T049",
       "title": "Atualizar previsao meteorologica por fonte confiavel",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Clima",
       "phase": "D-2",
       "startAt": "2026-07-16T09:00:00-03:00",
@@ -3497,7 +3498,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t050",
+      "id": "bbf780c0-cf9a-50b4-8254-6b8f1ae700d9",
       "externalId": "T050",
       "title": "Confirmar plano A e plano B do evento",
       "description": "",
@@ -3505,7 +3506,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "GoNoGo",
       "phase": "D-2",
       "startAt": "2026-07-16T17:00:00-03:00",
@@ -3527,7 +3528,7 @@
       "dependencies": [
         {
           "externalId": "T049",
-          "taskId": "task-t049"
+          "taskId": "9ffc9401-0aff-56d9-aca7-afca513cb552"
         }
       ],
       "checklist": [],
@@ -3566,7 +3567,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t051",
+      "id": "7eb5c2a8-798d-57f1-baa8-2917c7782f2d",
       "externalId": "T051",
       "title": "Fazer segunda rodada de RSVP e reforcar campanha",
       "description": "",
@@ -3574,7 +3575,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "RSVP",
       "phase": "D-2",
       "startAt": "2026-07-16T09:00:00-03:00",
@@ -3596,7 +3597,7 @@
       "dependencies": [
         {
           "externalId": "T035",
-          "taskId": "task-t035"
+          "taskId": "b8272b24-2d3d-53b5-aa62-83b78b7fd90b"
         }
       ],
       "checklist": [],
@@ -3635,15 +3636,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t052",
+      "id": "db2406ae-ad16-5d50-b3c2-f60eacaa57f5",
       "externalId": "T052",
       "title": "Confirmar seguranca, limpeza e energia do local",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Seguranca",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -3665,7 +3666,7 @@
       "dependencies": [
         {
           "externalId": "T032",
-          "taskId": "task-t032"
+          "taskId": "54ffb2c5-0881-5591-96a5-6b3b0cf6d7bd"
         }
       ],
       "checklist": [],
@@ -3704,7 +3705,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t053",
+      "id": "f0a1f6ff-ec3b-51bd-b256-21dbbfb58199",
       "externalId": "T053",
       "title": "Congelar alteracoes de escopo que criem risco",
       "description": "",
@@ -3712,7 +3713,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Escopo",
       "phase": "D-2",
       "startAt": "2026-07-16T18:00:00-03:00",
@@ -3768,7 +3769,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t054",
+      "id": "039bf40d-61eb-5bee-a7b4-579a21d2349b",
       "externalId": "T054",
       "title": "Instalar o maximo possivel da comunicacao visual",
       "description": "",
@@ -3776,7 +3777,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Instalacao",
       "phase": "D-1",
       "startAt": "2026-07-17T08:00:00-03:00",
@@ -3798,7 +3799,7 @@
       "dependencies": [
         {
           "externalId": "T044",
-          "taskId": "task-t044"
+          "taskId": "c4f1ec02-36ea-54fd-9c2e-d021bb7b7e59"
         }
       ],
       "checklist": [],
@@ -3837,15 +3838,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t055",
+      "id": "cb58839e-a34f-5aa2-8409-355fc0b6c175",
       "externalId": "T055",
       "title": "Fazer inspecao da instalacao grafica",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Inspecao",
       "phase": "D-1",
       "startAt": "2026-07-17T18:00:00-03:00",
@@ -3867,7 +3868,7 @@
       "dependencies": [
         {
           "externalId": "T054",
-          "taskId": "task-t054"
+          "taskId": "039bf40d-61eb-5bee-a7b4-579a21d2349b"
         }
       ],
       "checklist": [],
@@ -3906,15 +3907,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t056",
+      "id": "dd1516a6-fdb6-5cbc-b701-4c0bcc8b2a1c",
       "externalId": "T056",
       "title": "Testar todos os QR Codes em diferentes aparelhos",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "QR Code",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -3936,7 +3937,7 @@
       "dependencies": [
         {
           "externalId": "T025",
-          "taskId": "task-t025"
+          "taskId": "bbed7854-481c-539e-a8b3-78379d041177"
         }
       ],
       "checklist": [],
@@ -3975,7 +3976,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t057",
+      "id": "937f7203-90cf-58da-80e9-e1aea4176869",
       "externalId": "T057",
       "title": "Lavar, carregar, revisar e fotografar os 30 veiculos",
       "description": "",
@@ -3983,7 +3984,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Preparo",
       "phase": "D-1",
       "startAt": "2026-07-17T08:00:00-03:00",
@@ -4005,7 +4006,7 @@
       "dependencies": [
         {
           "externalId": "T040",
-          "taskId": "task-t040"
+          "taskId": "39bcaf3a-bb98-5293-bbcf-c2f41cc957c6"
         }
       ],
       "checklist": [],
@@ -4044,7 +4045,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t058",
+      "id": "eca2c471-fed1-5f23-a923-5baed6ba0b45",
       "externalId": "T058",
       "title": "Montar envelopes de chaves e separar chave gigante e lacos",
       "description": "",
@@ -4052,7 +4053,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Chaves",
       "phase": "D-1",
       "startAt": "2026-07-17T14:00:00-03:00",
@@ -4074,7 +4075,7 @@
       "dependencies": [
         {
           "externalId": "T038",
-          "taskId": "task-t038"
+          "taskId": "0f87f93f-826a-5cef-b636-380590d52aef"
         }
       ],
       "checklist": [],
@@ -4113,15 +4114,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t059",
+      "id": "b9789174-9c78-5acc-833d-351c38cfcb4f",
       "externalId": "T059",
       "title": "Confirmar chegada de todos os fornecedores",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Fornecedores",
       "phase": "D-1",
       "startAt": "2026-07-17T16:00:00-03:00",
@@ -4177,7 +4178,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t060",
+      "id": "8a7610d7-8ade-529d-8a85-957e2fe12a21",
       "externalId": "T060",
       "title": "Fazer passagem de som e ensaio de cerimonia",
       "description": "",
@@ -4185,7 +4186,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Ensaio",
       "phase": "D-1",
       "startAt": "2026-07-17T17:00:00-03:00",
@@ -4207,7 +4208,7 @@
       "dependencies": [
         {
           "externalId": "T030",
-          "taskId": "task-t030"
+          "taskId": "94d66fd1-3221-55e8-a00d-17bbd39ca807"
         }
       ],
       "checklist": [],
@@ -4246,7 +4247,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t061",
+      "id": "1cd16d03-c951-598a-9195-2b4081304a66",
       "externalId": "T061",
       "title": "Fazer teste tecnico do podcast (ruido, audio, luz)",
       "description": "",
@@ -4254,7 +4255,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Teste",
       "phase": "D-1",
       "startAt": "2026-07-17T17:00:00-03:00",
@@ -4276,7 +4277,7 @@
       "dependencies": [
         {
           "externalId": "T047",
-          "taskId": "task-t047"
+          "taskId": "98a60268-001a-5feb-b287-0f3c5e113aec"
         }
       ],
       "checklist": [],
@@ -4315,15 +4316,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t062",
+      "id": "b4987697-e8be-5cb2-bc40-c266cb7c6715",
       "externalId": "T062",
       "title": "Publicar trailer ou episodio zero do podcast",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Publicacao",
       "phase": "D-1",
       "startAt": "2026-07-17T18:00:00-03:00",
@@ -4345,7 +4346,7 @@
       "dependencies": [
         {
           "externalId": "T041",
-          "taskId": "task-t041"
+          "taskId": "aae4ff9b-4ba5-5b25-b2b4-dfc2f2bda83e"
         }
       ],
       "checklist": [],
@@ -4384,7 +4385,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t063",
+      "id": "ec681f25-2b9a-5417-982d-b5759661cc83",
       "externalId": "T063",
       "title": "Preparar press kit e kits de equipe",
       "description": "",
@@ -4392,7 +4393,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Kit",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -4414,7 +4415,7 @@
       "dependencies": [
         {
           "externalId": "T036",
-          "taskId": "task-t036"
+          "taskId": "0fadf11f-f258-5e58-85c6-84cc48fbc91a"
         }
       ],
       "checklist": [],
@@ -4453,7 +4454,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t064",
+      "id": "0450a683-573a-56ce-b4fa-ecd8da85090a",
       "externalId": "T064",
       "title": "Carregar radios, celulares e powerbanks",
       "description": "",
@@ -4461,7 +4462,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipamentos",
       "phase": "D-1",
       "startAt": "2026-07-17T19:00:00-03:00",
@@ -4517,7 +4518,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t065",
+      "id": "f2b905c5-8e9f-59c7-ba2a-c2f9dc616eea",
       "externalId": "T065",
       "title": "Fazer backup de documentos e arquivos digitais",
       "description": "",
@@ -4525,7 +4526,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Backup",
       "phase": "D-1",
       "startAt": "2026-07-17T20:00:00-03:00",
@@ -4581,7 +4582,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t066",
+      "id": "01b62332-6ec5-5df5-9c0e-f9aba8545c0f",
       "externalId": "T066",
       "title": "Realizar reuniao final de comando e emitir relatorio GO/NO-GO",
       "description": "",
@@ -4589,7 +4590,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "GoNoGo",
       "phase": "D-1",
       "startAt": "2026-07-17T21:00:00-03:00",
@@ -4611,7 +4612,7 @@
       "dependencies": [
         {
           "externalId": "T050",
-          "taskId": "task-t050"
+          "taskId": "bbf780c0-cf9a-50b4-8254-6b8f1ae700d9"
         }
       ],
       "checklist": [],
@@ -4650,15 +4651,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t067",
+      "id": "465f7c43-984b-529a-8d4e-1589ed2be66f",
       "externalId": "T067",
       "title": "Acesso da producao e conferencia com seguranca do Outlet",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Producao",
       "phase": "D-DAY",
       "startAt": "2026-07-18T05:30:00-03:00",
@@ -4680,7 +4681,7 @@
       "dependencies": [
         {
           "externalId": "T066",
-          "taskId": "task-t066"
+          "taskId": "01b62332-6ec5-5df5-9c0e-f9aba8545c0f"
         }
       ],
       "checklist": [],
@@ -4719,7 +4720,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t068",
+      "id": "a4248fec-f3fb-5fd4-8360-f2167eeaf3be",
       "externalId": "T068",
       "title": "Montagem final de estrutura, som, audiovisual e podcast",
       "description": "",
@@ -4727,7 +4728,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Montagem",
       "phase": "D-DAY",
       "startAt": "2026-07-18T06:00:00-03:00",
@@ -4749,7 +4750,7 @@
       "dependencies": [
         {
           "externalId": "T067",
-          "taskId": "task-t067"
+          "taskId": "465f7c43-984b-529a-8d4e-1589ed2be66f"
         }
       ],
       "checklist": [],
@@ -4788,7 +4789,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t069",
+      "id": "d687af48-addd-551f-9fcb-c442673c9769",
       "externalId": "T069",
       "title": "Posicionar os 30 veiculos e aplicar os 6 lacos",
       "description": "",
@@ -4796,7 +4797,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Veiculos",
       "phase": "D-DAY",
       "startAt": "2026-07-18T07:00:00-03:00",
@@ -4818,7 +4819,7 @@
       "dependencies": [
         {
           "externalId": "T057",
-          "taskId": "task-t057"
+          "taskId": "937f7203-90cf-58da-80e9-e1aea4176869"
         }
       ],
       "checklist": [],
@@ -4857,15 +4858,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t070",
+      "id": "27679e57-a20c-5db8-9c23-00be38fea744",
       "externalId": "T070",
       "title": "Teste de som, microfones, QR Codes e internet",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Teste",
       "phase": "D-DAY",
       "startAt": "2026-07-18T07:30:00-03:00",
@@ -4887,7 +4888,7 @@
       "dependencies": [
         {
           "externalId": "T068",
-          "taskId": "task-t068"
+          "taskId": "a4248fec-f3fb-5fd4-8360-f2167eeaf3be"
         }
       ],
       "checklist": [],
@@ -4926,15 +4927,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t071",
+      "id": "a08fbf9d-ef49-55ae-93d8-23148ba63f53",
       "externalId": "T071",
       "title": "Check-in da equipe interna, entrega de crachas e briefing geral",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Equipe",
       "phase": "D-DAY",
       "startAt": "2026-07-18T08:00:00-03:00",
@@ -4956,7 +4957,7 @@
       "dependencies": [
         {
           "externalId": "T067",
-          "taskId": "task-t067"
+          "taskId": "465f7c43-984b-529a-8d4e-1589ed2be66f"
         }
       ],
       "checklist": [],
@@ -4995,7 +4996,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t072",
+      "id": "2e7223ad-5c6f-5696-980f-8add19ddba31",
       "externalId": "T072",
       "title": "Chegada das promotoras e briefing comercial e operacional",
       "description": "",
@@ -5003,7 +5004,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Promotores",
       "phase": "D-DAY",
       "startAt": "2026-07-18T08:30:00-03:00",
@@ -5025,7 +5026,7 @@
       "dependencies": [
         {
           "externalId": "T071",
-          "taskId": "task-t071"
+          "taskId": "a08fbf9d-ef49-55ae-93d8-23148ba63f53"
         }
       ],
       "checklist": [],
@@ -5064,7 +5065,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t073",
+      "id": "4c06ee22-4f76-5b29-a4a0-780f9e2b04e3",
       "externalId": "T073",
       "title": "Inspecao final e todos nos postos antes da abertura",
       "description": "",
@@ -5072,7 +5073,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Abertura",
       "phase": "D-DAY",
       "startAt": "2026-07-18T08:45:00-03:00",
@@ -5094,7 +5095,7 @@
       "dependencies": [
         {
           "externalId": "T071",
-          "taskId": "task-t071"
+          "taskId": "a08fbf9d-ef49-55ae-93d8-23148ba63f53"
         }
       ],
       "checklist": [],
@@ -5133,7 +5134,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t074",
+      "id": "df630e9a-2cf2-5366-8d8b-747ede53734a",
       "externalId": "T074",
       "title": "Iniciar recepcao, check-in de convidados e motoristas",
       "description": "",
@@ -5141,7 +5142,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Recepcao",
       "phase": "D-DAY",
       "startAt": "2026-07-18T09:00:00-03:00",
@@ -5163,7 +5164,7 @@
       "dependencies": [
         {
           "externalId": "T073",
-          "taskId": "task-t073"
+          "taskId": "4c06ee22-4f76-5b29-a4a0-780f9e2b04e3"
         }
       ],
       "checklist": [],
@@ -5202,7 +5203,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t075",
+      "id": "b70b44cb-ef24-55cd-9311-e986debcb818",
       "externalId": "T075",
       "title": "Abertura oficial do mestre de cerimonias",
       "description": "",
@@ -5210,7 +5211,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Cerimonia",
       "phase": "D-DAY",
       "startAt": "2026-07-18T09:35:00-03:00",
@@ -5232,7 +5233,7 @@
       "dependencies": [
         {
           "externalId": "T073",
-          "taskId": "task-t073"
+          "taskId": "4c06ee22-4f76-5b29-a4a0-780f9e2b04e3"
         }
       ],
       "checklist": [],
@@ -5271,7 +5272,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t076",
+      "id": "560508a1-dc4a-5d1b-b204-cf0e78976f36",
       "externalId": "T076",
       "title": "Fala institucional da eDrive GO (max 6 min)",
       "description": "",
@@ -5279,7 +5280,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Cerimonia",
       "phase": "D-DAY",
       "startAt": "2026-07-18T09:42:00-03:00",
@@ -5301,7 +5302,7 @@
       "dependencies": [
         {
           "externalId": "T075",
-          "taskId": "task-t075"
+          "taskId": "b70b44cb-ef24-55cd-9311-e986debcb818"
         }
       ],
       "checklist": [],
@@ -5340,7 +5341,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t077",
+      "id": "1aa9a2eb-6c81-57ac-a608-fc0e8043d8d8",
       "externalId": "T077",
       "title": "Explicar operacao e pre-cadastro, CTA de pre-reserva",
       "description": "",
@@ -5348,7 +5349,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Entrega",
       "phase": "D-DAY",
       "startAt": "2026-07-18T10:00:00-03:00",
@@ -5370,7 +5371,7 @@
       "dependencies": [
         {
           "externalId": "T076",
-          "taskId": "task-t076"
+          "taskId": "560508a1-dc4a-5d1b-b204-cf0e78976f36"
         }
       ],
       "checklist": [],
@@ -5409,7 +5410,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t078",
+      "id": "527e4c22-7d57-52a7-b70f-a526419889c3",
       "externalId": "T078",
       "title": "Entregar veiculos em 5 ondas de 6",
       "description": "",
@@ -5417,7 +5418,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Entrega",
       "phase": "D-DAY",
       "startAt": "2026-07-18T10:10:00-03:00",
@@ -5439,7 +5440,7 @@
       "dependencies": [
         {
           "externalId": "T069",
-          "taskId": "task-t069"
+          "taskId": "d687af48-addd-551f-9fcb-c442673c9769"
         }
       ],
       "checklist": [],
@@ -5478,7 +5479,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t079",
+      "id": "59e52b5b-d082-5424-a6ab-29113a1fbfc2",
       "externalId": "T079",
       "title": "Fotos oficiais, entrevistas e janela principal de imprensa",
       "description": "",
@@ -5486,7 +5487,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Midia",
       "phase": "D-DAY",
       "startAt": "2026-07-18T11:10:00-03:00",
@@ -5508,7 +5509,7 @@
       "dependencies": [
         {
           "externalId": "T078",
-          "taskId": "task-t078"
+          "taskId": "527e4c22-7d57-52a7-b70f-a526419889c3"
         }
       ],
       "checklist": [],
@@ -5547,7 +5548,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t080",
+      "id": "95e7e62f-fd58-5d74-a576-8f30de354dbe",
       "externalId": "T080",
       "title": "Encerrar cerimonia publica e reforcar QR Code",
       "description": "",
@@ -5555,7 +5556,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Encerramento",
       "phase": "D-DAY",
       "startAt": "2026-07-18T11:40:00-03:00",
@@ -5577,7 +5578,7 @@
       "dependencies": [
         {
           "externalId": "T078",
-          "taskId": "task-t078"
+          "taskId": "527e4c22-7d57-52a7-b70f-a526419889c3"
         }
       ],
       "checklist": [],
@@ -5616,7 +5617,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t081",
+      "id": "b86eeb7f-ce5c-52c5-9a28-c2d5c330f2e0",
       "externalId": "T081",
       "title": "Preparar e gravar episodio 1 do podcast",
       "description": "",
@@ -5624,7 +5625,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Podcast",
       "phase": "D-DAY",
       "startAt": "2026-07-18T12:45:00-03:00",
@@ -5646,7 +5647,7 @@
       "dependencies": [
         {
           "externalId": "T061",
-          "taskId": "task-t061"
+          "taskId": "1cd16d03-c951-598a-9195-2b4081304a66"
         }
       ],
       "checklist": [],
@@ -5685,7 +5686,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t082",
+      "id": "1fe289ce-41e6-5ac1-b4a7-b46f94946481",
       "externalId": "T082",
       "title": "Gravar episodio 2 do podcast",
       "description": "",
@@ -5693,7 +5694,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Podcast",
       "phase": "D-DAY",
       "startAt": "2026-07-18T14:00:00-03:00",
@@ -5715,7 +5716,7 @@
       "dependencies": [
         {
           "externalId": "T081",
-          "taskId": "task-t081"
+          "taskId": "b86eeb7f-ce5c-52c5-9a28-c2d5c330f2e0"
         }
       ],
       "checklist": [],
@@ -5754,7 +5755,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t083",
+      "id": "e6897079-a2bb-518c-8901-144153f07cc6",
       "externalId": "T083",
       "title": "Gravar episodio 3 do podcast",
       "description": "",
@@ -5762,7 +5763,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Podcast",
       "phase": "D-DAY",
       "startAt": "2026-07-18T15:00:00-03:00",
@@ -5784,7 +5785,7 @@
       "dependencies": [
         {
           "externalId": "T082",
-          "taskId": "task-t082"
+          "taskId": "1fe289ce-41e6-5ac1-b4a7-b46f94946481"
         }
       ],
       "checklist": [],
@@ -5823,15 +5824,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t084",
+      "id": "f3ae527a-e0eb-54b1-acc1-727b8c38b3b6",
       "externalId": "T084",
       "title": "Captacao hero da frota em luz de fim de tarde",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Audiovisual",
       "phase": "D-DAY",
       "startAt": "2026-07-18T16:15:00-03:00",
@@ -5853,7 +5854,7 @@
       "dependencies": [
         {
           "externalId": "T078",
-          "taskId": "task-t078"
+          "taskId": "527e4c22-7d57-52a7-b70f-a526419889c3"
         }
       ],
       "checklist": [],
@@ -5892,15 +5893,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t085",
+      "id": "d6357ac2-3fae-5788-ab45-52d98e71842b",
       "externalId": "T085",
       "title": "Conferencia final de documentos, chaves e pre-reservas",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Encerramento",
       "phase": "D-DAY",
       "startAt": "2026-07-18T17:00:00-03:00",
@@ -5922,7 +5923,7 @@
       "dependencies": [
         {
           "externalId": "T078",
-          "taskId": "task-t078"
+          "taskId": "527e4c22-7d57-52a7-b70f-a526419889c3"
         }
       ],
       "checklist": [],
@@ -5961,7 +5962,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t086",
+      "id": "dc310ed9-a40b-5f77-bae0-02baf735f799",
       "externalId": "T086",
       "title": "Iniciar desmontagem controlada e devolver area limpa",
       "description": "",
@@ -5969,7 +5970,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Desmontagem",
       "phase": "D-DAY",
       "startAt": "2026-07-18T17:45:00-03:00",
@@ -5991,7 +5992,7 @@
       "dependencies": [
         {
           "externalId": "T085",
-          "taskId": "task-t085"
+          "taskId": "d6357ac2-3fae-5788-ab45-52d98e71842b"
         }
       ],
       "checklist": [],
@@ -6030,7 +6031,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t087",
+      "id": "e04d26c4-3749-50a9-8bbe-16b1cbe99852",
       "externalId": "T087",
       "title": "Emitir ata preliminar do evento",
       "description": "",
@@ -6038,7 +6039,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-dday",
+      "listId": "0fa2fa98-1eb6-5369-9ed2-f7e2619a1e97",
       "subarea": "Ata",
       "phase": "D-DAY",
       "startAt": "2026-07-18T18:00:00-03:00",
@@ -6060,7 +6061,7 @@
       "dependencies": [
         {
           "externalId": "T086",
-          "taskId": "task-t086"
+          "taskId": "dc310ed9-a40b-5f77-bae0-02baf735f799"
         }
       ],
       "checklist": [],
@@ -6099,7 +6100,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t088",
+      "id": "2bbef4e9-bbcc-50fe-806f-19baa42d62ff",
       "externalId": "T088",
       "title": "Receber os proximos 30 veiculos na segunda-feira",
       "description": "",
@@ -6107,7 +6108,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Recebimento",
       "phase": "D+1",
       "startAt": "2026-07-20T08:00:00-03:00",
@@ -6163,15 +6164,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t089",
+      "id": "3cb55750-6b5b-5e93-8f4f-2d05b5756791",
       "externalId": "T089",
       "title": "Atualizar CRM com leads e pre-reservas do evento",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "CRM",
       "phase": "D+1",
       "startAt": "2026-07-19T09:00:00-03:00",
@@ -6193,7 +6194,7 @@
       "dependencies": [
         {
           "externalId": "T085",
-          "taskId": "task-t085"
+          "taskId": "d6357ac2-3fae-5788-ab45-52d98e71842b"
         }
       ],
       "checklist": [],
@@ -6232,15 +6233,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t090",
+      "id": "271b3c1c-83e2-5dd1-81f3-b3530aa7dcb7",
       "externalId": "T090",
       "title": "Organizar e catalogar todo o conteudo capturado",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Conteudo",
       "phase": "D+1",
       "startAt": "2026-07-19T09:00:00-03:00",
@@ -6262,7 +6263,7 @@
       "dependencies": [
         {
           "externalId": "T084",
-          "taskId": "task-t084"
+          "taskId": "f3ae527a-e0eb-54b1-acc1-727b8c38b3b6"
         }
       ],
       "checklist": [],
@@ -6301,7 +6302,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t091",
+      "id": "5febed4c-959f-5192-b9c7-24a7f1321c4c",
       "externalId": "T091",
       "title": "Realizar reuniao de licoes aprendidas",
       "description": "",
@@ -6309,7 +6310,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Reuniao",
       "phase": "D+2",
       "startAt": "2026-07-21T10:00:00-03:00",
@@ -6331,7 +6332,7 @@
       "dependencies": [
         {
           "externalId": "T087",
-          "taskId": "task-t087"
+          "taskId": "e04d26c4-3749-50a9-8bbe-16b1cbe99852"
         }
       ],
       "checklist": [],
@@ -6370,15 +6371,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t092",
+      "id": "d8674f30-50be-50c2-a8a5-3baf31c0809a",
       "externalId": "T092",
       "title": "Iniciar fila de edicao de 6 meses de conteudo",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Conteudo",
       "phase": "D+3",
       "startAt": "2026-07-22T09:00:00-03:00",
@@ -6400,7 +6401,7 @@
       "dependencies": [
         {
           "externalId": "T090",
-          "taskId": "task-t090"
+          "taskId": "271b3c1c-83e2-5dd1-81f3-b3530aa7dcb7"
         }
       ],
       "checklist": [],
@@ -6439,15 +6440,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t093",
+      "id": "3378eabc-4187-5c07-9653-b332ca1e5de3",
       "externalId": "T093",
       "title": "Executar SOP semanal de entrega de 30 veiculos todo sabado",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Recorrencia",
       "phase": "Recorrente",
       "startAt": "2026-07-25T08:00:00-03:00",
@@ -6469,7 +6470,7 @@
       "dependencies": [
         {
           "externalId": "T088",
-          "taskId": "task-t088"
+          "taskId": "2bbef4e9-bbcc-50fe-806f-19baa42d62ff"
         }
       ],
       "checklist": [],
@@ -6508,7 +6509,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t094",
+      "id": "f426ff9f-42fd-50d2-b736-1323e1ece274",
       "externalId": "T094",
       "title": "Solicitar 3 orcamentos para itens graficos complementares",
       "description": "",
@@ -6516,7 +6517,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Compras",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -6538,7 +6539,7 @@
       "dependencies": [
         {
           "externalId": "T016",
-          "taskId": "task-t016"
+          "taskId": "3595e95d-bb19-58ca-a53b-a53c3af7959d"
         }
       ],
       "checklist": [],
@@ -6577,7 +6578,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t095",
+      "id": "14bfa5a4-2b3c-510a-89da-ca08baec0d88",
       "externalId": "T095",
       "title": "Criar fluxo de aprovacao de compras acima de R$300",
       "description": "",
@@ -6585,7 +6586,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Aprovacao",
       "phase": "D-5",
       "startAt": "2026-07-13T11:00:00-03:00",
@@ -6641,7 +6642,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t096",
+      "id": "0b1ec084-e9c3-58ec-8569-89c9692a6029",
       "externalId": "T096",
       "title": "Levantar chassi, placa e status documental dos 30 veiculos",
       "description": "",
@@ -6649,7 +6650,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-veiculos",
+      "listId": "e0e16101-72ad-5903-b49d-952cba602fc0",
       "subarea": "Documentacao",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -6705,7 +6706,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t097",
+      "id": "d8511457-b5b8-5c5b-9111-398e780eeeaa",
       "externalId": "T097",
       "title": "Dimensionar capacidade de atendimento para 30 motoristas",
       "description": "",
@@ -6713,7 +6714,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-motoristas",
+      "listId": "87f809f5-38b6-54fb-b6da-666ff6565954",
       "subarea": "Atendimento",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -6769,15 +6770,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t098",
+      "id": "7a55ca2f-6737-5e37-8af1-5b1bac42de54",
       "externalId": "T098",
       "title": "Calcular funil de conversao para meta de 30 pre-reservas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-vendas",
+      "listId": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
       "subarea": "Funil",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -6833,15 +6834,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t099",
+      "id": "5ec1ade0-00d7-5de0-97a7-0a21ca4061ab",
       "externalId": "T099",
       "title": "Configurar campanha de remarketing",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Remarketing",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -6863,7 +6864,7 @@
       "dependencies": [
         {
           "externalId": "T021",
-          "taskId": "task-t021"
+          "taskId": "6b1f9d45-6b52-52f7-be88-fb811060f910"
         }
       ],
       "checklist": [],
@@ -6902,7 +6903,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t100",
+      "id": "2b8fecd2-ba6b-5538-9792-2ecb0660dcc1",
       "externalId": "T100",
       "title": "Redigir press release, fact sheet e FAQ para imprensa",
       "description": "",
@@ -6910,7 +6911,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Materiais",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -6966,7 +6967,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t101",
+      "id": "7af54eab-7c71-5a72-95e0-92e64ff5079a",
       "externalId": "T101",
       "title": "Iniciar contato com gabinete/assessoria da BYD Brasil",
       "description": "",
@@ -6974,7 +6975,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "BYD",
       "phase": "D-6",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -6996,7 +6997,7 @@
       "dependencies": [
         {
           "externalId": "T020",
-          "taskId": "task-t020"
+          "taskId": "d0416331-1162-5a21-a486-74664e6b9be6"
         }
       ],
       "checklist": [],
@@ -7035,7 +7036,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t102",
+      "id": "826b5d2c-1248-5fca-9984-a9c698b4a75b",
       "externalId": "T102",
       "title": "Iniciar contato com Prefeitura de Camacari",
       "description": "",
@@ -7043,7 +7044,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "Prefeitura",
       "phase": "D-6",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -7065,7 +7066,7 @@
       "dependencies": [
         {
           "externalId": "T020",
-          "taskId": "task-t020"
+          "taskId": "d0416331-1162-5a21-a486-74664e6b9be6"
         }
       ],
       "checklist": [],
@@ -7104,7 +7105,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t103",
+      "id": "21c27f9f-3637-58ec-8e96-befd676f083f",
       "externalId": "T103",
       "title": "Iniciar contato com Prefeitura de Salvador",
       "description": "",
@@ -7112,7 +7113,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "Prefeitura",
       "phase": "D-6",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -7134,7 +7135,7 @@
       "dependencies": [
         {
           "externalId": "T020",
-          "taskId": "task-t020"
+          "taskId": "d0416331-1162-5a21-a486-74664e6b9be6"
         }
       ],
       "checklist": [],
@@ -7173,15 +7174,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t104",
+      "id": "bcf50493-7998-57a0-be7f-0af721c25dce",
       "externalId": "T104",
       "title": "Mapear todos os riscos do evento na matriz de probabilidade x impacto",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Riscos",
       "phase": "D-6",
       "startAt": "2026-07-12T15:00:00-03:00",
@@ -7203,7 +7204,7 @@
       "dependencies": [
         {
           "externalId": "T004",
-          "taskId": "task-t004"
+          "taskId": "ab87e2eb-e45e-5777-93eb-b0e6d82ec651"
         }
       ],
       "checklist": [],
@@ -7242,15 +7243,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t105",
+      "id": "753b5731-c38e-5551-b5c2-3782bc29a966",
       "externalId": "T105",
       "title": "Criar controle de autorizacao de imagem e protecao de dados",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Dados",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -7272,7 +7273,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -7311,7 +7312,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t106",
+      "id": "b14c9a85-a6d2-5ff5-8741-11ae128996c8",
       "externalId": "T106",
       "title": "Confirmar quantidade e funcao real dos 4 promotores do buffet",
       "description": "",
@@ -7319,7 +7320,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-buffet",
+      "listId": "ee105eb7-231a-5645-816a-15f6fb05cdd9",
       "subarea": "Confirmacao",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -7341,7 +7342,7 @@
       "dependencies": [
         {
           "externalId": "T013",
-          "taskId": "task-t013"
+          "taskId": "5cd01206-2f73-5a4e-adb5-df03b5604ec4"
         }
       ],
       "checklist": [],
@@ -7380,15 +7381,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t107",
+      "id": "0e7f8fa9-9061-52ff-898b-fefa71f98965",
       "externalId": "T107",
       "title": "Dimensionar equipe total do evento (todas as funcoes)",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Dimensionamento",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -7444,7 +7445,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t108",
+      "id": "30d36022-640b-5df1-a5a2-cbb61000af87",
       "externalId": "T108",
       "title": "Enviar agradecimentos a convidados, motoristas e parceiros",
       "description": "",
@@ -7452,7 +7453,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Agradecimento",
       "phase": "D+1",
       "startAt": "2026-07-19T10:00:00-03:00",
@@ -7474,7 +7475,7 @@
       "dependencies": [
         {
           "externalId": "T085",
-          "taskId": "task-t085"
+          "taskId": "d6357ac2-3fae-5788-ab45-52d98e71842b"
         }
       ],
       "checklist": [],
@@ -7513,7 +7514,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t109",
+      "id": "938ca20b-5e60-5403-bfb3-2ea0cabdb2f9",
       "externalId": "T109",
       "title": "Produzir relatorio executivo do evento",
       "description": "",
@@ -7521,7 +7522,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Relatorio",
       "phase": "D+2",
       "startAt": "2026-07-20T10:00:00-03:00",
@@ -7543,7 +7544,7 @@
       "dependencies": [
         {
           "externalId": "T087",
-          "taskId": "task-t087"
+          "taskId": "e04d26c4-3749-50a9-8bbe-16b1cbe99852"
         }
       ],
       "checklist": [],
@@ -7582,15 +7583,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t110",
+      "id": "7d5544ae-4c6c-547b-9a95-a754e4446100",
       "externalId": "T110",
       "title": "Publicar calendario de conteudo de 26 semanas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Calendario",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -7646,15 +7647,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t111",
+      "id": "668b4ca1-bee3-5726-bf93-b64c58f13b0e",
       "externalId": "T111",
       "title": "Elaborar shotlist mestre com todas as cenas obrigatorias",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Shotlist",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -7676,7 +7677,7 @@
       "dependencies": [
         {
           "externalId": "T017",
-          "taskId": "task-t017"
+          "taskId": "04062b59-c99e-5fc2-9f4c-12981f644f94"
         }
       ],
       "checklist": [],
@@ -7715,15 +7716,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t112",
+      "id": "953fd26e-6d78-56ad-8636-5fbed119810a",
       "externalId": "T112",
       "title": "Definir padrao de nomes de arquivo e pasta de ingestao",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Padrao",
       "phase": "D-5",
       "startAt": "2026-07-13T11:00:00-03:00",
@@ -7779,15 +7780,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t113",
+      "id": "95cedddc-5f32-52f2-9dc4-8af66153de77",
       "externalId": "T113",
       "title": "Escrever roteiro do filme hero e do aftermovie",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Roteiro",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -7809,7 +7810,7 @@
       "dependencies": [
         {
           "externalId": "T111",
-          "taskId": "task-t111"
+          "taskId": "668b4ca1-bee3-5726-bf93-b64c58f13b0e"
         }
       ],
       "checklist": [],
@@ -7848,15 +7849,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t114",
+      "id": "a2b74177-e24f-58dc-be9c-3e33ff96228c",
       "externalId": "T114",
       "title": "Escrever roteiro dos 30 videos individuais de entrega",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Roteiro",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -7878,7 +7879,7 @@
       "dependencies": [
         {
           "externalId": "T113",
-          "taskId": "task-t113"
+          "taskId": "95cedddc-5f32-52f2-9dc4-8af66153de77"
         }
       ],
       "checklist": [],
@@ -7917,15 +7918,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t115",
+      "id": "047d3ca7-647d-50b8-b6cb-b1db00bf5c6a",
       "externalId": "T115",
       "title": "Planejar captacao vertical e horizontal simultanea",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Vertical",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -7947,7 +7948,7 @@
       "dependencies": [
         {
           "externalId": "T111",
-          "taskId": "task-t111"
+          "taskId": "668b4ca1-bee3-5726-bf93-b64c58f13b0e"
         }
       ],
       "checklist": [],
@@ -7986,15 +7987,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t116",
+      "id": "50111196-e323-5ee1-a2e0-ccb4c7b83578",
       "externalId": "T116",
       "title": "Preparar termos de autorizacao de imagem para assinatura em massa",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-audiovisual",
+      "listId": "74eb9ca3-ac6b-5ccd-845e-3fcd719c82a3",
       "subarea": "Autorizacao",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -8016,7 +8017,7 @@
       "dependencies": [
         {
           "externalId": "T105",
-          "taskId": "task-t105"
+          "taskId": "753b5731-c38e-5551-b5c2-3782bc29a966"
         }
       ],
       "checklist": [],
@@ -8055,7 +8056,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t117",
+      "id": "233b6b56-f22b-5458-b0b3-21ac3d0e6608",
       "externalId": "T117",
       "title": "Gerar 10 opcoes de nome para o podcast",
       "description": "",
@@ -8063,7 +8064,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Identidade",
       "phase": "D-6",
       "startAt": "2026-07-12T16:00:00-03:00",
@@ -8119,7 +8120,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t118",
+      "id": "74d92646-e807-5cdc-a3a3-bfb0cdca2328",
       "externalId": "T118",
       "title": "Montar plano do set do podcast (fundo, luz, audio, energia)",
       "description": "",
@@ -8127,7 +8128,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Set",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -8149,7 +8150,7 @@
       "dependencies": [
         {
           "externalId": "T017",
-          "taskId": "task-t017"
+          "taskId": "04062b59-c99e-5fc2-9f4c-12981f644f94"
         }
       ],
       "checklist": [],
@@ -8188,7 +8189,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t119",
+      "id": "09abd9b9-60e5-550b-815d-d4d6d747fdfa",
       "externalId": "T119",
       "title": "Planejar cortes dos 3 episodios (18-30 cortes)",
       "description": "",
@@ -8196,7 +8197,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Cortes",
       "phase": "D+3",
       "startAt": "2026-07-21T09:00:00-03:00",
@@ -8218,7 +8219,7 @@
       "dependencies": [
         {
           "externalId": "T083",
-          "taskId": "task-t083"
+          "taskId": "e6897079-a2bb-518c-8901-144153f07cc6"
         }
       ],
       "checklist": [],
@@ -8257,15 +8258,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t120",
+      "id": "4df35d66-efa7-5082-8ced-f2cf94d52057",
       "externalId": "T120",
       "title": "Publicar episodio 1 editado",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-podcast",
+      "listId": "1f8aee4f-5e5a-5bc9-83ce-4f37746a5bb5",
       "subarea": "Publicacao",
       "phase": "D+7",
       "startAt": "2026-07-25T10:00:00-03:00",
@@ -8287,7 +8288,7 @@
       "dependencies": [
         {
           "externalId": "T119",
-          "taskId": "task-t119"
+          "taskId": "09abd9b9-60e5-550b-815d-d4d6d747fdfa"
         }
       ],
       "checklist": [],
@@ -8326,7 +8327,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t121",
+      "id": "19e9c75f-58b2-5aa2-90aa-6b1f7abccaba",
       "externalId": "T121",
       "title": "Definir ordem de precedencia de fala entre eDrive, BYD e autoridades",
       "description": "",
@@ -8334,7 +8335,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Precedencia",
       "phase": "D-4",
       "startAt": "2026-07-14T11:00:00-03:00",
@@ -8356,7 +8357,7 @@
       "dependencies": [
         {
           "externalId": "T101",
-          "taskId": "task-t101"
+          "taskId": "7af54eab-7c71-5a72-95e0-92e64ff5079a"
         }
       ],
       "checklist": [],
@@ -8395,7 +8396,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t122",
+      "id": "117cabd5-16b9-5521-858d-a1816131fc64",
       "externalId": "T122",
       "title": "Preparar plano se convidado principal faltar",
       "description": "",
@@ -8403,7 +8404,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Contingencia",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -8425,7 +8426,7 @@
       "dependencies": [
         {
           "externalId": "T121",
-          "taskId": "task-t121"
+          "taskId": "19e9c75f-58b2-5aa2-90aa-6b1f7abccaba"
         }
       ],
       "checklist": [],
@@ -8464,7 +8465,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t123",
+      "id": "44c7d7d1-9b36-502d-911e-561922000f91",
       "externalId": "T123",
       "title": "Confirmar pronuncia correta de nomes e cargos",
       "description": "",
@@ -8472,7 +8473,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Pronuncia",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -8494,7 +8495,7 @@
       "dependencies": [
         {
           "externalId": "T121",
-          "taskId": "task-t121"
+          "taskId": "19e9c75f-58b2-5aa2-90aa-6b1f7abccaba"
         }
       ],
       "checklist": [],
@@ -8533,7 +8534,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t124",
+      "id": "6a2cafe5-6e60-5832-b379-999b03d16a2d",
       "externalId": "T124",
       "title": "Preparar roteiro de recepcao VIP e anfitrioes designados",
       "description": "",
@@ -8541,7 +8542,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "VIP",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -8563,7 +8564,7 @@
       "dependencies": [
         {
           "externalId": "T034",
-          "taskId": "task-t034"
+          "taskId": "e875cb0e-208b-5c80-8555-2ffa9528b277"
         }
       ],
       "checklist": [],
@@ -8602,15 +8603,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t125",
+      "id": "970b6954-b956-5102-85f3-a8aadcd21faa",
       "externalId": "T125",
       "title": "Definir regras de uso de marca e imagem da BYD e autoridades",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "Marca",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -8632,7 +8633,7 @@
       "dependencies": [
         {
           "externalId": "T101",
-          "taskId": "task-t101"
+          "taskId": "7af54eab-7c71-5a72-95e0-92e64ff5079a"
         }
       ],
       "checklist": [],
@@ -8671,7 +8672,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t126",
+      "id": "43a77f54-dd74-5be1-893e-a64c86d584f8",
       "externalId": "T126",
       "title": "Construir mapa de midia com 40 alvos por categoria",
       "description": "",
@@ -8679,7 +8680,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Mapa",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -8735,7 +8736,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t127",
+      "id": "a33d8486-f3e0-56b3-9852-f08a901a5f98",
       "externalId": "T127",
       "title": "Montar processo de credenciamento de imprensa no dia",
       "description": "",
@@ -8743,7 +8744,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Credenciamento",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -8765,7 +8766,7 @@
       "dependencies": [
         {
           "externalId": "T036",
-          "taskId": "task-t036"
+          "taskId": "0fadf11f-f258-5e58-85c6-84cc48fbc91a"
         }
       ],
       "checklist": [],
@@ -8804,7 +8805,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t128",
+      "id": "f9a80197-4bd6-53dd-85a6-df72b10a62db",
       "externalId": "T128",
       "title": "Monitorar publicacoes sobre o evento apos a realizacao",
       "description": "",
@@ -8812,7 +8813,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Monitoramento",
       "phase": "D+3",
       "startAt": "2026-07-21T09:00:00-03:00",
@@ -8834,7 +8835,7 @@
       "dependencies": [
         {
           "externalId": "T079",
-          "taskId": "task-t079"
+          "taskId": "59e52b5b-d082-5424-a6ab-29113a1fbfc2"
         }
       ],
       "checklist": [],
@@ -8873,7 +8874,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t129",
+      "id": "e31300ac-8d44-5eab-968d-ba68499e7a5d",
       "externalId": "T129",
       "title": "Providenciar crachas de identificacao para toda a equipe",
       "description": "",
@@ -8881,7 +8882,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Cracha",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -8903,7 +8904,7 @@
       "dependencies": [
         {
           "externalId": "T044",
-          "taskId": "task-t044"
+          "taskId": "c4f1ec02-36ea-54fd-9c2e-d021bb7b7e59"
         }
       ],
       "checklist": [],
@@ -8942,15 +8943,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t130",
+      "id": "58a2b29b-d88b-55ba-a863-9b5e71cdbd4d",
       "externalId": "T130",
       "title": "Publicar escala da equipe por funcao e horario",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Escala",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -8972,7 +8973,7 @@
       "dependencies": [
         {
           "externalId": "T107",
-          "taskId": "task-t107"
+          "taskId": "0e7f8fa9-9061-52ff-898b-fefa71f98965"
         }
       ],
       "checklist": [],
@@ -9011,7 +9012,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t131",
+      "id": "abe1d416-141b-5d54-86e2-81c029623217",
       "externalId": "T131",
       "title": "Confirmar cardapio, reposicao e restricoes alimentares",
       "description": "",
@@ -9019,7 +9020,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-buffet",
+      "listId": "ee105eb7-231a-5645-816a-15f6fb05cdd9",
       "subarea": "Menu",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -9041,7 +9042,7 @@
       "dependencies": [
         {
           "externalId": "T013",
-          "taskId": "task-t013"
+          "taskId": "5cd01206-2f73-5a4e-adb5-df03b5604ec4"
         }
       ],
       "checklist": [],
@@ -9080,7 +9081,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t132",
+      "id": "58ae087a-0b22-5fab-bf56-062156f0771d",
       "externalId": "T132",
       "title": "Definir uso dos 6 lacos roxos no buffet ou nos veiculos",
       "description": "",
@@ -9088,7 +9089,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-buffet",
+      "listId": "ee105eb7-231a-5645-816a-15f6fb05cdd9",
       "subarea": "Lacos",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -9110,7 +9111,7 @@
       "dependencies": [
         {
           "externalId": "T039",
-          "taskId": "task-t039"
+          "taskId": "b27639be-8a58-56cf-bf13-091be684dfc6"
         }
       ],
       "checklist": [],
@@ -9149,15 +9150,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t133",
+      "id": "384e94b3-77ed-52f9-8858-de563c63761a",
       "externalId": "T133",
       "title": "Testar legibilidade e fotografia das pecas graficas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-ian",
+      "assigneeId": "dd4de751-b9d6-5b66-a362-664ff5915d50",
       "backupAssignee": "Vinicius",
-      "listId": "list-grafica",
+      "listId": "d84fe23f-782a-5045-86b3-9a34ad92f59d",
       "subarea": "Legibilidade",
       "phase": "D-1",
       "startAt": "2026-07-17T16:00:00-03:00",
@@ -9179,7 +9180,7 @@
       "dependencies": [
         {
           "externalId": "T054",
-          "taskId": "task-t054"
+          "taskId": "039bf40d-61eb-5bee-a7b4-579a21d2349b"
         }
       ],
       "checklist": [],
@@ -9218,7 +9219,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t134",
+      "id": "80741696-fc5a-5ade-9876-6eb711ca8263",
       "externalId": "T134",
       "title": "Revisar ortografia e uso consistente da marca eDrive GO",
       "description": "",
@@ -9226,7 +9227,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-grafica",
+      "listId": "d84fe23f-782a-5045-86b3-9a34ad92f59d",
       "subarea": "Ortografia",
       "phase": "D-4",
       "startAt": "2026-07-14T09:00:00-03:00",
@@ -9248,7 +9249,7 @@
       "dependencies": [
         {
           "externalId": "T023",
-          "taskId": "task-t023"
+          "taskId": "1f22bd23-c538-588f-9853-2b702e630802"
         }
       ],
       "checklist": [],
@@ -9287,15 +9288,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t135",
+      "id": "00a4676a-7ac9-5942-bfed-186531b74abc",
       "externalId": "T135",
       "title": "Organizar plano de cabos e energia sem obstruir passagem",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Cabos",
       "phase": "D-1",
       "startAt": "2026-07-17T08:00:00-03:00",
@@ -9317,7 +9318,7 @@
       "dependencies": [
         {
           "externalId": "T052",
-          "taskId": "task-t052"
+          "taskId": "db2406ae-ad16-5d50-b3c2-f60eacaa57f5"
         }
       ],
       "checklist": [],
@@ -9356,15 +9357,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t136",
+      "id": "a5ac4634-2bc1-53c7-a5bf-ce381aa1452e",
       "externalId": "T136",
       "title": "Confirmar plano de primeiros socorros e ponto de apoio medico",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Primeiros socorros",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -9420,7 +9421,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t137",
+      "id": "3ee92718-1243-5d37-aa7d-278d5c8d015b",
       "externalId": "T137",
       "title": "Definir plano de seguranca para movimentacao dos veiculos com publico presente",
       "description": "",
@@ -9428,7 +9429,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Veiculos",
       "phase": "D-1",
       "startAt": "2026-07-17T10:00:00-03:00",
@@ -9450,7 +9451,7 @@
       "dependencies": [
         {
           "externalId": "T069",
-          "taskId": "task-t069"
+          "taskId": "d687af48-addd-551f-9fcb-c442673c9769"
         }
       ],
       "checklist": [],
@@ -9489,15 +9490,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t138",
+      "id": "533963e9-a3ba-5ea3-8ed9-f026c295e44c",
       "externalId": "T138",
       "title": "Confirmar acessibilidade do local para pessoas com deficiencia",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-seguranca",
+      "listId": "e4b1afbe-d08a-5f19-b1bb-c99484ec893e",
       "subarea": "Acessibilidade",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -9519,7 +9520,7 @@
       "dependencies": [
         {
           "externalId": "T032",
-          "taskId": "task-t032"
+          "taskId": "54ffb2c5-0881-5591-96a5-6b3b0cf6d7bd"
         }
       ],
       "checklist": [],
@@ -9558,15 +9559,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t139",
+      "id": "bcc8a220-2fa3-5b2c-8417-9bbea8e6d7c2",
       "externalId": "T139",
       "title": "Iniciar follow-up de 2 horas e mesmo dia com leads quentes",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Followup",
       "phase": "D+1",
       "startAt": "2026-07-18T13:00:00-03:00",
@@ -9588,7 +9589,7 @@
       "dependencies": [
         {
           "externalId": "T089",
-          "taskId": "task-t089"
+          "taskId": "3cb55750-6b5b-5e93-8f4f-2d05b5756791"
         }
       ],
       "checklist": [],
@@ -9627,15 +9628,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t140",
+      "id": "1e0e9a69-70a7-5b71-9909-0dacfd1dbbc2",
       "externalId": "T140",
       "title": "Publicar relatorio diario de vendas do evento",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "KPI",
       "phase": "D+1",
       "startAt": "2026-07-19T09:00:00-03:00",
@@ -9657,7 +9658,7 @@
       "dependencies": [
         {
           "externalId": "T089",
-          "taskId": "task-t089"
+          "taskId": "3cb55750-6b5b-5e93-8f4f-2d05b5756791"
         }
       ],
       "checklist": [],
@@ -9696,15 +9697,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t141",
+      "id": "98ac8db6-012d-5f78-9491-52818a7841a7",
       "externalId": "T141",
       "title": "Definir plano de comunicacao interna entre as frentes",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Comunicacao",
       "phase": "D-6",
       "startAt": "2026-07-12T17:00:00-03:00",
@@ -9726,7 +9727,7 @@
       "dependencies": [
         {
           "externalId": "T002",
-          "taskId": "task-t002"
+          "taskId": "4aee8128-378a-5efe-9a76-21a7263e8835"
         }
       ],
       "checklist": [],
@@ -9765,15 +9766,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t142",
+      "id": "c66f0033-2acc-5a3c-9f19-a77d6da3249f",
       "externalId": "T142",
       "title": "Realizar reuniao diaria de status ao meio-dia",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Reunioes",
       "phase": "Recorrente",
       "startAt": "2026-07-13T12:00:00-03:00",
@@ -9795,7 +9796,7 @@
       "dependencies": [
         {
           "externalId": "T010",
-          "taskId": "task-t010"
+          "taskId": "1f722f8d-754c-5be0-b9e2-c53a0fb313cc"
         }
       ],
       "checklist": [],
@@ -9834,15 +9835,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t143",
+      "id": "de38c41a-e846-53b5-8823-8c2030c4af28",
       "externalId": "T143",
       "title": "Definir campos obrigatorios do CRM para pre-reserva qualificada",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-vendas",
+      "listId": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
       "subarea": "CRM",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -9864,7 +9865,7 @@
       "dependencies": [
         {
           "externalId": "T098",
-          "taskId": "task-t098"
+          "taskId": "7a55ca2f-6737-5e37-8af1-5b1bac42de54"
         }
       ],
       "checklist": [],
@@ -9903,15 +9904,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t144",
+      "id": "826a84eb-ac65-5bab-8ead-96fee7001fe6",
       "externalId": "T144",
       "title": "Redigir banco de objecoes e respostas comerciais aprovadas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": null,
-      "listId": "list-vendas",
+      "listId": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
       "subarea": "Objecoes",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -9967,15 +9968,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t145",
+      "id": "43275546-c105-5d51-a967-e664f6a28c78",
       "externalId": "T145",
       "title": "Redigir copys de anuncios para as 3 campanhas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Copys",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -9997,7 +9998,7 @@
       "dependencies": [
         {
           "externalId": "T021",
-          "taskId": "task-t021"
+          "taskId": "6b1f9d45-6b52-52f7-be88-fb811060f910"
         }
       ],
       "checklist": [],
@@ -10036,15 +10037,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t146",
+      "id": "03f10f9e-91a6-5532-9d85-f97e9c360286",
       "externalId": "T146",
       "title": "Configurar dashboard de metricas de marketing",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-marketing",
+      "listId": "0423b536-895a-5b17-b61c-43ded676f444",
       "subarea": "Metricas",
       "phase": "D+1",
       "startAt": "2026-07-19T10:00:00-03:00",
@@ -10066,7 +10067,7 @@
       "dependencies": [
         {
           "externalId": "T145",
-          "taskId": "task-t145"
+          "taskId": "43275546-c105-5d51-a967-e664f6a28c78"
         }
       ],
       "checklist": [],
@@ -10105,15 +10106,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t147",
+      "id": "756f396f-3678-56ff-a771-c8ea1c008a83",
       "externalId": "T147",
       "title": "Validar capacidade operacional para 30 entregas semanais",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "Capacidade",
       "phase": "D+7",
       "startAt": "2026-07-25T09:00:00-03:00",
@@ -10135,7 +10136,7 @@
       "dependencies": [
         {
           "externalId": "T093",
-          "taskId": "task-t093"
+          "taskId": "3378eabc-4187-5c07-9653-b332ca1e5de3"
         }
       ],
       "checklist": [],
@@ -10174,7 +10175,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t148",
+      "id": "4d070fb8-4cb3-5912-86a1-ded51dbc4bd5",
       "externalId": "T148",
       "title": "Publicar KPI semanal das entregas recorrentes",
       "description": "",
@@ -10182,7 +10183,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-posevento",
+      "listId": "c8fe3837-83e5-5966-a4a4-07ea182e8d61",
       "subarea": "KPI",
       "phase": "Recorrente",
       "startAt": "2026-07-27T10:00:00-03:00",
@@ -10204,7 +10205,7 @@
       "dependencies": [
         {
           "externalId": "T093",
-          "taskId": "task-t093"
+          "taskId": "3378eabc-4187-5c07-9653-b332ca1e5de3"
         }
       ],
       "checklist": [],
@@ -10243,7 +10244,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t149",
+      "id": "14c6d2ca-944b-5e8a-81fb-a708ebe7c269",
       "externalId": "T149",
       "title": "Construir painel de controle HTML para acompanhamento visual",
       "description": "",
@@ -10251,7 +10252,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -10307,7 +10308,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t150",
+      "id": "a5ea22ff-0f4d-50b9-a0ce-06432b7bca4a",
       "externalId": "T150",
       "title": "Preparar exportacao do checklist mestre para ferramenta de tarefas (ClickUp-like)",
       "description": "",
@@ -10315,7 +10316,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Importacao",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -10337,7 +10338,7 @@
       "dependencies": [
         {
           "externalId": "T149",
-          "taskId": "task-t149"
+          "taskId": "14c6d2ca-944b-5e8a-81fb-a708ebe7c269"
         }
       ],
       "checklist": [],
@@ -10376,15 +10377,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t151",
+      "id": "065aac0c-fc68-541c-bc29-b19a8740c4ac",
       "externalId": "T151",
       "title": "Consolidar a lista de funcionarios e prestadores que precisam de liberacao de acesso no Outlet",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-6",
       "startAt": "2026-07-12T19:00:00-03:00",
@@ -10440,15 +10441,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t152",
+      "id": "1a1f8eb2-7971-51f5-8a96-c4acc693070c",
       "externalId": "T152",
       "title": "Enviar a lista de funcionarios anexada ao e-mail de liberacao formal a Gilson",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -10470,7 +10471,7 @@
       "dependencies": [
         {
           "externalId": "T151",
-          "taskId": "task-t151"
+          "taskId": "065aac0c-fc68-541c-bc29-b19a8740c4ac"
         }
       ],
       "checklist": [],
@@ -10509,15 +10510,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t153",
+      "id": "3e39db98-2c9c-50c2-93d9-d169cc7cefe4",
       "externalId": "T153",
       "title": "Solicitar a Gilson confirmacao separada de horario de acesso para fornecedores (buffet, grafica, audiovisual)",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-5",
       "startAt": "2026-07-13T09:30:00-03:00",
@@ -10539,7 +10540,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -10578,15 +10579,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t154",
+      "id": "32124d8d-30c4-537f-a5e5-c60402ef74bf",
       "externalId": "T154",
       "title": "Definir plano de escalonamento caso Gilson nao responda a liberacao por escrito em 24h",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -10608,7 +10609,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -10647,15 +10648,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t155",
+      "id": "f560e863-223b-54c6-91de-a5a17dd4edc0",
       "externalId": "T155",
       "title": "Solicitar a Gilson autorizacao especifica por escrito para uso de som amplificado no evento",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -10677,7 +10678,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -10716,15 +10717,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t156",
+      "id": "c3ca0f50-cbdf-58c9-9064-280cc1a4ac97",
       "externalId": "T156",
       "title": "Solicitar a Gilson posicionamento formal sobre uso de drone (regra fixa: nunca usar sem autorizacao do Outlet)",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-local",
+      "listId": "2a8a9788-9c27-5bab-b131-d5468a8f9ab7",
       "subarea": "Autorizacoes",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -10746,7 +10747,7 @@
       "dependencies": [
         {
           "externalId": "T011",
-          "taskId": "task-t011"
+          "taskId": "7c27fa69-ee8f-56bf-889f-4dd11596397e"
         }
       ],
       "checklist": [],
@@ -10785,15 +10786,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t157",
+      "id": "b13a5101-c19b-5cbf-8030-1e1488eb80b7",
       "externalId": "T157",
       "title": "Confirmar por escrito se \"Suedy Festas\" e \"Suyle Festas\" sao o mesmo fornecedor de buffet e promotoria",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Will Trindade",
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Buffet",
       "phase": "D-6",
       "startAt": "2026-07-12T19:00:00-03:00",
@@ -10849,15 +10850,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t158",
+      "id": "aa222458-b669-5141-8db6-7889563becb8",
       "externalId": "T158",
       "title": "Obter contrato ou termo assinado da promotoria decidida (4 promotoras + 1 gerente)",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Will Trindade",
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Buffet",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -10879,7 +10880,7 @@
       "dependencies": [
         {
           "externalId": "T157",
-          "taskId": "task-t157"
+          "taskId": "b13a5101-c19b-5cbf-8030-1e1488eb80b7"
         }
       ],
       "checklist": [],
@@ -10918,15 +10919,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t159",
+      "id": "d6247245-8eb9-58d0-99bc-2aa33b0b42cb",
       "externalId": "T159",
       "title": "Obter valor exato por escrito da promotoria contratada e atualizar orcamento mestre",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Will Trindade",
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Buffet",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -10948,7 +10949,7 @@
       "dependencies": [
         {
           "externalId": "T157",
-          "taskId": "task-t157"
+          "taskId": "b13a5101-c19b-5cbf-8030-1e1488eb80b7"
         }
       ],
       "checklist": [],
@@ -10987,15 +10988,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t160",
+      "id": "6f21670d-7b58-5f55-91d1-2123dc540724",
       "externalId": "T160",
       "title": "Coletar nomes completos e documentos das 4 promotoras e do gerente de promotoria para liberacao de acesso",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Will Trindade",
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Promotores",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -11017,7 +11018,7 @@
       "dependencies": [
         {
           "externalId": "T158",
-          "taskId": "task-t158"
+          "taskId": "aa222458-b669-5141-8db6-7889563becb8"
         }
       ],
       "checklist": [],
@@ -11056,15 +11057,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t161",
+      "id": "3b4957f6-e5ba-51dd-8863-76c96eaa486c",
       "externalId": "T161",
       "title": "Definir uniforme das 4 promotoras e do gerente de promotoria (fornecedor ou eDrive GO)",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Luci",
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Uniformes",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -11086,7 +11087,7 @@
       "dependencies": [
         {
           "externalId": "T158",
-          "taskId": "task-t158"
+          "taskId": "aa222458-b669-5141-8db6-7889563becb8"
         }
       ],
       "checklist": [],
@@ -11125,15 +11126,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t162",
+      "id": "bfa468ee-d272-5dd6-b398-a5bf131a8c3e",
       "externalId": "T162",
       "title": "Brifar as 4 promotoras e o gerente de promotoria com script de abordagem, qualificacao e fechamento",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-nilton-macario",
+      "assigneeId": "a40b9bdc-b0ec-5f9e-a958-a8f3dc885f2a",
       "backupAssignee": "Luci",
-      "listId": "list-vendas",
+      "listId": "bbbf2b5f-fcac-55ea-ae35-b60e3a0a64a4",
       "subarea": "Scripts",
       "phase": "D-2",
       "startAt": "2026-07-16T14:00:00-03:00",
@@ -11155,7 +11156,7 @@
       "dependencies": [
         {
           "externalId": "T158",
-          "taskId": "task-t158"
+          "taskId": "aa222458-b669-5141-8db6-7889563becb8"
         }
       ],
       "checklist": [],
@@ -11194,7 +11195,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t163",
+      "id": "5be7c830-9c3c-522e-8feb-b844bfd0b773",
       "externalId": "T163",
       "title": "Atualizar CENARIO_4_PROMOTORES.md e CENARIO_8_PROMOTORES_MAIS_COORDENACAO.md registrando o modelo final decidido",
       "description": "",
@@ -11202,7 +11203,7 @@
       "priority": "medium",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Promotores",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -11224,7 +11225,7 @@
       "dependencies": [
         {
           "externalId": "T157",
-          "taskId": "task-t157"
+          "taskId": "b13a5101-c19b-5cbf-8030-1e1488eb80b7"
         }
       ],
       "checklist": [],
@@ -11263,15 +11264,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t164",
+      "id": "cfddfe11-23b7-56cf-9c90-c64c3d89ca5d",
       "externalId": "T164",
       "title": "Solicitar 2 orcamentos de locacao de kit de radio/walkie-talkie para toda a equipe",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Radios",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -11327,7 +11328,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t165",
+      "id": "60758c8d-9b9a-5a0f-8244-5a618d61930d",
       "externalId": "T165",
       "title": "Escolher fornecedor de radios e aprovar o custo dentro do saldo operacional disponivel",
       "description": "",
@@ -11335,7 +11336,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Radios",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -11357,7 +11358,7 @@
       "dependencies": [
         {
           "externalId": "T164",
-          "taskId": "task-t164"
+          "taskId": "cfddfe11-23b7-56cf-9c90-c64c3d89ca5d"
         }
       ],
       "checklist": [],
@@ -11396,15 +11397,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t166",
+      "id": "d4f14360-9514-5df6-9344-bee06fb21400",
       "externalId": "T166",
       "title": "Definir a lista de funcoes-chave que recebem radio no dia do evento (18 unidades estimadas)",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-equipe",
+      "listId": "93b5a27a-1170-57cb-998e-cad3900eb79e",
       "subarea": "Radios",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -11426,7 +11427,7 @@
       "dependencies": [
         {
           "externalId": "T164",
-          "taskId": "task-t164"
+          "taskId": "cfddfe11-23b7-56cf-9c90-c64c3d89ca5d"
         }
       ],
       "checklist": [],
@@ -11465,15 +11466,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t167",
+      "id": "2e9a4e0a-6449-55d5-aca9-a253b636c821",
       "externalId": "T167",
       "title": "Testar todos os radios (canal, bateria, alcance) antes das 08h00 do dia do evento",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-operacao",
+      "listId": "4f7d8d26-afe6-5d40-adce-8bb37cb1c41e",
       "subarea": "Radios",
       "phase": "D0",
       "startAt": "2026-07-18T07:00:00-03:00",
@@ -11495,7 +11496,7 @@
       "dependencies": [
         {
           "externalId": "T164",
-          "taskId": "task-t164"
+          "taskId": "cfddfe11-23b7-56cf-9c90-c64c3d89ca5d"
         }
       ],
       "checklist": [],
@@ -11534,15 +11535,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t168",
+      "id": "cf64804f-c71c-55af-8421-c908c436dc35",
       "externalId": "T168",
       "title": "Distribuir radios numerados com checklist de retirada por pessoa",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-operacao",
+      "listId": "4f7d8d26-afe6-5d40-adce-8bb37cb1c41e",
       "subarea": "Radios",
       "phase": "D0",
       "startAt": "2026-07-18T07:45:00-03:00",
@@ -11564,7 +11565,7 @@
       "dependencies": [
         {
           "externalId": "T167",
-          "taskId": "task-t167"
+          "taskId": "2e9a4e0a-6449-55d5-aca9-a253b636c821"
         }
       ],
       "checklist": [],
@@ -11603,15 +11604,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t169",
+      "id": "45572dbf-f646-5a91-8d0d-2fdee1700a3d",
       "externalId": "T169",
       "title": "Recolher e conferir todos os radios ao final do evento",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-operacao",
+      "listId": "4f7d8d26-afe6-5d40-adce-8bb37cb1c41e",
       "subarea": "Radios",
       "phase": "D0",
       "startAt": "2026-07-18T17:00:00-03:00",
@@ -11633,7 +11634,7 @@
       "dependencies": [
         {
           "externalId": "T168",
-          "taskId": "task-t168"
+          "taskId": "cf64804f-c71c-55af-8421-c908c436dc35"
         }
       ],
       "checklist": [],
@@ -11672,15 +11673,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t170",
+      "id": "8aab181a-ab22-55ee-ae19-215662c2ae4a",
       "externalId": "T170",
       "title": "Coletar telefone e e-mail oficiais de Will Trindade, Eduard, Luci, Vinicius, Ian e Nilton Macario",
       "description": "",
       "status": "in_progress",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-6",
       "startAt": "2026-07-12T19:00:00-03:00",
@@ -11736,15 +11737,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t171",
+      "id": "c4c1c982-2e78-5cce-b8c0-a12069cfb809",
       "externalId": "T171",
       "title": "Conceder a Will Trindade acesso a todas as pastas e ferramentas de gestao do evento",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -11766,7 +11767,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -11805,15 +11806,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t172",
+      "id": "48f1eab2-bc82-5b79-90a3-cf5ba0c2feff",
       "externalId": "T172",
       "title": "Conceder a Eduard acesso as minutas de contrato, termo de uso e termo de imagem para revisao juridica",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -11835,7 +11836,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -11874,15 +11875,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t173",
+      "id": "499aaad8-cc73-5cdd-9506-2c397d5f9b3a",
       "externalId": "T173",
       "title": "Conceder a Luci acesso ao calendario de 26 semanas e as campanhas de marketing",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -11904,7 +11905,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -11943,15 +11944,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t174",
+      "id": "3b829d65-2466-570d-a213-37a410ce01dc",
       "externalId": "T174",
       "title": "Conceder a Vinicius acesso ao inventario de ativos e shotlist audiovisual",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -11973,7 +11974,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -12012,15 +12013,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t175",
+      "id": "110b990b-85f1-5054-9753-1e9e26ffef70",
       "externalId": "T175",
       "title": "Conceder a Ian acesso ao inventario de ativos e shotlist audiovisual",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -12042,7 +12043,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -12081,15 +12082,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t176",
+      "id": "d4a5a692-9b8b-50a0-96fe-71a653b09dab",
       "externalId": "T176",
       "title": "Conceder a Nilton Macario acesso ao CRM, funil de vendas e plano de escala semanal",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T09:00:00-03:00",
@@ -12111,7 +12112,7 @@
       "dependencies": [
         {
           "externalId": "T170",
-          "taskId": "task-t170"
+          "taskId": "8aab181a-ab22-55ee-ae19-215662c2ae4a"
         }
       ],
       "checklist": [],
@@ -12150,15 +12151,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t177",
+      "id": "307e27d5-6ee2-54f4-a4ea-be21af1267b1",
       "externalId": "T177",
       "title": "Realizar reuniao de alinhamento com o time completo (Will, Eduard, Luci, Vinicius, Ian, Nilton Macario)",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Reunioes",
       "phase": "D-5",
       "startAt": "2026-07-13T19:00:00-03:00",
@@ -12180,27 +12181,27 @@
       "dependencies": [
         {
           "externalId": "T171",
-          "taskId": "task-t171"
+          "taskId": "c4c1c982-2e78-5cce-b8c0-a12069cfb809"
         },
         {
           "externalId": "T172",
-          "taskId": "task-t172"
+          "taskId": "48f1eab2-bc82-5b79-90a3-cf5ba0c2feff"
         },
         {
           "externalId": "T173",
-          "taskId": "task-t173"
+          "taskId": "499aaad8-cc73-5cdd-9506-2c397d5f9b3a"
         },
         {
           "externalId": "T174",
-          "taskId": "task-t174"
+          "taskId": "3b829d65-2466-570d-a213-37a410ce01dc"
         },
         {
           "externalId": "T175",
-          "taskId": "task-t175"
+          "taskId": "110b990b-85f1-5054-9753-1e9e26ffef70"
         },
         {
           "externalId": "T176",
-          "taskId": "task-t176"
+          "taskId": "d4a5a692-9b8b-50a0-96fe-71a653b09dab"
         }
       ],
       "checklist": [],
@@ -12239,15 +12240,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t178",
+      "id": "114d2d1d-82dc-5797-b8b1-fb15d9467366",
       "externalId": "T178",
       "title": "Definir plantao de emergencia e revezamento do time nas 5 ondas de entrega",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Escala",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -12269,7 +12270,7 @@
       "dependencies": [
         {
           "externalId": "T177",
-          "taskId": "task-t177"
+          "taskId": "307e27d5-6ee2-54f4-a4ea-be21af1267b1"
         }
       ],
       "checklist": [],
@@ -12308,15 +12309,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t179",
+      "id": "583ee633-14ae-5fbe-9328-8cc0a0c48a30",
       "externalId": "T179",
       "title": "Adicionar os 6 membros do time ao canal unico de comunicacao da operacao",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Comunicacao",
       "phase": "D-6",
       "startAt": "2026-07-12T20:00:00-03:00",
@@ -12338,7 +12339,7 @@
       "dependencies": [
         {
           "externalId": "T002",
-          "taskId": "task-t002"
+          "taskId": "4aee8128-378a-5efe-9a76-21a7263e8835"
         }
       ],
       "checklist": [],
@@ -12377,15 +12378,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t180",
+      "id": "2b005497-eeb0-5869-a9c9-6a2b3a7cd2b2",
       "externalId": "T180",
       "title": "Atribuir substituto/backup para cada um dos 6 membros do time em caso de ausencia",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -12407,7 +12408,7 @@
       "dependencies": [
         {
           "externalId": "T177",
-          "taskId": "task-t177"
+          "taskId": "307e27d5-6ee2-54f4-a4ea-be21af1267b1"
         }
       ],
       "checklist": [],
@@ -12446,15 +12447,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t181",
+      "id": "bf5b4b26-b59b-5944-9760-7d0db00f8bd4",
       "externalId": "T181",
       "title": "Confirmar disponibilidade dos 6 membros do time para 18/07/2026 e para a rotina semanal de sabados",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-5",
       "startAt": "2026-07-13T10:00:00-03:00",
@@ -12476,7 +12477,7 @@
       "dependencies": [
         {
           "externalId": "T177",
-          "taskId": "task-t177"
+          "taskId": "307e27d5-6ee2-54f4-a4ea-be21af1267b1"
         }
       ],
       "checklist": [],
@@ -12515,15 +12516,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t182",
+      "id": "7dc94172-dabb-5f4b-8813-414d2771f5c4",
       "externalId": "T182",
       "title": "Publicar organograma atualizado do evento com os 6 nomes confirmados",
       "description": "",
       "status": "todo",
       "priority": "medium",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Equipe",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -12545,7 +12546,7 @@
       "dependencies": [
         {
           "externalId": "T177",
-          "taskId": "task-t177"
+          "taskId": "307e27d5-6ee2-54f4-a4ea-be21af1267b1"
         }
       ],
       "checklist": [],
@@ -12584,7 +12585,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t183",
+      "id": "38ab1800-6425-5a05-98f1-c44e5fb57db2",
       "externalId": "T183",
       "title": "Aprovar formalmente o cenario financeiro vigente do orcamento apos definicao do valor da promotoria",
       "description": "",
@@ -12592,7 +12593,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -12614,7 +12615,7 @@
       "dependencies": [
         {
           "externalId": "T159",
-          "taskId": "task-t159"
+          "taskId": "d6247245-8eb9-58d0-99bc-2aa33b0b42cb"
         }
       ],
       "checklist": [],
@@ -12653,15 +12654,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t184",
+      "id": "c3283e80-560e-599a-9274-fc497896f726",
       "externalId": "T184",
       "title": "Aprovar minuta final de contrato de compra/financiamento dos veiculos",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-juridico",
+      "listId": "f16091c1-a4aa-51bf-93c3-9af6e470cb2e",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -12683,7 +12684,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -12722,15 +12723,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t185",
+      "id": "ede82f50-758a-58ba-8b86-c75903ec78f7",
       "externalId": "T185",
       "title": "Aprovar minuta final de termo de uso do veiculo",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-juridico",
+      "listId": "f16091c1-a4aa-51bf-93c3-9af6e470cb2e",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -12752,7 +12753,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -12791,15 +12792,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t186",
+      "id": "c3db82cf-6e6f-5beb-96e2-78bc4f187f39",
       "externalId": "T186",
       "title": "Aprovar minuta final de termo de autorizacao de imagem",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-juridico",
+      "listId": "f16091c1-a4aa-51bf-93c3-9af6e470cb2e",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -12821,7 +12822,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -12860,15 +12861,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t187",
+      "id": "9752bd97-443b-5300-a10e-bfab1e52e797",
       "externalId": "T187",
       "title": "Aprovar minuta final de termo de participacao no podcast",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-eduard",
+      "assigneeId": "f8a949a2-01c0-5cb7-9adf-7ddeecc2c6d2",
       "backupAssignee": null,
-      "listId": "list-juridico",
+      "listId": "f16091c1-a4aa-51bf-93c3-9af6e470cb2e",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -12890,7 +12891,7 @@
       "dependencies": [
         {
           "externalId": "T009",
-          "taskId": "task-t009"
+          "taskId": "758d51df-aa4c-587c-a235-229567e686c8"
         }
       ],
       "checklist": [],
@@ -12929,15 +12930,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t188",
+      "id": "7b05e4a3-f1d9-5ae1-a22f-4e89be88b9c6",
       "externalId": "T188",
       "title": "Aprovar release de imprensa final antes do envio as redacoes",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-luci",
+      "assigneeId": "2dbb0a13-a24c-568d-a82a-f1e70f23b516",
       "backupAssignee": null,
-      "listId": "list-imprensa",
+      "listId": "2855b73b-0d95-5390-8b48-f377b72420ba",
       "subarea": "Aprovacoes",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -12993,7 +12994,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t189",
+      "id": "acb3c167-5156-59b9-88ea-f362292d8c6a",
       "externalId": "T189",
       "title": "Aprovar roteiro final do mestre de cerimonias assim que a pessoa for definida",
       "description": "",
@@ -13001,7 +13002,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-cerimonial",
+      "listId": "d3221b94-352b-502f-9170-bccde85d5d86",
       "subarea": "Aprovacoes",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -13023,7 +13024,7 @@
       "dependencies": [
         {
           "externalId": "T008",
-          "taskId": "task-t008"
+          "taskId": "7844b63d-0679-58c4-a651-e33de5a7ad2d"
         }
       ],
       "checklist": [],
@@ -13062,15 +13063,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t190",
+      "id": "5e095229-3a1b-576d-92c2-8741abcba93b",
       "externalId": "T190",
       "title": "Aprovar provas graficas da On Print antes da instalacao definitiva",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-grafica",
+      "listId": "d84fe23f-782a-5045-86b3-9a34ad92f59d",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -13092,7 +13093,7 @@
       "dependencies": [
         {
           "externalId": "T014",
-          "taskId": "task-t014"
+          "taskId": "9ad187e4-3ca5-5239-85f0-929b6f44b78d"
         }
       ],
       "checklist": [],
@@ -13131,7 +13132,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t191",
+      "id": "1de03c22-c511-5fbf-8dca-798f6f5690df",
       "externalId": "T191",
       "title": "Aprovar lista final de convidados/autoridades confirmados para constar no run of show",
       "description": "",
@@ -13139,7 +13140,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-convidados",
+      "listId": "e3aacef5-1e8b-5cb6-92ea-6effdcc13886",
       "subarea": "Aprovacoes",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -13195,7 +13196,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t192",
+      "id": "cdebae73-0e46-5e65-9ec0-b2075900ff09",
       "externalId": "T192",
       "title": "Registrar em ata de diretoria a aprovacao formal do orcamento consolidado (cenario vigente)",
       "description": "",
@@ -13203,7 +13204,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": null,
-      "listId": "list-orcamento",
+      "listId": "dfcdad21-0f40-5ea7-aea7-1a483aaa075e",
       "subarea": "Aprovacoes",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -13225,7 +13226,7 @@
       "dependencies": [
         {
           "externalId": "T183",
-          "taskId": "task-t183"
+          "taskId": "38ab1800-6425-5a05-98f1-c44e5fb57db2"
         }
       ],
       "checklist": [],
@@ -13264,15 +13265,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t193",
+      "id": "50bcc7cd-c405-53f5-a58d-9e8a71c6ba09",
       "externalId": "T193",
       "title": "Diagnosticar a causa do bloqueio \"Modo producao bloqueado\" no painel de tarefas online",
       "description": "",
       "status": "done",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-5",
       "startAt": "2026-07-12T19:30:00-03:00",
@@ -13328,7 +13329,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t194",
+      "id": "d1e06c53-75cb-56fa-9057-8fbd41b69166",
       "externalId": "T194",
       "title": "Criar novo projeto Supabase para substituir o projeto pausado ha mais de 90 dias",
       "description": "",
@@ -13336,7 +13337,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": "Will Trindade",
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T10:00:00-03:00",
@@ -13358,7 +13359,7 @@
       "dependencies": [
         {
           "externalId": "T193",
-          "taskId": "task-t193"
+          "taskId": "50bcc7cd-c405-53f5-a58d-9e8a71c6ba09"
         }
       ],
       "checklist": [],
@@ -13397,7 +13398,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t195",
+      "id": "913e383d-05e1-5fd0-8107-7587320b45bc",
       "externalId": "T195",
       "title": "Migrar schema e tabelas do painel de tarefas para o novo projeto Supabase",
       "description": "",
@@ -13405,7 +13406,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": "Will Trindade",
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T14:00:00-03:00",
@@ -13427,7 +13428,7 @@
       "dependencies": [
         {
           "externalId": "T194",
-          "taskId": "task-t194"
+          "taskId": "d1e06c53-75cb-56fa-9057-8fbd41b69166"
         }
       ],
       "checklist": [],
@@ -13466,7 +13467,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t196",
+      "id": "92940f2c-bf5e-5592-9d1c-d375ab1b5722",
       "externalId": "T196",
       "title": "Atualizar variaveis de ambiente do projeto Vercel edrive-go com as novas credenciais do Supabase",
       "description": "",
@@ -13474,7 +13475,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": "Will Trindade",
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T16:00:00-03:00",
@@ -13496,7 +13497,7 @@
       "dependencies": [
         {
           "externalId": "T195",
-          "taskId": "task-t195"
+          "taskId": "913e383d-05e1-5fd0-8107-7587320b45bc"
         }
       ],
       "checklist": [],
@@ -13535,7 +13536,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t197",
+      "id": "4b38b6a0-6c41-5a38-b79e-1a0b08c8fc9c",
       "externalId": "T197",
       "title": "Atualizar variaveis de ambiente do projeto Vercel triadesaudeeperformance, se compartilhar o mesmo backend Supabase",
       "description": "",
@@ -13543,7 +13544,7 @@
       "priority": "high",
       "assigneeId": null,
       "backupAssignee": "Will Trindade",
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -13565,7 +13566,7 @@
       "dependencies": [
         {
           "externalId": "T196",
-          "taskId": "task-t196"
+          "taskId": "92940f2c-bf5e-5592-9d1c-d375ab1b5722"
         }
       ],
       "checklist": [],
@@ -13604,7 +13605,7 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t198",
+      "id": "b307bd9f-8ef5-55dc-b82c-7378f3a9bdeb",
       "externalId": "T198",
       "title": "Testar login e carregamento de tarefas no painel apos a reconfiguracao do backend",
       "description": "",
@@ -13612,7 +13613,7 @@
       "priority": "urgent",
       "assigneeId": null,
       "backupAssignee": "Will Trindade",
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-3",
       "startAt": "2026-07-15T10:00:00-03:00",
@@ -13634,7 +13635,7 @@
       "dependencies": [
         {
           "externalId": "T196",
-          "taskId": "task-t196"
+          "taskId": "92940f2c-bf5e-5592-9d1c-d375ab1b5722"
         }
       ],
       "checklist": [],
@@ -13673,15 +13674,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t199",
+      "id": "caa572d2-6d82-5b14-9ed3-53e3ed6fee7b",
       "externalId": "T199",
       "title": "Publicar o CHECKLIST_MESTRE.csv atualizado (com as tarefas T151-T204) na aba de tarefas local antes do deploy",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T18:00:00-03:00",
@@ -13703,7 +13704,7 @@
       "dependencies": [
         {
           "externalId": "T150",
-          "taskId": "task-t150"
+          "taskId": "a5ea22ff-0f4d-50b9-a0ce-06432b7bca4a"
         }
       ],
       "checklist": [],
@@ -13742,15 +13743,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t200",
+      "id": "52a7440a-36f5-51cb-b699-00b895a49932",
       "externalId": "T200",
       "title": "Validar a aba de tarefas local (HTML) com os dados reais do checklist antes de enviar ao usuario",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-4",
       "startAt": "2026-07-14T20:00:00-03:00",
@@ -13772,7 +13773,7 @@
       "dependencies": [
         {
           "externalId": "T199",
-          "taskId": "task-t199"
+          "taskId": "caa572d2-6d82-5b14-9ed3-53e3ed6fee7b"
         }
       ],
       "checklist": [],
@@ -13811,15 +13812,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t201",
+      "id": "86360dea-473d-5f82-81fc-a1c39b6f3617",
       "externalId": "T201",
       "title": "Subir a aba de tarefas atualizada via Codex para https://edrive-go.vercel.app/app/tarefas",
       "description": "",
       "status": "todo",
       "priority": "high",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Painel",
       "phase": "D-2",
       "startAt": "2026-07-16T10:00:00-03:00",
@@ -13841,7 +13842,7 @@
       "dependencies": [
         {
           "externalId": "T200",
-          "taskId": "task-t200"
+          "taskId": "52a7440a-36f5-51cb-b699-00b895a49932"
         }
       ],
       "checklist": [],
@@ -13880,15 +13881,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t202",
+      "id": "2621b309-7569-54b4-8ead-5b7fb1c5732b",
       "externalId": "T202",
       "title": "Consolidar todos os arquivos atualizados desta rodada em um pacote para envio ao usuario",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Documentos",
       "phase": "D-6",
       "startAt": "2026-07-12T21:00:00-03:00",
@@ -13910,7 +13911,7 @@
       "dependencies": [
         {
           "externalId": "T203",
-          "taskId": "task-t203"
+          "taskId": "b4e6cf2a-5a58-52dd-bb17-96d00592490c"
         }
       ],
       "checklist": [],
@@ -13949,15 +13950,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t203",
+      "id": "b4e6cf2a-5a58-52dd-bb17-96d00592490c",
       "externalId": "T203",
       "title": "Atualizar RESUMO_FINAL.md e CHANGELOG.md com as mudancas desta rodada (versao 1.1)",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Documentos",
       "phase": "D-6",
       "startAt": "2026-07-12T20:30:00-03:00",
@@ -14013,15 +14014,15 @@
       "updatedAt": "2026-07-12T03:00:00.000Z"
     },
     {
-      "id": "task-t204",
+      "id": "91a9ffdb-c1d7-50b4-8ae4-599ff067da06",
       "externalId": "T204",
       "title": "Enviar todos os documentos atualizados ao usuario para revisao e upload via Codex",
       "description": "",
       "status": "todo",
       "priority": "urgent",
-      "assigneeId": "member-will-trindade",
+      "assigneeId": "158d1297-c12f-54ac-94b4-2b13f7bbaa30",
       "backupAssignee": null,
-      "listId": "list-pmo",
+      "listId": "13512e7f-c5a9-58a7-b2e6-b627edf7377d",
       "subarea": "Documentos",
       "phase": "D-6",
       "startAt": "2026-07-12T22:30:00-03:00",
@@ -14043,7 +14044,7 @@
       "dependencies": [
         {
           "externalId": "T202",
-          "taskId": "task-t202"
+          "taskId": "2621b309-7569-54b4-8ead-5b7fb1c5732b"
         }
       ],
       "checklist": [],

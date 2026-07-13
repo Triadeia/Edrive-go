@@ -11,7 +11,9 @@ import {
   LAUNCH_SOURCE_HEADER_MAP,
   launchWorkspaceSeed,
 } from "./workspace-seed";
-import { launchWorkspaceSchema } from "./workspace-schema";
+import * as workspaceSchemas from "./workspace-schema";
+
+const { launchWorkspaceSchema } = workspaceSchemas;
 
 const SOURCE_ZIP =
   "/Volumes/SSD-Nilton/[03] Edrive go /PAINEL TAREFAS - EDRIVE GO - CLAUDE DESIGNER/EDrive Go dashboard launch.zip";
@@ -46,6 +48,195 @@ const EXPECTED_HEADERS = [
   "Fonte_da_Informacao",
   "Link_Comprovante",
 ] as const;
+
+const UUID_V5_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function cloneLaunchSeed() {
+  return structuredClone(launchWorkspaceSeed);
+}
+
+function launchTaskWithDependency(seed: ReturnType<typeof cloneLaunchSeed>) {
+  const task = seed.tasks.find((candidate) => candidate.dependencies.length > 0);
+  assert.ok(task, "canonical seed contains at least one dependency");
+  return task;
+}
+
+test("uses stable UUID v5 identifiers for every canonical entity", () => {
+  const identifiers = [
+    launchWorkspaceSeed.workspace.id,
+    ...launchWorkspaceSeed.members.map(({ id }) => id),
+    ...launchWorkspaceSeed.spaces.map(({ id }) => id),
+    ...launchWorkspaceSeed.lists.map(({ id }) => id),
+    ...launchWorkspaceSeed.tasks.flatMap((task) => [
+      task.id,
+      ...task.checklist.map(({ id }) => id),
+    ]),
+  ];
+
+  for (const identifier of identifiers) {
+    assert.match(identifier, UUID_V5_PATTERN);
+  }
+});
+
+test("rejects non-UUID identifiers in every entity shape", async (context) => {
+  const mutations: Array<[
+    string,
+    (seed: ReturnType<typeof cloneLaunchSeed>) => void,
+  ]> = [
+    ["workspace", (seed) => {
+      seed.workspace.id = "workspace-invalid";
+    }],
+    ["member", (seed) => {
+      const previousId = seed.members[0].id;
+      seed.members[0].id = "member-invalid";
+      for (const task of seed.tasks) {
+        if (task.assigneeId === previousId) task.assigneeId = "member-invalid";
+      }
+    }],
+    ["space", (seed) => {
+      const previousId = seed.spaces[0].id;
+      seed.spaces[0].id = "space-invalid";
+      for (const list of seed.lists) {
+        if (list.spaceId === previousId) list.spaceId = "space-invalid";
+      }
+    }],
+    ["list", (seed) => {
+      const previousId = seed.lists[0].id;
+      seed.lists[0].id = "list-invalid";
+      for (const task of seed.tasks) {
+        if (task.listId === previousId) task.listId = "list-invalid";
+      }
+    }],
+    ["task", (seed) => {
+      const previousId = seed.tasks[0].id;
+      seed.tasks[0].id = "task-invalid";
+      for (const task of seed.tasks) {
+        for (const dependency of task.dependencies) {
+          if (dependency.taskId === previousId) dependency.taskId = "task-invalid";
+        }
+      }
+    }],
+    ["checklist", (seed) => {
+      seed.tasks[0].checklist.push({
+        id: "checklist-invalid",
+        title: "Invalid identifier fixture",
+        completed: false,
+      });
+    }],
+  ];
+
+  for (const [label, mutate] of mutations) {
+    await context.test(label, () => {
+      const candidate = cloneLaunchSeed();
+      mutate(candidate);
+      assert.throws(() => launchWorkspaceSchema.parse(candidate));
+    });
+  }
+});
+
+test("stores the launch event name in workspace metadata", () => {
+  assert.equal(
+    Reflect.get(launchWorkspaceSeed.workspace, "eventName"),
+    "Lançamento eDrive Go",
+  );
+});
+
+test("rejects unresolved, mismatched, unknown, and self dependencies", async (context) => {
+  await context.test("unknown externalId", () => {
+    const candidate = cloneLaunchSeed();
+    const task = launchTaskWithDependency(candidate);
+    task.dependencies[0].externalId = "T999";
+    task.dependencies[0].taskId = candidate.tasks[0].id;
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("null taskId", () => {
+    const candidate = cloneLaunchSeed();
+    const task = launchTaskWithDependency(candidate);
+    task.dependencies[0].taskId = null;
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("mismatched taskId", () => {
+    const candidate = cloneLaunchSeed();
+    const task = launchTaskWithDependency(candidate);
+    const otherTasks = candidate.tasks.filter(({ id }) => id !== task.id);
+    task.dependencies[0] = {
+      externalId: otherTasks[0].externalId,
+      taskId: otherTasks[1].id,
+    };
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("self reference", () => {
+    const candidate = cloneLaunchSeed();
+    const task = launchTaskWithDependency(candidate);
+    task.dependencies[0] = {
+      externalId: task.externalId,
+      taskId: task.id,
+    };
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+});
+
+test("enforces canonical task count and unique entity/external IDs", async (context) => {
+  await context.test("exactly 204 tasks", () => {
+    const candidate = cloneLaunchSeed();
+    candidate.tasks.pop();
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("unique task IDs", () => {
+    const candidate = cloneLaunchSeed();
+    const previousId = candidate.tasks[1].id;
+    candidate.tasks[1].id = candidate.tasks[0].id;
+    for (const task of candidate.tasks) {
+      for (const dependency of task.dependencies) {
+        if (dependency.taskId === previousId) {
+          dependency.taskId = candidate.tasks[0].id;
+        }
+      }
+    }
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("unique external IDs", () => {
+    const candidate = cloneLaunchSeed();
+    candidate.tasks[1].externalId = candidate.tasks[0].externalId;
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+
+  await context.test("globally unique entity IDs", () => {
+    const candidate = cloneLaunchSeed();
+    const previousId = candidate.members[0].id;
+    candidate.members[0].id = candidate.spaces[0].id;
+    for (const task of candidate.tasks) {
+      if (task.assigneeId === previousId) {
+        task.assigneeId = candidate.spaces[0].id;
+      }
+    }
+    assert.throws(() => launchWorkspaceSchema.parse(candidate));
+  });
+});
+
+test("keeps a reusable workspace envelope schema for future local seeds", () => {
+  const envelopeSchema = Reflect.get(workspaceSchemas, "workspaceEnvelopeSchema");
+  assert.ok(
+    envelopeSchema &&
+      typeof envelopeSchema === "object" &&
+      "safeParse" in envelopeSchema &&
+      typeof envelopeSchema.safeParse === "function",
+  );
+
+  const candidate = cloneLaunchSeed();
+  candidate.members = candidate.members.slice(0, 1);
+  candidate.spaces = candidate.spaces.slice(0, 1);
+  candidate.lists = candidate.lists.slice(0, 1);
+  candidate.tasks = candidate.tasks.slice(0, 1);
+
+  assert.equal(envelopeSchema.safeParse(candidate).success, true);
+});
 
 test("loads the canonical launch workspace through the typed schema", () => {
   const parsed = launchWorkspaceSchema.parse(launchSeedJson);

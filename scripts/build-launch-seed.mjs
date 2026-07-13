@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,6 +14,7 @@ const DASHBOARD_ROOT =
 const DATA_ENTRY = `${DASHBOARD_ROOT}/tarefas_dados.js`;
 const APP_ENTRY = `${DASHBOARD_ROOT}/tarefas.js`;
 const GENERATED_AT = "2026-07-12T03:00:00.000Z";
+const UUID_NAMESPACE = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "..");
@@ -73,14 +75,29 @@ function readTasksData() {
   return { headers, tasks };
 }
 
-function slug(value) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/&/g, " e ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+function uuidV5(name) {
+  const namespace = Buffer.from(UUID_NAMESPACE.replaceAll("-", ""), "hex");
+  const bytes = createHash("sha1")
+    .update(namespace)
+    .update(name, "utf8")
+    .digest()
+    .subarray(0, 16);
+
+  bytes[6] = (bytes[6] & 0x0f) | 0x50;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+  const hex = bytes.toString("hex");
+  return [
+    hex.slice(0, 8),
+    hex.slice(8, 12),
+    hex.slice(12, 16),
+    hex.slice(16, 20),
+    hex.slice(20),
+  ].join("-");
+}
+
+function stableId(entity, sourceKey) {
+  return uuidV5(`edrive-go-launch:${entity}:${sourceKey}`);
 }
 
 function valueOrNull(value) {
@@ -152,7 +169,7 @@ function buildSeed() {
   const { headers, tasks: rawTasks } = readTasksData();
 
   const members = rawTeam.map((member) => ({
-    id: `member-${slug(member.nome)}`,
+    id: stableId("member", member.nome),
     name: member.nome,
     role: member.role,
     color: member.cor,
@@ -160,22 +177,25 @@ function buildSeed() {
   const memberIdByName = new Map(members.map((member) => [member.name, member.id]));
 
   const spaces = rawSpaces.map((space, position) => ({
-    id: `space-${space.id}`,
+    id: stableId("space", space.id),
     name: space.name,
     emoji: space.emoji,
     position,
   }));
+  const spaceIdBySourceId = new Map(
+    rawSpaces.map((space, position) => [space.id, spaces[position].id]),
+  );
   const lists = rawSpaces.flatMap((space) =>
     space.lists.map((name, position) => ({
-      id: `list-${slug(name)}`,
-      spaceId: `space-${space.id}`,
+      id: stableId("list", `${space.id}:${name}`),
+      spaceId: spaceIdBySourceId.get(space.id),
       name,
       position,
     })),
   );
   const listIdByName = new Map(lists.map((list) => [list.name, list.id]));
   const taskIdByExternalId = new Map(
-    rawTasks.map((task) => [task.ID, `task-${task.ID.toLowerCase()}`]),
+    rawTasks.map((task) => [task.ID, stableId("task", task.ID)]),
   );
 
   const tasks = rawTasks.map((raw, position) => {
@@ -226,8 +246,9 @@ function buildSeed() {
   return {
     version: 1,
     workspace: {
-      id: "workspace-edrive-go-launch-2026-07-18",
+      id: stableId("workspace", "edrive-go-launch-2026-07-18"),
       name: "eDrive Go — Lançamento 18/07/2026",
+      eventName: "Lançamento eDrive Go",
       eventDate: "2026-07-18",
       timezone: "America/Bahia",
       currency: "BRL",

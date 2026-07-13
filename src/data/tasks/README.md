@@ -16,7 +16,7 @@ Com caminhos explícitos para fonte e saída:
 node scripts/build-launch-seed.mjs "/caminho/EDrive Go dashboard launch.zip" "src/data/tasks/launch-workspace-seed.json"
 ```
 
-A saída usa IDs derivados apenas dos dados, posições da fonte e timestamps fixos. Duas execuções com o mesmo ZIP produzem bytes idênticos.
+A saída usa UUIDs v5 derivados de um namespace fixo e das chaves da fonte, além das posições da fonte e timestamps fixos. Workspace, membros, spaces, listas, tarefas e itens de checklist usam UUIDs; duas execuções com o mesmo ZIP produzem bytes idênticos. O workspace registra `eventName` como `Lançamento eDrive Go`.
 
 ## Spaces e listas
 
@@ -36,7 +36,7 @@ Todos os valores originais também são mantidos, sem transformação, em `task.
 
 | Header | Campo canônico | Observação |
 | --- | --- | --- |
-| ID | `externalId` | `id` estável derivado como `task-t001` |
+| ID | `externalId` | `id` é um UUID v5 estável; `externalId` preserva `T001`–`T204` |
 | Frente | `listId` | Referência à lista do mapa 20→5 |
 | Subfrente | `subarea` | Campo da tarefa |
 | Fase | `phase` | Texto da fase operacional |

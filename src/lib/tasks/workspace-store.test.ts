@@ -96,6 +96,44 @@ test("creates, edits and deletes tasks while preserving relations", () => {
   assert.equal(storage.writes, 4);
 });
 
+test("createTask inserts at the requested position and reindexes its list", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const first = store.createTask(taskInput(store, "T900"));
+  const second = store.createTask(taskInput(store, "T901"));
+  const inserted = store.createTask(taskInput(store, "T902", { position: 1 }));
+
+  const tasks = store.getSnapshot().tasks
+    .filter(({ listId }) => listId === first.listId)
+    .sort((left, right) => left.position - right.position);
+  assert.deepEqual(tasks.map(({ id }) => id), [first.id, inserted.id, second.id]);
+  assert.deepEqual(tasks.map(({ position }) => position), [0, 1, 2]);
+});
+
+test("updateTask moves between lists with insertion semantics and no position gaps", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const sourceList = store.getSnapshot().lists[0];
+  const destinationList = store.getSnapshot().lists[1];
+  const sourceFirst = store.createTask(taskInput(store, "T900", { listId: sourceList.id }));
+  const moved = store.createTask(taskInput(store, "T901", { listId: sourceList.id }));
+  const destinationFirst = store.createTask(
+    taskInput(store, "T902", { listId: destinationList.id }),
+  );
+
+  store.updateTask(moved.id, { listId: destinationList.id, position: 0 });
+
+  const snapshot = store.getSnapshot();
+  const sourceTasks = snapshot.tasks
+    .filter(({ listId }) => listId === sourceList.id)
+    .sort((left, right) => left.position - right.position);
+  const destinationTasks = snapshot.tasks
+    .filter(({ listId }) => listId === destinationList.id)
+    .sort((left, right) => left.position - right.position);
+  assert.deepEqual(sourceTasks.map(({ id }) => id), [sourceFirst.id]);
+  assert.deepEqual(sourceTasks.map(({ position }) => position), [0]);
+  assert.deepEqual(destinationTasks.map(({ id }) => id), [moved.id, destinationFirst.id]);
+  assert.deepEqual(destinationTasks.map(({ position }) => position), [0, 1]);
+});
+
 test("moves a task to an exact list/status position", () => {
   const store = new WorkspaceStore({ storage: new MemoryStorage() });
   const first = store.createTask(taskInput(store, "T900"));
@@ -224,6 +262,29 @@ test("createSpace inserts at index one and normalizes positions", () => {
   const spaces = store.getSnapshot().spaces.sort((left, right) => left.position - right.position);
   assert.equal(spaces[1].id, created.id);
   assert.deepEqual(spaces.map(({ position }) => position), [0, 1, 2, 3, 4, 5]);
+});
+
+test("createList inserts at the exact index and normalizes sibling positions", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const space = store.getSnapshot().spaces[0];
+  const before = store.getSnapshot().lists
+    .filter(({ spaceId }) => spaceId === space.id)
+    .sort((left, right) => left.position - right.position);
+
+  const created = store.createList({
+    spaceId: space.id,
+    name: "Inserted list",
+    position: 1,
+  });
+
+  const after = store.getSnapshot().lists
+    .filter(({ spaceId }) => spaceId === space.id)
+    .sort((left, right) => left.position - right.position);
+  assert.deepEqual(
+    after.map(({ id }) => id),
+    [before[0].id, created.id, ...before.slice(1).map(({ id }) => id)],
+  );
+  assert.deepEqual(after.map(({ position }) => position), [0, 1, 2, 3]);
 });
 
 test("updates a list and moves it between valid spaces while tasks retain listId", () => {
@@ -387,6 +448,62 @@ test("rolls back snapshot and storage when a quota write fails", () => {
   );
   assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), rawBefore);
   assert.deepEqual(store.getSnapshot(), snapshotBefore);
+});
+
+test("rejects a stale store write and refreshes safely before retrying", () => {
+  const storage = new MemoryStorage();
+  const firstStore = new WorkspaceStore({ storage });
+  const staleStore = new WorkspaceStore({ storage });
+  const firstMember = firstStore.createMember({
+    name: "First writer",
+    role: "PM",
+    color: "#112233",
+  });
+  const rawAfterFirstWrite = storage.getItem(WORKSPACE_STORAGE_KEY);
+  const writesAfterFirstWrite = storage.writes;
+
+  assert.throws(
+    () =>
+      staleStore.createMember({
+        name: "Stale writer",
+        role: "PM",
+        color: "#445566",
+      }),
+    (error: unknown) => error instanceof WorkspaceStoreError && error.code === "conflict",
+  );
+  assert.equal(storage.writes, writesAfterFirstWrite);
+  assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), rawAfterFirstWrite);
+
+  staleStore.refresh();
+  const secondMember = staleStore.createMember({
+    name: "Refreshed writer",
+    role: "PM",
+    color: "#445566",
+  });
+  const members = staleStore.getSnapshot().members;
+  assert.equal(members.some(({ id }) => id === firstMember.id), true);
+  assert.equal(members.some(({ id }) => id === secondMember.id), true);
+});
+
+test("mutation returns the canonical Zod-stripped entity", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const input = {
+    name: "Canonical member",
+    role: "PM",
+    color: "#112233",
+    unknownProperty: "must be stripped",
+  };
+
+  const member = store.createMember(input);
+
+  assert.equal(Reflect.get(member, "unknownProperty"), undefined);
+  assert.equal(
+    Reflect.get(
+      store.getSnapshot().members.find(({ id }) => id === member.id) as object,
+      "unknownProperty",
+    ),
+    undefined,
+  );
 });
 
 test("rejects invalid mutations before writing and keeps the previous snapshot", () => {

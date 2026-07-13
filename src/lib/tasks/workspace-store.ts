@@ -244,11 +244,51 @@ function insertAtPosition<T extends { position: number }>(
   items.splice(0, items.length, ...ordered);
 }
 
+function findCanonicalEntity(
+  workspace: WorkspaceEnvelope,
+  id: string,
+): { id: string } | undefined {
+  return [
+    ...workspace.members,
+    ...workspace.spaces,
+    ...workspace.lists,
+    ...workspace.tasks,
+    ...workspace.tasks.flatMap(({ checklist }) => checklist),
+  ].find((entity) => entity.id === id);
+}
+
+function canonicalMutationResult<T>(
+  workspace: WorkspaceEnvelope,
+  draft: WorkspaceEnvelope,
+  result: T,
+): T {
+  if (result === draft) return workspace as T;
+  if (Array.isArray(result)) {
+    return result.map((item) => {
+      if (item && typeof item === "object" && "id" in item) {
+        return requireEntity(
+          findCanonicalEntity(workspace, String(item.id)),
+          `Canonical entity ${String(item.id)}`,
+        );
+      }
+      return item;
+    }) as T;
+  }
+  if (result && typeof result === "object" && "id" in result) {
+    return requireEntity(
+      findCanonicalEntity(workspace, String(result.id)),
+      `Canonical entity ${String(result.id)}`,
+    ) as T;
+  }
+  return result;
+}
+
 export class WorkspaceStore {
   private snapshot: WorkspaceEnvelope;
   private readonly storage?: KeyValueStorage;
   private readonly idFactory: () => string;
   private readonly now: () => Date | string;
+  private storageBaseline: string | null;
 
   constructor(options: WorkspaceStoreOptions = {}) {
     this.storage = options.storage === undefined
@@ -258,11 +298,22 @@ export class WorkspaceStore {
     this.now = options.now ?? (() => new Date());
 
     const stored = this.readStoredValue();
+    this.storageBaseline = stored;
     this.snapshot = stored === null ? validateWorkspaceEnvelope(initialWorkspace()) : this.parseStored(stored);
   }
 
   getSnapshot(): WorkspaceEnvelope {
     return clone(this.snapshot);
+  }
+
+  refresh(): WorkspaceEnvelope {
+    const stored = this.readStoredValue();
+    const snapshot = stored === null
+      ? validateWorkspaceEnvelope(initialWorkspace())
+      : this.parseStored(stored);
+    this.snapshot = snapshot;
+    this.storageBaseline = stored;
+    return clone(snapshot);
   }
 
   importLaunchSeed(): WorkspaceEnvelope {
@@ -328,6 +379,8 @@ export class WorkspaceStore {
         createdAt: timestamp,
         updatedAt: timestamp,
       } as WorkspaceTask;
+      const siblings = draft.tasks.filter(({ listId }) => listId === task.listId);
+      insertAtPosition(siblings, task, task.position);
       draft.tasks.push(task);
       return task;
     });
@@ -339,6 +392,13 @@ export class WorkspaceStore {
         draft.tasks.find(({ id }) => id === taskId),
         `Task ${taskId}`,
       );
+      const previousListId = task.listId;
+      const previousPosition = task.position;
+      const targetListId = patch.listId ?? previousListId;
+      requireEntity(
+        draft.lists.find(({ id }) => id === targetListId),
+        `List ${targetListId}`,
+      );
       Object.assign(task, clone(patch), { updatedAt: this.timestamp() });
       if (patch.checklist) {
         task.checklist = patch.checklist.map((item) => ({
@@ -346,44 +406,27 @@ export class WorkspaceStore {
           id: item.id ?? this.idFactory(),
         }));
       }
+      if (patch.listId !== undefined || patch.position !== undefined) {
+        const sourceTasks = draft.tasks.filter(
+          (candidate) => candidate.listId === previousListId && candidate.id !== task.id,
+        );
+        normalizePositions(sourceTasks);
+        const targetTasks = draft.tasks.filter(
+          (candidate) => candidate.listId === targetListId && candidate.id !== task.id,
+        );
+        task.listId = targetListId;
+        insertAtPosition(
+          targetTasks,
+          task,
+          patch.position ?? (targetListId === previousListId ? previousPosition : targetTasks.length),
+        );
+      }
       return task;
     });
   }
 
   moveTask(taskId: string, move: MoveTaskInput): WorkspaceTask {
-    return this.mutate("move task", (draft) => {
-      const task = requireEntity(
-        draft.tasks.find(({ id }) => id === taskId),
-        `Task ${taskId}`,
-      );
-      const previousListId = task.listId;
-      const targetListId = move.listId ?? task.listId;
-      requireEntity(
-        draft.lists.find(({ id }) => id === targetListId),
-        `List ${targetListId}`,
-      );
-
-      const sourceTasks = draft.tasks.filter(
-        (candidate) => candidate.listId === previousListId && candidate.id !== task.id,
-      );
-      normalizePositions(sourceTasks);
-      const targetTasks = draft.tasks
-        .filter((candidate) => candidate.listId === targetListId && candidate.id !== task.id)
-        .sort((left, right) => left.position - right.position);
-      const requestedPosition = move.position ?? (
-        previousListId === targetListId ? task.position : targetTasks.length
-      );
-      const position = Math.max(0, Math.min(requestedPosition, targetTasks.length));
-
-      task.listId = targetListId;
-      if (move.status !== undefined) task.status = move.status;
-      task.updatedAt = this.timestamp();
-      targetTasks.splice(position, 0, task);
-      targetTasks.forEach((candidate, index) => {
-        candidate.position = index;
-      });
-      return task;
-    });
+    return this.updateTask(taskId, move);
   }
 
   deleteTask(taskId: string): void {
@@ -548,8 +591,8 @@ export class WorkspaceStore {
         ...clone(input),
         position: input.position ?? siblings.length,
       };
+      insertAtPosition(siblings, list, list.position);
       draft.lists.push(list);
-      normalizePositions(draft.lists.filter(({ spaceId }) => spaceId === input.spaceId));
       return list;
     });
   }
@@ -685,10 +728,19 @@ export class WorkspaceStore {
         { cause: error },
       );
     }
+    const canonicalResult = canonicalMutationResult(validated, draft, result);
 
     if (this.storage) {
+      const stored = this.readStoredValue();
+      if (stored !== this.storageBaseline) {
+        throw new WorkspaceStoreError(
+          "conflict",
+          "Task workspace changed in another store; refresh before retrying",
+        );
+      }
+      const serialized = JSON.stringify(validated);
       try {
-        this.storage.setItem(WORKSPACE_STORAGE_KEY, JSON.stringify(validated));
+        this.storage.setItem(WORKSPACE_STORAGE_KEY, serialized);
       } catch (error) {
         throw new WorkspaceStoreError(
           "storage_write",
@@ -696,9 +748,10 @@ export class WorkspaceStore {
           { cause: error },
         );
       }
+      this.storageBaseline = serialized;
     }
     this.snapshot = validated;
-    return clone(result);
+    return clone(canonicalResult);
   }
 
   private timestamp(): string {

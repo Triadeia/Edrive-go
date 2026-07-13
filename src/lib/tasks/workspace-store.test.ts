@@ -7,6 +7,7 @@ import {
   WorkspaceStore,
   WorkspaceStoreError,
   type KeyValueStorage,
+  type WorkspaceLockManager,
 } from "./workspace-store";
 import { exportWorkspaceCsv, exportWorkspaceJson } from "./workspace-export";
 
@@ -38,6 +39,36 @@ class MemoryStorage implements KeyValueStorage {
 
   removeItem(key: string) {
     this.values.delete(key);
+  }
+}
+
+class QueueLockManager implements WorkspaceLockManager {
+  private active = false;
+  private readonly queue: Array<() => Promise<void>> = [];
+
+  request<T>(
+    _name: string,
+    callback: () => T | Promise<T>,
+  ): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      this.queue.push(async () => {
+        this.active = true;
+        try {
+          resolve(await callback());
+        } catch (error) {
+          reject(error);
+        } finally {
+          this.active = false;
+          this.drain();
+        }
+      });
+      this.drain();
+    });
+  }
+
+  private drain() {
+    if (this.active) return;
+    void this.queue.shift()?.();
   }
 }
 
@@ -543,6 +574,104 @@ test("an active earlier mutation intent prevents a second writer from overwritin
   assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), rawAfterFirstWrite);
   assert.equal(storage.writes, writesAfterFirstWrite);
   assert.ok(storage.getItem(intentKey), "the winning owner's intent is untouched");
+});
+
+test("runExclusive holds one browser lock across suspension and serializes callers", async () => {
+  const storage = new MemoryStorage();
+  const lockManager = new QueueLockManager();
+  const firstStore = new WorkspaceStore({ storage, lockManager });
+  const secondStore = new WorkspaceStore({ storage, lockManager });
+  const events: string[] = [];
+  let releaseFirst!: () => void;
+  let markFirstEntered!: () => void;
+  const firstEntered = new Promise<void>((resolve) => {
+    markFirstEntered = resolve;
+  });
+  const suspended = new Promise<void>((resolve) => {
+    releaseFirst = resolve;
+  });
+
+  const firstMutation = firstStore.runExclusive(async (store) => {
+    events.push("first-enter");
+    markFirstEntered();
+    await suspended;
+    store.createMember({ name: "First", role: "PM", color: "#112233" });
+    events.push("first-exit");
+  });
+  await firstEntered;
+  const secondMutation = secondStore.runExclusive((store) => {
+    events.push("second-enter");
+    store.createMember({ name: "Second", role: "PM", color: "#445566" });
+    events.push("second-exit");
+  });
+  await Promise.resolve();
+  assert.deepEqual(events, ["first-enter"]);
+
+  releaseFirst();
+  await Promise.all([firstMutation, secondMutation]);
+
+  assert.deepEqual(events, ["first-enter", "first-exit", "second-enter", "second-exit"]);
+  assert.deepEqual(
+    secondStore.getSnapshot().members.slice(-2).map(({ name }) => name),
+    ["First", "Second"],
+  );
+});
+
+test("browser-coordinated stores reject direct mutations outside runExclusive", async () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({
+    storage,
+    lockManager: new QueueLockManager(),
+  });
+
+  assert.throws(
+    () => store.createMember({ name: "Unsafe", role: "PM", color: "#112233" }),
+    WorkspaceStoreError,
+  );
+  assert.equal(storage.getItem(WORKSPACE_STORAGE_KEY), null);
+
+  const member = await store.runExclusive((lockedStore) =>
+    lockedStore.createMember({ name: "Safe", role: "PM", color: "#112233" }),
+  );
+  assert.equal(member.name, "Safe");
+});
+
+test("resetWorkspace persists the canonical empty structure inside runExclusive", async () => {
+  const storage = new MemoryStorage();
+  const lockManager = new QueueLockManager();
+  const store = new WorkspaceStore({ storage, lockManager });
+  await store.runExclusive((lockedStore) => lockedStore.importLaunchSeed());
+  assert.equal(store.getSnapshot().tasks.length, 204);
+
+  const reset = await store.runExclusive((lockedStore) => lockedStore.resetWorkspace());
+
+  assert.equal(reset.tasks.length, 0);
+  assert.equal(reset.spaces.length, 5);
+  assert.equal(reset.lists.length, 20);
+  assert.equal(reset.members.length, 6);
+  const reloaded = new WorkspaceStore({ storage, lockManager });
+  assert.equal(reloaded.getSnapshot().tasks.length, 0);
+  assert.deepEqual(reloaded.getSnapshot(), reset);
+});
+
+test("non-finite mutation leases are discarded instead of blocking forever", () => {
+  const storage = new MemoryStorage();
+  const corruptIntentKey = `${WORKSPACE_STORAGE_KEY}:mutation-intent:corrupt`;
+  const lockKey = `${WORKSPACE_STORAGE_KEY}:mutation-lock`;
+  const corruptLease = '{"owner":"corrupt","announcedAt":0,"expiresAt":1e999}';
+  storage.setItem(corruptIntentKey, corruptLease);
+  storage.setItem(lockKey, corruptLease);
+  const store = new WorkspaceStore({ storage });
+
+  const member = store.createMember({
+    name: "Recovered",
+    role: "PM",
+    color: "#112233",
+  });
+
+  assert.equal(member.name, "Recovered");
+  assert.equal(storage.getItem(corruptIntentKey), null);
+  assert.equal(storage.getItem(lockKey), null);
 });
 
 test("refresh without storage preserves in-memory mutations", () => {

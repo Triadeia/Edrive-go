@@ -6,6 +6,7 @@ import { launchWorkspaceSeed } from "./workspace-seed";
 export const WORKSPACE_STORAGE_KEY = "edrive-go:task-workspace:v1";
 export const WORKSPACE_MUTATION_LOCK_KEY = `${WORKSPACE_STORAGE_KEY}:mutation-lock`;
 export const WORKSPACE_MUTATION_INTENT_PREFIX = `${WORKSPACE_STORAGE_KEY}:mutation-intent:`;
+export const WORKSPACE_BROWSER_LOCK_NAME = `${WORKSPACE_STORAGE_KEY}:exclusive`;
 
 const MUTATION_LEASE_MS = 2_000;
 const MUTATION_SETTLE_MS = 2;
@@ -16,6 +17,10 @@ export interface KeyValueStorage {
   key?(index: number): string | null;
   setItem(key: string, value: string): void;
   removeItem(key: string): void;
+}
+
+export interface WorkspaceLockManager {
+  request<T>(name: string, callback: () => T | Promise<T>): Promise<T>;
 }
 
 export type WorkspaceEnvelope = z.infer<typeof workspaceEnvelopeSchema>;
@@ -70,6 +75,7 @@ export interface MoveTaskInput {
 
 export interface WorkspaceStoreOptions {
   storage?: KeyValueStorage | null;
+  lockManager?: WorkspaceLockManager | null;
   idFactory?: () => string;
   now?: () => Date | string;
 }
@@ -222,6 +228,17 @@ export function getBrowserWorkspaceStorage(): KeyValueStorage | undefined {
   return window.localStorage;
 }
 
+export function getBrowserWorkspaceLockManager(): WorkspaceLockManager | undefined {
+  if (typeof navigator === "undefined" || !navigator.locks) return undefined;
+  return {
+    request<T>(name: string, callback: () => T | Promise<T>): Promise<T> {
+      return navigator.locks
+        .request<Promise<T>>(name, () => Promise.resolve(callback()))
+        .then((result) => result);
+    },
+  };
+}
+
 function normalizePositions<T extends { position: number }>(items: T[]): void {
   items
     .sort((left, right) => left.position - right.position)
@@ -303,7 +320,9 @@ function parseMutationLease(raw: string | null): MutationLease | undefined {
     if (
       typeof value.owner !== "string" ||
       typeof value.announcedAt !== "number" ||
-      typeof value.expiresAt !== "number"
+      !Number.isFinite(value.announcedAt) ||
+      typeof value.expiresAt !== "number" ||
+      !Number.isFinite(value.expiresAt)
     ) {
       return undefined;
     }
@@ -319,12 +338,23 @@ export class WorkspaceStore {
   private readonly idFactory: () => string;
   private readonly now: () => Date | string;
   private readonly storeId = globalThis.crypto.randomUUID();
+  private readonly lockManager?: WorkspaceLockManager;
+  private readonly requiresExclusiveMutations: boolean;
+  private exclusiveDepth = 0;
   private storageBaseline: string | null;
 
   constructor(options: WorkspaceStoreOptions = {}) {
+    const browserStorage = getBrowserWorkspaceStorage();
     this.storage = options.storage === undefined
-      ? getBrowserWorkspaceStorage()
+      ? browserStorage
       : options.storage ?? undefined;
+    const browserBacked = browserStorage !== undefined && this.storage === browserStorage;
+    this.lockManager = options.lockManager === undefined
+      ? browserBacked
+        ? getBrowserWorkspaceLockManager()
+        : undefined
+      : options.lockManager ?? undefined;
+    this.requiresExclusiveMutations = browserBacked || options.lockManager != null;
     this.idFactory = options.idFactory ?? (() => globalThis.crypto.randomUUID());
     this.now = options.now ?? (() => new Date());
 
@@ -335,6 +365,27 @@ export class WorkspaceStore {
 
   getSnapshot(): WorkspaceEnvelope {
     return clone(this.snapshot);
+  }
+
+  async runExclusive<T>(
+    callback: (store: WorkspaceStore) => T | Promise<T>,
+  ): Promise<T> {
+    if (!this.requiresExclusiveMutations) return await callback(this);
+    if (!this.lockManager) {
+      throw new WorkspaceStoreError(
+        "invalid_operation",
+        "Web Locks API is required for browser workspace mutations",
+      );
+    }
+    return this.lockManager.request(WORKSPACE_BROWSER_LOCK_NAME, async () => {
+      this.exclusiveDepth += 1;
+      try {
+        this.refresh();
+        return await callback(this);
+      } finally {
+        this.exclusiveDepth -= 1;
+      }
+    });
   }
 
   refresh(): WorkspaceEnvelope {
@@ -390,6 +441,13 @@ export class WorkspaceStore {
         });
       }
       draft.tasks.push(...additions);
+      return draft;
+    });
+  }
+
+  resetWorkspace(): WorkspaceEnvelope {
+    return this.mutate("reset workspace", (draft) => {
+      Object.assign(draft, initialWorkspace());
       return draft;
     });
   }
@@ -742,6 +800,12 @@ export class WorkspaceStore {
   }
 
   private mutate<T>(label: string, mutation: (draft: WorkspaceEnvelope) => T): T {
+    if (this.requiresExclusiveMutations && this.exclusiveDepth === 0) {
+      throw new WorkspaceStoreError(
+        "invalid_operation",
+        "Browser workspace mutations must run inside runExclusive",
+      );
+    }
     const draft = clone(this.snapshot);
     let result: T;
     let validated: WorkspaceEnvelope;

@@ -15,6 +15,7 @@ class MemoryStorage implements KeyValueStorage {
   readonly values = new Map<string, string>();
   writes = 0;
   failNextWrite = false;
+  afterWorkspaceWrite?: () => void;
 
   get length() {
     return this.values.size;
@@ -35,6 +36,7 @@ class MemoryStorage implements KeyValueStorage {
       throw new DOMException("Quota exceeded", "QuotaExceededError");
     }
     this.values.set(key, value);
+    if (key === WORKSPACE_STORAGE_KEY) this.afterWorkspaceWrite?.();
   }
 
   removeItem(key: string) {
@@ -615,6 +617,36 @@ test("runExclusive holds one browser lock across suspension and serializes calle
     secondStore.getSnapshot().members.slice(-2).map(({ name }) => name),
     ["First", "Second"],
   );
+});
+
+test("runExclusive ignores an expired fallback lease during a slow workspace write", async () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({
+    storage,
+    lockManager: new QueueLockManager(),
+  });
+  const actualNow = Date.now;
+  let clockDrift = 0;
+  Date.now = () => actualNow() + clockDrift;
+  storage.afterWorkspaceWrite = () => {
+    clockDrift += 3_000;
+  };
+
+  try {
+    const member = await store.runExclusive((lockedStore) =>
+      lockedStore.createMember({
+        name: "Slow persisted write",
+        role: "PM",
+        color: "#112233",
+      }),
+    );
+
+    assert.equal(store.getSnapshot().members.some(({ id }) => id === member.id), true);
+    const persisted = JSON.parse(storage.getItem(WORKSPACE_STORAGE_KEY) as string);
+    assert.equal(persisted.members.some(({ id }: { id: string }) => id === member.id), true);
+  } finally {
+    Date.now = actualNow;
+  }
 });
 
 test("browser-coordinated stores reject direct mutations outside runExclusive", async () => {

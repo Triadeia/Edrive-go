@@ -823,7 +823,10 @@ export class WorkspaceStore {
     const canonicalResult = canonicalMutationResult(validated, draft, result);
 
     if (this.storage) {
-      const releaseLease = this.acquireMutationLease();
+      const webLockHeld = this.requiresExclusiveMutations && this.exclusiveDepth > 0;
+      const releaseLease = webLockHeld
+        ? () => undefined
+        : this.acquireMutationLease();
       try {
         const stored = this.readStoredValue();
         if (stored !== this.storageBaseline) {
@@ -832,7 +835,7 @@ export class WorkspaceStore {
             "Task workspace changed in another store; refresh before retrying",
           );
         }
-        this.assertMutationLeaseOwnership();
+        if (!webLockHeld) this.assertMutationLeaseOwnership();
         const serialized = JSON.stringify(validated);
         try {
           this.storage.setItem(WORKSPACE_STORAGE_KEY, serialized);
@@ -843,7 +846,7 @@ export class WorkspaceStore {
             { cause: error },
           );
         }
-        this.assertMutationLeaseOwnership();
+        if (!webLockHeld) this.assertMutationLeaseOwnership();
         this.storageBaseline = serialized;
       } finally {
         releaseLease();

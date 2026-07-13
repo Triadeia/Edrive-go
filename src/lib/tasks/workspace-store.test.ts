@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { LAUNCH_SOURCE_HEADER_MAP } from "./workspace-seed";
+import { LAUNCH_SOURCE_HEADER_MAP, launchWorkspaceSeed } from "./workspace-seed";
 import {
   WORKSPACE_STORAGE_KEY,
   WorkspaceStore,
@@ -148,6 +148,16 @@ test("createTask inserts at the requested position and reindexes its list", () =
     .sort((left, right) => left.position - right.position);
   assert.deepEqual(tasks.map(({ id }) => id), [first.id, inserted.id, second.id]);
   assert.deepEqual(tasks.map(({ position }) => position), [0, 1, 2]);
+});
+
+test("automatically generated custom task IDs start after the reserved launch range", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const input = taskInput(store, "T900");
+  delete (input as { externalId?: string }).externalId;
+
+  const task = store.createTask(input);
+
+  assert.equal(task.externalId, "T205");
 });
 
 test("updateTask moves between lists with insertion semantics and no position gaps", () => {
@@ -480,6 +490,27 @@ test("imports all 204 launch tasks idempotently without erasing edits", () => {
 
   assert.equal(store.getSnapshot().tasks.length, 204);
   assert.equal(store.getSnapshot().tasks.find(({ id }) => id === task.id)?.title, "Local edit");
+});
+
+test("remaps a legacy custom T001 before importing the canonical task idempotently", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const custom = store.createTask(
+    taskInput(store, "T001", { title: "Custom task before seed import" }),
+  );
+
+  store.importLaunchSeed();
+  store.importLaunchSeed();
+
+  const snapshot = store.getSnapshot();
+  const canonicalT001 = snapshot.tasks.find(
+    ({ id }) => id === launchWorkspaceSeed.tasks[0].id,
+  );
+  const preservedCustom = snapshot.tasks.find(({ id }) => id === custom.id);
+  assert.equal(snapshot.tasks.length, 205);
+  assert.deepEqual(canonicalT001, launchWorkspaceSeed.tasks[0]);
+  assert.equal(preservedCustom?.title, "Custom task before seed import");
+  assert.equal(preservedCustom?.externalId, "T205");
+  assert.equal(new Set(snapshot.tasks.map(({ externalId }) => externalId)).size, 205);
 });
 
 test("persists an explicitly empty task collection across repository reloads", () => {

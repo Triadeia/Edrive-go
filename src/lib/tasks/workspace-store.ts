@@ -414,6 +414,28 @@ export class WorkspaceStore {
       addMissingById(draft.spaces, launchWorkspaceSeed.spaces);
       addMissingById(draft.lists, launchWorkspaceSeed.lists);
 
+      const canonicalTaskIds = new Set(
+        launchWorkspaceSeed.tasks.map(({ id }) => id),
+      );
+      const canonicalByExternalId = new Map(
+        launchWorkspaceSeed.tasks.map((task) => [task.externalId, task]),
+      );
+      for (const task of draft.tasks) {
+        const canonicalConflict = canonicalByExternalId.get(task.externalId);
+        if (!canonicalConflict || canonicalTaskIds.has(task.id)) continue;
+
+        const remappedExternalId = this.nextExternalId(draft);
+        task.externalId = remappedExternalId;
+        task.sourceMeta.ID = remappedExternalId;
+        for (const candidate of draft.tasks) {
+          for (const dependency of candidate.dependencies) {
+            if (dependency.taskId === task.id) {
+              dependency.externalId = remappedExternalId;
+            }
+          }
+        }
+      }
+
       const existingById = new Map(draft.tasks.map((task) => [task.id, task]));
       const existingByExternalId = new Map(
         draft.tasks.map((task) => [task.externalId, task]),
@@ -982,14 +1004,18 @@ export class WorkspaceStore {
   }
 
   private nextExternalId(workspace: WorkspaceEnvelope): string {
-    const highest = workspace.tasks.reduce((value, task) => {
-      const numeric = Number(task.externalId.slice(1));
-      return Number.isInteger(numeric) ? Math.max(value, numeric) : value;
-    }, 0);
-    if (highest >= 999) {
-      throw new WorkspaceStoreError("conflict", "No external task IDs remain");
+    const usedExternalIds = new Set(
+      workspace.tasks.map(({ externalId }) => externalId),
+    );
+    for (
+      let numeric = launchWorkspaceSeed.tasks.length + 1;
+      numeric <= 999;
+      numeric += 1
+    ) {
+      const externalId = `T${String(numeric).padStart(3, "0")}`;
+      if (!usedExternalIds.has(externalId)) return externalId;
     }
-    return `T${String(highest + 1).padStart(3, "0")}`;
+    throw new WorkspaceStoreError("conflict", "No custom external task IDs remain");
   }
 
   private nextTaskPosition(

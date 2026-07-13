@@ -20,11 +20,13 @@ function visibleFocusableElements(container: HTMLElement): HTMLElement[] {
 export function AccessibleDialog({
   labelledBy,
   onClose,
+  closeDisabled = false,
   className = "",
   children,
 }: {
   labelledBy: string;
   onClose: () => void;
+  closeDisabled?: boolean;
   className?: string;
   children: ReactNode;
 }) {
@@ -32,6 +34,8 @@ export function AccessibleDialog({
   const openerRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
+  const closeDisabledRef = useRef(closeDisabled);
+  closeDisabledRef.current = closeDisabled;
 
   useEffect(() => {
     openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -46,7 +50,7 @@ export function AccessibleDialog({
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        closeRef.current();
+        if (!closeDisabledRef.current) closeRef.current();
         return;
       }
       if (event.key !== "Tab") return;

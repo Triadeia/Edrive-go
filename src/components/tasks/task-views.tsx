@@ -4,12 +4,15 @@ import {
   DndContext,
   KeyboardSensor,
   PointerSensor,
+  closestCenter,
   pointerWithin,
   useDraggable,
   useDroppable,
   useSensor,
   useSensors,
+  type CollisionDetection,
   type DragEndEvent,
+  type KeyboardCoordinateGetter,
 } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { ArrowRight, CalendarPlus, GripVertical, Pencil, Plus, Trash2 } from "lucide-react";
@@ -36,6 +39,49 @@ export const priorityLabels = {
 } as const;
 
 const visibleKanbanStatuses: TaskStatus[] = ["backlog", "todo", "in_progress", "in_review", "blocked", "done", "cancelled"];
+
+const workspaceCollisionDetection: CollisionDetection = (args) => {
+  const pointerCollisions = pointerWithin(args);
+  return pointerCollisions.length > 0 ? pointerCollisions : closestCenter(args);
+};
+
+function directionalKeyboardCoordinates(targetPrefix: string): KeyboardCoordinateGetter {
+  return (event, { context, currentCoordinates }) => {
+    const collisionRect = context.collisionRect;
+    if (!collisionRect || !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.code)) return;
+    event.preventDefault();
+    const activeCenter = {
+      x: collisionRect.left + collisionRect.width / 2,
+      y: collisionRect.top + collisionRect.height / 2,
+    };
+    const candidates = context.droppableContainers.getEnabled().flatMap((container) => {
+      if (!String(container.id).startsWith(targetPrefix)) return [];
+      const rect = context.droppableRects.get(container.id);
+      if (!rect) return [];
+      const center = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      const inDirection = event.code === "ArrowRight"
+        ? center.x > activeCenter.x + 1
+        : event.code === "ArrowLeft"
+          ? center.x < activeCenter.x - 1
+          : event.code === "ArrowDown"
+            ? center.y > activeCenter.y + 1
+            : center.y < activeCenter.y - 1;
+      if (!inDirection) return [];
+      const primaryDistance = event.code === "ArrowLeft" || event.code === "ArrowRight"
+        ? Math.abs(center.x - activeCenter.x)
+        : Math.abs(center.y - activeCenter.y);
+      const crossDistance = event.code === "ArrowLeft" || event.code === "ArrowRight"
+        ? Math.abs(center.y - activeCenter.y)
+        : Math.abs(center.x - activeCenter.x);
+      return [{ rect, score: primaryDistance + crossDistance * 4 }];
+    });
+    const target = candidates.sort((left, right) => left.score - right.score)[0];
+    return target ? { x: target.rect.left, y: target.rect.top } : currentCoordinates;
+  };
+}
+
+const kanbanKeyboardCoordinates = directionalKeyboardCoordinates("status:");
+const calendarKeyboardCoordinates = directionalKeyboardCoordinates("calendar-date:");
 
 function TaskIdentity({ workspace, task }: { workspace: WorkspaceEnvelope; task: WorkspaceTask }) {
   const assignee = workspace.members.find((member) => member.id === task.assigneeId);
@@ -156,7 +202,10 @@ export function TaskKanbanView(props: {
   onDelete: (task: WorkspaceTask) => void;
   onMoveStatus: (task: WorkspaceTask, status: TaskStatus) => void;
 }) {
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }), useSensor(KeyboardSensor));
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: kanbanKeyboardCoordinates, scrollBehavior: "auto" }),
+  );
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (!over || !String(over.id).startsWith("status:")) return;
     const task = props.tasks.find((candidate) => candidate.id === active.id);
@@ -164,7 +213,7 @@ export function TaskKanbanView(props: {
   };
   if (!props.tasks.length) return <EmptyView onCreate={props.onCreate} />;
   return (
-    <DndContext sensors={sensors} collisionDetection={pointerWithin} onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} collisionDetection={workspaceCollisionDetection} onDragEnd={onDragEnd}>
       <div className="grid min-w-[1250px] grid-cols-7 gap-3">
         {visibleKanbanStatuses.map((status) => <KanbanColumn key={status} workspace={props.workspace} status={status} tasks={props.tasks.filter((task) => task.status === status)} onEdit={props.onEdit} onDelete={props.onDelete} onMoveStatus={props.onMoveStatus} />)}
       </div>
@@ -179,7 +228,10 @@ export function TaskCalendarView(props: {
   onEdit: (task: WorkspaceTask) => void;
   onMoveDueDate: (task: WorkspaceTask, date: string) => void;
 }) {
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }), useSensor(KeyboardSensor));
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: calendarKeyboardCoordinates, scrollBehavior: "auto" }),
+  );
   const [year, month] = props.workspace.workspace.eventDate.split("-").map(Number);
   const first = new Date(Date.UTC(year, month - 1, 1));
   const start = new Date(first);
@@ -197,7 +249,7 @@ export function TaskCalendarView(props: {
     if (task) props.onMoveDueDate(task, overId.slice("calendar-date:".length));
   };
   return (
-    <DndContext sensors={sensors} collisionDetection={pointerWithin} onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} collisionDetection={workspaceCollisionDetection} onDragEnd={onDragEnd}>
     <div className="min-w-[850px] rounded-lg border border-[var(--border)] p-3">
       <div className="mb-3 flex items-center justify-between"><h3 className="font-black">{first.toLocaleDateString("pt-BR", { timeZone: "UTC", month: "long", year: "numeric" })}</h3><CalendarPlus className="size-5 text-[var(--primary)]" /></div>
       <div className="grid grid-cols-7 gap-1">
@@ -227,6 +279,7 @@ function CalendarDay(props: { date: string; outside: boolean; tasks: WorkspaceTa
 }
 
 function CalendarTask({ task, nextDate, onEdit, onMoveDueDate }: { task: WorkspaceTask; nextDate: string; onEdit: (task: WorkspaceTask) => void; onMoveDueDate: (task: WorkspaceTask, date: string) => void }) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: `calendar-task:${task.id}` });
+  const draggableId = `calendar-task:${task.id}`;
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ id: draggableId });
   return <div ref={setNodeRef} style={{ transform: CSS.Translate.toString(transform), opacity: isDragging ? 0.55 : 1 }} className="flex items-center rounded bg-[var(--muted)]"><button type="button" className="cursor-grab p-1 text-[var(--muted-foreground)]" aria-label={`Arrastar prazo de ${task.title}`} {...listeners} {...attributes}><GripVertical className="size-3" /></button><button type="button" className="min-w-0 flex-1 truncate p-1 text-left text-[10px] font-bold" onClick={() => onEdit(task)}>{task.title}</button><button type="button" className="p-1 text-[var(--primary)]" aria-label={`Mover prazo de ${task.title} para o dia seguinte`} onClick={() => onMoveDueDate(task, nextDate)}><ArrowRight className="size-3" /></button></div>;
 }

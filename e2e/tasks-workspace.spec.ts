@@ -100,11 +100,24 @@ test("painel operacional persiste CRUD, quadro e exportacoes no navegador", asyn
   await page.getByRole("button", { name: "Quadro" }).click();
   await dragWithPointer(page, page.getByRole("button", { name: "Arrastar Tarefa E2E operacional" }), page.getByTestId("kanban-in_progress"));
   await expect(page.getByTestId("kanban-in_progress")).toContainText("Tarefa E2E operacional");
+  const keyboardDragHandle = page.getByRole("button", { name: "Arrastar Tarefa E2E operacional" });
+  await keyboardDragHandle.focus();
+  await page.keyboard.press("Space");
+  const dragAnnouncement = page.locator('[role="status"][aria-live="assertive"]');
+  for (let step = 0; step < 12; step += 1) {
+    await page.keyboard.press("ArrowRight");
+    await page.waitForTimeout(100);
+    if ((await dragAnnouncement.textContent())?.includes("status:in_review")) break;
+  }
+  await expect(dragAnnouncement).toContainText("status:in_review");
+  await page.keyboard.press("Space");
+  await expect(keyboardDragHandle).not.toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByTestId("kanban-in_review")).toContainText("Tarefa E2E operacional");
 
   await page.reload();
   await page.getByPlaceholder("Buscar tarefas").fill("Tarefa E2E operacional");
   await expect(page.getByText("Tarefa E2E operacional", { exact: true })).toBeVisible();
-  await expect(page.getByRole("row").filter({ hasText: "Tarefa E2E operacional" }).getByText("Em andamento", { exact: true })).toBeVisible();
+  await expect(page.getByRole("row").filter({ hasText: "Tarefa E2E operacional" }).getByText("Em revisão", { exact: true })).toBeVisible();
 
   await page.setViewportSize({ width: 1920, height: 1000 });
   await page.getByRole("button", { name: "Calendário" }).click();
@@ -189,6 +202,36 @@ test("diálogos contêm foco, fecham com Escape e restauram o acionador", async 
   await expect(page.getByRole("button", { name: "Fechar diálogo" })).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(memberButton).toBeFocused();
+
+  await page.evaluate(async () => {
+    const runtimeWindow = window as Window & { releasePendingWorkspaceLock?: () => void };
+    await new Promise<void>((acquired) => {
+      void navigator.locks.request("edrive-go:task-workspace:v1:exclusive", async () => {
+        acquired();
+        await new Promise<void>((release) => {
+          runtimeWindow.releasePendingWorkspaceLock = release;
+        });
+      });
+    });
+  });
+  await memberButton.click();
+  await page.getByLabel("Nome do funcionário").fill("Pendente E2E");
+  await page.getByLabel("Função do funcionário").fill("Operações");
+  await page.getByRole("button", { name: "Salvar funcionário" }).click();
+  await expect(page.getByRole("button", { name: "Processando…" })).toBeDisabled();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toBeVisible();
+  const disabledClose = page.getByRole("button", { name: "Fechar diálogo" });
+  await expect(disabledClose).toBeDisabled();
+  await disabledClose.click({ force: true });
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.evaluate(() => {
+    const runtimeWindow = window as Window & { releasePendingWorkspaceLock?: () => void };
+    runtimeWindow.releasePendingWorkspaceLock?.();
+    delete runtimeWindow.releasePendingWorkspaceLock;
+  });
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByLabel("Estrutura do workspace").getByText("Pendente E2E", { exact: true })).toHaveCount(1);
 
   const newTaskButton = page.getByRole("button", { name: "Nova tarefa" }).first();
   await newTaskButton.click();

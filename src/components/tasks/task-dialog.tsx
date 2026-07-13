@@ -94,8 +94,8 @@ export function TaskDialog({ workspace, task, initialDate, onClose, onSave }: {
   };
 
   return (
-    <AccessibleDialog className="max-w-5xl" labelledBy="task-dialog-title" onClose={onClose}>
-        <header className="modal-header"><div><p className="kicker">{task ? `Editar ${task.externalId}` : "Nova tarefa"}</p><h2 id="task-dialog-title" className="mt-1 text-2xl font-black">Dados operacionais</h2></div><button type="button" className="icon-button" aria-label="Fechar formulário de tarefa" onClick={onClose}><X className="size-5" /></button></header>
+    <AccessibleDialog className="max-w-5xl" labelledBy="task-dialog-title" onClose={onClose} closeDisabled={pending}>
+        <header className="modal-header"><div><p className="kicker">{task ? `Editar ${task.externalId}` : "Nova tarefa"}</p><h2 id="task-dialog-title" className="mt-1 text-2xl font-black">Dados operacionais</h2></div><button type="button" disabled={pending} className="icon-button" aria-label="Fechar formulário de tarefa" onClick={onClose}><X className="size-5" /></button></header>
         <form className="max-h-[76vh] overflow-y-auto p-5" onSubmit={async (event) => { event.preventDefault(); if (!draft.title.trim() || pendingRef.current) return; pendingRef.current = true; setPending(true); try { await onSave({ ...draft, title: draft.title.trim() }); } finally { pendingRef.current = false; setPending(false); } }}>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Field label="Título" className="md:col-span-2 lg:col-span-3"><input data-dialog-autofocus required value={draft.title} onChange={(event) => patch("title", event.target.value)} /></Field>

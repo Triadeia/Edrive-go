@@ -1,7 +1,6 @@
-# Libert Drive — Documentação Operacional (Playbooks)
+# eDrive Go — Documentação Operacional (Playbooks)
 
 > Complemento executável do Plano de Negócio. Todos os valores são **premissas editáveis a validar**.
-> Versão 1.0 · Julho 2026 · Fundadores: Luige (Presidente) e Nilton Macario (Estrategista).
 
 ---
 
@@ -9,7 +8,7 @@
 
 ### 1.1 Estrutura da oferta (webinar)
 - **Promessa central:** "Saia dirigindo um carro elétrico BYD ainda esta semana — sem compra, combustível quase zero, com suporte total."
-- **Mecanismo:** locação/assinatura Libert Drive + telemetria + suporte + trilha de aquisição.
+- **Mecanismo:** locação/assinatura eDrive Go + telemetria + suporte + trilha de aquisição.
 - **Prova:** economia de combustível (motorista gasta ~R$ 2.000/mês a menos), carro novo, sem burocracia.
 - **Escassez real:** número de vagas = carros disponíveis no lote (ex.: 20 carros neste lançamento).
 - **Bônus:** taxa de ativação reduzida para quem fechar no evento; kit de boas-vindas; prioridade na trilha de consórcio.
@@ -17,10 +16,10 @@
 - **CTA:** aplicação imediata na página + agendamento de vistoria/retirada.
 
 ### 1.2 Roteiro do webinar (60–75 min)
-1. **Abertura (5 min):** quem é a Libert Drive, missão, prova social.
+1. **Abertura (5 min):** quem é a eDrive Go, missão, prova social.
 2. **A dor (10 min):** quanto o combustível consome do motorista; simulação ao vivo na calculadora.
 3. **A virada (15 min):** o elétrico como ferramenta de trabalho; custo real por km.
-4. **A solução (15 min):** como funciona a assinatura Libert Drive, suporte, telemetria, trilha de aquisição.
+4. **A solução (15 min):** como funciona a assinatura eDrive Go, suporte, telemetria, trilha de aquisição.
 5. **A oferta (10 min):** planos (dia/semana/mês), ativação, o que está incluso, escassez.
 6. **Objeções (10 min):** ver 1.4.
 7. **CTA + aplicação ao vivo (10 min):** passo a passo da aplicação; closers no WhatsApp.
@@ -154,9 +153,9 @@ Ver §26 do Plano — inclui aluguel real, itens inclusos, sublocação, cauçã
 ---
 
 ## 7. Índice de arquivos entregues
-- `Libert_Drive_Plano_de_Negocio.html` — plano completo (30 entregáveis; imprima em PDF).
-- `Libert_Drive_Modelo_Financeiro.html` — abre e baixa o `.xlsx` (16 abas com fórmulas).
+- `EDrive_Go_Plano_de_Negocio.html` — plano completo (30 entregáveis; imprima em PDF).
+- `EDrive_Go_Modelo_Financeiro.html` — abre e baixa o `.xlsx` (16 abas com fórmulas).
 - `README_MODELO_FINANCEIRO.md` — como usar a planilha.
-- `Libert_Drive_Documentacao_Operacional.md` — este arquivo.
-- `Libert_Drive_Deck.html` — apresentação executiva (imprima em PDF).
-- `libert-drive-calculadora/` — projeto Next.js completo da calculadora (46 arquivos, 24 testes).
+- `EDrive_Go_Documentacao_Operacional.md` — este arquivo.
+- `EDrive_Go_Deck.html` — apresentação executiva (imprima em PDF).
+- `edrive-go-calculadora/` — projeto Next.js completo da calculadora (46 arquivos, 24 testes).

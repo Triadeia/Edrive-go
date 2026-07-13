@@ -31,7 +31,7 @@ import {
 } from "@/lib/marketing/video-engine";
 import type { DataPayload, Filters, Variation } from "@/lib/marketing/video-types";
 
-const STORAGE_KEY = "libert-drive-video-machine-v1";
+const STORAGE_KEY = "edrive-go-video-machine-v1";
 
 type ViewKey = "gerador" | "variacoes" | "cruzamentos" | "calendario" | "biblioteca" | "compliance";
 
@@ -57,7 +57,7 @@ export function VideoMachine() {
   const [savedAt, setSavedAt] = useState<string>("nao salvo");
 
   useEffect(() => {
-    fetch("/data/libert-drive-export-site.json")
+    fetch("/data/edrive-go-export-site.json")
       .then((response) => response.json())
       .then((payload: DataPayload) => setData(payload));
 
@@ -159,7 +159,7 @@ export function VideoMachine() {
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "libert-drive-plano-videos-selecionados.json";
+    anchor.download = "edrive-go-plano-videos-selecionados.json";
     anchor.click();
     URL.revokeObjectURL(url);
   }

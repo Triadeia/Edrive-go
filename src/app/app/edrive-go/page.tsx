@@ -18,35 +18,35 @@ import {
 const docs = [
   {
     title: "Plano de Negocio Completo",
-    href: "/libert-drive/documentos/Libert_Drive_Plano_de_Negocio.html",
+    href: "/edrive-go/documentos/EDrive_Go_Plano_de_Negocio.html",
     type: "HTML",
     text: "30 entregaveis: tese estrategica, modelo de negocio, DRE, marketing, vendas, operacao, compliance, roadmap e riscos.",
     icon: BookOpenText,
   },
   {
     title: "Deck Executivo",
-    href: "/libert-drive/documentos/Libert_Drive_Deck.html",
+    href: "/edrive-go/documentos/EDrive_Go_Deck.html",
     type: "HTML",
     text: "Narrativa para investidores/parceiros: problema, solucao, mercado, modelo, GTM, unit economics, riscos e pedido.",
     icon: FileText,
   },
   {
     title: "Modelo Financeiro",
-    href: "/libert-drive/documentos/Libert_Drive_Modelo_Financeiro.html",
+    href: "/edrive-go/documentos/EDrive_Go_Modelo_Financeiro.html",
     type: "HTML",
     text: "Gerador da planilha financeira com premissas editaveis e explicacao do arquivo Excel.",
     icon: FileSpreadsheet,
   },
   {
     title: "Documentacao Operacional",
-    href: "/libert-drive/documentos/Libert_Drive_Documentacao_Operacional.md",
+    href: "/edrive-go/documentos/EDrive_Go_Documentacao_Operacional.md",
     type: "MD",
     text: "Playbooks de marketing, vendas, suporte, frota, telemetria, compliance e checklists de execucao.",
     icon: Network,
   },
   {
     title: "README do Modelo Financeiro",
-    href: "/libert-drive/documentos/README_MODELO_FINANCEIRO.md",
+    href: "/edrive-go/documentos/README_MODELO_FINANCEIRO.md",
     type: "MD",
     text: "Guia de uso da planilha, abas, premissas principais, cenarios e notas tecnicas.",
     icon: FileText,
@@ -56,12 +56,12 @@ const docs = [
 const downloads = [
   {
     title: "Baixar Excel financeiro",
-    href: "/libert-drive/downloads/Libert_Drive_Modelo_Financeiro.xlsx",
+    href: "/edrive-go/downloads/EDrive_Go_Modelo_Financeiro.xlsx",
     text: "Planilha com Premissas, Frota, Motoristas, Marketing, Funil, Equipe, Consorcio, Custos, DRE, Fluxo, Unit, Cenarios, Sensibilidade, Dashboard, Riscos e Roadmap.",
   },
   {
     title: "Baixar codigo da calculadora Claude",
-    href: "/libert-drive/downloads/libert-drive-calculadora-claude.zip",
+    href: "/edrive-go/downloads/edrive-go-calculadora-claude.zip",
     text: "Projeto gerado pelo Claude preservado como referencia tecnica e fonte de componentes/fórmulas.",
   },
 ];
@@ -69,7 +69,7 @@ const downloads = [
 const conclusions = [
   {
     title: "O plano do Claude e a base executiva",
-    text: "Ele organiza a Libert Drive como operacao asset-light: locar 100 BYD Dolphin Mini, validar demanda, controlar ocupacao, inadimplencia e custo de locadora antes de comprar frota.",
+    text: "Ele organiza a eDrive Go como operacao asset-light: locar 100 BYD Dolphin Mini, validar demanda, controlar ocupacao, inadimplencia e custo de locadora antes de comprar frota.",
     icon: Gauge,
   },
   {
@@ -94,7 +94,7 @@ const roadmap = [
   ["30 dias", "Rodar piloto comercial, medir CPL, lead para contrato, aprovacao, inadimplencia, suporte e ocupacao real."],
   ["60 dias", "Fechar parceiro regulado para financiamento/consorcio e estruturar contas/rubricas separadas."],
   ["90 dias", "Operar primeira leva de 100 carros ponte e medir quantos carros retornam apos entrega do carro proprio."],
-  ["12 meses", "Escalar de 100 em 100, integrar Libert Energy, Libert Drive App e telemetria como centros de margem."],
+  ["12 meses", "Escalar de 100 em 100, integrar eDrive Go Energy, eDrive Go App e telemetria como centros de margem."],
 ];
 
 function DocCard({ item }: { item: (typeof docs)[number] }) {
@@ -115,12 +115,12 @@ function DocCard({ item }: { item: (typeof docs)[number] }) {
   );
 }
 
-export default function LibertDrivePage() {
+export default function EdriveGoPage() {
   return (
     <div className="space-y-6">
       <header className="grid gap-5 xl:grid-cols-[1.08fr_.92fr]">
         <section className="panel overflow-hidden p-6 sm:p-8">
-          <p className="kicker">Libert Drive // central executiva</p>
+          <p className="kicker">eDrive Go // central executiva</p>
           <h1 className="page-title mt-4 max-w-5xl">Plano, documentos e modelo vivo no mesmo painel.</h1>
           <p className="muted mt-5 max-w-3xl text-base leading-8">
             Esta central preserva o pacote entregue pelo Claude, conecta os arquivos ao painel e deixa clara a conclusao mais importante: manter a calculadora viva como camada de decisao, agora com a esteira de financiamento e carro ponte.
@@ -129,7 +129,7 @@ export default function LibertDrivePage() {
             <Link href="/app/calculadora" className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-[var(--primary)] px-4 text-sm font-black text-[var(--primary-foreground)]">
               Abrir calculadora viva <Calculator className="size-4" />
             </Link>
-            <a href="/libert-drive/downloads/Libert_Drive_Modelo_Financeiro.xlsx" className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-4 text-sm font-black">
+            <a href="/edrive-go/downloads/EDrive_Go_Modelo_Financeiro.xlsx" className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-4 text-sm font-black">
               Baixar Excel <Download className="size-4" />
             </a>
           </div>

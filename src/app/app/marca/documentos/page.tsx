@@ -8,7 +8,7 @@ export default function DocumentsPage() {
   return (
     <article className="space-y-6">
       <header className="panel p-6 sm:p-8">
-        <p className="kicker">Documentos Libert Drive</p>
+        <p className="kicker">Documentos eDrive Go</p>
         <h1 className="page-title mt-4">Biblioteca completa publicada.</h1>
         <p className="muted mt-5 max-w-3xl text-lg leading-8">
           Todos os documentos criados ate aqui foram trazidos para dentro do painel. Cada card abre uma pagina propria com o conteudo completo.

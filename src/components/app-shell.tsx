@@ -14,9 +14,9 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 const staticSearchItems = [
   { href: "/app/dashboard", title: "Visao geral", group: "Painel", description: "Resumo da marca, movimento e acervo." },
   { href: "/app/tarefas", title: "Tarefas", group: "Operacao", description: "Lista, kanban, calendario e API de tarefas." },
-  { href: "/app/calculadora", title: "Calculadora Libert Drive", group: "Operacao", description: "Frota, energia, funil, DRE, caixa e unit economics." },
-  { href: "/app/libert-drive", title: "Central Libert Drive", group: "Operacao", description: "Plano de negocio, deck, modelo financeiro, operacao e acervo do Claude." },
-  { href: "/app/marca", title: "Brandbook Libert Drive", group: "Marca", description: "Guidelines, logomarcas, paleta, voz e aplicacoes." },
+  { href: "/app/calculadora", title: "Calculadora eDrive Go", group: "Operacao", description: "Frota, energia, funil, DRE, caixa e unit economics." },
+  { href: "/app/edrive-go", title: "Central eDrive Go", group: "Operacao", description: "Plano de negocio, deck, modelo financeiro, operacao e acervo do Claude." },
+  { href: "/app/marca", title: "Brandbook eDrive Go", group: "Marca", description: "Guidelines, logomarcas, paleta, voz e aplicacoes." },
   { href: "/app/marketing/maquina-geracao-videos-em-escala", title: "Marketing", group: "Maquina de videos", description: "Cruzamento de conteudos, 90 variacoes e calendario editorial." },
   { href: "/app/marca/diretorio", title: "Diretorio", group: "Marca", description: "Mapa das paginas e capitulos do sistema." },
   { href: "/app/marca/documentos", title: "Documentos", group: "Acervo", description: "Biblioteca completa publicada." },
@@ -68,7 +68,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <Image src="/brand/icone-branco.svg" width={30} height={30} alt="" />
             </span>
             <span>
-              <span className="block text-sm font-black">Libert Drive</span>
+              <span className="block text-sm font-black">eDrive Go</span>
               <span className="sidebar-muted block text-[11px]">Painel de marca</span>
             </span>
           </Link>

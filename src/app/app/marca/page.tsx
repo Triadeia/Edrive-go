@@ -110,7 +110,7 @@ const essenceCards = [
 
 const constructionRules = [
   ["Simbolo", "Raio, energia e mobilidade devem aparecer como sistema de acesso, nao como decoracao aleatoria."],
-  ["Wordmark", "A assinatura Libert Drive precisa manter leitura rapida, contraste alto e presenca de marca digital."],
+  ["Wordmark", "A assinatura eDrive Go precisa manter leitura rapida, contraste alto e presenca de marca digital."],
   ["Protecao", "Respeitar respiro minimo equivalente a altura do icone principal ao redor da marca."],
   ["Hierarquia", "Primeiro vem a tese: infraestrutura eletrica. Depois vem produto, frota, recarga e comunidade."],
 ];
@@ -118,17 +118,17 @@ const constructionRules = [
 const applicationCards = [
   {
     title: "Dashboard institucional",
-    src: "/images/libert-dashboard.svg",
+    src: "/images/edrive-go-dashboard.svg",
     text: "Interface densa, limpa e orientada a decisao. Deve parecer centro de comando de mobilidade eletrica.",
   },
   {
     title: "Motorista Livre",
-    src: "/images/libert-driver.svg",
+    src: "/images/edrive-gor.svg",
     text: "Imagem humana, urbana e profissional. O motorista aparece como protagonista, nao como publico vulneravel.",
   },
   {
     title: "Hub de recarga",
-    src: "/images/libert-hub.svg",
+    src: "/images/edrive-go-hub.svg",
     text: "A infraestrutura precisa ser visivel: cabo, energia, estacao, carro e contexto real de operacao.",
   },
 ];
@@ -144,11 +144,11 @@ const dos = [
   "Usar Sora como tipografia unica do painel e das pecas digitais.",
   "Tratar roxo como memoria de marca e verde como energia, economia e acao.",
   "Mostrar carro eletrico, recarga, motorista e calculo sempre que possivel.",
-  "Conectar Libert Drive e Libert Energy como sistema de entrada e fidelizacao.",
+  "Conectar eDrive Go e eDrive Go Energy como sistema de entrada e fidelizacao.",
 ];
 
 const donts = [
-  "Chamar a Libert Drive de apenas uma locadora de carros.",
+  "Chamar a eDrive Go de apenas uma locadora de carros.",
   "Usar visual generico de SaaS sem rua, carro, energia ou motorista.",
   "Prometer economia universal sem explicar perfil, uso e calculo.",
   "Diluir a marca em gradientes decorativos sem funcao narrativa.",
@@ -172,10 +172,10 @@ export default function MarcaPage() {
 
       <section className="brandbook-hero panel overflow-hidden">
         <div className="brandbook-hero-copy">
-          <p className="brand-kicker">Guidelines oficiais / Libert Drive</p>
+          <p className="brand-kicker">Guidelines oficiais / eDrive Go</p>
           <h1>Marca, movimento e infraestrutura eletrica.</h1>
           <p>
-            Sistema vivo para usar a identidade da Libert Drive com consistencia: essencia, promessa,
+            Sistema vivo para usar a identidade da eDrive Go com consistencia: essencia, promessa,
             paleta, voz, logomarcas, aplicacoes, documentos e regras de uso.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -187,14 +187,14 @@ export default function MarcaPage() {
             </Link>
           </div>
         </div>
-        <div className="brandbook-logo-stage" aria-label="Logo Libert Drive">
+        <div className="brandbook-logo-stage" aria-label="Logo eDrive Go">
           <div className="brandbook-logo-card flex items-center justify-center gap-4">
             <Image src="/brand/app-icon-normal.svg" width={74} height={74} alt="" priority />
-            <span className="text-3xl font-black text-[var(--primary)]">Libert Drive</span>
+            <span className="text-3xl font-black text-[var(--primary)]">eDrive Go</span>
           </div>
           <div className="brandbook-signal">
             <BatteryCharging className="size-5" />
-            <span>Libert Drive abre. Libert Energy fideliza.</span>
+            <span>eDrive Go abre. eDrive Go Energy fideliza.</span>
           </div>
         </div>
       </section>
@@ -212,9 +212,9 @@ export default function MarcaPage() {
           <p className="brand-kicker">Introducao a marca</p>
           <h2>A nova infraestrutura do motorista da nova geracao.</h2>
           <p>
-            A Libert Drive nao deve ser percebida como locadora. Ela e a porta de entrada para uma
+            A eDrive Go nao deve ser percebida como locadora. Ela e a porta de entrada para uma
             nova equacao de trabalho: carro eletrico, recarga, economia, comunidade e retencao no
-            ecossistema Libert Energy.
+            ecossistema eDrive Go Energy.
           </p>
         </div>
         <div className="brandbook-essence-grid">
@@ -325,9 +325,9 @@ export default function MarcaPage() {
         <div>
           <Megaphone className="size-7 text-[var(--primary)]" />
           <p className="brand-kicker">Identidade verbal</p>
-          <h2>Direta, calculada e libertadora.</h2>
+          <h2>Direta, calculada e transformadora.</h2>
           <p>
-            A voz da Libert Drive nao grita e nao floreia. Ela aponta o custo invisivel, mostra a
+            A voz da eDrive Go nao grita e nao floreia. Ela aponta o custo invisivel, mostra a
             conta e convida o motorista para uma decisao de margem.
           </p>
         </div>
@@ -345,7 +345,7 @@ export default function MarcaPage() {
         <Zap className="size-8 text-[var(--primary)]" />
         <blockquote>Voce trabalha para voce ou para a gasolina?</blockquote>
         <p>
-          A Libert Drive nao vende apenas acesso a um carro. Ela instala uma nova identidade:
+          A eDrive Go nao vende apenas acesso a um carro. Ela instala uma nova identidade:
           Motorista Livre, alguem que mede custo, controla margem e deixa de aceitar a gasolina
           como destino profissional.
         </p>

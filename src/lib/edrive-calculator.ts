@@ -1,5 +1,5 @@
 import type { CalculatorAssumptions, CalculatorResults, ScenarioId } from "@/types/calculator";
-import { defaultAssumptions, scenarioOverrides } from "@/data/libert-calculator-defaults";
+import { defaultAssumptions, scenarioOverrides } from "@/data/edrive-calculator-defaults";
 
 const clamp = (value: number, min = 0, max = Number.POSITIVE_INFINITY) => Math.min(max, Math.max(min, value));
 const ceil = (value: number) => Math.ceil(clamp(value));
@@ -25,7 +25,7 @@ export function getScenarioAssumptions(scenario: ScenarioId) {
   return mergeScenario(scenario);
 }
 
-export function calculateLibertDrive(input: CalculatorAssumptions): CalculatorResults {
+export function calculateEdriveGo(input: CalculatorAssumptions): CalculatorResults {
   const fleet = input.fleet;
   const offer = input.offer;
   const marketing = input.marketing;
@@ -201,7 +201,7 @@ export function calculateLibertDrive(input: CalculatorAssumptions): CalculatorRe
   if (extraKmCost > 0) alerts.push("Km excedente gerando custo adicional com locadora: validar franquia, grupo tarifario e contrato antes de fechar preco.");
   if (newOwnershipContracts < safeDivide(financing.cohortSize, financing.cohortCadenceMonths) * 0.8) alerts.push("Esteira de posse abaixo do alvo: faltam aprovados para lancar 100 carros a cada ciclo.");
   if (financing.retainedDownPaymentRate > 0.2) alerts.push("Entrada de financiamento deve ser validada com advogado, contador e parceiro regulado antes de reconhecer como receita.");
-  if (financing.retainedInstallmentRate > 0.2) alerts.push("Parcela de financiamento recebida pela Libert Drive precisa de estrutura regulada, contrato claro e conciliacao separada.");
+  if (financing.retainedInstallmentRate > 0.2) alerts.push("Parcela de financiamento recebida pela eDrive Go precisa de estrutura regulada, contrato claro e conciliacao separada.");
 
   return {
     fleet: {

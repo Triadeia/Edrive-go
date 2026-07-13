@@ -1,15 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
-import { documents, type LibertDocument } from "@/lib/document-catalog";
+import { documents, type EdriveDocument } from "@/lib/document-catalog";
 
 export { documents };
-export type { DocumentCategory, LibertDocument } from "@/lib/document-catalog";
+export type { DocumentCategory, EdriveDocument } from "@/lib/document-catalog";
 
 export function getDocument(id: string) {
   return documents.find((document) => document.id === id);
 }
 
-export function getDocumentContent(document: LibertDocument) {
+export function getDocumentContent(document: EdriveDocument) {
   const fullPath = path.join(process.cwd(), "content", "documents", document.fileName);
   return fs.readFileSync(fullPath, "utf8");
 }

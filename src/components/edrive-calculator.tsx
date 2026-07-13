@@ -13,8 +13,8 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { defaultAssumptions, scenarioLabels } from "@/data/libert-calculator-defaults";
-import { calculateLibertDrive, flattenResultsForCsv, getScenarioAssumptions } from "@/lib/libert-calculator";
+import { defaultAssumptions, scenarioLabels } from "@/data/edrive-calculator-defaults";
+import { calculateEdriveGo, flattenResultsForCsv, getScenarioAssumptions } from "@/lib/edrive-calculator";
 import type { CalculatorAssumptions, CalculatorResults, ScenarioId } from "@/types/calculator";
 
 const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
@@ -34,7 +34,7 @@ const termDescriptions: Record<string, string> = {
   "Carros ativos": "Carros realmente produtivos no mes depois de aplicar ocupacao e indisponibilidade. E a base para receita e suporte.",
   "Ocupacao da frota": "Percentual da frota que deve estar alugada ou em uso por motoristas. Se a ocupacao cai, a receita cai mesmo que a frota continue custando.",
   "Aluguel por carro": "Custo mensal pago para a locadora ou parceiro por cada carro da frota. E uma saida direta do DRE.",
-  "Aluguel Localiza": "Prestacao mensal que a Libert Drive paga para a Localiza ou locadora parceira por cada carro alugado.",
+  "Aluguel Localiza": "Prestacao mensal que a eDrive Go paga para a Localiza ou locadora parceira por cada carro alugado.",
   "Entrada para tirar o veiculo": "Valor medio que o motorista precisa dar para iniciar a esteira do carro proprio financiado. Hoje vem da media entre entrada minima e entrada maxima.",
   "Prestacao mensal motorista": "Parcela mensal que o motorista paga no financiamento do carro proprio.",
   "Telemetria por carro": "Custo mensal de rastreamento, dados, monitoramento e controle operacional por veiculo.",
@@ -59,7 +59,7 @@ const termDescriptions: Record<string, string> = {
   "Tamanho da leva": "Quantidade de carros ou contratos planejados por ciclo de expansao. No modelo, a referencia e lancar de 100 em 100.",
   "Cadencia da leva": "Intervalo entre uma leva e outra. Exemplo: 100 carros a cada 3 meses.",
   "Contratos pagando": "Numero de contratos de financiamento que ja estao pagando parcelas no mes simulado.",
-  "% parcela Libert Drive": "Percentual da parcela de financiamento reconhecido como caixa da Libert Drive. Precisa ser validado juridica e contabilmente.",
+  "% parcela eDrive Go": "Percentual da parcela de financiamento reconhecido como caixa da eDrive Go. Precisa ser validado juridica e contabilmente.",
   "Valor mensal": "Preco mensal cobrado do motorista pelo aluguel/uso do carro quando ele ainda nao esta no carro proprio financiado.",
   "Taxa de ativacao": "Valor cobrado na entrada operacional para cobrir onboarding, vistoria, entrega, analise e preparacao.",
   "Entrada/sinal": "Valor operacional de sinal ou reserva do contrato de locacao. Nao confundir com a entrada do financiamento.",
@@ -327,14 +327,14 @@ function csvDownload(input: CalculatorAssumptions, results: CalculatorResults) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `libert-drive-${input.scenario}.csv`;
+  link.download = `edrive-go-${input.scenario}.csv`;
   link.click();
   URL.revokeObjectURL(url);
 }
 
-export function LibertCalculator() {
+export function EdriveCalculator() {
   const [assumptions, setAssumptions] = useState<CalculatorAssumptions>(defaultAssumptions);
-  const results = useMemo(() => calculateLibertDrive(assumptions), [assumptions]);
+  const results = useMemo(() => calculateEdriveGo(assumptions), [assumptions]);
   const rentalRecurringRevenue = results.dre.recurringRevenue - results.financing.installmentRevenue;
   const operationalEntryRevenue = results.dre.entryRevenue - results.financing.downPaymentCash;
 
@@ -378,10 +378,10 @@ export function LibertCalculator() {
     <div className="space-y-6">
       <header className="grid gap-5 xl:grid-cols-[1.1fr_.9fr]">
         <section className="panel overflow-hidden p-6 sm:p-8">
-          <p className="kicker">Libert Drive // Calculadora executiva</p>
+          <p className="kicker">eDrive Go // Calculadora executiva</p>
           <h1 className="page-title mt-4 max-w-5xl">A matematica da frota, energia, credito e operacao.</h1>
           <p className="muted mt-5 max-w-3xl text-base leading-8">
-            Simule a operacao de 100 BYD Dolphin Mini, funil de lancamento, carro ponte, financiamento em 48 parcelas, equipe, suporte, telemetria, Libert Energy e receitas complementares.
+            Simule a operacao de 100 BYD Dolphin Mini, funil de lancamento, carro ponte, financiamento em 48 parcelas, equipe, suporte, telemetria, eDrive Go Energy e receitas complementares.
           </p>
           <div className="mt-7">
             <p className="mb-2 text-[11px] font-black uppercase tracking-[0.14em] text-[var(--muted-foreground)]">Regua de cenarios</p>
@@ -417,7 +417,7 @@ export function LibertCalculator() {
             <p className="kicker">Esteira de alavancagem</p>
             <h2 className="mt-3 text-2xl font-black">100 carros a cada 3 meses.</h2>
             <p className="muted mt-3 text-sm leading-7">
-              O motorista usa o carro ponte enquanto o carro proprio e entregue. Quando o carro chega, a frota ponte volta para a Libert Drive e alimenta a proxima leva.
+              O motorista usa o carro ponte enquanto o carro proprio e entregue. Quando o carro chega, a frota ponte volta para a eDrive Go e alimenta a proxima leva.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1 2xl:grid-cols-3">
@@ -501,7 +501,7 @@ export function LibertCalculator() {
               <Field label="Tamanho da leva" path={["financing", "cohortSize"]} value={assumptions.financing.cohortSize} min={10} max={300} step={10} onChange={onFieldChange} />
               <Field label="Cadencia da leva" path={["financing", "cohortCadenceMonths"]} value={assumptions.financing.cohortCadenceMonths} min={1} max={6} step={1} suffix="meses" onChange={onFieldChange} />
               <Field label="Contratos pagando" path={["financing", "activeInstallmentContracts"]} value={assumptions.financing.activeInstallmentContracts} min={0} max={3000} step={25} onChange={onFieldChange} />
-              <Field label="% parcela Libert Drive" path={["financing", "retainedInstallmentRate"]} value={assumptions.financing.retainedInstallmentRate} min={0} max={1} step={0.05} format="percent" onChange={onFieldChange} />
+              <Field label="% parcela eDrive Go" path={["financing", "retainedInstallmentRate"]} value={assumptions.financing.retainedInstallmentRate} min={0} max={1} step={0.05} format="percent" onChange={onFieldChange} />
             </div>
           </section>
 

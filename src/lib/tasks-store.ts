@@ -1,17 +1,16 @@
-import { makeTask, normalizeTask, seedTasks, type LibertTask } from "@/lib/tasks-data";
+import { makeTask, normalizeTask, seedTasks, type EdriveTask } from "@/lib/tasks-data";
 
-type TaskDb = { tasks: LibertTask[] };
+type TaskDb = { tasks: EdriveTask[] };
 
 declare global {
-  // eslint-disable-next-line no-var
-  var __libertTasksDb: TaskDb | undefined;
+  var __edriveTasksDb: TaskDb | undefined;
 }
 
 function db() {
-  if (!globalThis.__libertTasksDb) {
-    globalThis.__libertTasksDb = { tasks: seedTasks.map((task) => ({ ...task })) };
+  if (!globalThis.__edriveTasksDb) {
+    globalThis.__edriveTasksDb = { tasks: seedTasks.map((task) => ({ ...task })) };
   }
-  return globalThis.__libertTasksDb;
+  return globalThis.__edriveTasksDb;
 }
 
 export const tasksStore = {
@@ -19,19 +18,19 @@ export const tasksStore = {
     return [...db().tasks].sort((a, b) => b.score - a.score || a.dueDate.localeCompare(b.dueDate));
   },
   create(input: unknown) {
-    const task = makeTask(normalizeTask(input as Partial<LibertTask>));
+    const task = makeTask(normalizeTask(input as Partial<EdriveTask>));
     db().tasks = [task, ...db().tasks];
     return task;
   },
   update(id: string, input: unknown) {
-    let updated: LibertTask | null = null;
+    let updated: EdriveTask | null = null;
     db().tasks = db().tasks.map((task) => {
       if (task.id !== id) return task;
       updated = {
         ...task,
-        ...normalizeTask({ ...task, ...(input as Partial<LibertTask>) }),
+        ...normalizeTask({ ...task, ...(input as Partial<EdriveTask>) }),
         id: task.id,
-        score: typeof (input as Partial<LibertTask>).score === "number" ? (input as LibertTask).score : task.score,
+        score: typeof (input as Partial<EdriveTask>).score === "number" ? (input as EdriveTask).score : task.score,
         createdAt: task.createdAt,
         updatedAt: new Date().toISOString(),
       };

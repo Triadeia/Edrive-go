@@ -30,8 +30,8 @@ export const navigation = [
       { href: "/app/dashboard", label: "Visao geral", icon: Gauge },
       { href: "/app/tarefas", label: "Tarefas", icon: ListTodo },
       { href: "/app/calculadora", label: "Calculadora", icon: Calculator },
-      { href: "/app/libert-drive", label: "Central Libert Drive", icon: Network },
-      { href: "/app/marca", label: "Brandbook Libert Drive", icon: BookOpenText },
+      { href: "/app/edrive-go", label: "Central eDrive Go", icon: Network },
+      { href: "/app/marca", label: "Brandbook eDrive Go", icon: BookOpenText },
       { href: "/app/movimento", label: "Movimento", icon: Megaphone },
       { href: "/app/marketing/maquina-geracao-videos-em-escala", label: "Marketing", icon: Video },
     ],
@@ -82,23 +82,23 @@ export const brandSections = [
     group: "Marca",
     title: "Nao e locadora. E movimento.",
     shortTitle: "Estrategia",
-    description: "Posicionamento, big idea, promessa, inimigo comum e diferenciacao da Libert Drive.",
+    description: "Posicionamento, big idea, promessa, inimigo comum e diferenciacao da eDrive Go.",
     icon: ShieldCheck,
     chapters: [
       {
         id: "posicionamento",
         title: "A nova infraestrutura do motorista da nova geracao",
-        lead: "A Libert Drive nao deve parecer apenas uma locadora. A marca deve se posicionar como acesso, energia, frota, comunidade e recorrencia para motoristas que querem controlar sua margem.",
+        lead: "A eDrive Go nao deve parecer apenas uma locadora. A marca deve se posicionar como acesso, energia, frota, comunidade e recorrencia para motoristas que querem controlar sua margem.",
         points: [
           { title: "Categoria", text: "Locacao inteligente de veiculos eletricos para motoristas de aplicativo." },
-          { title: "Diferenca", text: "Acesso ao eletrico sem compra, conectado ao ecossistema Libert Energy." },
+          { title: "Diferenca", text: "Acesso ao eletrico sem compra, conectado ao ecossistema eDrive Go Energy." },
           { title: "Promessa", text: "Parar de financiar a gasolina e trabalhar com custo previsivel." },
         ],
       },
       {
         id: "big-idea",
         title: "A Maldicao da Gasolina",
-        lead: "A crenca de que combustivel fossil e custo inevitavel do trabalho de mobilidade. A Libert Drive quebra essa crenca com calculo, carro eletrico e comunidade.",
+        lead: "A crenca de que combustivel fossil e custo inevitavel do trabalho de mobilidade. A eDrive Go quebra essa crenca com calculo, carro eletrico e comunidade.",
       },
     ],
   },
@@ -125,7 +125,7 @@ export const brandSections = [
   {
     slug: "voz",
     group: "Marca",
-    title: "O Libertador com Dados.",
+    title: "O Transformador com Dados.",
     shortTitle: "Voz & Copy",
     description: "Tom direto, linguagem de rua, dados claros e promessas responsaveis.",
     icon: Megaphone,
@@ -133,7 +133,7 @@ export const brandSections = [
       {
         id: "atributos",
         title: "Direta, honesta e calculada",
-        lead: "A Libert Drive fala como quem fez a conta e voltou para mostrar a saida. Sem jargao de startup, sem sonho abstrato, sem humilhar o motorista.",
+        lead: "A eDrive Go fala como quem fez a conta e voltou para mostrar a saida. Sem jargao de startup, sem sonho abstrato, sem humilhar o motorista.",
         points: [
           { title: "Usar", text: "Numero real, pergunta direta, comparacao concreta e prova social." },
           { title: "Evitar", text: "Promessa universal, sensacionalismo e linguagem corporativa fria." },
@@ -167,19 +167,19 @@ export const brandSections = [
   {
     slug: "ecossistema",
     group: "Produto",
-    title: "Libert Drive abre. Libert Energy fideliza.",
+    title: "eDrive Go abre. eDrive Go Energy fideliza.",
     shortTitle: "Ecossistema",
     description: "Como locacao, recarga, energia e comunidade viram retencao.",
     icon: Network,
     chapters: [
-      { id: "go-energy", title: "Dois motores de crescimento", lead: "O motorista entra pela Libert Drive porque quer reduzir custo. A fidelizacao acontece pela Libert Energy porque recarga, hub e energia tornam a decisao recorrente." },
+      { id: "go-energy", title: "Dois motores de crescimento", lead: "O motorista entra pela eDrive Go porque quer reduzir custo. A fidelizacao acontece pela eDrive Go Energy porque recarga, hub e energia tornam a decisao recorrente." },
     ],
   },
 ];
 
 export const palette = [
   { name: "Preto Noturno", hex: "#07070A", role: "Autoridade, tecnologia e base premium." },
-  { name: "Roxo Libert", hex: "#6F35FF", role: "Marca, sistema digital e memoria visual." },
+  { name: "Roxo eDrive Go", hex: "#6F35FF", role: "Marca, sistema digital e memoria visual." },
   { name: "Verde Eletrico", hex: "#00C896", role: "Energia, economia, lucro e recarga." },
   { name: "Branco Eletrico", hex: "#F5F5F7", role: "Clareza, documentos e area de leitura." },
   { name: "Amarelo Relampago", hex: "#FFD700", role: "Urgencia, destaque e ativacao." },
@@ -187,9 +187,9 @@ export const palette = [
 ];
 
 export const visualAssets = [
-  { title: "Hub de recarga", src: "/images/libert-hub.svg", caption: "Visual gerado para representar hub Libert Energy. Substituir por foto oficial/Instagram quando liberada." },
-  { title: "Motorista Livre", src: "/images/libert-driver.svg", caption: "Imagem editorial gerada para o conceito de motorista da nova geracao." },
-  { title: "Painel do ecossistema", src: "/images/libert-dashboard.svg", caption: "Composicao visual para dashboard e cards institucionais." },
+  { title: "Hub de recarga", src: "/images/edrive-go-hub.svg", caption: "Visual gerado para representar hub eDrive Go Energy. Substituir por foto oficial/Instagram quando liberada." },
+  { title: "Motorista Livre", src: "/images/edrive-gor.svg", caption: "Imagem editorial gerada para o conceito de motorista da nova geracao." },
+  { title: "Painel do ecossistema", src: "/images/edrive-go-dashboard.svg", caption: "Composicao visual para dashboard e cards institucionais." },
 ];
 
 export const recommendedPhrases = [
@@ -198,7 +198,7 @@ export const recommendedPhrases = [
   "Os primeiros motoristas da nova geracao.",
   "Nao pedimos fe. Pedimos 5 minutos com a calculadora.",
   "A partir de hoje, voce nao abastece mais.",
-  "O motorista entra pela Libert Drive. A fidelizacao acontece pela Libert Energy.",
+  "O motorista entra pela eDrive Go. A fidelizacao acontece pela eDrive Go Energy.",
 ];
 
 export const forbiddenPhrases = [
@@ -237,13 +237,13 @@ export const marketCards = [
 ];
 
 export const sourceNotes = [
-  { title: "Instagram Libert Drive / Energy", text: "A consulta direta ao Instagram foi bloqueada no ambiente de automacao. A galeria foi preparada com imagens geradas e os assets oficiais locais; fotos reais podem ser adicionadas depois em public/images." },
+  { title: "Instagram eDrive Go / Energy", text: "A consulta direta ao Instagram foi bloqueada no ambiente de automacao. A galeria foi preparada com imagens geradas e os assets oficiais locais; fotos reais podem ser adicionadas depois em public/images." },
   { title: "Painel Triade", text: "A URL publica redireciona para login. A estrutura foi analisada pelo codigo clonado: sidebar fixa, topbar, cards densos, brandbook, diretorio e documentos individuais." },
   { title: "Dr. Pitagoras", text: "A area de movimento e documentos publicos serviu de referencia para pagina de manifesto e documento individual em /app/marca/documentos/[id]." },
 ];
 
 export const primalElements = [
-  ["Creation Story", "A Libert Drive nasce da pergunta: e se o motorista nao precisasse pagar gasolina?"],
+  ["Creation Story", "A eDrive Go nasce da pergunta: e se o motorista nao precisasse pagar gasolina?"],
   ["Creed", "Motorista Livre controla a propria equacao financeira."],
   ["Icons", "Raio sem corrente, BYD, painel com zero gasolina, cabo de recarga e R$1.000."],
   ["Rituals", "Ativacao, primeira semana eletrica, Calculo da Virada e 30 Dias Livre."],

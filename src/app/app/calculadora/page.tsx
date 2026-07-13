@@ -1,5 +1,5 @@
-import { LibertCalculator } from "@/components/libert-calculator";
+import { EdriveCalculator } from "@/components/edrive-calculator";
 
 export default function CalculadoraPage() {
-  return <LibertCalculator />;
+  return <EdriveCalculator />;
 }

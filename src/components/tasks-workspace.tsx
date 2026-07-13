@@ -18,24 +18,24 @@ import {
   seedTasks,
   taskPriorities,
   taskStatuses,
-  type LibertTask,
+  type EdriveTask,
   type TaskPriority,
   type TaskStatus,
 } from "@/lib/tasks-data";
 
 type ViewMode = "list" | "kanban" | "calendar";
-type DraftTask = Pick<LibertTask, "title" | "description" | "status" | "priority" | "owner" | "area" | "project" | "dueDate">;
+type DraftTask = Pick<EdriveTask, "title" | "description" | "status" | "priority" | "owner" | "area" | "project" | "dueDate">;
 
-const STORAGE_KEY = "libert-drive:tasks:v1";
+const STORAGE_KEY = "edrive-go:tasks:v1";
 
 const defaultDraft: DraftTask = {
   title: "",
   description: "",
   status: "A Fazer",
   priority: "Media",
-  owner: "Equipe Libert Drive",
+  owner: "Equipe eDrive Go",
   area: "Operacao",
-  project: "Painel Libert Drive",
+  project: "Painel eDrive Go",
   dueDate: new Date().toISOString().slice(0, 10),
 };
 
@@ -50,7 +50,7 @@ function formatDate(date: string) {
   return new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short" }).format(new Date(`${date}T12:00:00`));
 }
 
-function saveLocal(tasks: LibertTask[]) {
+function saveLocal(tasks: EdriveTask[]) {
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
   } catch {}
@@ -59,14 +59,14 @@ function saveLocal(tasks: LibertTask[]) {
 function loadLocal() {
   try {
     const parsed = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "null");
-    return Array.isArray(parsed) ? parsed as LibertTask[] : null;
+    return Array.isArray(parsed) ? parsed as EdriveTask[] : null;
   } catch {
     return null;
   }
 }
 
 export function TasksWorkspace() {
-  const [tasks, setTasks] = useState<LibertTask[]>([]);
+  const [tasks, setTasks] = useState<EdriveTask[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [view, setView] = useState<ViewMode>("list");
@@ -74,10 +74,10 @@ export function TasksWorkspace() {
   const [statusFilter, setStatusFilter] = useState<TaskStatus | "Todas">("Todas");
   const [priorityFilter, setPriorityFilter] = useState<TaskPriority | "Todas">("Todas");
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [editing, setEditing] = useState<LibertTask | null>(null);
+  const [editing, setEditing] = useState<EdriveTask | null>(null);
   const [draft, setDraft] = useState<DraftTask>(defaultDraft);
   const [command, setCommand] = useState("");
-  const [assistantMessage, setAssistantMessage] = useState("Posso criar, filtrar, resumir e mover tarefas do painel Libert Drive.");
+  const [assistantMessage, setAssistantMessage] = useState("Posso criar, filtrar, resumir e mover tarefas do painel eDrive Go.");
 
   useEffect(() => {
     let cancelled = false;
@@ -87,7 +87,7 @@ export function TasksWorkspace() {
         const response = await fetch("/api/tasks", { cache: "no-store" });
         const data = await response.json();
         if (!cancelled) {
-          const loaded = Array.isArray(data.tasks) && data.tasks.length ? data.tasks as LibertTask[] : seedTasks;
+          const loaded = Array.isArray(data.tasks) && data.tasks.length ? data.tasks as EdriveTask[] : seedTasks;
           setTasks(loaded);
           saveLocal(loaded);
         }
@@ -121,7 +121,7 @@ export function TasksWorkspace() {
     return { open, blocked, done, urgent };
   }, [tasks]);
 
-  async function persist(nextTasks: LibertTask[]) {
+  async function persist(nextTasks: EdriveTask[]) {
     setTasks(nextTasks);
     saveLocal(nextTasks);
   }
@@ -132,7 +132,7 @@ export function TasksWorkspace() {
     setDialogOpen(true);
   }
 
-  function openEdit(task: LibertTask) {
+  function openEdit(task: EdriveTask) {
     setEditing(task);
     setDraft({
       title: task.title,
@@ -166,7 +166,7 @@ export function TasksWorkspace() {
     }
   }
 
-  async function updateTask(id: string, patch: Partial<LibertTask>) {
+  async function updateTask(id: string, patch: Partial<EdriveTask>) {
     const previous = tasks;
     const optimistic = tasks.map((task) => task.id === id ? { ...task, ...patch, updatedAt: new Date().toISOString() } : task);
     await persist(optimistic);
@@ -200,7 +200,7 @@ export function TasksWorkspace() {
       setPriorityFilter("Urgente");
       setAssistantMessage("Filtro aplicado: prioridades urgentes.");
     } else if (lower.startsWith("crie") || lower.startsWith("criar")) {
-      const title = raw.replace(/^crie\s+tarefa\s*/i, "").replace(/^criar\s+tarefa\s*/i, "") || "Nova tarefa Libert Drive";
+      const title = raw.replace(/^crie\s+tarefa\s*/i, "").replace(/^criar\s+tarefa\s*/i, "") || "Nova tarefa eDrive Go";
       setEditing(null);
       setDraft({ ...defaultDraft, title });
       setDialogOpen(true);
@@ -306,7 +306,7 @@ function PriorityBadge({ priority }: { priority: TaskPriority }) {
   return <span className={`rounded-md border px-2 py-1 text-[11px] font-black ${priorityTone[priority]}`}>{priority}</span>;
 }
 
-function ListView({ tasks, onEdit, onDelete, onStatusChange }: { tasks: LibertTask[]; onEdit: (task: LibertTask) => void; onDelete: (id: string) => void; onStatusChange: (id: string, status: TaskStatus) => void }) {
+function ListView({ tasks, onEdit, onDelete, onStatusChange }: { tasks: EdriveTask[]; onEdit: (task: EdriveTask) => void; onDelete: (id: string) => void; onStatusChange: (id: string, status: TaskStatus) => void }) {
   return (
     <section className="panel overflow-hidden">
       <div className="grid grid-cols-[1.4fr_.8fr_.75fr_.55fr_.35fr] gap-3 border-b border-[var(--border)] p-4 text-xs font-black uppercase tracking-[0.12em] text-[var(--muted-foreground)] max-lg:hidden">
@@ -332,7 +332,7 @@ function ListView({ tasks, onEdit, onDelete, onStatusChange }: { tasks: LibertTa
   );
 }
 
-function KanbanView({ tasks, onEdit, onStatusChange }: { tasks: LibertTask[]; onEdit: (task: LibertTask) => void; onStatusChange: (id: string, status: TaskStatus) => void }) {
+function KanbanView({ tasks, onEdit, onStatusChange }: { tasks: EdriveTask[]; onEdit: (task: EdriveTask) => void; onStatusChange: (id: string, status: TaskStatus) => void }) {
   return (
     <section className="grid gap-4 xl:grid-cols-4">
       {taskStatuses.filter((status) => status !== "Cancelada").map((status) => {
@@ -356,7 +356,7 @@ function KanbanView({ tasks, onEdit, onStatusChange }: { tasks: LibertTask[]; on
   );
 }
 
-function CalendarView({ tasks, onCreate, onEdit, onMove }: { tasks: LibertTask[]; onCreate: (date?: string) => void; onEdit: (task: LibertTask) => void; onMove: (id: string, date: string) => void }) {
+function CalendarView({ tasks, onCreate, onEdit, onMove }: { tasks: EdriveTask[]; onCreate: (date?: string) => void; onEdit: (task: EdriveTask) => void; onMove: (id: string, date: string) => void }) {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -393,12 +393,12 @@ function CalendarView({ tasks, onCreate, onEdit, onMove }: { tasks: LibertTask[]
   );
 }
 
-function TaskDialog({ draft, editing, saving, onChange, onClose, onSubmit }: { draft: DraftTask; editing: LibertTask | null; saving: boolean; onChange: (patch: Partial<DraftTask>) => void; onClose: () => void; onSubmit: () => void }) {
+function TaskDialog({ draft, editing, saving, onChange, onClose, onSubmit }: { draft: DraftTask; editing: EdriveTask | null; saving: boolean; onChange: (patch: Partial<DraftTask>) => void; onClose: () => void; onSubmit: () => void }) {
   return (
     <div className="fixed inset-0 z-[80] grid place-items-center bg-black/70 p-4">
       <div className="panel w-full max-w-2xl p-5">
         <div className="mb-5 flex items-center justify-between">
-          <div><p className="kicker">{editing ? "Editar tarefa" : "Nova tarefa"}</p><h2 className="mt-2 text-2xl font-black">Execucao Libert Drive</h2></div>
+          <div><p className="kicker">{editing ? "Editar tarefa" : "Nova tarefa"}</p><h2 className="mt-2 text-2xl font-black">Execucao eDrive Go</h2></div>
           <button onClick={onClose} aria-label="Fechar"><X className="size-5" /></button>
         </div>
         <div className="grid gap-3 md:grid-cols-2">

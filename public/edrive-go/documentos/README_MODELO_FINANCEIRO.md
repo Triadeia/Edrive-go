@@ -1,17 +1,17 @@
-# Modelo Financeiro — Libert Drive
+# Modelo Financeiro — eDrive Go
 
-Gerador de planilha Excel (.xlsx) para a **Libert Drive**, locadora de **100 carros elétricos BYD Dolphin Mini** para motoristas de aplicativo.
+Gerador de planilha Excel (.xlsx) para a **eDrive Go**, locadora de **100 carros elétricos BYD Dolphin Mini** para motoristas de aplicativo.
 
-O arquivo `Libert_Drive_Modelo_Financeiro.html` é **autossuficiente**: ao abrir no navegador e clicar no botão, ele constrói e **baixa automaticamente** um arquivo `.xlsx` **real e completo**, com **fórmulas nativas do Excel** (não valores estáticos). Todas as abas de saída referenciam a aba **Premissas** — ou seja, ao editar as premissas, **tudo recalcula sozinho** no Excel/LibreOffice.
+O arquivo `EDrive_Go_Modelo_Financeiro.html` é **autossuficiente**: ao abrir no navegador e clicar no botão, ele constrói e **baixa automaticamente** um arquivo `.xlsx` **real e completo**, com **fórmulas nativas do Excel** (não valores estáticos). Todas as abas de saída referenciam a aba **Premissas** — ou seja, ao editar as premissas, **tudo recalcula sozinho** no Excel/LibreOffice.
 
 ---
 
 ## Como usar (passo a passo)
 
-1. **Abra** o arquivo `Libert_Drive_Modelo_Financeiro.html` com um duplo clique (ou arraste para uma aba do navegador). Funciona em Chrome, Edge, Firefox e Safari.
+1. **Abra** o arquivo `EDrive_Go_Modelo_Financeiro.html` com um duplo clique (ou arraste para uma aba do navegador). Funciona em Chrome, Edge, Firefox e Safari.
    - Requer acesso à internet **na primeira abertura** para carregar a biblioteca SheetJS via CDN.
 2. Clique no botão verde **"⬇ Baixar planilha .xlsx"**.
-3. O navegador baixa **`Libert_Drive_Modelo_Financeiro.xlsx`** (16 abas).
+3. O navegador baixa **`EDrive_Go_Modelo_Financeiro.xlsx`** (16 abas).
 4. Abra o `.xlsx` no **Microsoft Excel** ou **LibreOffice Calc**.
 5. Para simular cenários, **edite apenas a aba `Premissas`** (as células amarelas da coluna **B**). Todas as demais abas recalculam automaticamente.
 

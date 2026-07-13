@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gerador de Modelo Financeiro — Libert Drive</title>
+<title>Gerador de Modelo Financeiro — eDrive Go</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root{
@@ -43,14 +43,14 @@
   <div class="logo">
     <div class="mark">ID</div>
     <div>
-      <h1>Libert Drive — Modelo Financeiro</h1>
+      <h1>eDrive Go — Modelo Financeiro</h1>
       <div class="sub">Locação de 100 BYD Dolphin Mini para motoristas de app · Gerador de planilha .xlsx</div>
     </div>
   </div>
 
   <p style="font-size:14px;color:#3c4a52;line-height:1.6;margin:0 0 16px;">
     Clique no botão para gerar e baixar automaticamente o arquivo
-    <strong>Libert_Drive_Modelo_Financeiro.xlsx</strong> com 16 abas e
+    <strong>EDrive_Go_Modelo_Financeiro.xlsx</strong> com 16 abas e
     <strong>fórmulas nativas do Excel</strong> que referenciam a aba <em>Premissas</em>.
     Para simular cenários, basta editar a aba Premissas no Excel — <strong>tudo recalcula sozinho</strong>.
   </p>
@@ -80,7 +80,7 @@
 
 <script>
 /* ============================================================================
-   MODELO FINANCEIRO INTENSE DRIVE — GERADOR SHEETJS
+   MODELO FINANCEIRO eDrive Go — GERADOR SHEETJS
    Todas as abas de saída referenciam a aba "Premissas" por fórmula nativa.
    ========================================================================== */
 
@@ -186,7 +186,7 @@ function P(k){ // ex.: P('custoAluguel') -> "Premissas!$B$6"
 
 function buildPremissas(){
   const aoa = [
-    ["INTENSE DRIVE — PREMISSAS DO MODELO FINANCEIRO"],
+    ["eDrive Go — PREMISSAS DO MODELO FINANCEIRO"],
     ["Locação de 100 BYD Dolphin Mini para motoristas de aplicativo"],
     ["OBS: Valores são premissas iniciais editáveis; itens marcados 'a validar' exigem confirmação com locadora, contador e jurídico."],
     ["Variável","Valor","Unidade","Observação / premissa a validar"],
@@ -637,7 +637,7 @@ function buildSensibilidade(){
    ========================================================================== */
 function buildDashboard(){
   const aoa = [
-    ["INTENSE DRIVE — DASHBOARD EXECUTIVO"],
+    ["eDrive Go — DASHBOARD EXECUTIVO"],
     [""],
     ["Carros ativos (regime)","Receita bruta /mês","EBITDA /mês (regime)","Lucro líquido /mês (regime)"],
     [f("Frota!B7"), f("Cenarios!C15"), f("Cenarios!C20"), f("Cenarios!C21")],
@@ -765,7 +765,7 @@ const ABAS = [
 function montarWorkbook(){
   const wb = XLSX.utils.book_new();
   ABAS.forEach(([nome,fn])=>{ XLSX.utils.book_append_sheet(wb, fn(), nome); });
-  wb.Props = {Title:"Modelo Financeiro Libert Drive", Author:"Libert Drive", Company:"Libert Drive"};
+  wb.Props = {Title:"Modelo Financeiro eDrive Go", Author:"eDrive Go", Company:"eDrive Go"};
   return wb;
 }
 
@@ -779,8 +779,8 @@ function gerarXlsx(){
   try{
     document.getElementById('btnXlsx').disabled=true;
     const wb = montarWorkbook();
-    XLSX.writeFile(wb, "Libert_Drive_Modelo_Financeiro.xlsx", {cellStyles:true, bookType:'xlsx'});
-    setStatus("✔ Arquivo <strong>Libert_Drive_Modelo_Financeiro.xlsx</strong> gerado e baixado com 16 abas e fórmulas nativas referenciando <em>Premissas</em>. Abra no Excel/LibreOffice e edite apenas a aba Premissas.", true);
+    XLSX.writeFile(wb, "EDrive_Go_Modelo_Financeiro.xlsx", {cellStyles:true, bookType:'xlsx'});
+    setStatus("✔ Arquivo <strong>EDrive_Go_Modelo_Financeiro.xlsx</strong> gerado e baixado com 16 abas e fórmulas nativas referenciando <em>Premissas</em>. Abra no Excel/LibreOffice e edite apenas a aba Premissas.", true);
   }catch(e){
     setStatus("Erro ao gerar o .xlsx: "+e.message, false);
     console.error(e);
@@ -813,21 +813,21 @@ function gerarCsvs(){
 
     const premCsv = "Variavel;Valor;Unidade\n"+
       Object.entries(V).map(([k,v])=>k+";"+v+";").join("\n");
-    baixarTexto("Libert_Drive_Premissas.csv", premCsv);
+    baixarTexto("EDrive_Go_Premissas.csv", premCsv);
 
     const frotaCsv="Indicador;Valor;Unidade\n"+
       `Carros ativos;${carrosAtivos};un\n`+
       `Custo por carro/mes;${custoCarro};R$\n`+
       `Custo frota/mes;${Math.round(custoFrota)};R$\n`+
       `Receita bruta/mes;${receita};R$`;
-    baixarTexto("Libert_Drive_Frota.csv", frotaCsv);
+    baixarTexto("EDrive_Go_Frota.csv", frotaCsv);
 
     const mktCsv="Etapa;Valor;Unidade\n"+
       `Investimento;${V.invMkt};R$\n`+
       `Leads;${Math.round(leads)};un\n`+
       `Contratos/mes;${contratos.toFixed(1)};un\n`+
       `CAC;${Math.round(cac)};R$`;
-    baixarTexto("Libert_Drive_Marketing.csv", mktCsv);
+    baixarTexto("EDrive_Go_Marketing.csv", mktCsv);
 
     const dreCsv="Linha;Valor mensal (regime Base)\n"+
       `Receita bruta;${Math.round(receita)}\n`+
@@ -836,7 +836,7 @@ function gerarCsvs(){
       `Perda inadimplencia;${Math.round(-receita*V.inadimplencia*(1-V.recupInad))}\n`+
       `Marketing;${-V.invMkt}\n`+
       `Adm+Ferramentas;${-(V.despAdmin+V.ferramentas)}`;
-    baixarTexto("Libert_Drive_DRE_resumo.csv", dreCsv);
+    baixarTexto("EDrive_Go_DRE_resumo.csv", dreCsv);
 
     setStatus("✔ CSVs de fallback baixados: Premissas, Frota, Marketing e DRE (resumo, cenário Base). Para o modelo completo com fórmulas, use o .xlsx.", true);
   }catch(e){

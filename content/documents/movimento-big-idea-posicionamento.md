@@ -1,5 +1,5 @@
 # BIG IDEA + POSICIONAMENTO + DIFERENCIAÇÃO COMPETITIVA
-## Sistema Estratégico de Comunicação — Movimento Libert Drive
+## Sistema Estratégico de Comunicação — Movimento eDrive Go
 
 ### Triadeia Company // Kit Completo de Comunicação
 ---
@@ -21,7 +21,7 @@ A Big Idea não é um slogan. Não é uma campanha. É a **lente única através
 - Cria o "a-ha moment" — o instante em que o motorista entende que estava sendo lesado sem saber
 - Serve de base para todo conteúdo, script, post, argumento de venda e recrutamento de comunidade
 
-A Big Idea da Libert Drive é uma das mais poderosas que existem: ela **nomeia a dor antes de oferecer a solução**.
+A Big Idea da eDrive Go é uma das mais poderosas que existem: ela **nomeia a dor antes de oferecer a solução**.
 
 ---
 
@@ -65,7 +65,7 @@ A escolha da palavra "Maldição" não é acidental. É estratégica:
 
 **Maldição implica algo lançado sobre você** — não uma escolha que você fez, mas um estado que foi imposto e que você pode romper.
 
-**Maldição implica que existe quebrar** — toda maldição tem solução. A narrativa cria automaticamente o espaço para a libertação.
+**Maldição implica que existe quebrar** — toda maldição tem solução. A narrativa cria automaticamente o espaço para a transformação.
 
 **Maldição implica urgência** — você não convive passivamente com uma maldição. Você age para quebrá-la.
 
@@ -125,7 +125,7 @@ O motorista faz o cálculo: gasolina vs. locação elétrica. Vê a diferença. 
 
 ## Posicionamento Primário
 
-> **"A Libert Drive é o único sistema de locação de veículos elétricos construído especificamente para motoristas de app na RMS — que elimina o maior custo operacional do mercado e entrega, imediatamente e sem entrada, a liberdade financeira que R$1.000/mês de gasolina sempre impediu."**
+> **"A eDrive Go é o único sistema de locação de veículos elétricos construído especificamente para motoristas de app na RMS — que elimina o maior custo operacional do mercado e entrega, imediatamente e sem entrada, a liberdade financeira que R$1.000/mês de gasolina sempre impediu."**
 
 ## Posicionamento Secundário (para diferentes audiências)
 
@@ -136,7 +136,7 @@ O motorista faz o cálculo: gasolina vs. locação elétrica. Vê a diferença. 
 > "Não precisamos que você acredite. Precisamos de 5 minutos para fazer a conta com os seus números."
 
 **Para o motorista que já ouviu falar de elétrico mas acha caro:**
-> "Você não precisa comprar um elétrico. Você precisa locar um — e deixar a Libert Drive resolver o resto."
+> "Você não precisa comprar um elétrico. Você precisa locar um — e deixar a eDrive Go resolver o resto."
 
 **Para o motorista que quer entender o movimento:**
 > "Somos Motoristas Livres. Gente que decidiu parar de financiar a Maldição da Gasolina. E que está mostrando o caminho para quem ainda não viu a saída."
@@ -163,9 +163,9 @@ Um bom posicionamento responde, em 10 segundos, às 3 perguntas:
 
 ### Concorrentes Diretos (locação de VE para apps)
 
-Atualmente, o mercado de locação de veículos elétricos específico para motoristas de app no Brasil é **emergente e fragmentado**. Isso significa que a Libert Drive tem janela de oportunidade para se tornar referência de categoria antes que o mercado consolide.
+Atualmente, o mercado de locação de veículos elétricos específico para motoristas de app no Brasil é **emergente e fragmentado**. Isso significa que a eDrive Go tem janela de oportunidade para se tornar referência de categoria antes que o mercado consolide.
 
-**O que diferencia a Libert Drive dos modelos emergentes de locação de VE:**
+**O que diferencia a eDrive Go dos modelos emergentes de locação de VE:**
 - Foco específico na RMS (Salvador + Candeias + municípios vizinhos) — profundidade territorial vs. presença dispersa
 - Movimento de comunidade estruturado — não apenas produto
 - Narrativa proprietária (A Maldição da Gasolina) — não apenas oferta
@@ -183,7 +183,7 @@ Grandes redes de locação que estão adicionando elétricos à frota mas sem fo
 
 ### Concorrentes Filosóficos (qualquer carro a combustão para app)
 
-O maior "concorrente" da Libert Drive não é outra locadora — é o status quo. É o carro a gasolina que o motorista já tem ou já conhece.
+O maior "concorrente" da eDrive Go não é outra locadora — é o status quo. É o carro a gasolina que o motorista já tem ou já conhece.
 
 **Diferenciação do status quo:**
 - Não é necessário ter carro próprio (elimina o risco de propriedade)
@@ -196,7 +196,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ### Dimensão 1: Financeira
 
-| Métrica | Combustível convencional | Libert Drive |
+| Métrica | Combustível convencional | eDrive Go |
 |---|---|---|
 | Custo mensal combustível | R$800–1.200 | R$0 |
 | Custo mensal locação | R$0 (se carro próprio) | Variável por plano |
@@ -206,7 +206,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ### Dimensão 2: Operacional
 
-| Aspecto | Combustível convencional | Libert Drive |
+| Aspecto | Combustível convencional | eDrive Go |
 |---|---|---|
 | Reabastecimento | Posto, 2–3x/semana, 15–20 min | Casa, 1x/noite, 0 min extra |
 | Disponibilidade manhã | Precisa abastecer antes | Carro "cheio" ao acordar |
@@ -215,7 +215,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ### Dimensão 3: Emocional
 
-| Estado | Com gasolina | Com Libert Drive |
+| Estado | Com gasolina | Com eDrive Go |
 |---|---|---|
 | Início do dia | Tensão (precisar abastecer) | Tranquilidade (carro carregado) |
 | Fim do mês | Frustração (conta alta) | Satisfação (R$1.000 a mais) |
@@ -224,7 +224,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ### Dimensão 4: Social / Comunidade
 
-| Aspecto | Mercado convencional | Movimento Libert Drive |
+| Aspecto | Mercado convencional | Movimento eDrive Go |
 |---|---|---|
 | Rede de apoio | Grupos genéricos de app | Comunidade de Motoristas Livres |
 | Compartilhamento de resultado | Espontâneo, sem sistema | Rituais formalizados (30 dias, etc.) |
@@ -233,7 +233,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ### Dimensão 5: Estratégica (ecossistema)
 
-| Aspecto | Locadora isolada | Libert Drive (Triadeia) |
+| Aspecto | Locadora isolada | eDrive Go (Triadeia) |
 |---|---|---|
 | Visão de negócio | Produto | Movimento |
 | Fidelização | Via preço | Via identidade e pertencimento |
@@ -244,9 +244,9 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ## Declaração de Diferenciação Competitiva
 
-> *"Nenhuma locadora de veículos no Brasil construiu um movimento em torno da libertação financeira do motorista de app. Nenhuma criou um vocabulário proprietário, rituais de pertencimento e uma comunidade estruturada em torno da transformação econômica que a eletrificação entrega.*
+> *"Nenhuma locadora de veículos no Brasil construiu um movimento em torno da transformação financeira do motorista de app. Nenhuma criou um vocabulário proprietário, rituais de pertencimento e uma comunidade estruturada em torno da transformação econômica que a eletrificação entrega.*
 >
-> *Quando a Libert Drive diz 'A Maldição da Gasolina', nenhum concorrente sabe do que ela está falando — porque nenhum concorrente chegou primeiro nessa narrativa.*
+> *Quando a eDrive Go diz 'A Maldição da Gasolina', nenhum concorrente sabe do que ela está falando — porque nenhum concorrente chegou primeiro nessa narrativa.*
 >
 > *Esse posicionamento não se copia facilmente. Ele foi construído a partir de entendimento real do mercado, da dor do motorista e do poder de um movimento com crença. Não é produto — é causa. E causa não tem substituto direto."*
 
@@ -280,7 +280,7 @@ O maior "concorrente" da Libert Drive não é outra locadora — é o status quo
 
 ## A Promessa em Caso de Dúvida
 
-A Libert Drive tem a rara vantagem de uma promessa verificável antes da decisão. A calculadora da Maldição mostra o resultado antes de assinar qualquer contrato.
+A eDrive Go tem a rara vantagem de uma promessa verificável antes da decisão. A calculadora da Maldição mostra o resultado antes de assinar qualquer contrato.
 
 **Isso é a promessa mais poderosa possível: a que você pode conferir antes de acreditar.**
 
@@ -310,7 +310,7 @@ A Libert Drive tem a rara vantagem de uma promessa verificável antes da decisã
 
 7. "Comunidade não acelera só a decisão — acelera a adaptação, o resultado e a permanência."
 
-8. "Quando você para de pagar gasolina, você começa a ver outros custos que pode questionar. A libertação elétrica é só o começo."
+8. "Quando você para de pagar gasolina, você começa a ver outros custos que pode questionar. A transformação elétrica é só o começo."
 
 ## O Inimigo Central
 
@@ -318,14 +318,14 @@ A Libert Drive tem a rara vantagem de uma promessa verificável antes da decisã
 
 Não tem rosto. Não tem CNPJ. É um estado mental coletivo — reforçado pelo mercado, pelas conversas no grupo, pela ausência de uma alternativa acessível.
 
-A Libert Drive destrói a Maldição com três ferramentas:
+A eDrive Go destrói a Maldição com três ferramentas:
 1. **A narrativa** — nomeando o inimigo com precisão
 2. **A matemática** — mostrando o número real que a Maldição custa
 3. **A comunidade** — apresentando quem já quebrou o feitiço
 
 ## O Futuro que o Movimento Promete
 
-*Em 5 anos, quando alguém perguntar o que é a Libert Drive, a resposta não será:*
+*Em 5 anos, quando alguém perguntar o que é a eDrive Go, a resposta não será:*
 
 *"Uma locadora de carros elétricos."*
 
@@ -335,6 +335,6 @@ A Libert Drive destrói a Maldição com três ferramentas:
 
 ---
 
-*Documento elaborado para o ecossistema Triadeia / Libert Drive*
-*Kit Completo de Comunicação — Movimento Libert Drive*
+*Documento elaborado para o ecossistema Triadeia / eDrive Go*
+*Kit Completo de Comunicação — Movimento eDrive Go*
 *"A Maldição da Gasolina tem solução. A solução tem nome: Motorista Livre."*

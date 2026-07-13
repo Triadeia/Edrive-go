@@ -399,6 +399,27 @@ export class WorkspaceStore {
     return clone(snapshot);
   }
 
+  syncLaunchSeedUpdates(): WorkspaceEnvelope {
+    const canonicalById = new Map(
+      launchWorkspaceSeed.tasks.map((task) => [task.id, task]),
+    );
+    const shouldSync = (task: WorkspaceTask) => {
+      const canonical = canonicalById.get(task.id);
+      return canonical !== undefined
+        && task.updatedAt === task.createdAt
+        && JSON.stringify(task) !== JSON.stringify(canonical);
+    };
+    if (!this.snapshot.tasks.some(shouldSync)) return this.getSnapshot();
+
+    return this.mutate("sync launch seed updates", (draft) => {
+      draft.tasks = draft.tasks.map((task) => {
+        const canonical = canonicalById.get(task.id);
+        return canonical && shouldSync(task) ? clone(canonical) : task;
+      });
+      return draft;
+    });
+  }
+
   importLaunchSeed(): WorkspaceEnvelope {
     return this.mutate("import launch seed", (draft) => {
       const addMissingById = <T extends { id: string }>(target: T[], source: readonly T[]) => {

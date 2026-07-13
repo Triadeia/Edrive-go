@@ -7,7 +7,9 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const DEFAULT_ZIP =
-  "/Volumes/SSD-Nilton/[03] Edrive go /PAINEL TAREFAS - EDRIVE GO - CLAUDE DESIGNER/EDrive Go dashboard launch.zip";
+  "/Volumes/SSD-Nilton/[03] Edrive go /Diretoria /EDrive Go dashboard launch.zip";
+const DEFAULT_CSV =
+  "/Volumes/SSD-Nilton/[03] Edrive go /Diretoria /CHECKLIST_MESTRE_atualizado.csv";
 const DASHBOARD_ROOT =
   "uploads/edrive-go-lancamento-2026-07-18/20_DASHBOARD";
 const DATA_ENTRY = `${DASHBOARD_ROOT}/tarefas_dados.js`;
@@ -250,8 +252,77 @@ function parseTasksDataSource(source) {
   return { headers, tasks };
 }
 
-function readTasksData(zipPath) {
-  return parseTasksDataSource(readZipEntry(zipPath, DATA_ENTRY));
+function parseChecklistCsv(source) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+  let position = source.charCodeAt(0) === 0xfeff ? 1 : 0;
+
+  for (; position < source.length; position += 1) {
+    const character = source[position];
+    if (quoted) {
+      if (character === '"' && source[position + 1] === '"') {
+        field += '"';
+        position += 1;
+      } else if (character === '"') {
+        quoted = false;
+      } else {
+        field += character;
+      }
+      continue;
+    }
+    if (character === '"') {
+      if (field.length > 0) field += character;
+      else quoted = true;
+    } else if (character === ";") {
+      row.push(field);
+      field = "";
+    } else if (character === "\n" || character === "\r") {
+      if (character === "\r" && source[position + 1] === "\n") position += 1;
+      row.push(field);
+      field = "";
+      if (row.some((value) => value.length > 0)) rows.push(row);
+      row = [];
+    } else {
+      field += character;
+    }
+  }
+  if (quoted) throw new Error("Unterminated quoted field in checklist CSV");
+  row.push(field);
+  if (row.some((value) => value.length > 0)) rows.push(row);
+  if (rows.length < 2) throw new Error("Checklist CSV must contain a header and tasks");
+
+  const [headers, ...values] = rows;
+  return {
+    headers,
+    tasks: values.map((cells, rowIndex) => {
+      if (cells.length !== headers.length) {
+        throw new Error(`Checklist CSV row ${rowIndex + 2} has ${cells.length} fields; expected ${headers.length}`);
+      }
+      return Object.fromEntries(headers.map((header, index) => [header, cells[index]]));
+    }),
+  };
+}
+
+function readTasksData(zipPath, checklistPath) {
+  const source = parseTasksDataSource(readZipEntry(zipPath, DATA_ENTRY));
+  if (!checklistPath) return source;
+
+  const checklist = parseChecklistCsv(readFileSync(checklistPath, "utf8"));
+  if (JSON.stringify(checklist.headers) !== JSON.stringify(source.headers)) {
+    throw new Error("Checklist CSV headers do not match the dashboard source");
+  }
+  const taskByExternalId = new Map(source.tasks.map((task) => [task.ID, task]));
+  const seen = new Set();
+  for (const update of checklist.tasks) {
+    if (seen.has(update.ID)) throw new Error(`Duplicate checklist task ID: ${update.ID}`);
+    seen.add(update.ID);
+    const task = taskByExternalId.get(update.ID);
+    if (!task) throw new Error(`Unknown checklist task ID: ${update.ID}`);
+    Object.assign(task, update);
+  }
+  return source;
 }
 
 function uuidV5(name) {
@@ -343,9 +414,9 @@ function sourceMeta(raw, headers) {
   return Object.fromEntries(headers.map((header) => [header, String(raw[header] ?? "")]));
 }
 
-function buildSeed(zipPath) {
+function buildSeed(zipPath, checklistPath) {
   const { spaces: rawSpaces, team: rawTeam } = readDashboardStructure(zipPath);
-  const { headers, tasks: rawTasks } = readTasksData(zipPath);
+  const { headers, tasks: rawTasks } = readTasksData(zipPath, checklistPath);
 
   const members = rawTeam.map((member) => ({
     id: stableId("member", member.nome),
@@ -432,7 +503,11 @@ function buildSeed(zipPath) {
       timezone: "America/Bahia",
       currency: "BRL",
       sourceArchive: "EDrive Go dashboard launch.zip",
-      sourceEntries: [DATA_ENTRY, APP_ENTRY],
+      sourceEntries: [
+        DATA_ENTRY,
+        APP_ENTRY,
+        ...(checklistPath ? ["CHECKLIST_MESTRE_atualizado.csv"] : []),
+      ],
     },
     members,
     spaces,
@@ -455,7 +530,12 @@ if (process.argv[2] === "--validate-data-source") {
     process.argv[3] ??
       resolve(repositoryRoot, "src/data/tasks/launch-workspace-seed.json"),
   );
-  const serialized = `${JSON.stringify(buildSeed(zipPath), null, 2)}\n`;
+  const checklistPath = process.argv[4]
+    ? resolve(process.argv[4])
+    : process.argv[2]
+      ? undefined
+      : resolve(DEFAULT_CSV);
+  const serialized = `${JSON.stringify(buildSeed(zipPath, checklistPath), null, 2)}\n`;
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, serialized, "utf8");
 }

@@ -278,3 +278,35 @@ test("recupera workspace local com JSON malformado", async ({ page }) => {
   await expect(page.getByText("Dados neste navegador", { exact: true })).toBeVisible();
   await expect(page.getByTestId("task-total")).toHaveText("0");
 });
+
+test("sincroniza correções do checklist sem sobrescrever edições locais", async ({ page }) => {
+  await page.goto("/app/tarefas");
+  await page.evaluate(() => window.localStorage.clear());
+  await page.reload();
+  await page.getByRole("button", { name: "Importar checklist do lançamento" }).click();
+  await page.getByRole("button", { name: "Confirmar importação" }).click();
+  await expect(page.getByTestId("task-total")).toHaveText("204");
+
+  await page.evaluate(() => {
+    const key = "edrive-go:task-workspace:v1";
+    const workspace = JSON.parse(window.localStorage.getItem(key) ?? "null") as {
+      tasks: Array<{ externalId: string; status: string; sourceMeta: Record<string, string>; createdAt: string; updatedAt: string }>;
+    };
+    const untouched = workspace.tasks.find((task) => task.externalId === "T147");
+    const edited = workspace.tasks.find((task) => task.externalId === "T167");
+    if (!untouched || !edited) throw new Error("Expected launch tasks");
+    untouched.status = "todo";
+    untouched.sourceMeta.Status = "NAO INICIADO";
+    untouched.updatedAt = untouched.createdAt;
+    edited.status = "in_progress";
+    edited.sourceMeta.Status = "EM ANDAMENTO";
+    edited.updatedAt = "2026-07-13T12:00:00.000Z";
+    window.localStorage.setItem(key, JSON.stringify(workspace));
+  });
+
+  await page.reload();
+  await page.getByPlaceholder("Buscar tarefas").fill("T147");
+  await expect(page.getByRole("row").filter({ hasText: "T147" }).getByText("Em andamento", { exact: true })).toBeVisible();
+  await page.getByPlaceholder("Buscar tarefas").fill("T167");
+  await expect(page.getByRole("row").filter({ hasText: "T167" }).getByText("Em andamento", { exact: true })).toBeVisible();
+});

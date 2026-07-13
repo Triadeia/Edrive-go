@@ -44,6 +44,17 @@ export function useTaskWorkspace() {
       storeRef.current = store;
       setWorkspace(store.getSnapshot());
       setError(null);
+      void store.runExclusive((lockedStore) => lockedStore.syncLaunchSeedUpdates())
+        .then(() => {
+          if (storeRef.current !== store) return;
+          setWorkspace(store.getSnapshot());
+          setError(null);
+        })
+        .catch((syncError) => {
+          if (storeRef.current !== store) return;
+          setWorkspace(store.getSnapshot());
+          setError(friendlyError(syncError));
+        });
     } catch (loadError) {
       storeRef.current = null;
       setWorkspace(null);

@@ -22,7 +22,9 @@ import * as workspaceSchemas from "./workspace-schema";
 const { launchWorkspaceSchema } = workspaceSchemas;
 
 const SOURCE_ZIP =
-  "/Volumes/SSD-Nilton/[03] Edrive go /PAINEL TAREFAS - EDRIVE GO - CLAUDE DESIGNER/EDrive Go dashboard launch.zip";
+  "/Volumes/SSD-Nilton/[03] Edrive go /Diretoria /EDrive Go dashboard launch.zip";
+const SOURCE_CSV =
+  "/Volumes/SSD-Nilton/[03] Edrive go /Diretoria /CHECKLIST_MESTRE_atualizado.csv";
 
 const EXPECTED_HEADERS = [
   "ID",
@@ -371,15 +373,15 @@ test("rejects extra JavaScript without executing it", () => {
 
 test(
   "generates byte-identical canonical JSON on repeated runs",
-  { skip: !existsSync(SOURCE_ZIP) },
+  { skip: !existsSync(SOURCE_ZIP) || !existsSync(SOURCE_CSV) },
   () => {
     const tempDirectory = mkdtempSync(join(tmpdir(), "edrive-launch-seed-"));
     const firstOutput = join(tempDirectory, "first.json");
     const secondOutput = join(tempDirectory, "second.json");
 
     try {
-      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, firstOutput]);
-      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, secondOutput]);
+      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, firstOutput, SOURCE_CSV]);
+      execFileSync(process.execPath, [GENERATOR, SOURCE_ZIP, secondOutput, SOURCE_CSV]);
 
       const first = readFileSync(firstOutput);
       const second = readFileSync(secondOutput);

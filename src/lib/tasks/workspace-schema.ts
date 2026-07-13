@@ -63,7 +63,7 @@ export const workspaceEnvelopeSchema = z
       timezone: z.literal("America/Bahia"),
       currency: z.literal("BRL"),
       sourceArchive: z.string().min(1),
-      sourceEntries: z.tuple([z.string().min(1), z.string().min(1)]),
+      sourceEntries: z.array(z.string().min(1)).min(2).max(3),
     }),
     members: z.array(
       z.object({

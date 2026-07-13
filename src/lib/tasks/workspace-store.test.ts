@@ -492,6 +492,43 @@ test("imports all 204 launch tasks idempotently without erasing edits", () => {
   assert.equal(store.getSnapshot().tasks.find(({ id }) => id === task.id)?.title, "Local edit");
 });
 
+test("syncs updated launch fields only for untouched canonical tasks", () => {
+  const storage = new MemoryStorage();
+  const store = new WorkspaceStore({ storage });
+  store.importLaunchSeed();
+  const stored = store.getSnapshot();
+  const untouched = stored.tasks.find(({ externalId }) => externalId === "T147");
+  const locallyEdited = stored.tasks.find(({ externalId }) => externalId === "T167");
+  assert.ok(untouched);
+  assert.ok(locallyEdited);
+
+  untouched.status = "todo";
+  untouched.sourceMeta.Status = "NAO INICIADO";
+  untouched.updatedAt = untouched.createdAt;
+  locallyEdited.status = "in_progress";
+  locallyEdited.sourceMeta.Status = "EM ANDAMENTO";
+  locallyEdited.updatedAt = "2026-07-13T12:00:00.000Z";
+  storage.setItem(WORKSPACE_STORAGE_KEY, JSON.stringify(stored));
+
+  const reloaded = new WorkspaceStore({ storage });
+  const writesBeforeSync = storage.writes;
+  reloaded.syncLaunchSeedUpdates();
+  const synced = reloaded.getSnapshot();
+
+  assert.equal(
+    synced.tasks.find(({ externalId }) => externalId === "T147")?.status,
+    launchWorkspaceSeed.tasks.find(({ externalId }) => externalId === "T147")?.status,
+  );
+  assert.equal(
+    synced.tasks.find(({ externalId }) => externalId === "T167")?.status,
+    "in_progress",
+  );
+  assert.equal(storage.writes, writesBeforeSync + 1);
+
+  reloaded.syncLaunchSeedUpdates();
+  assert.equal(storage.writes, writesBeforeSync + 1);
+});
+
 test("remaps a legacy custom T001 before importing the canonical task idempotently", () => {
   const store = new WorkspaceStore({ storage: new MemoryStorage() });
   const custom = store.createTask(

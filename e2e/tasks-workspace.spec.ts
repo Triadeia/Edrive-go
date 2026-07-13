@@ -123,7 +123,18 @@ test("painel operacional persiste CRUD, quadro e exportacoes no navegador", asyn
   await page.getByRole("button", { name: "Calendário" }).click();
   await dragWithPointer(page, page.getByRole("button", { name: "Arrastar prazo de Tarefa E2E operacional" }), page.getByTestId("calendar-day-2026-07-20"));
   await expect(page.getByTestId("calendar-day-2026-07-20")).toContainText("Tarefa E2E operacional");
-  await page.getByRole("button", { name: "Mover prazo de Tarefa E2E operacional para o dia seguinte" }).click();
+  const calendarKeyboardHandle = page.getByRole("button", { name: "Arrastar prazo de Tarefa E2E operacional" });
+  await calendarKeyboardHandle.focus();
+  await page.keyboard.press("Space");
+  const calendarDragAnnouncement = page.locator('[role="status"][aria-live="assertive"]');
+  for (let step = 0; step < 8; step += 1) {
+    await page.keyboard.press("ArrowRight");
+    await page.waitForTimeout(100);
+    if ((await calendarDragAnnouncement.textContent())?.includes("calendar-date:2026-07-21")) break;
+  }
+  await expect(calendarDragAnnouncement).toContainText("calendar-date:2026-07-21");
+  await page.keyboard.press("Space");
+  await expect(calendarKeyboardHandle).not.toHaveAttribute("aria-pressed", "true");
   await expect(page.getByTestId("calendar-day-2026-07-21")).toContainText("Tarefa E2E operacional");
   await page.getByRole("button", { name: "Lista", exact: true }).click();
   await page.getByRole("button", { name: "Editar Tarefa E2E operacional" }).click();

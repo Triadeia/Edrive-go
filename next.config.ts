@@ -3,7 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async rewrites() {
-    return [{ source: "/", destination: "/landing/index.html" }];
+    return [
+      { source: "/", destination: "/landing/index.html" },
+      { source: "/qrcode01", destination: "/qrcode01/index.html" },
+    ];
   },
   async headers() {
     return [

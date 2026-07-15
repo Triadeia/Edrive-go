@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/", destination: "/landing/index.html" },
       { source: "/qrcode01", destination: "/qrcode01/index.html" },
+      { source: "/uberdonegao", destination: "/uberdonegao/index.html" },
+      { source: "/ratosdapista", destination: "/ratosdapista/index.html" },
     ];
   },
   async headers() {

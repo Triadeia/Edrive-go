@@ -1,0 +1,35 @@
+[
+  {
+    "code": "CARRO_01",
+    "type": "carro",
+    "label": "Carro da frota 01",
+    "created": "2026-08-07",
+    "page_path": "qr/CARRO_01/index.html",
+    "png_path": "qr/assets/CARRO_01.png",
+    "absolute_url": "https://triadeia.github.io/Edrive-go/qr/CARRO_01/",
+    "redirect_query": "utm_source=qrcode&utm_medium=qr_carro&utm_campaign=CARRO_01&ref=CARRO_01",
+    "status": "active"
+  },
+  {
+    "code": "CARRO_02",
+    "type": "carro",
+    "label": "Carro da frota 02",
+    "created": "2026-08-07",
+    "page_path": "qr/CARRO_02/index.html",
+    "png_path": "qr/assets/CARRO_02.png",
+    "absolute_url": "https://triadeia.github.io/Edrive-go/qr/CARRO_02/",
+    "redirect_query": "utm_source=qrcode&utm_medium=qr_carro&utm_campaign=CARRO_02&ref=CARRO_02",
+    "status": "active"
+  },
+  {
+    "code": "DRIVER_EXEMPLO",
+    "type": "motorista",
+    "label": "Exemplo de codigo de indicacao de motorista (template para escalar)",
+    "created": "2026-08-07",
+    "page_path": "qr/DRIVER_EXEMPLO/index.html",
+    "png_path": "qr/assets/DRIVER_EXEMPLO.png",
+    "absolute_url": "https://triadeia.github.io/Edrive-go/qr/DRIVER_EXEMPLO/",
+    "redirect_query": "utm_source=qrcode&utm_medium=qr_motorista&utm_campaign=DRIVER_EXEMPLO&ref=DRIVER_EXEMPLO",
+    "status": "active"
+  }
+]

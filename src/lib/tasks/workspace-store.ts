@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+import { goAppChecklistSeed } from "./go-app-checklist-seed";
 import { workspaceEnvelopeSchema } from "./workspace-schema";
 import { launchWorkspaceSeed } from "./workspace-seed";
 
@@ -484,6 +485,48 @@ export class WorkspaceStore {
         });
       }
       draft.tasks.push(...additions);
+      return draft;
+    });
+  }
+
+  syncPublishedGoAppChecklist(): WorkspaceEnvelope {
+    return this.mutate("sync published GO App checklist", (draft) => {
+      const addMissingById = <T extends { id: string }>(target: T[], source: readonly T[]) => {
+        const ids = new Set(target.map(({ id }) => id));
+        for (const entity of source) {
+          if (!ids.has(entity.id)) {
+            target.push(clone(entity));
+            ids.add(entity.id);
+          }
+        }
+      };
+
+      addMissingById(draft.members, goAppChecklistSeed.members);
+      addMissingById(draft.spaces, goAppChecklistSeed.spaces);
+      addMissingById(draft.lists, goAppChecklistSeed.lists);
+
+      const publishedTaskIds = new Set(goAppChecklistSeed.tasks.map(({ id }) => id));
+      const publishedByExternalId = new Map(
+        goAppChecklistSeed.tasks.map((task) => [task.externalId, task]),
+      );
+      const reservedExternalIds = new Set(publishedByExternalId.keys());
+      for (const task of draft.tasks) {
+        const publishedConflict = publishedByExternalId.get(task.externalId);
+        if (!publishedConflict || publishedTaskIds.has(task.id)) continue;
+
+        const remappedExternalId = this.nextExternalId(draft, reservedExternalIds);
+        task.externalId = remappedExternalId;
+        task.sourceMeta.ID = remappedExternalId;
+        for (const candidate of draft.tasks) {
+          for (const dependency of candidate.dependencies) {
+            if (dependency.taskId === task.id) {
+              dependency.externalId = remappedExternalId;
+            }
+          }
+        }
+      }
+
+      addMissingById(draft.tasks, goAppChecklistSeed.tasks);
       return draft;
     });
   }
@@ -1024,7 +1067,10 @@ export class WorkspaceStore {
     }
   }
 
-  private nextExternalId(workspace: WorkspaceEnvelope): string {
+  private nextExternalId(
+    workspace: WorkspaceEnvelope,
+    reservedExternalIds: ReadonlySet<string> = new Set(),
+  ): string {
     const usedExternalIds = new Set(
       workspace.tasks.map(({ externalId }) => externalId),
     );
@@ -1034,7 +1080,9 @@ export class WorkspaceStore {
       numeric += 1
     ) {
       const externalId = `T${String(numeric).padStart(3, "0")}`;
-      if (!usedExternalIds.has(externalId)) return externalId;
+      if (!usedExternalIds.has(externalId) && !reservedExternalIds.has(externalId)) {
+        return externalId;
+      }
     }
     throw new WorkspaceStoreError("conflict", "No custom external task IDs remain");
   }

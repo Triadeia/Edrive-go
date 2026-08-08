@@ -46,6 +46,9 @@ export function useTaskWorkspace() {
       setError(null);
       void store.runExclusive((lockedStore) => lockedStore.syncLaunchSeedUpdates())
         .then(() => {
+          return store.runExclusive((lockedStore) => lockedStore.syncPublishedGoAppChecklist());
+        })
+        .then(() => {
           if (storeRef.current !== store) return;
           setWorkspace(store.getSnapshot());
           setError(null);

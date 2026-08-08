@@ -492,6 +492,61 @@ test("imports all 204 launch tasks idempotently without erasing edits", () => {
   assert.equal(store.getSnapshot().tasks.find(({ id }) => id === task.id)?.title, "Local edit");
 });
 
+test("publishes the complete GO App checklist idempotently without erasing edits", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const publish = (store as WorkspaceStore & {
+    syncPublishedGoAppChecklist?: () => unknown;
+  }).syncPublishedGoAppChecklist;
+
+  assert.equal(typeof publish, "function");
+  publish.call(store);
+
+  const firstSnapshot = store.getSnapshot();
+  const publishedTasks = firstSnapshot.tasks.filter(({ externalId }) => {
+    const number = Number(externalId.slice(1));
+    return number >= 205 && number <= 228;
+  });
+  assert.equal(publishedTasks.length, 24);
+  assert.equal(firstSnapshot.spaces.some(({ name }) => name === "GO App — Lançamento 15/09"), true);
+  assert.equal(publishedTasks.filter(({ status }) => status === "todo").length, 11);
+  assert.equal(publishedTasks.filter(({ status }) => status === "blocked").length, 5);
+  assert.equal(publishedTasks.filter(({ status }) => status === "backlog").length, 4);
+  assert.equal(publishedTasks.filter(({ status }) => status === "done").length, 4);
+
+  const edited = publishedTasks.find(({ externalId }) => externalId === "T205");
+  assert.ok(edited);
+  store.updateTask(edited.id, { title: "Edição local preservada" });
+  publish.call(store);
+
+  const secondSnapshot = store.getSnapshot();
+  assert.equal(secondSnapshot.tasks.length, 24);
+  assert.equal(
+    secondSnapshot.tasks.find(({ id }) => id === edited.id)?.title,
+    "Edição local preservada",
+  );
+});
+
+test("remaps an existing custom T205 before publishing the GO App checklist", () => {
+  const store = new WorkspaceStore({ storage: new MemoryStorage() });
+  const custom = store.createTask(
+    taskInput(store, "T205", { title: "Tarefa local anterior à publicação" }),
+  );
+
+  store.syncPublishedGoAppChecklist();
+  store.syncPublishedGoAppChecklist();
+
+  const snapshot = store.getSnapshot();
+  const canonicalT205 = snapshot.tasks.find(
+    ({ id }) => id === "c0040000-0000-4000-8000-000000000205",
+  );
+  const preservedCustom = snapshot.tasks.find(({ id }) => id === custom.id);
+  assert.equal(snapshot.tasks.length, 25);
+  assert.equal(canonicalT205?.externalId, "T205");
+  assert.equal(preservedCustom?.title, "Tarefa local anterior à publicação");
+  assert.equal(preservedCustom?.externalId, "T229");
+  assert.equal(new Set(snapshot.tasks.map(({ externalId }) => externalId)).size, 25);
+});
+
 test("syncs updated launch fields only for untouched canonical tasks", () => {
   const storage = new MemoryStorage();
   const store = new WorkspaceStore({ storage });

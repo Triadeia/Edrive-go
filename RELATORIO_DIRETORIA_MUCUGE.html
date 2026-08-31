@@ -145,9 +145,14 @@ ul.clean li::before{content:"";position:absolute;left:.15rem;top:.62em;width:.4r
 .end{text-align:center;padding:2.5rem 0 0;color:var(--muted);font-size:.82rem}
 @media print{
   body{background:#fff;font-size:10.5pt}
-  section{page-break-inside:avoid;border-bottom:1px solid #ddd}
+  section{border-bottom:1px solid #ddd;padding:1.6rem 0}
   .cover{background:#0B0A0F!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  figure,.tw,.ask{break-inside:avoid}
+  .cover-img{max-height:none}
+  /* nada de quebrar no meio de uma peça, mas seções podem fluir entre páginas */
+  figure,.tw,.ask,.box,.kpi,.p{break-inside:avoid}
+  h2,h3,.num{break-after:avoid}
+  .gal{break-inside:auto}
+  main{max-width:none}
   @page{margin:15mm}
 }
 </style>

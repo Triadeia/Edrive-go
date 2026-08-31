@@ -1,0 +1,2122 @@
+<title>Operação Mucugê 05.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#F6F4FA; --surface:#FFFFFF; --surface-2:#FBFAFE;
+  --ink:#16112B; --ink-soft:#443C60; --muted:#6E6788;
+  --line:#E3DEEF; --line-strong:#CFC7E4;
+  --violet:#5324B8; --violet-deep:#2A0E63; --violet-soft:#EDE6FB; --on-violet:#FFFFFF;
+  --energy:#00897B; --energy-soft:#DDF3EF;
+  --warn:#9A5B00; --warn-soft:#FBEEDB;
+  --crit:#B33124; --crit-soft:#FBE7E4;
+  --sand:#8A6A42;
+  --shadow:0 1px 2px rgba(22,17,43,.06),0 8px 24px -12px rgba(22,17,43,.18);
+  --pg-w:52rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E0A1A; --surface:#161029; --surface-2:#1C1533;
+    --ink:#EFEBFA; --ink-soft:#BDB4D8; --muted:#8F86AC;
+    --line:#2A2145; --line-strong:#3B3060;
+    --violet:#A98BF5; --violet-deep:#C9B6FF; --violet-soft:#241A45; --on-violet:#120B24;
+    --energy:#3FD6BC; --energy-soft:#0E2E2A;
+    --warn:#E0A94D; --warn-soft:#33260E;
+    --crit:#F08175; --crit-soft:#361713;
+    --sand:#C2A176;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E0A1A; --surface:#161029; --surface-2:#1C1533;
+  --ink:#EFEBFA; --ink-soft:#BDB4D8; --muted:#8F86AC;
+  --line:#2A2145; --line-strong:#3B3060;
+  --violet:#A98BF5; --violet-deep:#C9B6FF; --violet-soft:#241A45; --on-violet:#120B24;
+  --energy:#3FD6BC; --energy-soft:#0E2E2A;
+  --warn:#E0A94D; --warn-soft:#33260E;
+  --crit:#F08175; --crit-soft:#361713;
+  --sand:#C2A176;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased;counter-reset:pg}
+h1,h2,h3,h4{font-family:Archivo,Impact,sans-serif;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--violet)}
+:focus-visible{outline:2.5px solid var(--violet);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- shell ---------- */
+.wrap{display:grid;grid-template-columns:1fr;max-width:100%}
+@media(min-width:1180px){
+  .wrap{grid-template-columns:16.5rem minmax(0,1fr);gap:0;align-items:start}
+}
+.toc{display:none}
+@media(min-width:1180px){
+  .toc{display:block;position:sticky;top:0;height:100vh;overflow-y:auto;
+    padding:1.6rem 1rem 3rem 1.4rem;border-right:1px solid var(--line);background:var(--surface)}
+}
+.toc-brand{display:flex;align-items:center;gap:.55rem;margin-bottom:1.2rem}
+.toc h4{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  margin:1.4rem 0 .45rem;font-weight:700}
+.toc a{display:block;text-decoration:none;color:var(--ink-soft);font-size:.815rem;
+  padding:.24rem .5rem;border-radius:5px;border-left:2px solid transparent;line-height:1.35}
+.toc a:hover{background:var(--violet-soft);color:var(--violet)}
+.toc a.on{color:var(--violet);border-left-color:var(--violet);background:var(--violet-soft);font-weight:600}
+.toc a .n{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted);margin-right:.35rem}
+
+.doc{padding:0 1.1rem 5rem;min-width:0}
+@media(min-width:700px){.doc{padding:0 2rem 6rem}}
+
+/* ---------- page ---------- */
+.pg{max-width:var(--pg-w);margin:0 auto;padding:3.2rem 0 2.6rem;border-bottom:1px solid var(--line);
+  counter-increment:pg;position:relative}
+.pg:last-of-type{border-bottom:0}
+.pg::after{content:"pág. " counter(pg);position:absolute;bottom:.9rem;right:0;
+  font-family:"IBM Plex Mono",monospace;font-size:.66rem;color:var(--muted);letter-spacing:.04em}
+.pg > * + *{margin-top:1rem}
+
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--violet);font-weight:600}
+h2.t{font-size:clamp(1.5rem,3.4vw,2.05rem);font-weight:800;letter-spacing:-.021em;line-height:1.12}
+h3.s{font-size:1.06rem;font-weight:700;letter-spacing:-.01em;margin-top:1.7rem;
+  padding-bottom:.4rem;border-bottom:1px solid var(--line)}
+h4.ss{font-size:.93rem;font-weight:700;margin-top:1.25rem;color:var(--violet)}
+.lede{font-size:1.03rem;color:var(--ink-soft);max-width:62ch}
+.pg p, .pg li{max-width:68ch}
+
+/* ---------- cover ---------- */
+.cover{background:var(--violet-deep);color:#fff;max-width:none;margin:0 -1.1rem;
+  padding:3.5rem 1.4rem 3rem;border-bottom:0;position:relative;overflow:hidden}
+@media(min-width:700px){.cover{margin:0 -2rem;padding:5rem 3rem 4rem}}
+.cover::after{color:rgba(255,255,255,.45)}
+.cover canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.cover-in{position:relative;max-width:var(--pg-w);margin:0 auto}
+.cover .eyebrow{color:#C9B6FF}
+.cover h1{font-size:clamp(2.3rem,7.5vw,4rem);font-weight:800;letter-spacing:-.032em;
+  line-height:.98;margin:.7rem 0 0}
+.cover h1 em{font-style:normal;color:#B79BFF;display:block}
+.cover .sub{color:rgba(255,255,255,.8);font-size:1.05rem;margin-top:1.1rem;max-width:46ch}
+.cover-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1.3rem;
+  margin-top:2.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.22)}
+.cover-meta dt{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.55)}
+.cover-meta dd{margin:.3rem 0 0;font-weight:600;font-size:.94rem}
+.cd{display:inline-flex;align-items:baseline;gap:.5rem;margin-top:2rem;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:.6rem 1rem}
+.cd b{font-family:Archivo,sans-serif;font-size:1.7rem;font-weight:800;line-height:1}
+.cd span{font-size:.78rem;color:rgba(255,255,255,.7)}
+
+/* ---------- blocks ---------- */
+.grid{display:grid;gap:.85rem}
+.g2{grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:1rem 1.1rem;
+  box-shadow:var(--shadow)}
+.card h5{font-family:Archivo,sans-serif;font-size:.88rem;font-weight:700;margin:0 0 .4rem}
+.card p{font-size:.87rem;color:var(--ink-soft)}
+
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:.9rem 1rem}
+.stat b{display:block;font-family:Archivo,sans-serif;font-size:1.55rem;font-weight:800;
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.73rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;
+  display:block;margin-top:.2rem}
+
+.note{border-left:3px solid var(--violet);background:var(--violet-soft);padding:.8rem 1rem;
+  border-radius:0 7px 7px 0;font-size:.89rem}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.crit{border-color:var(--crit);background:var(--crit-soft)}
+.note.ok{border-color:var(--energy);background:var(--energy-soft)}
+.note b{font-weight:700}
+.note p{max-width:none}
+
+table{width:100%;border-collapse:collapse;font-size:.855rem}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:600;padding:.62rem .75rem;
+  border-bottom:1px solid var(--line-strong);white-space:nowrap;background:var(--surface-2)}
+td{padding:.58rem .75rem;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace}
+tfoot td{font-weight:700;background:var(--surface-2);border-top:1px solid var(--line-strong)}
+.tc{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--violet);font-weight:600;white-space:nowrap}
+
+ul.l,ol.l{margin:0;padding-left:1.15rem}
+ul.l li,ol.l li{margin:.32rem 0}
+ul.ck{list-style:none;padding:0;margin:0}
+ul.ck li{position:relative;padding-left:1.6rem;margin:.36rem 0;font-size:.9rem}
+ul.ck li::before{content:"";position:absolute;left:0;top:.42em;width:.82rem;height:.82rem;
+  border:1.5px solid var(--line-strong);border-radius:3px;background:var(--surface)}
+
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:.16rem .5rem;border-radius:999px;
+  background:var(--violet-soft);color:var(--violet);border:1px solid color-mix(in srgb,var(--violet) 25%,transparent)}
+.pill.e{background:var(--energy-soft);color:var(--energy);border-color:color-mix(in srgb,var(--energy) 30%,transparent)}
+.pill.w{background:var(--warn-soft);color:var(--warn);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+.pill.c{background:var(--crit-soft);color:var(--crit);border-color:color-mix(in srgb,var(--crit) 30%,transparent)}
+
+/* timeline */
+.tl{list-style:none;padding:0;margin:1rem 0 0;position:relative}
+.tl::before{content:"";position:absolute;left:.42rem;top:.5rem;bottom:.5rem;width:1.5px;background:var(--line-strong)}
+.tl li{position:relative;padding-left:1.9rem;margin-bottom:1.15rem}
+.tl li::before{content:"";position:absolute;left:0;top:.42rem;width:.85rem;height:.85rem;border-radius:50%;
+  background:var(--surface);border:2.5px solid var(--violet)}
+.tl li.done::before{background:var(--violet)}
+.tl .d{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:600;color:var(--violet);
+  letter-spacing:.06em;text-transform:uppercase}
+.tl .h{font-family:Archivo,sans-serif;font-weight:700;font-size:.95rem;margin-top:.1rem}
+.tl p{font-size:.87rem;color:var(--ink-soft);margin-top:.15rem}
+
+/* script/roteiro */
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:9px;margin-top:.9rem;
+  overflow:hidden;box-shadow:var(--shadow)}
+.scene-h{display:flex;flex-wrap:wrap;gap:.6rem;align-items:baseline;padding:.6rem .9rem;
+  background:var(--surface-2);border-bottom:1px solid var(--line)}
+.scene-h .id{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;color:var(--violet)}
+.scene-h .ti{font-family:Archivo,sans-serif;font-weight:700;font-size:.9rem;flex:1;min-width:8rem}
+.scene-b{padding:.85rem .9rem}
+.scene-b > * + *{margin-top:.6rem}
+.scene-b p{font-size:.89rem}
+.vo{border-left:2px solid var(--sand);padding-left:.8rem;font-style:italic;color:var(--ink-soft);font-size:.89rem}
+.vo b{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--sand);display:block;margin-bottom:.15rem;font-weight:600}
+.dirs{font-size:.82rem;color:var(--muted)}
+.dirs b{color:var(--ink-soft);font-weight:600}
+
+hr.r{border:0;border-top:1px solid var(--line);margin:1.6rem 0}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;font-size:.87rem}
+.kv dt{font-family:"IBM Plex Mono",monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);padding-top:.18rem;white-space:nowrap}
+.kv dd{margin:0}
+
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:.5rem 1.1rem;
+  display:flex;align-items:center;gap:.8rem}
+@media(min-width:1180px){.topbar{display:none}}
+.topbar b{font-family:Archivo,sans-serif;font-size:.85rem;font-weight:800}
+.prog{position:fixed;top:0;left:0;height:2.5px;background:var(--violet);z-index:40;width:0}
+
+@media print{
+  .toc,.topbar,.prog{display:none!important}
+  body{background:#fff;font-size:10.5pt}
+  .pg{page-break-after:always;border-bottom:0;padding:0 0 1rem}
+  .card,.scene,.tw{break-inside:avoid}
+  .cover{background:#2A0E63!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{margin:16mm}
+}
+</style>
+
+<div class="prog" id="prog"></div>
+<div class="topbar"><b>Operação Mucugê 05.09</b><span class="pill" id="tbnow">Capa</span></div>
+
+<div class="wrap">
+<nav class="toc" aria-label="Sumário">
+  <div class="toc-brand">
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="var(--violet)" d="M3 2h9a10 10 0 0 1 0 20H3V2Zm4.4 3.6v12.8H12a6.4 6.4 0 0 0 0-12.8H7.4Z"/><path fill="var(--violet)" d="M13.4 5.5 7 13.2h3.5L8.9 19l6.4-7.9h-3.6l1.7-5.6Z"/></svg>
+    <b style="font-family:Archivo,sans-serif;font-size:.82rem">Operação Mucugê</b>
+  </div>
+  <h4>Fundamentos</h4>
+  <a href="#p-resumo"><span class="n">01</span>Resumo executivo</a>
+  <a href="#p-obj"><span class="n">02</span>Objetivos e metas</a>
+  <a href="#p-equipe"><span class="n">03</span>Equipe e funções</a>
+  <a href="#p-decisoes"><span class="n">04</span>Decisões pendentes</a>
+  <a href="#p-riscos"><span class="n">05</span>Riscos críticos</a>
+  <h4>Produção física</h4>
+  <a href="#p-orc"><span class="n">06</span>Orçamento</a>
+  <a href="#p-camisas"><span class="n">07</span>Camisas e tamanhos</a>
+  <a href="#p-bandeiras"><span class="n">08</span>Bandeiras e backdrop</a>
+  <a href="#p-capacetes"><span class="n">09</span>Plotagem de capacetes</a>
+  <a href="#p-crono"><span class="n">10</span>Cronograma D-5 → D0</a>
+  <a href="#p-carga"><span class="n">11</span>Carga e transporte</a>
+  <h4>Técnica</h4>
+  <a href="#p-video-kit"><span class="n">12</span>Kit de imagem</a>
+  <a href="#p-som"><span class="n">13</span>Plano de som</a>
+  <a href="#p-som2"><span class="n">14</span>Sonorização do evento</a>
+  <a href="#p-dados"><span class="n">15</span>Energia, cartões e backup</a>
+  <h4>Vídeo 1 — A Viagem</h4>
+  <a href="#p-v1-conceito"><span class="n">16</span>Conceito e títulos</a>
+  <a href="#p-v1-rota"><span class="n">17</span>Rota e recarga</a>
+  <a href="#p-v1-estrutura"><span class="n">18</span>Estrutura narrativa</a>
+  <a href="#p-v1-r1"><span class="n">19</span>Roteiro · blocos 1–3</a>
+  <a href="#p-v1-r2"><span class="n">20</span>Roteiro · blocos 4–6</a>
+  <a href="#p-v1-r3"><span class="n">21</span>Roteiro · blocos 7–9</a>
+  <a href="#p-v1-shot"><span class="n">22</span>Shot list da estrada</a>
+  <h4>Vídeo 2 — A Inauguração</h4>
+  <a href="#p-v2-conceito"><span class="n">23</span>Conceito e títulos</a>
+  <a href="#p-v2-estrutura"><span class="n">24</span>Estrutura narrativa</a>
+  <a href="#p-v2-r1"><span class="n">25</span>Roteiro · blocos 1–4</a>
+  <a href="#p-v2-r2"><span class="n">26</span>Roteiro · blocos 5–8</a>
+  <a href="#p-v2-shot"><span class="n">27</span>Shot list e posições</a>
+  <a href="#p-cerimonia"><span class="n">28</span>Roteiro de cerimônia</a>
+  <h4>Atletas</h4>
+  <a href="#p-atletas"><span class="n">29</span>Cobertura dos atletas</a>
+  <a href="#p-atletas2"><span class="n">30</span>Roteiro esportivo</a>
+  <a href="#p-social"><span class="n">31</span>Cortes verticais</a>
+  <h4>Operação</h4>
+  <a href="#p-callsheet1"><span class="n">32</span>Call sheet 04/09</a>
+  <a href="#p-callsheet2"><span class="n">33</span>Call sheet 05/09</a>
+  <a href="#p-callsheet3"><span class="n">34</span>Call sheet 06/09</a>
+  <a href="#p-conting"><span class="n">35</span>Contingências</a>
+  <h4>Entrega</h4>
+  <a href="#p-pos"><span class="n">36</span>Pós-produção</a>
+  <a href="#p-public"><span class="n">37</span>Publicação</a>
+  <a href="#p-metricas"><span class="n">38</span>Métricas</a>
+  <a href="#p-anexos"><span class="n">39</span>Anexos e checklists</a>
+</nav>
+
+<main class="doc">
+
+<section class="pg cover">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <div class="cover-in">
+    <div class="eyebrow">Projeto de evento e conteúdo · e-DRIVE ENERGY</div>
+    <h1>Operação<br>Mucugê<em>05 · 09 · 2026</em></h1>
+    <p class="sub">Inauguração do eletroposto mais rápido da Chapada Diamantina, dois filmes de YouTube e a cobertura de dois atletas no Desafio Mucugê.</p>
+    <div class="cd"><b>D-5</b><span>dias até a inauguração<br>a partir de 31/08/2026</span></div>
+    <dl class="cover-meta">
+      <div><dt>Evento</dt><dd>Sábado, 05/09 · 18h00</dd></div>
+      <div><dt>Local</dt><dd>Mucugê · Chapada Diamantina · BA</dd></div>
+      <div><dt>Equipe</dt><dd>5 pessoas em campo</dd></div>
+      <div><dt>Entregas</dt><dd>2 filmes longos + vlogs + cortes</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="pg" id="p-resumo">
+  <div class="eyebrow">Fundamentos · 01</div>
+  <h2 class="t">Resumo executivo</h2>
+  <p class="lede">O que estamos fazendo, por que a data é boa, e onde está o aperto.</p>
+
+  <h3 class="s">A oportunidade</h3>
+  <p>No dia <b>05 de setembro de 2026</b>, às 18h, a e-Drive Energy inaugura em Mucugê o eletroposto mais rápido da Chapada Diamantina. A data não é aleatória: ela cai no <b>sábado do Desafio Mucugê</b>, prova de mountain bike que ocorre de 04 a 06 de setembro e que historicamente leva cerca de <b>500 atletas e mais de 3.000 visitantes</b> para uma cidade de porte pequeno.</p>
+  <p>Isso significa que a inauguração não precisa gerar público — o público já está lá, e é exatamente o público certo: gente que viajou de carro por 450 km de estrada para chegar na Chapada, que se importa com performance, com autonomia e com natureza. É a audiência natural de um carregador rápido.</p>
+
+  <div class="grid g3" style="margin-top:1.2rem">
+    <div class="stat"><b>500+</b><span>atletas na cidade</span></div>
+    <div class="stat"><b>3.000+</b><span>visitantes no fim de semana</span></div>
+    <div class="stat"><b>455 km</b><span>Salvador → Mucugê</span></div>
+  </div>
+
+  <h3 class="s">O que será produzido</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Entrega</th><th>Formato</th><th>Duração</th><th>Publicação</th></tr></thead>
+    <tbody>
+      <tr><td><b>Vídeo 1 — A Viagem</b><br><span style="color:var(--muted);font-size:.82rem">Salvador → Chapada no Dolphin GS</span></td><td>YouTube longo</td><td>18–24 min</td><td>D+10</td></tr>
+      <tr><td><b>Vídeo 2 — A Inauguração</b><br><span style="color:var(--muted);font-size:.82rem">O eletroposto mais rápido da Chapada</span></td><td>YouTube longo</td><td>12–16 min</td><td>D+17</td></tr>
+      <tr><td><b>Vlog diário</b></td><td>YouTube / horizontal</td><td>8–12 min × 3</td><td>D+3 a D+7</td></tr>
+      <tr><td><b>Cobertura dos atletas</b></td><td>Bloco dentro dos 2 filmes</td><td>—</td><td>—</td></tr>
+      <tr><td><b>Cortes verticais</b></td><td>Reels / Shorts / TikTok</td><td>15–60 s × 20</td><td>D+1 a D+21</td></tr>
+      <tr><td><b>Banco de imagens</b></td><td>Fotos tratadas</td><td>80–120 fotos</td><td>D+5</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">O aperto</h3>
+  <div class="note crit"><p><b>Faltam 5 dias e 4 deles são úteis.</b> Todo o material físico — 5 camisas sublimadas, 10 bandeiras, 2 windbanners, 1 backdrop e a plotagem de 5 capacetes — precisa estar pronto e em Mucugê até a sexta 04/09. Camisa de ciclismo sublimada tem prazo normal de 7 a 15 dias. <b>Esse é o item que pode furar o projeto</b>, e a página 05 traz três planos B para ele.</p></div>
+
+  <h3 class="s">Como ler este documento</h3>
+  <p>As páginas 01 a 05 são de decisão — leia primeiro e responda o que está na página 04. As páginas 06 a 11 são de compras e produção. As páginas 12 a 15 são técnicas, para os video makers. As páginas 16 a 28 são os roteiros. As páginas 32 a 34 são as folhas de campo que vão impressas na prancheta.</p>
+</section>
+
+<section class="pg" id="p-obj">
+  <div class="eyebrow">Fundamentos · 02</div>
+  <h2 class="t">Objetivos e metas</h2>
+  <p class="lede">Três objetivos, em ordem de prioridade. Quando houver conflito no campo, o de cima ganha.</p>
+
+  <h3 class="s">Objetivo 1 — Registrar a inauguração como marco</h3>
+  <p>O eletroposto existe uma vez só como novidade. O registro da inauguração é patrimônio permanente da marca: será usado em apresentação comercial, em captação de novos pontos, em relação com prefeitura e governo do estado, e em imprensa. Se tudo der errado no resto, <b>a inauguração precisa estar bem filmada, bem iluminada e com som limpo</b>.</p>
+
+  <h3 class="s">Objetivo 2 — Provar a tese na prática</h3>
+  <p>A tese da marca é o slogan: <i>"Move o futuro. O futuro é de quem se move."</i> O Vídeo 1 é a prova material disso. Um carro elétrico saindo de Salvador e chegando na Chapada Diamantina responde à objeção número um de quem pensa em comprar elétrico no Brasil: <b>"e se eu quiser viajar?"</b>. O vídeo precisa responder com honestidade — inclusive mostrando as dificuldades, porque é a honestidade que gera confiança e retenção.</p>
+
+  <h3 class="s">Objetivo 3 — Vincular a marca ao esporte</h3>
+  <p>Os dois atletas de uniforme e-Drive dentro do Desafio Mucugê criam a associação que a marca quer: energia, performance, natureza, superação. Essa camada é o que dá emoção aos dois filmes e o que alimenta as redes sociais durante semanas.</p>
+
+  <h3 class="s">Metas mensuráveis</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Indicador</th><th class="num">Meta 30 dias</th><th>Como medimos</th></tr></thead>
+    <tbody>
+      <tr><td>Visualizações somadas nos 2 filmes</td><td class="num">25.000</td><td>YouTube Studio</td></tr>
+      <tr><td>Retenção média do Vídeo 1</td><td class="num">45%</td><td>YouTube Studio</td></tr>
+      <tr><td>Duração média assistida</td><td class="num">8 min</td><td>YouTube Studio</td></tr>
+      <tr><td>Inscritos novos no canal</td><td class="num">800</td><td>YouTube Studio</td></tr>
+      <tr><td>Alcance somado nos cortes</td><td class="num">150.000</td><td>Instagram + TikTok</td></tr>
+      <tr><td>Menções/republicações de terceiros</td><td class="num">15</td><td>Busca manual + marcações</td></tr>
+      <tr><td>Fotos aprovadas para uso comercial</td><td class="num">80</td><td>Pasta de entrega</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><b>Sobre as metas:</b> são metas de trabalho para orientar decisão de edição e de publicação, não promessa contratual. Se o canal ainda é novo, o número que importa de verdade nos primeiros 30 dias é a <b>retenção</b> — ela é que determina se o algoritmo vai continuar entregando o vídeo no mês seguinte.</p></div>
+</section>
+
+<section class="pg" id="p-equipe">
+  <div class="eyebrow">Fundamentos · 03</div>
+  <h2 class="t">Equipe e funções</h2>
+  <p class="lede">Cinco pessoas em campo. Cada uma com uma função primária e uma de reserva.</p>
+
+  <h3 class="s">Escalação</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Pessoa</th><th>Função primária</th><th>Função reserva</th><th>Equipamento</th></tr></thead>
+    <tbody>
+      <tr><td><b>Nilton</b></td><td>Apresentador e POV em primeira pessoa</td><td>Direção de conteúdo · decisões em campo</td><td>Action cam no peito/capacete + celular + lapela</td></tr>
+      <tr><td><b>Video Maker 1</b><br><span class="pill">VM1</span></td><td>Câmera A · imagem principal, entrevistas</td><td>Colorista na pós</td><td>Câmera principal + gimbal + lentes</td></tr>
+      <tr><td><b>Video Maker 2</b><br><span class="pill">VM2</span></td><td>Câmera B · cobertura, drone, foto</td><td>Som · operação do gravador</td><td>Câmera B + drone + still</td></tr>
+      <tr><td><b>Atleta 1</b><br><span class="pill e">A1</span></td><td>Ciclista · personagem do arco esportivo</td><td>—</td><td>Bike + uniforme + capacete plotado</td></tr>
+      <tr><td><b>Atleta 2</b><br><span class="pill e">A2</span></td><td>Ciclista · personagem do arco esportivo</td><td>—</td><td>Bike + uniforme + capacete plotado</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ok"><p><b>Bate com o pedido:</b> 5 pessoas em campo = <b>5 camisas</b> e <b>5 capacetes plotados</b>. Nilton e os dois video makers de uniforme também fazem a marca aparecer em todo enquadramento onde a equipe entra em cena, inclusive nos bastidores.</p></div>
+
+  <h3 class="s">Quem decide o quê</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Assunto</th><th>Decide</th><th>Executa</th><th>É consultado</th></tr></thead>
+    <tbody>
+      <tr><td>Roteiro e narrativa</td><td>Nilton</td><td>VM1</td><td>VM2</td></tr>
+      <tr><td>Enquadramento e luz</td><td>VM1</td><td>VM1 + VM2</td><td>Nilton</td></tr>
+      <tr><td>Som</td><td>VM2</td><td>VM2</td><td>VM1</td></tr>
+      <tr><td>Drone</td><td>VM2</td><td>VM2</td><td>Nilton</td></tr>
+      <tr><td>Corte final</td><td>Nilton</td><td>VM1</td><td>—</td></tr>
+      <tr><td>Cronograma em campo</td><td>Nilton</td><td>todos</td><td>—</td></tr>
+      <tr><td>Segurança e parada de gravação</td><td><b>qualquer um</b></td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Regra de ouro do set</h3>
+  <div class="note"><p>Quem está com a câmera na mão <b>não decide o roteiro</b> e quem está decidindo o roteiro <b>não opera a câmera</b>. Em equipe pequena, a tentação de acumular é grande, e o resultado é sempre o mesmo: imagem tremida e narrativa perdida. Nilton apresenta; VM1 e VM2 filmam.</p></div>
+</section>
+
+<section class="pg" id="p-decisoes">
+  <div class="eyebrow">Fundamentos · 04</div>
+  <h2 class="t">Decisões pendentes</h2>
+  <p class="lede">Nove itens que preciso de você para fechar o projeto. Os cinco primeiros travam compra e precisam de resposta hoje.</p>
+
+  <h3 class="s">Bloqueiam a compra — responder hoje (31/08)</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:2rem">#</th><th>Pergunta</th><th>Assumi por ora</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">D1</td><td><b>Tamanhos das 5 camisas.</b> Preciso de nome + tamanho de cada um dos 5. A página 07 traz a tabela de medidas e uma mensagem pronta pra mandar no grupo.</td><td>Nada — sem isso não dá pra comprar</td></tr>
+      <tr><td class="tc">D2</td><td><b>Windbanners: 2 ou 6?</b> Você citou comprar 2 a R$ 300 mas levar 6. Já temos 4 em estoque ou faltam comprar?</td><td>Temos 4, compramos 2</td></tr>
+      <tr><td class="tc">D3</td><td><b>As 10 bandeiras de R$ 65 são o quê?</b> Bandeira de mão para o público, bandeirola de corredor, ou windbanner simples sem base?</td><td>Bandeira de aplicação/corredor, sem mastro pesado</td></tr>
+      <tr><td class="tc">D4</td><td><b>Os R$ 300 do windbanner são por unidade ou pelo par?</b></td><td>Por unidade → R$ 600 pelos 2</td></tr>
+      <tr><td class="tc">D5</td><td><b>Temos veículo de apoio?</b> Ver página 11 — o material não cabe no Dolphin GS.</td><td>Precisamos providenciar</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Bloqueiam a operação — responder até 02/09</h3>
+  <div class="tw"><table>
+    <thead><tr><th style="width:2rem">#</th><th>Pergunta</th><th>Assumi por ora</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">D6</td><td><b>Os 2 atletas estão inscritos no Desafio Mucugê?</b> Em qual percurso — Ultra Pró, Sport ou Tour? Isso define todo o plano de cobertura esportiva.</td><td>Inscritos no Sport (60 km)</td></tr>
+      <tr><td class="tc">D7</td><td><b>Quem fala na cerimônia das 18h?</b> Prefeitura, governo do estado, parceiros? Quantas falas e de quantos minutos?</td><td>3 falas de 3 min + Nilton</td></tr>
+      <tr><td class="tc">D8</td><td><b>Temos autorização do Desafio Mucugê</b> para filmar na área de largada/chegada e usar imagem dos atletas?</td><td>A obter — ver página 39</td></tr>
+      <tr><td class="tc">D9</td><td><b>Orçamento de produção</b> (hospedagem, alimentação, combustível, cachê dos video makers) está fora dos R$ 3.500 de material?</td><td>Sim, fora — estimei na página 06</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note warn"><p><b>Enquanto não chegam as respostas</b>, o restante deste documento assume os valores da coluna "assumi por ora" e sinaliza com <span class="pill w">supor</span> cada ponto que muda se a resposta for outra. Nada aqui trava a leitura.</p></div>
+</section>
+
+<section class="pg" id="p-riscos">
+  <div class="eyebrow">Fundamentos · 05</div>
+  <h2 class="t">Riscos críticos</h2>
+  <p class="lede">Cinco riscos reais, com plano B escrito. O primeiro é o que mais preocupa.</p>
+
+  <h3 class="s">R1 · Camisas não ficam prontas <span class="pill c">alto</span></h3>
+  <p>Camisa de ciclismo sublimada com recorte e costura leva de 7 a 15 dias em produção normal. Temos 4 dias úteis. <b>É o risco número um do projeto.</b></p>
+  <h4 class="ss">Três planos B, nesta ordem</h4>
+  <ol class="l">
+    <li><b>Urgência paga.</b> Ligar hoje em 3 confecções e perguntar o preço da produção expressa em 3 dias. Custo típico: 30% a 60% a mais. Nos R$ 1.250 previstos, o teto seria R$ 2.000 — vale pagar.</li>
+    <li><b>Camisa lisa com aplicação.</b> Comprar camisa de ciclismo roxa lisa pronta e aplicar as marcas em recorte de termocolante ou silk localizado. Perde a arte de sublimação total, mas em foto e vídeo a leitura de marca é quase a mesma. Prazo: 2 dias.</li>
+    <li><b>Priorizar 2 de 5.</b> Se só der para produzir duas, produza as dos <b>dois atletas</b> — eles são os que aparecem em quadro pedalando. Equipe usa camiseta preta lisa com o D aplicado.</li>
+  </ol>
+  <div class="note crit"><p><b>Ação hoje, antes de qualquer outra coisa:</b> três cotações de confecção com prazo expresso, por telefone, não por e-mail. Decide-se até as 18h de hoje.</p></div>
+
+  <h3 class="s">R2 · Chuva na inauguração <span class="pill w">médio</span></h3>
+  <p>Setembro na Chapada é seco, mas 18h é horário de virada de tempo e vento. Windbanner de 3,2 m com vento forte cai e machuca.</p>
+  <ul class="l">
+    <li>Cobertura ou tenda 3×3 sobre a área da cerimônia e sobre a mesa de som — <b>confirmar até 02/09</b>.</li>
+    <li>Capas de chuva para as duas câmeras (ou saco plástico + elástico, funciona).</li>
+    <li>Windbanners com base lastreada; com vento acima de moderado, recolher — a foto não vale o acidente.</li>
+  </ul>
+
+  <h3 class="s">R3 · Não há carregador no meio do caminho <span class="pill w">médio</span></h3>
+  <p>455 km com autonomia real de 291 km exige uma recarga obrigatória. Se o ponto planejado estiver ocupado, fora do ar ou for lento, a viagem atrasa horas.</p>
+  <ul class="l">
+    <li>Mapear <b>três</b> pontos alternativos antes de sair (página 17), e ligar para confirmar funcionamento na véspera.</li>
+    <li>Levar cabo de recarga em tomada comum como último recurso — é lento, mas resolve emergência.</li>
+    <li><b>Isto não é só risco: é material narrativo.</b> Se der problema, filme. É o momento mais honesto e mais assistido do vídeo.</li>
+  </ul>
+
+  <h3 class="s">R4 · Som ruim na cerimônia <span class="pill c">alto</span></h3>
+  <p>Praça aberta, vento, gente conversando. Áudio ruim inutiliza o registro das falas — e falas de autoridade não se repetem.</p>
+  <ul class="l">
+    <li>Nunca depender do microfone da câmera. Ver página 13: lapela no orador + saída direta da mesa de som + gravador de ambiência, os três rodando ao mesmo tempo.</li>
+    <li>Protetor de vento peludo obrigatório em tudo que estiver ao ar livre.</li>
+  </ul>
+
+  <h3 class="s">R5 · Um cartão de memória corrompe <span class="pill w">médio</span></h3>
+  <p>Material de evento é irrepetível.</p>
+  <ul class="l">
+    <li>Câmera com dois slots grava em <b>backup simultâneo</b>, não em sequencial.</li>
+    <li>Descarregar ao final de cada dia em <b>dois destinos</b> (notebook + HD externo) antes de dormir. Página 15.</li>
+    <li><b>Não formatar cartão nenhum</b> até o material estar em dois lugares e conferido.</li>
+  </ul>
+</section>
+
+<section class="pg" id="p-orc">
+  <div class="eyebrow">Produção física · 06</div>
+  <h2 class="t">Orçamento</h2>
+  <p class="lede">O material que você listou fecha em R$ 3.500. Abaixo, os três cenários e o que ficou de fora.</p>
+
+  <h3 class="s">Cenário A — exatamente o que foi pedido</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd</th><th class="num">Unitário</th><th class="num">Total</th></tr></thead>
+    <tbody>
+      <tr><td>Camisa de ciclismo personalizada</td><td class="num">5</td><td class="num">250,00</td><td class="num">1.250,00</td></tr>
+      <tr><td>Bandeira de qualidade</td><td class="num">10</td><td class="num">65,00</td><td class="num">650,00</td></tr>
+      <tr><td>Plotagem de capacete</td><td class="num">5</td><td class="num">80,00</td><td class="num">400,00</td></tr>
+      <tr><td>Backdrop</td><td class="num">1</td><td class="num">600,00</td><td class="num">600,00</td></tr>
+      <tr><td>Windbanner completo</td><td class="num">2</td><td class="num">300,00</td><td class="num">600,00</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Subtotal material</td><td class="num">R$ 3.500,00</td></tr></tfoot>
+  </table></div>
+
+  <h3 class="s">Cenário B — com os windbanners que faltam</h3>
+  <p>Você pediu para <b>levar 6 windbanners</b> mas orçou apenas 2. Se não houver 4 em estoque, é preciso comprar a diferença. <span class="pill w">decisão D2</span></p>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd</th><th class="num">Unitário</th><th class="num">Total</th></tr></thead>
+    <tbody>
+      <tr><td>Subtotal do Cenário A</td><td class="num">—</td><td class="num">—</td><td class="num">3.500,00</td></tr>
+      <tr><td>Windbanner adicional</td><td class="num">4</td><td class="num">300,00</td><td class="num">1.200,00</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Subtotal material</td><td class="num">R$ 4.700,00</td></tr></tfoot>
+  </table></div>
+
+  <h3 class="s">Cenário C — com urgência de produção</h3>
+  <p>Se for preciso pagar expresso nas camisas para chegar a tempo (risco R1):</p>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Total</th></tr></thead>
+    <tbody>
+      <tr><td>Subtotal do Cenário B</td><td class="num">4.700,00</td></tr>
+      <tr><td>Taxa de urgência nas camisas (estimativa 50%)</td><td class="num">625,00</td></tr>
+      <tr><td>Frete expresso do material até Mucugê</td><td class="num">350,00</td></tr>
+    </tbody>
+    <tfoot><tr><td>Subtotal material</td><td class="num">R$ 5.675,00</td></tr></tfoot>
+  </table></div>
+
+  <h3 class="s">O que não está no seu orçamento</h3>
+  <div class="note warn"><p>Os valores abaixo <b>não foram informados por você</b> e são estimativas de trabalho para você validar ou substituir. Estão separados de propósito para não misturar com o material, que tem preço fechado. <span class="pill w">decisão D9</span></p></div>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd</th><th class="num">Estimado</th></tr></thead>
+    <tbody>
+      <tr><td>Cachê dos 2 video makers (3 diárias cada)</td><td class="num">6</td><td class="num">a definir</td></tr>
+      <tr><td>Hospedagem em Mucugê (3 noites × 5 pessoas)</td><td class="num">—</td><td class="num">a definir</td></tr>
+      <tr><td>Alimentação da equipe (3 dias)</td><td class="num">—</td><td class="num">a definir</td></tr>
+      <tr><td>Energia de recarga na viagem (ida e volta)</td><td class="num">—</td><td class="num">150,00</td></tr>
+      <tr><td>Combustível do veículo de apoio</td><td class="num">—</td><td class="num">700,00</td></tr>
+      <tr><td>Pedágios BR-324 / BR-242</td><td class="num">—</td><td class="num">a confirmar</td></tr>
+      <tr><td>Sonorização do evento (PA + operador)</td><td class="num">1</td><td class="num">800,00</td></tr>
+      <tr><td>Tenda 3×3 e cobertura de contingência</td><td class="num">1</td><td class="num">350,00</td></tr>
+      <tr><td>Iluminação da cerimônia (18h = anoitecendo)</td><td class="num">1</td><td class="num">600,00</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note crit"><p><b>Atenção ao horário.</b> Em setembro, em Mucugê, o sol se põe por volta das 17h30–17h50. Uma cerimônia às <b>18h acontece no escuro</b>. Iluminação não é opcional aqui — é a diferença entre um registro utilizável e um registro perdido. Ver página 14.</p></div>
+</section>
+
+<section class="pg" id="p-camisas">
+  <div class="eyebrow">Produção física · 07</div>
+  <h2 class="t">Camisas e tamanhos</h2>
+  <p class="lede">5 camisas a R$ 250. Falta a informação mais simples e mais travante: quem veste o quê.</p>
+
+  <h3 class="s">Grade a preencher</h3>
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Pessoa</th><th>Tamanho</th><th>Modelagem</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">01</td><td>Nilton</td><td>______</td><td>______</td><td>aparece em quadro o tempo todo</td></tr>
+      <tr><td class="tc">02</td><td>Atleta 1</td><td>______</td><td>______</td><td>vai competir — modelagem race</td></tr>
+      <tr><td class="tc">03</td><td>Atleta 2</td><td>______</td><td>______</td><td>vai competir — modelagem race</td></tr>
+      <tr><td class="tc">04</td><td>Video Maker 1</td><td>______</td><td>______</td><td>conforto acima de aerodinâmica</td></tr>
+      <tr><td class="tc">05</td><td>Video Maker 2</td><td>______</td><td>______</td><td>conforto acima de aerodinâmica</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Duas modelagens, e por que a diferença importa</h3>
+  <div class="grid g2">
+    <div class="card"><h5>Race / justa</h5><p>Cai colada no corpo, sem sobra nas costas. É a que fica bonita em foto de ciclismo e é a que o atleta quer para competir. Quem não pedala com frequência costuma achar apertada — normalmente <b>sobe um tamanho</b> em relação à camiseta comum.</p></div>
+    <div class="card"><h5>Club / confortável</h5><p>Um pouco mais folgada, mais tolerante. É a certa para Nilton e para os video makers, que vão usar a camisa o dia inteiro fora da bike, carregando equipamento.</p></div>
+  </div>
+
+  <h3 class="s">Tabela de referência</h3>
+  <p>Peça a cada um <b>a circunferência do peito</b> — é a medida que menos erra. Se não der, use altura e peso como aproximação.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Tamanho</th><th class="num">Peito (cm)</th><th class="num">Altura (cm)</th><th class="num">Peso (kg)</th></tr></thead>
+    <tbody>
+      <tr><td><b>PP</b></td><td class="num">86–91</td><td class="num">160–168</td><td class="num">55–62</td></tr>
+      <tr><td><b>P</b></td><td class="num">92–97</td><td class="num">165–173</td><td class="num">62–70</td></tr>
+      <tr><td><b>M</b></td><td class="num">98–103</td><td class="num">170–178</td><td class="num">70–79</td></tr>
+      <tr><td><b>G</b></td><td class="num">104–110</td><td class="num">175–183</td><td class="num">79–88</td></tr>
+      <tr><td><b>GG</b></td><td class="num">111–117</td><td class="num">180–188</td><td class="num">88–98</td></tr>
+      <tr><td><b>XGG</b></td><td class="num">118–125</td><td class="num">183–192</td><td class="num">98–110</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p>Estes valores são de referência de mercado. <b>Sempre confirme com a tabela da confecção escolhida</b> — a variação entre fabricantes chega a um tamanho inteiro.</p></div>
+
+  <h3 class="s">Mensagem pronta para o grupo</h3>
+  <div class="card" style="background:var(--surface-2)"><p style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;white-space:pre-wrap">Fechando as camisas e-Drive pra Mucugê (05/09). Preciso de 3 infos de cada um, hoje:
+
+1) Nome completo
+2) Circunferência do peito em cm (fita métrica por cima do mamilo, braços relaxados)
+3) Altura e peso
+
+Se não tiver fita métrica, manda o tamanho da camiseta que você mais usa e a marca.
+
+Atletas: a camisa é modelagem race, bem justa. Se preferir mais folgada, avisa.</p></div>
+
+  <h3 class="s">Ficha técnica a passar para a confecção</h3>
+  <div class="kv">
+    <dt>Arte</dt><dd>Usar os arquivos de mockup já aprovados na pasta do Drive (prancha de uniforme, frente/costas/laterais)</dd>
+    <dt>Cor</dt><dd>Violeta e-Drive — enviar referência em Pantone ou CMYK fechado, não só o PNG</dd>
+    <dt>Marcas</dt><dd>Peito: e-DRIVE ENERGY + ícone D · Costas: e-DRIVE ENERGY + lockup · Manga esq.: ícone D · Manga dir.: eDRIVE GO</dd>
+    <dt>Costas</dt><dd>Três bolsos, faixa refletiva no bolso central</dd>
+    <dt>Zíper</dt><dd>Full zip, com puxador</dd>
+    <dt>Gola</dt><dd>Etiqueta interna e-DRIVE ENERGY</dd>
+    <dt>Prazo</dt><dd><b>Entrega até 03/09</b> para dar folga de um dia</dd>
+  </div>
+</section>
+
+<section class="pg" id="p-bandeiras">
+  <div class="eyebrow">Produção física · 08</div>
+  <h2 class="t">Bandeiras, windbanners e backdrop</h2>
+  <p class="lede">Especificação técnica para mandar na gráfica sem ida e volta.</p>
+
+  <h3 class="s">Windbanner — 6 unidades em campo</h3>
+  <div class="kv">
+    <dt>Tipo</dt><dd>Pena (feather) — é o formato dos mockups aprovados</dd>
+    <dt>Altura</dt><dd>3,2 m a 4,0 m montado</dd>
+    <dt>Tecido</dt><dd>Poliéster 110 g/m², sublimação total, <b>dupla face espelhada</b></dd>
+    <dt>Acabamento</dt><dd>Bainha com luva para haste + reforço nas pontas</dd>
+    <dt>Estrutura</dt><dd>Haste seccionada em fibra de vidro + <b>base cruz com peso ou base de água</b></dd>
+    <dt>Arte A</dt><dd>Ícone D no topo + "e-DRIVE" vertical + "ENERGY"</dd>
+    <dt>Arte B</dt><dd>Ícone D no topo + "e-DRIVE GO" vertical</dd>
+    <dt>Divisão</dt><dd>3 unidades da arte A + 3 da arte B</dd>
+  </div>
+  <div class="note warn"><p><b>Base é item de segurança, não acessório.</b> Base de chapa simples não segura windbanner de 3,2 m em praça aberta com vento de fim de tarde. Peça <b>base cruz com bolsa de água ou peso de 15 kg</b> em todas as 6. Se a cotação de R$ 300 não incluir base lastreada, ela está incompleta.</p></div>
+
+  <h3 class="s">Bandeiras — 10 unidades a R$ 65 <span class="pill w">decisão D3</span></h3>
+  <p>O preço sugere bandeira de aplicação sem estrutura pesada. Três usos possíveis, escolha um antes de comprar:</p>
+  <div class="grid g3">
+    <div class="card"><h5>Corredor de largada</h5><p>Fixadas em grade, formam a moldura do pórtico. É o uso que mais aparece em foto de prova. <b>Recomendo esta.</b></p></div>
+    <div class="card"><h5>Bandeira de mão</h5><p>Distribuída ao público na cerimônia. Gera plano de multidão com marca, mas é descartável.</p></div>
+    <div class="card"><h5>Bandeirola de vento</h5><p>Sequência lateral no acesso ao eletroposto. Boa para vídeo em movimento.</p></div>
+  </div>
+  <div class="kv" style="margin-top:1rem">
+    <dt>Tecido</dt><dd>Poliéster leve, sublimação</dd>
+    <dt>Tamanho</dt><dd>90 × 150 cm (corredor) ou 30 × 45 cm (mão)</dd>
+    <dt>Acabamento</dt><dd>Bainha nas quatro bordas + ilhoses nos cantos, para amarrar em grade</dd>
+  </div>
+
+  <h3 class="s">Backdrop — 1 unidade a R$ 600</h3>
+  <div class="kv">
+    <dt>Medida</dt><dd>3,0 × 2,0 m (padrão de coletiva; cabe 4 pessoas lado a lado em quadro)</dd>
+    <dt>Material</dt><dd>Lona fosca ou tecido tensionado — <b>fosco é obrigatório</b></dd>
+    <dt>Arte</dt><dd>Faixa superior com lockup e-DRIVE ENERGY + GO e o slogan "Move o Futuro / O futuro é de quem se move", e grade xadrez alternando os três blocos de marca</dd>
+    <dt>Estrutura</dt><dd>Treliça box truss ou estrutura tubular com pés — conferir se está incluída no preço</dd>
+    <dt>Fixação</dt><dd>Ilhoses a cada 50 cm + abraçadeiras</dd>
+  </div>
+  <div class="note crit"><p><b>Nunca aceite backdrop em lona brilhante.</b> Sob luz de LED à noite, lona brilhante devolve o reflexo direto do refletor e queima a foto — a marca some numa mancha branca. Peça explicitamente <b>lona fosca / blackout fosco</b> e teste com lanterna de celular na hora de retirar.</p></div>
+
+  <h3 class="s">Onde cada peça vai</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Peça</th><th class="num">Qtd</th><th>Posição</th><th>Montagem</th></tr></thead>
+    <tbody>
+      <tr><td>Backdrop</td><td class="num">1</td><td>Atrás do eletroposto, fundo das falas e das fotos oficiais</td><td>D-1, 16h</td></tr>
+      <tr><td>Windbanner</td><td class="num">4</td><td>Dois de cada lado do eletroposto, formando o corredor de aproximação</td><td>D0, 14h</td></tr>
+      <tr><td>Windbanner</td><td class="num">2</td><td>Área dos atletas / bikes</td><td>D0, 14h</td></tr>
+      <tr><td>Bandeiras</td><td class="num">10</td><td>Grades do corredor e acesso</td><td>D0, 15h</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="pg" id="p-capacetes">
+  <div class="eyebrow">Produção física · 09</div>
+  <h2 class="t">Plotagem de capacetes</h2>
+  <p class="lede">5 capacetes a R$ 80. A prancha de aplicação já existe no Drive — é só executar.</p>
+
+  <h3 class="s">Mapa de aplicação</h3>
+  <p>O arquivo <span class="tc">CAPACETE PLOTAGEM.png</span> já define as cinco vistas. Repasse-o ao plotter junto com esta tabela:</p>
+  <div class="tw"><table>
+    <thead><tr><th>Face</th><th>Elemento</th><th>Tamanho aprox.</th></tr></thead>
+    <tbody>
+      <tr><td>Frontal</td><td>Ícone raio dentro de círculo branco</td><td>4 cm ⌀</td></tr>
+      <tr><td>Lateral direita</td><td>Ícone D-raio + "e-DRIVE" com "ENERGY"</td><td>9 cm largura</td></tr>
+      <tr><td>Lateral esquerda</td><td>"GO" com círculo e triângulo play</td><td>6 cm largura</td></tr>
+      <tr><td>Traseira</td><td>Ícone raio dentro de círculo</td><td>3,5 cm ⌀</td></tr>
+      <tr><td>Superior (2×)</td><td>"e-DRIVE ENERGY" na vertical, um de cada lado da aleta central</td><td>7 cm comprimento</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Especificação do material</h3>
+  <div class="kv">
+    <dt>Vinil</dt><dd>Polimérico ou fundido, recorte eletrônico, branco fosco</dd>
+    <dt>Por que fundido</dt><dd>O capacete tem curvatura dupla; vinil monomérico barato encolhe e descola nas bordas em poucos dias</dd>
+    <dt>Aplicação</dt><dd>A seco, com espátula de feltro; aquecer levemente com soprador nas curvas</dd>
+    <dt>Superfície</dt><dd>Limpar com álcool isopropílico antes — verniz de capacete costuma sair de fábrica com desmoldante</dd>
+    <dt>Cura</dt><dd>Aplicar com pelo menos <b>24h de antecedência</b> do uso</dd>
+  </div>
+
+  <div class="note crit"><p><b>Regra de segurança inegociável:</b> não aplicar adesivo com solvente agressivo nem aquecer o casco em excesso. O isopor de capacete (EPS) degrada com solvente e com calor, e um capacete degradado não protege. Vinil de recorte aplicado a frio, com aquecimento leve apenas nas bordas, é seguro. <b>Se o plotter propuser usar removedor de cola ou thinner no casco, recuse.</b> Não plote capacete que vá ser usado em prova sem antes conferir se a fabricante permite adesivagem.</p></div>
+
+  <h3 class="s">Conferência na retirada</h3>
+  <ul class="ck">
+    <li>Todas as 5 unidades com as 6 aplicações completas</li>
+    <li>Nenhuma borda levantada — passar o dedo em todo o contorno</li>
+    <li>Nenhum adesivo cobrindo entrada de ventilação</li>
+    <li>Nenhum adesivo sobre a etiqueta de certificação do capacete</li>
+    <li>Jugular e ajuste occipital funcionando normalmente</li>
+    <li>Fotografar as 5 unidades prontas para o arquivo da marca</li>
+  </ul>
+</section>
+
+<section class="pg" id="p-crono">
+  <div class="eyebrow">Produção física · 10</div>
+  <h2 class="t">Cronograma D-5 → D0</h2>
+  <p class="lede">Cinco dias. Cada dia tem um entregável que destrava o seguinte.</p>
+
+  <ol class="tl">
+    <li class="done">
+      <div class="d">D-5 · segunda 31/08</div>
+      <div class="h">Fechar compras e coletar tamanhos</div>
+      <p><b>Manhã:</b> mandar a mensagem de tamanhos no grupo (página 07). Ligar em 3 confecções pedindo prazo expresso.<br>
+      <b>Tarde:</b> fechar a confecção e pagar sinal. Enviar artes de windbanner, bandeira e backdrop para a gráfica. Fechar o plotter dos capacetes.<br>
+      <b>Até 18h:</b> decidir o veículo de apoio (D5) e reservar hospedagem em Mucugê — no fim de semana da prova a cidade lota.</p>
+      <p><b>Entregável:</b> todos os pedidos colocados, com prazo confirmado por escrito.</p>
+    </li>
+    <li>
+      <div class="d">D-4 · terça 01/09</div>
+      <div class="h">Prova de arte e pré-produção</div>
+      <p><b>Manhã:</b> aprovar as provas digitais da gráfica. Conferir cor do violeta contra os mockups do Drive.<br>
+      <b>Tarde:</b> montar a lista de equipamento e testar tudo (página 12 e 13). Carregar todas as baterias. Formatar e testar todos os cartões.<br>
+      <b>Noite:</b> mapear os pontos de recarga da rota e ligar para confirmar funcionamento (página 17).</p>
+      <p><b>Entregável:</b> artes aprovadas em produção + kit técnico testado peça por peça.</p>
+    </li>
+    <li>
+      <div class="d">D-3 · quarta 02/09</div>
+      <div class="h">Roteiro, autorizações e som</div>
+      <p><b>Manhã:</b> ler os roteiros dos dois vídeos com a equipe inteira em call. Ajustar o que não fizer sentido.<br>
+      <b>Tarde:</b> falar com a organização do Desafio Mucugê — autorização de filmagem e credenciamento (D8). Confirmar quem fala na cerimônia (D7).<br>
+      <b>Noite:</b> fechar sonorização e iluminação do evento.</p>
+      <p><b>Entregável:</b> roteiros validados + autorizações encaminhadas + PA e luz contratados.</p>
+    </li>
+    <li>
+      <div class="d">D-2 · quinta 03/09</div>
+      <div class="h">Retirada do material e carregamento</div>
+      <p><b>Manhã:</b> retirar camisas, bandeiras, windbanners, backdrop e capacetes. <b>Conferir peça por peça na hora da retirada</b> — conferir na chegada em Mucugê é tarde demais.<br>
+      <b>Tarde:</b> carregar o veículo de apoio (página 11). Carro do Dolphin a 100% de bateria.<br>
+      <b>Noite:</b> briefing final de 30 min com a equipe. Distribuir as folhas de campo impressas.</p>
+      <p><b>Entregável:</b> tudo conferido e carregado. Nada pendente.</p>
+    </li>
+    <li>
+      <div class="d">D-1 · sexta 04/09</div>
+      <div class="h">A viagem — e o Vídeo 1</div>
+      <p><b>05h30:</b> saída de Salvador. Este dia <b>é</b> a gravação do Vídeo 1, não um deslocamento. Ver call sheet na página 32.<br>
+      <b>Tarde:</b> chegada em Mucugê, check-in, reconhecimento do local do eletroposto.<br>
+      <b>16h:</b> montagem do backdrop.<br>
+      <b>Fim de tarde:</b> retirada de kit dos atletas na arena do Desafio Mucugê — boa cena.</p>
+      <p><b>Entregável:</b> Vídeo 1 gravado + backdrop montado + reconhecimento feito.</p>
+    </li>
+    <li>
+      <div class="d">D0 · sábado 05/09</div>
+      <div class="h">Prova de manhã, inauguração às 18h</div>
+      <p>Ver call sheet completo na página 33.</p>
+    </li>
+  </ol>
+
+  <div class="note warn"><p><b>Folga real do cronograma: um dia.</b> Se a confecção atrasar de 03/09 para 04/09, o material não viaja com a equipe e precisa ir por transportadora direto para Mucugê — com risco de não chegar. Por isso o prazo pedido à confecção é <b>03/09</b>, não 04/09.</p></div>
+</section>
+
+<section class="pg" id="p-carga">
+  <div class="eyebrow">Produção física · 11</div>
+  <h2 class="t">Carga e transporte</h2>
+  <p class="lede">Um achado que muda a logística: o material não cabe no Dolphin GS.</p>
+
+  <h3 class="s">O que precisa viajar</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Volume</th><th>Dimensão / peso</th><th>Cabe no hatch?</th></tr></thead>
+    <tbody>
+      <tr><td>6 windbanners com haste</td><td>Hastes seccionadas ~1,2 m · bases 6 × 8 kg</td><td>Bases não — 48 kg de peso morto</td></tr>
+      <tr><td>Backdrop 3×2 m + estrutura</td><td>Tubos de 2 m, ~25 kg</td><td><b>Não</b> — tubo de 2 m não entra</td></tr>
+      <tr><td>2 bicicletas de estrada/MTB</td><td>—</td><td><b>Não</b> — exige suporte externo ou van</td></tr>
+      <tr><td>Kit audiovisual</td><td>2 malas rígidas + tripés</td><td>Apertado</td></tr>
+      <tr><td>Malas de 5 pessoas · 3 dias</td><td>—</td><td><b>Não</b></td></tr>
+      <tr><td>10 bandeiras + 5 camisas + 5 capacetes</td><td>Leve, volumoso</td><td>Sim</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit"><p><b>O Dolphin GS é um hatch compacto.</b> Ele não transporta duas bicicletas, seis bases de windbanner, uma estrutura de backdrop de 2 m, kit de filmagem e bagagem de cinco pessoas. Insistir nisso significa chegar em Mucugê sem metade do material — ou viajar com o carro tão carregado que a autonomia cai e a recarga do meio do caminho não fecha. <b>Um veículo de apoio é obrigatório.</b> <span class="pill w">decisão D5</span></p></div>
+
+  <h3 class="s">A solução que também melhora o vídeo</h3>
+  <p>Divida em dois veículos, e transforme a limitação em vantagem de produção:</p>
+  <div class="grid g2">
+    <div class="card"><h5>Dolphin GS — o carro-herói</h5><p>Viaja <b>limpo</b>: Nilton, VM1 e o kit de câmera leve. É o carro que aparece em cena, que encosta no carregador, que faz o plano bonito na estrada. Carro-herói sujo e abarrotado estraga todo enquadramento — e um carro leve também gasta menos bateria, o que ajuda a fechar a autonomia.</p></div>
+    <div class="card"><h5>Veículo de apoio — a mula</h5><p>Van, utilitário ou SUV com bagageiro. Leva VM2, os dois atletas, as bikes, todo o material de marca, tripés, iluminação e bagagem. Sai <b>uma hora antes</b> do Dolphin.</p></div>
+  </div>
+
+  <h3 class="s">Por que o apoio sai antes</h3>
+  <p>Saindo uma hora na frente e sem precisar parar para recarregar, o veículo de apoio chega aos pontos-chave <b>antes</b> do Dolphin. Isso permite a VM2 já estar posicionado na beira da estrada, com o drone no ar, para filmar o carro-herói passando. Sem isso, todo plano externo do carro precisa ser feito parando, descendo, posicionando e repetindo — o que consome horas.</p>
+
+  <h3 class="s">Ordem de carregamento do apoio</h3>
+  <ol class="l">
+    <li><b>Fundo:</b> bases de windbanner e estrutura do backdrop — o mais pesado embaixo e à frente do eixo.</li>
+    <li><b>Meio:</b> lona do backdrop enrolada <b>em tubo</b>, nunca dobrada — vinco de dobra aparece em vídeo e não sai.</li>
+    <li><b>Cima:</b> caixas de câmera, iluminação, tripés.</li>
+    <li><b>Acessível sem descarregar:</b> camisas, capacetes, bandeiras e o kit de som.</li>
+    <li><b>Bicicletas:</b> no bagageiro externo ou deitadas com roda dianteira removida, sobre cobertor.</li>
+  </ol>
+  <div class="note"><p><b>Regra da lona:</b> lona de backdrop viaja em tubo de papelão ou PVC. Uma lona dobrada por três dias chega em Mucugê com vincos que a luz do refletor vai marcar, e não há como tirar em campo.</p></div>
+</section>
+
+<section class="pg" id="p-video-kit">
+  <div class="eyebrow">Técnica · 12</div>
+  <h2 class="t">Kit de imagem</h2>
+  <p class="lede">Lista de conferência, dividida por operador. Testar tudo no D-4, não no carro.</p>
+
+  <h3 class="s">VM1 — Câmera A</h3>
+  <ul class="ck">
+    <li>Câmera principal, <b>dois slots de cartão configurados em backup simultâneo</b></li>
+    <li>Lente zoom padrão (24–70 mm equivalente) — cobertura geral e entrevista</li>
+    <li>Lente luminosa f/1.8 ou f/1.4 — <b>indispensável para a cerimônia das 18h no escuro</b></li>
+    <li>Grande angular (16–35 mm) — interior do carro e planos amplos do eletroposto</li>
+    <li>Gimbal + baterias do gimbal</li>
+    <li>Tripé de vídeo com cabeça fluida</li>
+    <li>Filtro ND variável — sol forte da Chapada no meio do dia</li>
+    <li>6 baterias de câmera + carregador duplo</li>
+    <li>4 cartões rápidos, formatados na própria câmera</li>
+  </ul>
+
+  <h3 class="s">VM2 — Câmera B, drone e foto</h3>
+  <ul class="ck">
+    <li>Segunda câmera, de preferência do mesmo fabricante da A — cor casa mais fácil na edição</li>
+    <li>Teleobjetiva (70–200 mm) — <b>é a lente do ciclismo</b>, comprime a paisagem e isola o atleta</li>
+    <li>Drone + 4 baterias + cartões</li>
+    <li>Monopé — mais rápido que tripé para acompanhar prova</li>
+    <li>Câmera fotográfica ou uso da B em modo foto para o banco de imagens</li>
+    <li>2 action cams + suportes de capacete, peito e ventosa de para-brisa</li>
+  </ul>
+
+  <h3 class="s">Nilton — POV</h3>
+  <ul class="ck">
+    <li>Action cam no capacete e no peito</li>
+    <li>Celular com estabilização, para plano de mão e stories</li>
+    <li>Lapela sem fio pareada, ligada o dia inteiro</li>
+    <li>Bateria externa</li>
+  </ul>
+
+  <h3 class="s">Padrão técnico — combinar antes, não na ilha</h3>
+  <div class="kv">
+    <dt>Resolução</dt><dd>4K nas duas câmeras. 4K dá margem para reenquadrar o corte vertical sem perder qualidade</dd>
+    <dt>Frame rate</dt><dd>Base <b>24 ou 30 fps</b> — escolher <b>um</b> e manter. Ação e ciclismo em <b>60 fps</b> para permitir câmera lenta</dd>
+    <dt>Perfil de cor</dt><dd>Log nas duas, <b>o mesmo perfil</b>. Se uma gravar em log e a outra em perfil padrão, a edição vira um problema de cor de horas</dd>
+    <dt>Balanço de branco</dt><dd><b>Manual e travado.</b> Nunca automático — no pôr do sol o automático fica pulando e a cor treme no corte</dd>
+    <dt>Obturador</dt><dd>Dobro do frame rate (1/50 para 24fps, 1/60 para 30fps)</dd>
+    <dt>Nomenclatura</dt><dd><span class="tc">DIA_CAM_CENA</span> — ex.: <span class="tc">04_A_ESTRADA</span></dd>
+  </div>
+  <div class="note"><p><b>Cinco minutos que salvam a edição:</b> antes da primeira gravação de cada dia, aponte as duas câmeras para a mesma cena e grave 10 segundos. Serve para casar cor na pós e para conferir se as configurações estão iguais.</p></div>
+</section>
+
+<section class="pg" id="p-som">
+  <div class="eyebrow">Técnica · 13</div>
+  <h2 class="t">Plano de som — captação</h2>
+  <p class="lede">Você pediu som, e som é o item onde projeto de vídeo mais fracassa. Imagem ruim o espectador perdoa; áudio ruim ele fecha o vídeo em 10 segundos.</p>
+
+  <h3 class="s">Princípio: três camadas, sempre</h3>
+  <p>Em toda cena importante, três fontes rodando ao mesmo tempo. Se uma falhar, a cena sobrevive.</p>
+  <div class="grid g3">
+    <div class="card"><h5>1 · Voz</h5><p>Lapela sem fio no peito de quem fala. É a camada principal, a que carrega a informação.</p></div>
+    <div class="card"><h5>2 · Referência</h5><p>Microfone da própria câmera. Serve para sincronizar e como reserva se a lapela falhar.</p></div>
+    <div class="card"><h5>3 · Ambiência</h5><p>Gravador separado captando o lugar. É o que dá presença e vida ao corte.</p></div>
+  </div>
+
+  <h3 class="s">Equipamento</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Sistema de lapela sem fio (2 transmissores + 1 receptor)</td><td class="num">2 kits</td><td>Nilton fixo + entrevistados</td></tr>
+      <tr><td>Microfone direcional shotgun</td><td class="num">1</td><td>Sapata da câmera A</td></tr>
+      <tr><td>Gravador de campo com entradas XLR</td><td class="num">1</td><td>Ambiência e saída da mesa de som</td></tr>
+      <tr><td>Microfone de mão dinâmico</td><td class="num">1</td><td>Entrevista rápida em pé, corrida, público</td></tr>
+      <tr><td><b>Protetor de vento peludo</b></td><td class="num">todos</td><td><b>Item crítico</b> — ver abaixo</td></tr>
+      <tr><td>Cabo XLR 5 m + adaptador para a saída da mesa</td><td class="num">2</td><td>Captar as falas direto do PA</td></tr>
+      <tr><td>Fone de ouvido fechado</td><td class="num">1</td><td>Monitoração — VM2</td></tr>
+      <tr><td>Pilhas AA e baterias reserva</td><td class="num">—</td><td>Lapela consome muito</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit"><p><b>Protetor de vento peludo em tudo que sair de dentro de casa.</b> A Chapada Diamantina é planalto aberto: às 18h, na praça, o vento bate. Espuma de fábrica não resolve — a gravação vem com um ronco grave contínuo que <b>não tem conserto na edição</b>. Peludo em toda lapela, no shotgun e no gravador. É o acessório mais barato e o que mais salva material deste projeto.</p></div>
+
+  <h3 class="s">Rotinas obrigatórias</h3>
+  <ol class="l">
+    <li><b>Monitorar com fone, sempre.</b> Som que ninguém escutou na hora é som que ninguém sabe se existe. VM2 escuta antes de cada bloco.</li>
+    <li><b>Palma de sincronia.</b> Uma palma seca no início de cada cena, em quadro. Custa um segundo e economiza horas de sincronização.</li>
+    <li><b>Lapela por baixo, mas sem tecido roçando.</b> Se o microfone encostar na camisa, chia. Prender com fita micropore.</li>
+    <li><b>Trinta segundos de silêncio em cada locação.</b> Grave o "nada" do lugar: é o que permite ao editor remendar cortes e limpar ruído.</li>
+    <li><b>Testar antes da fala, não durante.</b> Peça ao entrevistado para dizer o próprio nome e o que vai comer no almoço. Nível ajustado, aí sim grava.</li>
+  </ol>
+
+  <h3 class="s">Som do carro elétrico — a oportunidade narrativa</h3>
+  <div class="note ok"><p>O Dolphin GS é <b>silencioso</b>, e isso é conteúdo. Grave deliberadamente: o carro passando pela câmera parada na estrada (você ouve só o pneu no asfalto), o interior a 100 km/h com a janela fechada, e o contraste com um caminhão passando ao lado. Um plano de 15 segundos de som interno, sem música, no meio do Vídeo 1, comunica "elétrico" melhor do que qualquer narração.</p></div>
+
+  <h3 class="s">Wild tracks a coletar — lista de campo</h3>
+  <div class="grid g2">
+    <div class="card"><h5>Estrada</h5><p>Interior em movimento · carro passando pela câmera · pneu em cascalho · porta abrindo e fechando · piscas · som da recarga iniciando · ventania na parada</p></div>
+    <div class="card"><h5>Mucugê</h5><p>Praça ao entardecer · público na largada · roda livre da bike · corrente e troca de marcha · pneu de MTB na areia · respiração do atleta · aplauso · vento na serra · pássaros de manhã cedo</p></div>
+  </div>
+</section>
+
+<section class="pg" id="p-som2">
+  <div class="eyebrow">Técnica · 14</div>
+  <h2 class="t">Sonorização e luz do evento</h2>
+  <p class="lede">Som para quem está lá, e luz para quem vai assistir depois. Os dois se contratam juntos.</p>
+
+  <h3 class="s">PA — o que contratar</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td>Caixa ativa 12" ou 15" com tripé</td><td class="num">2</td><td>Uma de cada lado da área de fala</td></tr>
+      <tr><td>Mesa de som com no mínimo 6 canais</td><td class="num">1</td><td><b>Precisa ter saída auxiliar</b> — é dela que sai nosso áudio limpo</td></tr>
+      <tr><td>Microfone de mão sem fio</td><td class="num">2</td><td>Um para quem fala, um reserva na mão do operador</td></tr>
+      <tr><td>Pedestal de microfone</td><td class="num">1</td><td>Para fala longa</td></tr>
+      <tr><td>Cabo de energia e extensão</td><td class="num">—</td><td>Confirmar de onde vem a energia do PA</td></tr>
+      <tr><td>Operador de som</td><td class="num">1</td><td>Presente das 16h às 20h</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><b>Peça a saída auxiliar da mesa na hora de contratar.</b> Ligar nosso gravador direto na mesa entrega a voz do orador limpa, sem vento, sem eco de praça e sem o público conversando. É a diferença entre uma fala aproveitável e uma fala ininteligível — e custa um cabo.</p></div>
+
+  <h3 class="s">Posicionamento das caixas</h3>
+  <p>As caixas ficam <b>à frente</b> dos microfones, apontando para o público, nunca atrás nem para os lados de quem fala. Caixa atrás do microfone gera microfonia — o apito agudo que interrompe a cerimônia e arruína a gravação. Se o espaço for estreito, incline as caixas para baixo em direção ao público.</p>
+
+  <h3 class="s">Trilha e vinheta</h3>
+  <ul class="l">
+    <li><b>17h30 às 18h00 — chegada:</b> playlist instrumental de fundo, em volume baixo. Cria ambiente sem atrapalhar conversa.</li>
+    <li><b>18h00 — abertura:</b> vinheta curta de 15 a 20 segundos com a marca. Marca o início e dá o corte de abertura perfeito para o Vídeo 2.</li>
+    <li><b>Momento do plug:</b> deixar o som <b>cair para o silêncio</b> quando o cabo for conectado. O silêncio chama atenção melhor que qualquer efeito, e dá ao editor um momento limpo.</li>
+    <li><b>Encerramento:</b> volta a playlist, volume médio.</li>
+  </ul>
+  <div class="note warn"><p><b>Cuidado com direitos autorais.</b> Se música comercial tocar alto durante a gravação, o YouTube pode bloquear ou monetizar o vídeo em nome de terceiros — e não há como remover a música da gravação depois. Use playlist de biblioteca livre de direitos, ou mantenha a música baixa o suficiente para não dominar as cenas de fala.</p></div>
+
+  <h3 class="s">Iluminação — obrigatória às 18h</h3>
+  <p>O sol se põe em Mucugê, em setembro, por volta de <b>17h30 a 17h50</b>. Quando a cerimônia começar, já será noite. Sem luz contratada, o registro do momento principal do projeto vem escuro e granulado.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Equipamento</th><th class="num">Qtd</th><th>Função</th></tr></thead>
+    <tbody>
+      <tr><td>Refletor LED com softbox</td><td class="num">2</td><td>Luz principal nas pessoas que falam, a 45°</td></tr>
+      <tr><td>Refletor LED de apoio</td><td class="num">1</td><td>Preenchimento, do lado oposto, em intensidade menor</td></tr>
+      <tr><td>Luz de recorte</td><td class="num">1</td><td>Atrás e acima, separa a pessoa do fundo escuro</td></tr>
+      <tr><td>Barra LED roxa</td><td class="num">2</td><td>Realce de marca no eletroposto e na plataforma</td></tr>
+      <tr><td>Bateria / gerador silencioso</td><td class="num">1</td><td><b>Silencioso</b> — gerador barulhento arruína o áudio</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note ok"><p><b>Aproveite o eletroposto como cenografia.</b> O equipamento tem tela iluminada e a plataforma tem fita de LED roxa. Ligado, à noite, ele é a fonte de luz mais bonita da cena — luz roxa da marca refletindo no capô do carro. Peça ao iluminador para <b>não estourar</b> a área do eletroposto com luz branca: deixe o roxo dele dominar e use o LED branco só nos rostos.</p></div>
+</section>
+
+<section class="pg" id="p-dados">
+  <div class="eyebrow">Técnica · 15</div>
+  <h2 class="t">Energia, cartões e backup</h2>
+  <p class="lede">A rotina chata que impede a perda de material irrepetível.</p>
+
+  <h3 class="s">Energia</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Item</th><th class="num">Qtd mín.</th><th>Recarga</th></tr></thead>
+    <tbody>
+      <tr><td>Baterias de câmera A</td><td class="num">6</td><td>Toda noite, sem exceção</td></tr>
+      <tr><td>Baterias de câmera B</td><td class="num">5</td><td>Toda noite</td></tr>
+      <tr><td>Baterias de drone</td><td class="num">4</td><td>Toda noite</td></tr>
+      <tr><td>Baterias de action cam</td><td class="num">6</td><td>Toda noite</td></tr>
+      <tr><td>Power bank</td><td class="num">2</td><td>Toda noite</td></tr>
+      <tr><td>Régua de tomadas + extensão 10 m</td><td class="num">2</td><td>—</td></tr>
+      <tr><td>Inversor 12V ou tomada do veículo de apoio</td><td class="num">1</td><td>Recarga em trânsito</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><b>Enquanto o Dolphin recarrega, recarregue tudo o mais.</b> A parada de 30 minutos para levar a bateria de 30% a 80% é também a janela para carregar baterias de câmera, drone e celulares. É a parada mais produtiva da viagem.</p></div>
+
+  <h3 class="s">Cartões</h3>
+  <ul class="l">
+    <li>Mínimo <b>4 cartões por câmera</b>. Cartão é mais barato que voltar a Mucugê.</li>
+    <li>Formatar <b>na própria câmera</b>, nunca no computador.</li>
+    <li>Etiquetar fisicamente: <span class="tc">A1 A2 A3 A4 · B1 B2 B3 B4</span>.</li>
+    <li>Cartão cheio vai virado para baixo numa caixinha separada. Cartão vazio, virado para cima. Uma olhada resolve.</li>
+  </ul>
+
+  <h3 class="s">Rotina de descarga — todo fim de dia, sem pular</h3>
+  <ol class="l">
+    <li>Copiar cada cartão para uma pasta com o padrão <span class="tc">AAAA-MM-DD_CAM_CARTAO</span>.</li>
+    <li>Copiar a mesma pasta para um <b>segundo destino físico</b> — HD externo diferente do notebook.</li>
+    <li><b>Conferir tamanho e contagem de arquivos</b> nas duas cópias. Copiar não é conferir.</li>
+    <li>Abrir dois ou três arquivos aleatórios de cada cartão e assistir 5 segundos.</li>
+    <li>Só então liberar o cartão para reuso — e mesmo assim, <b>só formatar quando faltar cartão</b>.</li>
+    <li>Registrar na planilha de campo: cartão, cenas, duração, problemas.</li>
+  </ol>
+  <div class="note crit"><p><b>Nenhum cartão é formatado antes do material estar em dois lugares e conferido.</b> Esta é a única regra deste documento que não admite exceção por pressa, por sono ou por falta de espaço.</p></div>
+
+  <h3 class="s">Estrutura de pastas</h3>
+  <div class="card" style="background:var(--surface-2)"><p style="font-family:'IBM Plex Mono',monospace;font-size:.79rem;white-space:pre">MUCUGE_2026/
+├── 01_BRUTO/
+│   ├── 2026-09-04_A/  2026-09-04_B/  2026-09-04_POV/
+│   ├── 2026-09-05_A/  2026-09-05_B/  2026-09-05_POV/
+│   └── 2026-09-06_A/  2026-09-06_B/  2026-09-06_DRONE/
+├── 02_AUDIO/
+│   ├── LAPELA/  AMBIENCIA/  MESA_SOM/  WILD/
+├── 03_FOTO/
+├── 04_ARTE/          (logos, vinhetas, lower thirds)
+├── 05_MUSICA/        (com as licenças salvas junto)
+├── 06_PROJETO/
+└── 07_ENTREGA/</p></div>
+</section>
+
+<section class="pg" id="p-v1-conceito">
+  <div class="eyebrow">Vídeo 1 · 16</div>
+  <h2 class="t">A Viagem — conceito</h2>
+  <p class="lede">Salvador → Mucugê num carro elétrico. A pergunta que o vídeo responde é a objeção nº 1 de quem pensa em comprar elétrico.</p>
+
+  <h3 class="s">A premissa</h3>
+  <p>Todo mundo que considera um carro elétrico no Brasil trava na mesma dúvida: <b>"e se eu quiser viajar?"</b>. Este vídeo não argumenta contra a dúvida — ele a leva a sério e a testa ao vivo, com 455 km de estrada, uma autonomia real de 291 km e uma recarga obrigatória no meio do caminho.</p>
+  <p>A honestidade é a estratégia. Se a parada demorar, mostramos. Se o carregador estiver ocupado, mostramos. É exatamente isso que faz o espectador confiar — e é isso que faz a chegada em Mucugê valer alguma coisa.</p>
+
+  <h3 class="s">A tensão narrativa</h3>
+  <div class="grid g3">
+    <div class="stat"><b>455 km</b><span>distância total</span></div>
+    <div class="stat"><b>291 km</b><span>autonomia real</span></div>
+    <div class="stat"><b>164 km</b><span>o buraco a resolver</span></div>
+  </div>
+  <p style="margin-top:.9rem">Esses três números são o vídeo inteiro. Coloque-os na tela como cartela nos primeiros 60 segundos: o espectador entende imediatamente que existe um problema e fica para ver como se resolve.</p>
+
+  <h3 class="s">Títulos candidatos</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Título</th><th>Aposta</th></tr></thead>
+    <tbody>
+      <tr><td><b>"Fui de carro elétrico de Salvador até a Chapada Diamantina (deu certo?)"</b></td><td>Parênteses com pergunta é o padrão de maior clique em vídeo de teste. <b>Recomendado.</b></td></tr>
+      <tr><td>"455 km de carro elétrico até a Chapada — quantas vezes precisei parar?"</td><td>Número + pergunta específica</td></tr>
+      <tr><td>"Levei um BYD Dolphin GS para a Chapada Diamantina"</td><td>Busca por modelo; melhor cauda longa, pior clique inicial</td></tr>
+      <tr><td>"O elétrico aguenta a BR-242?"</td><td>Curto e regional; ótimo para a Bahia, fraco fora dela</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Thumbnail</h3>
+  <ul class="l">
+    <li><b>Elemento principal:</b> o Dolphin roxo em primeiro plano com o paredão da Chapada atrás. A cor roxa do carro contra a rocha bege e o céu azul já separa a imagem de qualquer outra da busca.</li>
+    <li><b>Texto:</b> no máximo três palavras grandes — <b>"455 KM"</b> ou <b>"DEU CERTO?"</b>.</li>
+    <li><b>Rosto:</b> Nilton no canto, expressão de dúvida genuína, não sorriso publicitário.</li>
+    <li>Testar em miniatura de 5% da tela: se não ler no celular, não serve.</li>
+  </ul>
+
+  <h3 class="s">Duração e ritmo</h3>
+  <div class="kv">
+    <dt>Alvo</dt><dd>18 a 24 minutos</dd>
+    <dt>Gancho</dt><dd>0:00 a 0:45 — antes de qualquer vinheta</dd>
+    <dt>Vinheta</dt><dd>Máximo 5 segundos, depois do gancho</dd>
+    <dt>Ritmo</dt><dd>Um "acontecimento" a cada 90 segundos: uma parada, um número, uma reação, uma paisagem</dd>
+    <dt>Cartelas</dt><dd>Percentual de bateria e km rodados aparecem a cada bloco, no canto — viram o "placar" da narrativa</dd>
+  </div>
+</section>
+
+<section class="pg" id="p-v1-rota">
+  <div class="eyebrow">Vídeo 1 · 17</div>
+  <h2 class="t">Rota e plano de recarga</h2>
+  <p class="lede">A logística que sustenta o roteiro. Confirmar tudo isto no D-4.</p>
+
+  <h3 class="s">O trajeto</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Trecho</th><th class="num">km parcial</th><th class="num">km acum.</th><th>Via</th></tr></thead>
+    <tbody>
+      <tr><td>Salvador → Feira de Santana</td><td class="num">110</td><td class="num">110</td><td>BR-324</td></tr>
+      <tr><td>Feira de Santana → Itaberaba</td><td class="num">140</td><td class="num">250</td><td>BR-242</td></tr>
+      <tr><td>Itaberaba → entroncamento BA-142</td><td class="num">130</td><td class="num">380</td><td>BR-242</td></tr>
+      <tr><td>Entroncamento → Andaraí → Mucugê</td><td class="num">75</td><td class="num">455</td><td>BA-142</td></tr>
+    </tbody>
+    <tfoot><tr><td>Total · aproximadamente 6h de direção sem paradas</td><td class="num">—</td><td class="num">455</td><td>—</td></tr></tfoot>
+  </table></div>
+  <div class="note"><p>Distância de referência: fontes indicam entre <b>455 e 478 km</b> conforme o ponto de partida em Salvador. Trabalhe com <b>470 km</b> no planejamento de bateria — planejar pela distância maior é o que dá margem.</p></div>
+
+  <h3 class="s">O carro</h3>
+  <div class="kv">
+    <dt>Modelo</dt><dd>BYD Dolphin GS</dd>
+    <dt>Bateria</dt><dd>44,9 kWh (Blade, LFP)</dd>
+    <dt>Autonomia</dt><dd>291 km INMETRO · 405 km WLTP · <b>320 a 360 km no mundo real</b> em uso leve</dd>
+    <dt>Recarga rápida</dt><dd>Corrente contínua, até <b>60 kW</b> · 30% → 80% em cerca de 30 minutos</dd>
+    <dt>Potência</dt><dd>95 cv · 180 Nm</dd>
+  </div>
+  <div class="note warn"><p><b>Planeje pelo número pessimista.</b> A BR-242 sobe da faixa litorânea até o planalto da Chapada, e subida consome muito mais. Com ar-condicionado ligado, quatro ocupantes e bagagem, use <b>270 km</b> como autonomia de trabalho, não 291. Todo o plano abaixo é construído sobre esse número.</p></div>
+
+  <h3 class="s">Plano de recarga</h3>
+  <ol class="tl">
+    <li class="done"><div class="d">Km 0 · Salvador · 05h30</div><div class="h">Sair com 100%</div>
+      <p>Carregar na noite anterior até 100%. Em bateria LFP, carregar a 100% é recomendado pela fabricante e não prejudica — diferente das baterias de outros químicos.</p></li>
+    <li><div class="d">Km 110 · Feira de Santana · ~07h00</div><div class="h">Parada de café — recarga oportunista</div>
+      <p>Chegada estimada com <b>~60%</b>. Não é obrigatório recarregar, mas se houver carregador rápido disponível e sem fila, <b>encoste</b>: 20 minutos aqui compram tranquilidade para o resto do dia. É também a primeira parada de banheiro e café — boa cena de vlog.</p></li>
+    <li><div class="d">Km 250 · Itaberaba · ~09h30</div><div class="h">Recarga obrigatória</div>
+      <p>Chegada estimada com <b>20% a 30%</b> se não recarregou em Feira. <b>Esta é a parada que não pode falhar.</b> Levar de 30% a 80% leva cerca de 30 minutos em carregador de 60 kW. Daqui até Mucugê são 205 km — com 80% de carga, sobra margem confortável.</p></li>
+    <li><div class="d">Km 455 · Mucugê · ~14h00</div><div class="h">Chegada</div>
+      <p>Chegada estimada com <b>15% a 25%</b>. Recarregar no próprio eletroposto novo — que é, afinal, o final perfeito do vídeo.</p></li>
+  </ol>
+
+  <h3 class="s">Verificação obrigatória no D-4</h3>
+  <div class="note crit"><p>Os pontos acima são <b>planejamento por quilometragem</b>, não confirmação de que existe carregador funcionando em cada um. A rede de recarga no interior da Bahia muda rápido. Na terça 01/09:</p>
+  <ul class="l" style="margin-top:.5rem">
+    <li>Abrir os aplicativos de recarga e mapear <b>todos</b> os pontos entre Salvador e Mucugê.</li>
+    <li>Anotar <b>três alternativas</b> para a parada de Itaberaba, com endereço e telefone.</li>
+    <li><b>Ligar</b> para os pontos escolhidos e confirmar que estão funcionando e qual a potência real.</li>
+    <li>Conferir se exigem aplicativo, cadastro ou cartão específico — e fazer o cadastro <b>antes</b> de viajar.</li>
+    <li>Levar o cabo de recarga em tomada comum como último recurso.</li>
+    <li>Imprimir a lista. Sinal de celular na BR-242 falha em vários trechos.</li>
+  </ul></div>
+
+  <h3 class="s">Se a recarga falhar — e por que isso é bom</h3>
+  <p>Se o carregador de Itaberaba estiver fora do ar, o plano é: seguir para a alternativa mais próxima com velocidade reduzida (dirigir a 90 km/h em vez de 110 aumenta a autonomia de forma significativa), ar-condicionado no mínimo, e modo econômico. <b>Filme isso.</b> A cena de resolver um problema real na estrada é a mais valiosa do vídeo — é o que separa este conteúdo de um comercial.</p>
+</section>
+
+<section class="pg" id="p-v1-estrutura">
+  <div class="eyebrow">Vídeo 1 · 18</div>
+  <h2 class="t">A Viagem — estrutura</h2>
+  <p class="lede">Nove blocos. A coluna da direita é o que segura o espectador em cada um.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Bloco</th><th>Conteúdo</th><th class="num">Duração</th><th>O que segura</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">01</td><td>Gancho — o problema em números</td><td class="num">0:45</td><td>Uma pergunta sem resposta</td></tr>
+      <tr><td class="tc">02</td><td>Apresentação do carro e da missão</td><td class="num">2:00</td><td>Curiosidade sobre o carro</td></tr>
+      <tr><td class="tc">03</td><td>Saída de Salvador de madrugada</td><td class="num">1:30</td><td>Início de jornada</td></tr>
+      <tr><td class="tc">04</td><td>BR-324 e primeira leitura de consumo</td><td class="num">2:30</td><td>Primeiro dado concreto</td></tr>
+      <tr><td class="tc">05</td><td>Feira de Santana — parada de café</td><td class="num">2:00</td><td>Respiro e humor</td></tr>
+      <tr><td class="tc">06</td><td>BR-242 — a subida para o planalto</td><td class="num">3:00</td><td>A tensão sobe com a estrada</td></tr>
+      <tr><td class="tc">07</td><td><b>Itaberaba — a recarga obrigatória</b></td><td class="num">4:00</td><td><b>Clímax do problema</b></td></tr>
+      <tr><td class="tc">08</td><td>BA-142 — a Chapada aparece</td><td class="num">3:00</td><td>Recompensa visual</td></tr>
+      <tr><td class="tc">09</td><td>Chegada em Mucugê e gancho do Vídeo 2</td><td class="num">2:30</td><td>Resolução + promessa</td></tr>
+    </tbody>
+    <tfoot><tr><td>—</td><td>Total</td><td class="num">21:15</td><td>—</td></tr></tfoot>
+  </table></div>
+
+  <h3 class="s">A curva de energia</h3>
+  <p>Blocos 01 e 02 são altos, para prender. Blocos 03 a 06 descem em ritmo e sobem em tensão — é onde a paisagem e a conversa carregam. Bloco 07 é o pico. Blocos 08 e 09 são a descompressão bonita. <b>Nunca coloque a paisagem mais bonita antes do bloco 07</b>: se você entrega a recompensa cedo, o espectador sai antes do clímax.</p>
+
+  <h3 class="s">O placar na tela</h3>
+  <p>Um elemento gráfico fixo no canto inferior, atualizado em cada bloco:</p>
+  <div class="card" style="background:var(--surface-2)"><p style="font-family:'IBM Plex Mono',monospace;font-size:.85rem"> KM 250 / 455&nbsp;&nbsp;·&nbsp;&nbsp;BATERIA 24%&nbsp;&nbsp;·&nbsp;&nbsp;ITABERABA</p></div>
+  <p style="margin-top:.6rem">Custa pouco na edição e transforma o vídeo de "passeio" em "prova com placar". É o recurso de retenção mais eficiente que existe para conteúdo de viagem.</p>
+</section>
+
+<section class="pg" id="p-v1-r1">
+  <div class="eyebrow">Vídeo 1 · 19 · Roteiro</div>
+  <h2 class="t">Blocos 1 a 3</h2>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B01</span><span class="ti">Gancho — o problema</span><span class="tc">00:00–00:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> corte rápido entre três planos que ainda não aconteceram — o carro na estrada vazia ao amanhecer, o cabo entrando no carro em Itaberaba, o paredão da Chapada surgindo na curva. Sem música nos primeiros 3 segundos: só o som do carro.</p>
+      <div class="vo"><b>Nilton · off</b>Salvador até Mucugê são quatrocentos e cinquenta e cinco quilômetros. Esse carro faz duzentos e noventa e um com a bateria cheia. Então tem cento e sessenta e quatro quilômetros aqui que simplesmente não existem.</div>
+      <p class="dirs"><b>Cartela:</b> os três números entram na tela em sequência — <b>455</b>, depois <b>291</b>, depois <b>164</b> em vermelho.</p>
+      <div class="vo"><b>Nilton · off</b>A pergunta não é se dá pra fazer. É quanto tempo isso vai custar. Vem comigo.</div>
+      <p class="dirs"><b>Corte seco</b> para a vinheta de 5 segundos.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B02</span><span class="ti">O carro e a missão</span><span class="tc">00:45–02:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Locação:</b> garagem ou rua vazia em Salvador, ainda escuro, 04h30. Luz do próprio carro e um LED de apoio.</p>
+      <p class="dirs"><b>Imagem:</b> plano circular no gimbal em volta do carro. Detalhes: emblema BYD, a plotagem e-DRIVE na porta, a roda, o cabo enrolado no porta-malas.</p>
+      <div class="vo"><b>Nilton · em quadro</b>Quatro e meia da manhã. Esse é o BYD Dolphin GS — quarenta e cinco quilowatt-hora de bateria, cem por cento elétrico. Tá com a bateria cheia, e cheia significa isso aqui ó.</div>
+      <p class="dirs"><b>Inserção:</b> close no painel mostrando a autonomia estimada. Deixar 4 segundos parado para o espectador ler.</p>
+      <div class="vo"><b>Nilton · em quadro</b>E o destino é Mucugê, na Chapada Diamantina, onde a gente vai inaugurar no sábado o carregador mais rápido da região. Ou seja: eu preciso chegar lá — de elétrico — pra inaugurar um lugar pra carregar elétrico.</div>
+      <p class="dirs"><b>Regra:</b> não fazer discurso de marca aqui. A marca aparece na plotagem, no uniforme e no destino. Falar de marca no minuto 2 derruba a retenção.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B03</span><span class="ti">Saída de Salvador</span><span class="tc">02:45–04:15</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Horário real:</b> 05h30. Cidade acordando, luz azul de antes do nascer do sol.</p>
+      <p class="dirs"><b>Imagem:</b> POV de dentro do carro (action cam na ventosa do para-brisa) · plano lateral da cidade passando · <b>drone subindo</b> acompanhando o carro em avenida vazia, se houver autorização e local seguro.</p>
+      <div class="vo"><b>Nilton · dirigindo</b>Cinco e meia. A gente sai agora pra pegar estrada com a temperatura mais baixa possível — porque ar-condicionado no talo é o que mais come bateria nesse tipo de viagem.</div>
+      <p class="dirs"><b>Som:</b> este é o momento de gravar <b>15 segundos de interior em movimento sem falar nada</b>. Só o pneu no asfalto. Entra na edição como respiro e comunica o silêncio do elétrico melhor que qualquer frase.</p>
+      <p class="dirs"><b>Placar entra:</b> <span class="tc">KM 0 / 455 · BATERIA 100% · SALVADOR</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="p-v1-r2">
+  <div class="eyebrow">Vídeo 1 · 20 · Roteiro</div>
+  <h2 class="t">Blocos 4 a 6</h2>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B04</span><span class="ti">BR-324 — primeira leitura</span><span class="tc">04:15–06:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> nascer do sol na estrada. Plano do retrovisor com o sol. Câmera no banco de trás enquadrando Nilton de perfil com a estrada passando na janela.</p>
+      <div class="vo"><b>Nilton · dirigindo</b>Cem quilômetros rodados. E aqui vem o primeiro número que interessa de verdade: quanto que eu gastei de bateria pra fazer esses cem.</div>
+      <p class="dirs"><b>Inserção:</b> close no consumo médio do painel. Cartela com a conta feita na tela.</p>
+      <div class="vo"><b>Nilton · dirigindo</b>Se manter esse ritmo, a conta fecha. Se não manter, eu paro duas vezes em vez de uma — e aí a viagem ganha uma hora e meia.</div>
+      <p class="dirs"><b>Nota de edição:</b> aqui é onde entra a primeira sequência de estrada com música e sem fala, de 20 a 30 segundos, feita com o material do drone e dos planos externos que a equipe de apoio filmou. Serve de respiro depois de dois blocos falados.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B05</span><span class="ti">Feira de Santana — café</span><span class="tc">06:45–08:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Horário real:</b> ~07h00. <b>Duração da parada:</b> 30 a 40 minutos.</p>
+      <p class="dirs"><b>Imagem:</b> carro estacionando · Nilton descendo e espreguiçando · café e comida na mesa · a equipe conversando (mostrar que existe uma equipe humaniza o vídeo).</p>
+      <div class="vo"><b>Nilton · em quadro, com café na mão</b>Cento e dez quilômetros. Tô com sessenta por cento. Tecnicamente eu não preciso carregar aqui. Mas tem uma regra em viagem de elétrico que eu aprendi na marra: carregador que você vê funcionando é carregador que você usa.</div>
+      <p class="dirs"><b>Se houver carregador disponível:</b> filmar o plugue entrando, o app abrindo, a potência aparecendo na tela. Cronometrar e mostrar o cronômetro.</p>
+      <p class="dirs"><b>Se não houver:</b> assumir em quadro. "Não tem. Então segue." — a honestidade aqui constrói a tensão do bloco 07.</p>
+      <p class="dirs"><b>Aproveitar a parada:</b> trocar baterias das câmeras, descarregar cartão se necessário, VM2 sai na frente para posicionar drone.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B06</span><span class="ti">BR-242 — a subida</span><span class="tc">08:45–11:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> a paisagem começa a mudar — sai a mata litorânea, entra o sertão e depois o relevo. Planos longos de teleobjetiva do carro subindo, feitos pela equipe de apoio posicionada.</p>
+      <div class="vo"><b>Nilton · dirigindo</b>Agora a gente tá subindo. E subida, num elétrico, é onde a conta muda. Olha o consumo instantâneo aqui...</div>
+      <p class="dirs"><b>Inserção:</b> close no consumo instantâneo subindo na subida — e depois <b>descendo</b> ou ficando negativo na descida, com a regeneração.</p>
+      <div class="vo"><b>Nilton · dirigindo</b>E essa é a parte que quem nunca dirigiu elétrico não sabe: quando eu desço, ele devolve energia pra bateria. O carro se recarrega descendo a serra.</div>
+      <p class="dirs"><b>Este é o melhor momento didático do vídeo.</b> Segure a inserção da regeneração por pelo menos 5 segundos e reforce com cartela gráfica — é o tipo de detalhe que gera comentário e compartilhamento.</p>
+      <p class="dirs"><b>Placar:</b> <span class="tc">KM 200 / 455 · BATERIA 32% · BR-242</span> — a tensão está montada.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="p-v1-r3">
+  <div class="eyebrow">Vídeo 1 · 21 · Roteiro</div>
+  <h2 class="t">Blocos 7 a 9</h2>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B07</span><span class="ti">Itaberaba — a recarga obrigatória</span><span class="tc">11:45–15:45</span><span class="pill c">clímax</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Horário real:</b> ~09h30. <b>Este bloco é o coração do vídeo.</b> Filmar tudo, sem economia de cartão.</p>
+      <p class="dirs"><b>Sequência obrigatória:</b> chegada e a primeira olhada no carregador → close no percentual de bateria antes de plugar → o cabo saindo do carro → <b>o momento de conectar</b>, em close, com o som limpo do clique → a tela do carregador acendendo → a potência em kW aparecendo → cronômetro na tela.</p>
+      <div class="vo"><b>Nilton · em quadro, ao lado do carro</b>Duzentos e cinquenta quilômetros. Vinte e quatro por cento de bateria. É aqui que a viagem se decide.</div>
+      <p class="dirs"><b>Deixar o silêncio.</b> Depois de conectar, cortar a música e deixar 4 segundos só de ambiente. É o respiro que faz o momento pesar.</p>
+      <div class="vo"><b>Nilton · em quadro</b>Trinta minutos. É isso que separa uma viagem de elétrico de uma viagem de combustão: trinta minutos que você não tinha planejado. Agora, eu ia parar pra almoçar de qualquer jeito.</div>
+      <p class="dirs"><b>Durante a recarga:</b> plano acelerado (timelapse) do percentual subindo · conversa com quem estiver no local · outro carro elétrico, se houver, é ouro · a equipe carregando as baterias das câmeras na mesma tomada — imagem que fecha o sentido.</p>
+      <div class="vo"><b>Nilton · fechando o bloco</b>Trinta e dois minutos. De vinte e quatro a oitenta e um por cento. E daqui pra Mucugê são duzentos e cinco quilômetros. Acabou o problema.</div>
+      <p class="dirs"><b>Se der errado:</b> não corte. Carregador fora do ar, fila, potência abaixo do prometido — <b>tudo isso é o melhor conteúdo possível</b>. Mostre o problema, mostre a decisão, mostre a solução. Um vídeo que só mostra o que deu certo não convence ninguém.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B08</span><span class="ti">BA-142 — a Chapada aparece</span><span class="tc">15:45–18:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Este é o bloco visual do vídeo.</b> Pouca fala, muita imagem, música sobe.</p>
+      <p class="dirs"><b>Imagem obrigatória:</b> drone alto acompanhando o carro na estrada com os paredões ao fundo · plano fixo baixo, quase no asfalto, com o carro passando · a primeira vez que a serra aparece na curva, filmada de dentro do carro, com a reação real de quem vê.</p>
+      <div class="vo"><b>Nilton · dirigindo, baixo</b>Olha isso.</div>
+      <p class="dirs"><b>E só. Não explique a paisagem.</b> Duas palavras e trinta segundos de imagem valem mais que qualquer narração aqui.</p>
+      <p class="dirs"><b>Som:</b> abrir a janela e gravar o vento e o ambiente. Depois fechar. O contraste dentro/fora é bonito na edição.</p>
+      <p class="dirs"><b>Placar:</b> <span class="tc">KM 400 / 455 · BATERIA 28% · BA-142</span></p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B09</span><span class="ti">Mucugê — chegada e gancho</span><span class="tc">18:45–21:15</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Horário real:</b> ~14h00. Placa de entrada da cidade, ruas de pedra, casario.</p>
+      <p class="dirs"><b>Imagem:</b> o carro entrando na cidade · a cidade tomada pelo Desafio Mucugê, com bikes por toda parte · o carro encostando no <b>eletroposto novo</b> (ainda sem inaugurar, coberto ou desligado — o que aumenta a expectativa).</p>
+      <div class="vo"><b>Nilton · em quadro, ao lado do carro</b>Quatrocentos e cinquenta e cinco quilômetros. Uma parada de trinta e dois minutos. Cheguei com dezoito por cento. Deu certo.</div>
+      <p class="dirs"><b>Balanço final em cartela:</b> distância, tempo total de viagem, tempo total parado carregando, custo estimado da energia — e, se quiser, o comparativo com o que teria custado de gasolina. <b>Esse número é o mais comentado deste tipo de vídeo.</b></p>
+      <div class="vo"><b>Nilton · em quadro</b>Só que a viagem era só a metade. Sábado, seis da tarde, esse negócio aqui atrás de mim vira o carregador mais rápido da Chapada Diamantina. E tem mais quinhentos ciclistas nessa cidade que não fazem ideia do que vem por aí. Te vejo no próximo.</div>
+      <p class="dirs"><b>Última imagem:</b> plano do eletroposto desligado, ao entardecer. Corta para preto.</p>
+      <p class="dirs"><b>Card final:</b> link para o Vídeo 2 (adicionar depois que ele for publicado) e para se inscrever.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="p-v1-shot">
+  <div class="eyebrow">Vídeo 1 · 22</div>
+  <h2 class="t">Shot list da estrada</h2>
+  <p class="lede">Imprimir e riscar. Sem lista, volta-se de viagem sem os planos de ligação — e a edição trava.</p>
+
+  <h3 class="s">Planos do carro — os que fazem falta</h3>
+  <ul class="ck">
+    <li>Carro passando pela câmera parada na beira da estrada, da esquerda para a direita</li>
+    <li>O mesmo, da direita para a esquerda (dá liberdade de montagem)</li>
+    <li>Carro se afastando até sumir na estrada reta</li>
+    <li>Carro se aproximando de longe até encher o quadro</li>
+    <li>Plano baixo, câmera quase no asfalto, carro passando rente</li>
+    <li>Drone alto acompanhando o carro por 20 segundos contínuos</li>
+    <li>Drone parado, carro entrando e saindo do quadro</li>
+    <li>Drone subindo revelando a serra com o carro pequeno na estrada</li>
+    <li>Roda girando em close, com movimento</li>
+    <li>Retrovisor com a estrada atrás</li>
+  </ul>
+
+  <h3 class="s">Interior</h3>
+  <ul class="ck">
+    <li>POV do para-brisa (ventosa) — deixar rodando o dia inteiro</li>
+    <li>Nilton de perfil, estrada passando na janela</li>
+    <li>Mãos no volante em close</li>
+    <li>Painel: autonomia, consumo instantâneo, percentual</li>
+    <li>Pé no acelerador</li>
+    <li>Plano do banco de trás com dois ocupantes conversando</li>
+    <li>Reação genuína ao ver a Chapada pela primeira vez</li>
+  </ul>
+
+  <h3 class="s">Recarga — a sequência completa</h3>
+  <ul class="ck">
+    <li>Chegada ao carregador, carro manobrando</li>
+    <li>Percentual da bateria <b>antes</b> de plugar</li>
+    <li>Tampa do bocal abrindo</li>
+    <li>Cabo saindo do suporte, mão segurando</li>
+    <li><b>O clique de conectar</b>, em close, com som limpo</li>
+    <li>Tela do carregador acendendo e mostrando a potência</li>
+    <li>Timelapse do percentual subindo</li>
+    <li>Cronômetro ou relógio marcando o tempo</li>
+    <li>Cabo saindo, tampa fechando, carro partindo</li>
+  </ul>
+
+  <h3 class="s">Ligação e contexto</h3>
+  <ul class="ck">
+    <li>Placas de quilometragem e de entrada das cidades</li>
+    <li>Posto de combustível ao lado — o contraste conta a história sozinho</li>
+    <li>Comida da parada, em close</li>
+    <li>Pessoas locais, se autorizarem</li>
+    <li>Paisagem mudando: mata → sertão → serra</li>
+    <li>Placa de entrada de Mucugê</li>
+    <li>Cidade tomada por ciclistas</li>
+    <li>O eletroposto ainda desligado</li>
+  </ul>
+  <div class="note ok"><p><b>Regra do dobro:</b> filme o dobro de planos de ligação do que acha que precisa. Não existe editor que tenha reclamado de ter imagem demais para cobrir um corte; existem centenas que já travaram por não ter.</p></div>
+</section>
+
+<section class="pg" id="p-v2-conceito">
+  <div class="eyebrow">Vídeo 2 · 23</div>
+  <h2 class="t">A Inauguração — conceito</h2>
+  <p class="lede">O eletroposto mais rápido da Chapada Diamantina. O desafio é não fazer um vídeo institucional.</p>
+
+  <h3 class="s">O risco deste vídeo</h3>
+  <div class="note warn"><p>Vídeo de inauguração é o gênero mais chato do YouTube. Fita cortada, autoridade falando, palma, fim. <b>Ninguém assiste.</b> Se este vídeo virar um registro cerimonial, o esforço todo se perde numa peça que só a própria empresa assiste.</p></div>
+
+  <h3 class="s">A virada</h3>
+  <p>O vídeo não é sobre a inauguração. É sobre <b>o que muda para quem viaja</b> quando uma cidade no meio da Chapada Diamantina passa a ter carga rápida. A cerimônia é uma cena dentro dessa história, não a história.</p>
+  <p>E a resposta está a 200 metros dali: <b>500 atletas</b> que dirigiram centenas de quilômetros para chegar em Mucugê. Pergunte a eles. "Você viria de carro elétrico para cá?" Antes de sábado, a resposta honesta seria não. Depois de sábado, passa a ser sim. <b>Esse é o vídeo.</b></p>
+
+  <h3 class="s">Estrutura de argumento</h3>
+  <ol class="l">
+    <li><b>O problema:</b> Chapada Diamantina é destino de estrada longa, e até hoje carro elétrico não chegava aqui com tranquilidade.</li>
+    <li><b>A evidência:</b> as pessoas na rua confirmam — inclusive quem tem elétrico e não trouxe.</li>
+    <li><b>A solução:</b> o equipamento, o que ele faz, quanto tempo leva, quanto custa.</li>
+    <li><b>O momento:</b> a inauguração, a primeira carga real.</li>
+    <li><b>A consequência:</b> o que isso abre para a região — turismo, esporte, economia local.</li>
+  </ol>
+
+  <h3 class="s">Títulos candidatos</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Título</th><th>Aposta</th></tr></thead>
+    <tbody>
+      <tr><td><b>"Instalamos o carregador mais rápido da Chapada Diamantina — e a cidade parou pra ver"</b></td><td>Promessa + reação humana. <b>Recomendado.</b></td></tr>
+      <tr><td>"Agora dá pra ir de carro elétrico até a Chapada Diamantina"</td><td>Direto ao benefício; ótimo para busca</td></tr>
+      <tr><td>"O que 500 ciclistas acharam de um carregador elétrico no meio da Chapada"</td><td>Ângulo humano, curiosidade alta</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Duração</h3>
+  <div class="kv">
+    <dt>Alvo</dt><dd>12 a 16 minutos</dd>
+    <dt>Cerimônia</dt><dd><b>Máximo 3 minutos no corte final</b>, por mais que se filme uma hora</dd>
+    <dt>Entrevistas de rua</dt><dd>4 a 5 minutos somados — é a espinha do vídeo</dd>
+    <dt>Técnico</dt><dd>2 a 3 minutos sobre o equipamento</dd>
+  </div>
+</section>
+
+<section class="pg" id="p-v2-estrutura">
+  <div class="eyebrow">Vídeo 2 · 24</div>
+  <h2 class="t">A Inauguração — estrutura</h2>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Bloco</th><th>Conteúdo</th><th class="num">Duração</th><th>Quando filmar</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">01</td><td>Gancho — a cidade e a pergunta</td><td class="num">0:45</td><td>Montagem de material diverso</td></tr>
+      <tr><td class="tc">02</td><td>Mucugê no fim de semana da prova</td><td class="num">1:30</td><td>Sexta e sábado de manhã</td></tr>
+      <tr><td class="tc">03</td><td>Entrevistas de rua — "você viria de elétrico?"</td><td class="num">2:30</td><td>Sábado, 10h–12h</td></tr>
+      <tr><td class="tc">04</td><td>O equipamento por dentro</td><td class="num">2:30</td><td>Sábado, 15h–16h30</td></tr>
+      <tr><td class="tc">05</td><td>A montagem e a espera</td><td class="num">1:00</td><td>Sábado, 14h–17h45</td></tr>
+      <tr><td class="tc">06</td><td><b>A cerimônia e a primeira carga</b></td><td class="num">3:00</td><td>Sábado, 18h</td></tr>
+      <tr><td class="tc">07</td><td>Os atletas e a marca</td><td class="num">1:30</td><td>Sábado, 18h30–19h30</td></tr>
+      <tr><td class="tc">08</td><td>O que isso muda — fechamento</td><td class="num">2:00</td><td>Domingo de manhã</td></tr>
+    </tbody>
+    <tfoot><tr><td>—</td><td>Total</td><td class="num">14:45</td><td>—</td></tr></tfoot>
+  </table></div>
+
+  <h3 class="s">A decisão editorial mais importante</h3>
+  <div class="note crit"><p><b>A cerimônia não abre o vídeo.</b> Abrir com autoridade falando mata a retenção em 30 segundos. A cerimônia entra no bloco 06, aos 9 minutos, depois de o espectador já entender por que aquilo importa. Quando ela finalmente chega, ela pesa — porque foi construída.</p></div>
+
+  <h3 class="s">Filmar muito, cortar sem dó</h3>
+  <p>A cerimônia inteira será filmada — provavelmente 45 a 60 minutos de material com três falas. No corte final, sobram <b>3 minutos</b>: a melhor frase de cada orador, o momento do plug e a reação das pessoas. O restante vira arquivo institucional e material para as redes.</p>
+  <div class="note"><p><b>Entregue o registro completo à parte.</b> Prefeitura e parceiros vão querer a fala inteira. Monte um arquivo separado, sem edição criativa, com a cerimônia na íntegra, e mande para eles. Custa pouco e vale muito na relação institucional — mas <b>não é o vídeo do YouTube</b>.</p></div>
+</section>
+
+<section class="pg" id="p-v2-r1">
+  <div class="eyebrow">Vídeo 2 · 25 · Roteiro</div>
+  <h2 class="t">Blocos 1 a 4</h2>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B01</span><span class="ti">Gancho</span><span class="tc">00:00–00:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> Mucugê tomada de ciclistas · a serra ao fundo · corte rápido para o eletroposto aceso à noite, com a luz roxa · rostos de pessoas olhando.</p>
+      <div class="vo"><b>Nilton · off</b>Essa cidade tem menos de dez mil habitantes. Esse fim de semana, ela tem quinhentos atletas e três mil visitantes. Todo mundo veio de carro, e todo mundo veio de longe.</div>
+      <p class="dirs"><b>Corte para entrevista de rua, sem contexto:</b></p>
+      <div class="vo"><b>Entrevistado · em quadro</b>De elétrico? Aqui? Não, não viria não. Ia ficar sem bateria no meio do caminho.</div>
+      <div class="vo"><b>Nilton · off</b>Hoje, seis da tarde, isso muda.</div>
+      <p class="dirs"><b>Corte para preto. Vinheta 5 segundos.</b></p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B02</span><span class="ti">Mucugê no fim de semana da prova</span><span class="tc">00:45–02:15</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> ruas de pedra · bikes encostadas em toda parte · a arena do Desafio Mucugê · o pórtico de largada · gente com número de peito · o casario branco · drone da cidade encaixada na serra.</p>
+      <div class="vo"><b>Nilton · em quadro, andando pela rua</b>Mucugê fica no coração da Chapada Diamantina. De Salvador são quatrocentos e cinquenta e cinco quilômetros — eu fiz esse caminho de carro elétrico, e tá tudo no vídeo anterior. Esse fim de semana acontece aqui o Desafio Mucugê, uma das provas de mountain bike mais tradicionais da Bahia.</div>
+      <p class="dirs"><b>Cartela:</b> "Desafio Mucugê · 04 a 06 de setembro · ~500 atletas"</p>
+      <div class="vo"><b>Nilton · em quadro</b>E é exatamente por isso que a gente escolheu esse fim de semana pra ligar o carregador. Porque a pessoa que vem pra cá é a pessoa que precisa dele.</div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B03</span><span class="ti">Entrevistas de rua</span><span class="tc">02:15–04:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Meta:</b> 12 a 15 abordagens, das quais 5 ou 6 entram no corte. Microfone de mão com espuma da marca, câmera no ombro. <b>Sempre pedir autorização e ligar a câmera só depois do "pode".</b></p>
+      <h4 class="ss">As cinco perguntas</h4>
+      <ol class="l">
+        <li>"De onde você veio e quantos quilômetros dirigiu até aqui?"</li>
+        <li>"Você viria pra Chapada num carro 100% elétrico?" <span class="pill">a pergunta principal</span></li>
+        <li>"O que te faria mudar de ideia?"</li>
+        <li>"Você sabia que tem um carregador rápido sendo inaugurado hoje aqui?"</li>
+        <li>"Agora que sabe, viria?"</li>
+      </ol>
+      <div class="note ok"><p><b>A estrutura das perguntas 2 e 5 é o vídeo inteiro.</b> A mesma pessoa dizendo "não viria" e, um minuto depois, "agora viria" é o argumento mais forte que este projeto pode produzir — e ele se constrói sozinho, sem narração.</p></div>
+      <p class="dirs"><b>Perfis a buscar deliberadamente:</b> um ciclista de fora do estado · um casal de turistas · um morador de Mucugê · alguém do comércio local · e, se aparecer, <b>alguém que já tem carro elétrico</b> — essa é a entrevista mais valiosa possível.</p>
+      <p class="dirs"><b>Som:</b> peludo no microfone de mão. Praça aberta, meio-dia, vento.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B04</span><span class="ti">O equipamento por dentro</span><span class="tc">04:45–07:15</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Locação:</b> o eletroposto, luz de fim de tarde antes da cerimônia. Este bloco é filmado com calma, <b>antes</b> de o público chegar.</p>
+      <p class="dirs"><b>Imagem:</b> plano geral do equipamento na plataforma · close na tela · os conectores nos dois lados · o cabo na mão · a fita de LED roxa · o ícone D no painel.</p>
+      <div class="vo"><b>Nilton · em quadro, ao lado do carregador</b>Isso aqui é um carregador de corrente contínua. E a diferença entre corrente contínua e a tomada da sua casa é a diferença entre trinta minutos e a noite inteira.</div>
+      <h4 class="ss">Informação a confirmar antes de gravar</h4>
+      <div class="note warn"><p>Os números do equipamento — potência em kW, número de conectores simultâneos, tipos de plugue, tempo de carga para os modelos mais comuns, forma de pagamento — <b>precisam vir da ficha técnica real do equipamento instalado</b>. Peça ao fornecedor a ficha por escrito até 03/09. Errar potência em vídeo público é um problema que não se conserta depois.</p></div>
+      <div class="vo"><b>Nilton · em quadro</b>Na prática: você para aqui, conecta, almoça, e volta com carga pra atravessar a Chapada inteira.</div>
+      <p class="dirs"><b>Demonstração:</b> conectar no Dolphin e mostrar a potência real na tela, com cronômetro. <b>Dado real é mais convincente que qualquer adjetivo.</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="p-v2-r2">
+  <div class="eyebrow">Vídeo 2 · 26 · Roteiro</div>
+  <h2 class="t">Blocos 5 a 8</h2>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B05</span><span class="ti">A montagem e a espera</span><span class="tc">07:15–08:15</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> timelapse da montagem — backdrop subindo, windbanners sendo fincados, luzes ligando, o sol descendo sobre a serra. Público começando a chegar.</p>
+      <div class="vo"><b>Nilton · off</b>Cinco da tarde. O sol da Chapada some rápido atrás da serra, e a gente tem uma hora pra deixar tudo pronto.</div>
+      <p class="dirs"><b>Este bloco é curto mas essencial:</b> mostra trabalho, cria expectativa e dá escala ao momento. Timelapse do pôr do sol atrás do eletroposto é a imagem mais bonita disponível no dia — não perca.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B06</span><span class="ti">A cerimônia e a primeira carga</span><span class="tc">08:15–11:15</span><span class="pill c">clímax</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>18h00.</b> Três câmeras: A no tripé enquadrando quem fala (plano médio, backdrop atrás), B solta no público e nas reações, POV do Nilton. Som: lapela no orador + saída da mesa + ambiência.</p>
+      <p class="dirs"><b>No corte final, a cerimônia vira:</b></p>
+      <ul class="l">
+        <li>Uma frase forte de cada orador — no máximo 20 segundos cada</li>
+        <li>Planos de reação do público entre as falas</li>
+        <li>O momento em que o equipamento é ligado</li>
+        <li><b>A primeira carga</b>: o cabo entrando no Dolphin, a tela acendendo, a potência aparecendo</li>
+        <li>Aplauso</li>
+      </ul>
+      <div class="vo"><b>Nilton · em quadro, com o microfone</b>Boa noite, Mucugê. Quatrocentos e cinquenta e cinco quilômetros atrás, eu saí de Salvador nesse carro pra chegar aqui. E até hoje, quem fizesse esse caminho num elétrico chegava torcendo. A partir de agora, não precisa mais torcer.</div>
+      <p class="dirs"><b>Momento do plug — a direção mais importante da noite:</b> peça ao operador de som para <b>baixar a música até o silêncio</b> quando o cabo for conectado. Câmera A em close no conector, câmera B aberta no público. Quatro segundos de silêncio, o clique, a tela acendendo, e então o aplauso. <b>Ensaie isso às 17h30 com a equipe.</b></p>
+      <p class="dirs"><b>Após a cerimônia:</b> fotos oficiais no backdrop — autoridades, parceiros, equipe, atletas. Lista de fotos obrigatórias na página 27.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B07</span><span class="ti">Os atletas e a marca</span><span class="tc">11:15–12:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Imagem:</b> os dois atletas de uniforme e capacete plotado, com as bikes, ao lado do eletroposto iluminado. Luz roxa da fita de LED nos quadros das bikes. Este é o plano que virou os mockups do Drive — agora feito de verdade.</p>
+      <div class="vo"><b>Atleta · em quadro</b>[Depoimento sobre a prova do dia e sobre o que é competir representando a marca.]</div>
+      <p class="dirs"><b>Ponte narrativa:</b> a energia que move o atleta e a energia que move o carro são a mesma ideia. Não verbalize isso de forma publicitária — <b>deixe a imagem fazer</b>: corte entre o atleta pedalando de manhã na trilha e o carro carregando à noite.</p>
+      <p class="dirs"><b>Melhor momento do dia para esta imagem:</b> logo depois da cerimônia, com o equipamento aceso e o céu ainda com um resto de azul. Não deixe para as 21h — o céu preto puro é menos bonito.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-h"><span class="id">B08</span><span class="ti">O que isso muda</span><span class="tc">12:45–14:45</span></div>
+    <div class="scene-b">
+      <p class="dirs"><b>Filmado no domingo de manhã</b>, com luz limpa e a cidade calma. Nilton ao lado do eletroposto, agora funcionando normalmente.</p>
+      <div class="vo"><b>Nilton · em quadro</b>Ontem à noite isso aqui era uma inauguração. Hoje de manhã é só um carregador funcionando — e é exatamente esse o ponto.</div>
+      <p class="dirs"><b>Imagem:</b> se algum carro elétrico de terceiro usar o ponto no domingo, <b>filme</b>. É a prova final do vídeo. Se não houver, mostre o equipamento em operação com a serra ao fundo.</p>
+      <div class="vo"><b>Nilton · em quadro</b>A Chapada Diamantina deixou de ser um lugar que você só alcança de combustão. E se você tá pensando em fazer essa viagem, o vídeo de como foi a minha tá aqui do lado.</div>
+      <p class="dirs"><b>Cards finais:</b> Vídeo 1 · inscrição no canal.</p>
+      <p class="dirs"><b>Última imagem:</b> drone subindo do eletroposto e abrindo para a serra inteira. Corta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pg" id="p-v2-shot">
+  <div class="eyebrow">Vídeo 2 · 27</div>
+  <h2 class="t">Shot list e posições de câmera</h2>
+
+  <h3 class="s">Posições fixas na cerimônia</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Câmera</th><th>Posição</th><th>Enquadramento</th><th>Não pode sair daqui</th></tr></thead>
+    <tbody>
+      <tr><td><b>A</b> · VM1</td><td>Frontal ao orador, tripé, a 3–4 m, altura do peito</td><td>Plano médio com o backdrop atrás</td><td>Durante as falas — é o registro oficial</td></tr>
+      <tr><td><b>B</b> · VM2</td><td>Solta, lateral e no público</td><td>Reações, detalhes, planos abertos</td><td>Livre — mas nunca entrando no quadro da A</td></tr>
+      <tr><td><b>POV</b> · Nilton</td><td>No peito</td><td>Primeira pessoa</td><td>Ligada o tempo todo</td></tr>
+      <tr><td><b>Drone</b></td><td>Antes das 18h, com o céu ainda claro</td><td>Aberto da praça e do equipamento</td><td><b>Não voar sobre o público</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note crit"><p><b>Drone não voa sobre pessoas.</b> Faça os planos aéreos antes de o público chegar ou pelas laterais. Um drone caindo em cima de convidado numa inauguração é o único desfecho capaz de transformar este projeto num problema sério.</p></div>
+
+  <h3 class="s">Fotos obrigatórias no backdrop</h3>
+  <ul class="ck">
+    <li>Autoridades presentes, em grupo</li>
+    <li>Equipe e-Drive completa</li>
+    <li>Os dois atletas de uniforme, com as bikes</li>
+    <li>Nilton com cada autoridade, individualmente</li>
+    <li>Parceiros e patrocinadores, se houver</li>
+    <li>Foto ampla com o eletroposto e o backdrop no mesmo quadro</li>
+    <li>O carro plotado ao lado do equipamento aceso</li>
+    <li>Detalhe do conector no carro, à noite, com a luz roxa</li>
+  </ul>
+
+  <h3 class="s">Cobertura do equipamento — banco de imagens</h3>
+  <ul class="ck">
+    <li>Frontal completo, dia e noite</li>
+    <li>Três quartos com o carro plugado</li>
+    <li>Close da tela em operação, com a potência legível</li>
+    <li>Close do conector encaixado</li>
+    <li>Detalhe do ícone D no painel</li>
+    <li>Plataforma com a fita de LED, à noite</li>
+    <li>Aéreo do conjunto com a serra ao fundo</li>
+    <li>Mãos operando a tela</li>
+  </ul>
+
+  <h3 class="s">Ordem de prioridade se faltar tempo</h3>
+  <ol class="l">
+    <li>A cerimônia e o momento do plug — <b>irrepetível</b></li>
+    <li>Fotos oficiais no backdrop — <b>irrepetível</b></li>
+    <li>Entrevistas de rua — só funciona com a cidade cheia</li>
+    <li>Atletas com o equipamento aceso — janela curta de luz</li>
+    <li>Equipamento por dentro — pode refazer no domingo</li>
+    <li>Planos de cidade e drone — pode refazer no domingo</li>
+  </ol>
+</section>
+
+<section class="pg" id="p-cerimonia">
+  <div class="eyebrow">Operação · 28</div>
+  <h2 class="t">Roteiro de cerimônia</h2>
+  <p class="lede">18h00 às 18h35. Trinta e cinco minutos. Mais que isso, o público dispersa e o vídeo não melhora.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Hora</th><th>Momento</th><th class="num">Dur.</th><th>Responsável</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">17:30</td><td>Playlist de chegada, volume baixo. Equipe em posição. <b>Ensaio do momento do plug.</b></td><td class="num">30'</td><td>Operador de som</td></tr>
+      <tr><td class="tc">18:00</td><td>Vinheta de abertura da marca</td><td class="num">20"</td><td>Operador de som</td></tr>
+      <tr><td class="tc">18:01</td><td>Boas-vindas e apresentação do projeto</td><td class="num">3'</td><td>Nilton</td></tr>
+      <tr><td class="tc">18:04</td><td>Fala institucional 1 <span class="pill w">D7</span></td><td class="num">3'</td><td>a definir</td></tr>
+      <tr><td class="tc">18:07</td><td>Fala institucional 2 <span class="pill w">D7</span></td><td class="num">3'</td><td>a definir</td></tr>
+      <tr><td class="tc">18:10</td><td>Fala institucional 3 <span class="pill w">D7</span></td><td class="num">3'</td><td>a definir</td></tr>
+      <tr><td class="tc">18:13</td><td>Apresentação dos dois atletas e do resultado da prova do dia</td><td class="num">3'</td><td>Nilton + atletas</td></tr>
+      <tr><td class="tc">18:16</td><td><b>Acionamento do equipamento e primeira carga</b> — som cai para o silêncio</td><td class="num">4'</td><td>Nilton</td></tr>
+      <tr><td class="tc">18:20</td><td>Aplauso, música sobe, confraternização</td><td class="num">5'</td><td>Operador de som</td></tr>
+      <tr><td class="tc">18:25</td><td>Fotos oficiais no backdrop</td><td class="num">10'</td><td>VM2</td></tr>
+      <tr><td class="tc">18:35</td><td>Encerramento formal — evento segue informal</td><td class="num">—</td><td>Nilton</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Instruções para quem vai falar</h3>
+  <div class="note"><p>Enviar por escrito a cada orador, com antecedência: <b>"Sua fala tem 3 minutos. Vai ser gravada para um vídeo de YouTube. Se puder incluir uma frase sobre o que a carga rápida muda para a região, é essa frase que provavelmente entra no corte final."</b> Orientar o orador aumenta muito a chance de conseguir a frase aproveitável, e reduz o risco de uma fala de 12 minutos.</p></div>
+
+  <h3 class="s">Marcações de palco</h3>
+  <ul class="l">
+    <li>Fita no chão marcando onde quem fala deve ficar — na frente do backdrop, <b>não</b> na frente do eletroposto (não tape o produto).</li>
+    <li>Caixas de som à frente dos microfones, apontando para o público.</li>
+    <li>Área da câmera A demarcada — ninguém passa na frente durante as falas.</li>
+    <li>Carro posicionado às 17h00, já na vaga, pronto para o plug. <b>Não manobrar carro no escuro com público em volta.</b></li>
+    <li>Cabo do equipamento já desenrolado e testado às 17h00.</li>
+  </ul>
+
+  <h3 class="s">Teste geral às 17h30 — obrigatório</h3>
+  <ul class="ck">
+    <li>Microfone sem fio testado por cada pessoa que vai falar</li>
+    <li>Nível da mesa ajustado, sem microfonia</li>
+    <li>Saída auxiliar da mesa ligada no nosso gravador e monitorada com fone</li>
+    <li>Luzes ligadas e apontadas, com uma pessoa em pé no lugar do orador</li>
+    <li>Câmera A enquadrada e com foco travado</li>
+    <li>Todas as baterias trocadas por cheias</li>
+    <li>Cartões com espaço conferido</li>
+    <li>Ensaio do momento do plug, com o operador de som</li>
+  </ul>
+</section>
+
+<section class="pg" id="p-atletas">
+  <div class="eyebrow">Atletas · 29</div>
+  <h2 class="t">Cobertura dos atletas</h2>
+  <p class="lede">Dois atletas, dois filmes, uma prova de três dias. O que filmar e quando.</p>
+
+  <h3 class="s">O evento</h3>
+  <div class="kv">
+    <dt>Prova</dt><dd>Desafio Mucugê — 13ª edição</dd>
+    <dt>Datas</dt><dd>04, 05 e 06 de setembro de 2026</dd>
+    <dt>Local</dt><dd>Mucugê · Chapada Diamantina · Bahia · largadas no centro da cidade</dd>
+    <dt>Porte</dt><dd>Cerca de 500 atletas e mais de 3.000 visitantes</dd>
+    <dt>Percursos</dt><dd>Ultra Pró (~160 km em duas etapas) · Sport (~60 km) · Tour (~30 km) · Race Kids</dd>
+    <dt>Perfil</dt><dd>Mountain bike XCM nas trilhas da Serra do Sincorá</dd>
+    <dt>Instagram</dt><dd><a href="https://www.instagram.com/desafio_mucuge/">@desafio_mucuge</a></dd>
+  </div>
+  <div class="note warn"><p><b>Confirmar a programação de 2026 na fonte oficial.</b> Os percursos e horários acima vêm de edições anteriores e da divulgação do evento. Horário exato de largada, local do pórtico e programação por dia precisam ser confirmados em <a href="https://desafiomucuge.com.br/">desafiomucuge.com.br</a> ou pelo WhatsApp da organização até <b>02/09</b>. Um erro de horário de largada custa a cena mais importante do arco esportivo. <span class="pill w">decisão D6</span></p></div>
+
+  <h3 class="s">O papel dos atletas na narrativa</h3>
+  <p>Os atletas não são figuração de marca. Eles são a camada emocional dos dois filmes: são eles que sofrem, que se esforçam e que chegam. O carro e o carregador são o argumento racional; os atletas são o que faz o espectador sentir alguma coisa.</p>
+  <div class="grid g2">
+    <div class="card"><h5>No Vídeo 1</h5><p>Aparecem pouco — na saída de Salvador, no veículo de apoio, na chegada em Mucugê e na retirada do kit. Presença suficiente para o espectador saber que existem e criar expectativa.</p></div>
+    <div class="card"><h5>No Vídeo 2</h5><p>Bloco próprio (B07) e presença na cerimônia. É onde a história deles fecha.</p></div>
+  </div>
+
+  <h3 class="s">O que precisamos saber de cada um <span class="pill w">D6</span></h3>
+  <div class="tw"><table>
+    <thead><tr><th>Informação</th><th>Atleta 1</th><th>Atleta 2</th></tr></thead>
+    <tbody>
+      <tr><td>Nome completo</td><td>______</td><td>______</td></tr>
+      <tr><td>Percurso inscrito</td><td>______</td><td>______</td></tr>
+      <tr><td>Número de peito</td><td>______</td><td>______</td></tr>
+      <tr><td>Horário de largada</td><td>______</td><td>______</td></tr>
+      <tr><td>Tempo estimado de prova</td><td>______</td><td>______</td></tr>
+      <tr><td>Instagram</td><td>______</td><td>______</td></tr>
+      <tr><td>Tamanho da camisa</td><td>______</td><td>______</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><b>O percurso muda tudo.</b> Se estiverem no Sport (60 km), a prova dura de 3 a 4 horas e termina no início da tarde — dá tempo de cobrir a prova e ainda montar a inauguração. Se estiverem no Ultra Pró, competem sábado <b>e</b> domingo, e a fadiga da sexta-feira de viagem vira um problema real de performance. Confirmar antes de fechar o call sheet.</p></div>
+</section>
+
+<section class="pg" id="p-atletas2">
+  <div class="eyebrow">Atletas · 30</div>
+  <h2 class="t">Roteiro da cobertura esportiva</h2>
+  <p class="lede">Prova de MTB não se cobre correndo atrás. Cobre-se escolhendo três pontos e esperando.</p>
+
+  <h3 class="s">A regra fundamental</h3>
+  <div class="note crit"><p><b>Você não vai acompanhar a prova.</b> São 60 a 160 km de trilha em serra. Perseguir os atletas resulta em imagem tremida, nenhum plano bonito e a chegada perdida. <b>Escolha três pontos fixos, chegue antes e espere.</b> Um plano de teleobjetiva bem esperado vale mais que uma hora de perseguição.</p></div>
+
+  <h3 class="s">Os três pontos</h3>
+  <ol class="tl">
+    <li class="done"><div class="d">Ponto 1 · Largada</div><div class="h">Centro de Mucugê</div>
+      <p><b>Chegar 60 minutos antes.</b> Filmar: a concentração, o nervosismo, os atletas se preparando, o pórtico, a contagem regressiva e a largada. Câmera A no pórtico em plano fechado dos nossos dois atletas; câmera B aberta no pelotão. Drone <b>antes</b> da largada, nunca sobre o pelotão em movimento.</p></li>
+    <li><div class="d">Ponto 2 · Trecho cênico</div><div class="h">Ponto alto da estrada, com a serra ao fundo</div>
+      <p>Escolher no reconhecimento de sexta um ponto do percurso acessível de carro, com paredão ou vista aberta atrás. <b>Teleobjetiva</b> — comprime a paisagem e faz o atleta parecer pequeno contra a serra. Este é o plano que vai na thumbnail e no Instagram. Chegar 40 minutos antes da passagem estimada.</p></li>
+    <li><div class="d">Ponto 3 · Chegada</div><div class="h">Arena do evento</div>
+      <p>Filmar a chegada dos nossos dois atletas — a expressão, a respiração, o abraço, a bike no chão. <b>Não vá embora após a chegada:</b> os 10 minutos seguintes, de recuperação e reação, são os mais emocionantes e quase sempre os mais perdidos.</p></li>
+  </ol>
+
+  <h3 class="s">Antes da largada — depoimento curto</h3>
+  <p>Grave 40 segundos com cada atleta na noite de sexta ou na manhã de sábado, com lapela: <b>"O que você espera de amanhã?"</b> e <b>"O que essa prova significa pra você?"</b>. Isso, cortado contra a imagem da chegada, é o que constrói o arco emocional. Custa 5 minutos e é insubstituível depois.</p>
+
+  <h3 class="s">Depois da chegada — o mesmo, ao contrário</h3>
+  <p>Assim que a respiração normalizar: <b>"Como foi?"</b>. Não faça perguntas fechadas. A primeira frase de um atleta cansado é sempre a mais verdadeira do vídeo inteiro.</p>
+
+  <h3 class="s">Planos que não podem faltar</h3>
+  <ul class="ck">
+    <li>Bike encostada com o uniforme e o capacete plotado visíveis</li>
+    <li>Atleta colocando o capacete — a marca no capacete em close</li>
+    <li>Pé encaixando no pedal</li>
+    <li>Roda passando rente à câmera baixa, na terra</li>
+    <li>Teleobjetiva do atleta subindo, com esforço legível no rosto</li>
+    <li>Bebendo água, respirando, suando</li>
+    <li>Plano de costas com o "e-DRIVE ENERGY" nas costas da camisa</li>
+    <li>Detalhe da corrente e da transmissão em movimento</li>
+    <li>Chegada, em câmera lenta a 60 fps</li>
+    <li>Se houver pódio: a subida, o troféu, a mão erguida</li>
+  </ul>
+
+  <h3 class="s">Segurança e etiqueta na prova</h3>
+  <ul class="l">
+    <li><b>Nunca</b> ficar dentro do percurso. Filmar de fora da linha, sempre.</li>
+    <li>Não usar flash e não gritar com atleta em competição.</li>
+    <li>Respeitar as áreas restritas da organização e o pessoal de apoio.</li>
+    <li>Drone somente com autorização expressa da organização, e nunca sobre atletas.</li>
+    <li>Credencial de imprensa visível o tempo todo. <span class="pill w">D8</span></li>
+  </ul>
+</section>
+
+<section class="pg" id="p-social">
+  <div class="eyebrow">Atletas · 31</div>
+  <h2 class="t">Cortes verticais</h2>
+  <p class="lede">Vinte cortes de 15 a 60 segundos. Publicados durante três semanas, alimentam os dois filmes longos.</p>
+
+  <h3 class="s">Os vinte cortes</h3>
+  <div class="tw"><table>
+    <thead><tr><th class="num">#</th><th>Corte</th><th>Origem</th><th>Publicar</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">01</td><td>"455 km de carro elétrico. Vai dar?"</td><td>V1 B01</td><td>D+1</td></tr>
+      <tr><td class="tc">02</td><td>Saída de madrugada de Salvador</td><td>V1 B03</td><td>D+2</td></tr>
+      <tr><td class="tc">03</td><td>O silêncio do carro elétrico na estrada</td><td>V1 B03</td><td>D+3</td></tr>
+      <tr><td class="tc">04</td><td>"O carro se recarrega descendo a serra"</td><td>V1 B06</td><td>D+4</td></tr>
+      <tr><td class="tc">05</td><td>Timelapse da recarga: 24% → 81%</td><td>V1 B07</td><td>D+5</td></tr>
+      <tr><td class="tc">06</td><td>A Chapada aparecendo na curva</td><td>V1 B08</td><td>D+6</td></tr>
+      <tr><td class="tc">07</td><td>Quanto custou a viagem em energia</td><td>V1 B09</td><td>D+7</td></tr>
+      <tr><td class="tc">08</td><td>"Você viria de elétrico?" — o antes e o depois</td><td>V2 B03</td><td>D+8</td></tr>
+      <tr><td class="tc">09</td><td>Pôr do sol na montagem do evento</td><td>V2 B05</td><td>D+9</td></tr>
+      <tr><td class="tc">10</td><td><b>O momento do plug</b>, com o silêncio</td><td>V2 B06</td><td>D+10</td></tr>
+      <tr><td class="tc">11</td><td>Largada do Desafio Mucugê</td><td>Atletas</td><td>D+11</td></tr>
+      <tr><td class="tc">12</td><td>Teleobjetiva: atleta contra a serra</td><td>Atletas</td><td>D+12</td></tr>
+      <tr><td class="tc">13</td><td>A chegada e a reação</td><td>Atletas</td><td>D+13</td></tr>
+      <tr><td class="tc">14</td><td>Depoimento antes vs. depois da prova</td><td>Atletas</td><td>D+14</td></tr>
+      <tr><td class="tc">15</td><td>Aéreo de Mucugê encaixada na serra</td><td>V2 B02</td><td>D+15</td></tr>
+      <tr><td class="tc">16</td><td>Como funciona a carga rápida em 30 segundos</td><td>V2 B04</td><td>D+16</td></tr>
+      <tr><td class="tc">17</td><td>Bastidores: a equipe montando tudo</td><td>Diverso</td><td>D+17</td></tr>
+      <tr><td class="tc">18</td><td>O carregador aceso à noite, luz roxa</td><td>V2 B07</td><td>D+18</td></tr>
+      <tr><td class="tc">19</td><td>Atletas e o carro no mesmo quadro</td><td>V2 B07</td><td>D+19</td></tr>
+      <tr><td class="tc">20</td><td>Bloopers e erros da viagem</td><td>Diverso</td><td>D+21</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Regras de formatação</h3>
+  <div class="kv">
+    <dt>Proporção</dt><dd>9:16 · 1080 × 1920</dd>
+    <dt>Zona segura</dt><dd>Nada importante nos <b>15% de cima</b> nem nos <b>20% de baixo</b> — a interface do app cobre</dd>
+    <dt>Primeiro segundo</dt><dd>Movimento ou rosto. Card de texto estático no primeiro segundo perde metade da audiência</dd>
+    <dt>Legenda</dt><dd><b>Sempre.</b> A maioria assiste sem som</dd>
+    <dt>Marca</dt><dd>Discreta, em um canto. Marca d'água grande derruba alcance</dd>
+    <dt>Reenquadramento</dt><dd>Fazer a partir do 4K original, nunca de um export já comprimido</dd>
+  </div>
+
+  <h3 class="s">Publicação durante o evento</h3>
+  <p>Além dos 20 cortes editados, publicar <b>ao vivo</b> nos stories durante os três dias — é o que constrói audiência para os filmes longos que vêm depois. Nilton fica responsável, com o celular, sem envolver os video makers, que estão ocupados com o material principal.</p>
+</section>
+
+<section class="pg" id="p-callsheet1">
+  <div class="eyebrow">Operação · 32</div>
+  <h2 class="t">Call sheet · sexta 04/09</h2>
+  <p class="lede">Dia de viagem — que é também o dia de gravação do Vídeo 1. Imprimir e levar.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Hora</th><th>Ação</th><th>Quem</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">04:00</td><td>Despertar. Conferência final do equipamento</td><td>Todos</td><td>Checklist da página 39</td></tr>
+      <tr><td class="tc">04:30</td><td>Gravação do bloco B02 — apresentação do carro</td><td>Nilton, VM1</td><td>Ainda escuro, luz de LED</td></tr>
+      <tr><td class="tc">04:30</td><td><b>Veículo de apoio sai de Salvador</b></td><td>VM2, A1, A2</td><td>Uma hora na frente</td></tr>
+      <tr><td class="tc">05:30</td><td><b>Dolphin sai de Salvador</b> · bateria 100%</td><td>Nilton, VM1</td><td>Bloco B03</td></tr>
+      <tr><td class="tc">06:30</td><td>Nascer do sol na BR-324 · bloco B04</td><td>Nilton, VM1</td><td>Planos externos</td></tr>
+      <tr><td class="tc">07:00</td><td><b>Feira de Santana · km 110</b> — parada de café</td><td>Todos</td><td>Bloco B05 · recarga oportunista · 40 min</td></tr>
+      <tr><td class="tc">07:40</td><td>Retomada · BR-242</td><td>Todos</td><td>Apoio segue na frente</td></tr>
+      <tr><td class="tc">08:30</td><td>Planos externos do carro na estrada</td><td>VM2 posicionado</td><td>Teleobjetiva e drone</td></tr>
+      <tr><td class="tc">09:30</td><td><b>Itaberaba · km 250 — recarga obrigatória</b></td><td>Todos</td><td>Bloco B07 · <b>filmar tudo</b> · 40 min</td></tr>
+      <tr><td class="tc">10:15</td><td>Retomada · almoço em rota ou durante a carga</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">12:00</td><td>Entrada na BA-142 · a Chapada aparece</td><td>Todos</td><td>Bloco B08 · <b>melhor luz do dia</b></td></tr>
+      <tr><td class="tc">14:00</td><td><b>Chegada em Mucugê</b> · bloco B09</td><td>Todos</td><td>Placa de entrada, cidade, eletroposto</td></tr>
+      <tr><td class="tc">14:30</td><td>Check-in e descarga do material</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">15:30</td><td>Reconhecimento: local do evento e pontos da prova</td><td>Nilton, VM1, VM2</td><td>Definir os 3 pontos da página 30</td></tr>
+      <tr><td class="tc">16:00</td><td><b>Montagem do backdrop</b></td><td>VM2 + apoio</td><td>Testar reflexo com lanterna</td></tr>
+      <tr><td class="tc">17:00</td><td>Retirada de kit dos atletas na arena</td><td>A1, A2, VM1</td><td>Boa cena — filmar</td></tr>
+      <tr><td class="tc">18:00</td><td>Depoimento pré-prova dos atletas</td><td>Nilton, VM1</td><td>40 s cada, com lapela</td></tr>
+      <tr><td class="tc">19:00</td><td>Jantar · briefing do sábado</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">20:30</td><td><b>Descarga de cartões e backup duplo</b></td><td>VM1, VM2</td><td>Página 15 · sem exceção</td></tr>
+      <tr><td class="tc">21:30</td><td>Todas as baterias no carregador</td><td>VM2</td><td>—</td></tr>
+      <tr><td class="tc">22:00</td><td>Dormir</td><td>Todos</td><td>Sábado começa às 05h30</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><p><b>Os horários da estrada dependem da recarga.</b> Se Itaberaba atrasar, tudo desloca. A prioridade absoluta desta sexta é <b>chegar em Mucugê com luz</b> e montar o backdrop. Se for preciso escolher, sacrifique planos de estrada, nunca a chegada com luz.</p></div>
+</section>
+
+<section class="pg" id="p-callsheet2">
+  <div class="eyebrow">Operação · 33</div>
+  <h2 class="t">Call sheet · sábado 05/09</h2>
+  <p class="lede">O dia. Prova de manhã, inauguração às 18h. <span class="pill c">dia crítico</span></p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Hora</th><th>Ação</th><th>Quem</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">05:30</td><td>Despertar · café</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">06:30</td><td>Atletas se preparando · planos de detalhe</td><td>VM1</td><td>Capacete, bike, uniforme</td></tr>
+      <tr><td class="tc">07:00</td><td><b>Ponto 1 — área de largada</b></td><td>VM1, VM2, Nilton</td><td>Chegar 60 min antes <span class="pill w">D6</span></td></tr>
+      <tr><td class="tc">08:00</td><td>Drone da arena <b>antes</b> da largada</td><td>VM2</td><td>Nunca sobre o pelotão</td></tr>
+      <tr><td class="tc">09:00</td><td><b>Largada</b></td><td>Todos</td><td>Horário a confirmar</td></tr>
+      <tr><td class="tc">09:30</td><td>Deslocamento para o <b>Ponto 2</b></td><td>VM2</td><td>Teleobjetiva · chegar antes</td></tr>
+      <tr><td class="tc">10:00</td><td><b>Entrevistas de rua</b> · bloco V2-B03</td><td>Nilton, VM1</td><td>12 a 15 abordagens</td></tr>
+      <tr><td class="tc">10:30</td><td>Passagem dos atletas no Ponto 2</td><td>VM2</td><td>Horário estimado</td></tr>
+      <tr><td class="tc">12:00</td><td><b>Ponto 3 — chegada dos atletas</b></td><td>VM1, VM2</td><td>Ficar 10 min após a chegada</td></tr>
+      <tr><td class="tc">12:30</td><td>Depoimento pós-prova</td><td>Nilton, VM1</td><td>Primeira frase é a melhor</td></tr>
+      <tr><td class="tc">13:00</td><td>Almoço · <b>descarga parcial de cartões</b></td><td>Todos</td><td>Não acumular para a noite</td></tr>
+      <tr><td class="tc">14:00</td><td><b>Montagem: 6 windbanners + 10 bandeiras</b></td><td>Todos</td><td>Bases lastreadas</td></tr>
+      <tr><td class="tc">15:00</td><td>Bloco V2-B04 — o equipamento por dentro</td><td>Nilton, VM1</td><td>Com calma, sem público</td></tr>
+      <tr><td class="tc">15:30</td><td>Chegada da sonorização e da iluminação</td><td>Fornecedores</td><td>Conferir saída auxiliar da mesa</td></tr>
+      <tr><td class="tc">16:00</td><td>Montagem de luz e som</td><td>Fornecedores + VM2</td><td>—</td></tr>
+      <tr><td class="tc">16:30</td><td>Drone da praça com luz de fim de tarde</td><td>VM2</td><td><b>Última janela boa de drone</b></td></tr>
+      <tr><td class="tc">17:00</td><td>Carro posicionado na vaga · cabo testado</td><td>Nilton</td><td>Não manobrar no escuro</td></tr>
+      <tr><td class="tc">17:00</td><td>Timelapse do pôr do sol atrás do eletroposto</td><td>VM1</td><td>Bloco V2-B05</td></tr>
+      <tr><td class="tc">17:30</td><td><b>TESTE GERAL</b> — som, luz, câmeras, ensaio do plug</td><td>Todos</td><td>Checklist da página 28</td></tr>
+      <tr><td class="tc">17:45</td><td>Baterias trocadas · cartões conferidos · posições</td><td>VM1, VM2</td><td>—</td></tr>
+      <tr><td class="tc">18:00</td><td><b>CERIMÔNIA</b></td><td>Todos</td><td>Roteiro da página 28</td></tr>
+      <tr><td class="tc">18:25</td><td>Fotos oficiais no backdrop</td><td>VM2</td><td>Lista da página 27</td></tr>
+      <tr><td class="tc">18:45</td><td>Bloco V2-B07 — atletas e o equipamento aceso</td><td>VM1</td><td><b>Janela curta</b> — céu ainda azul</td></tr>
+      <tr><td class="tc">19:30</td><td>Confraternização · planos soltos e depoimentos</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">20:30</td><td>Desmontagem parcial · recolher windbanners</td><td>Todos</td><td>Backdrop fica para o domingo</td></tr>
+      <tr><td class="tc">21:30</td><td><b>Descarga de cartões e backup duplo</b></td><td>VM1, VM2</td><td>Material irrepetível</td></tr>
+      <tr><td class="tc">22:30</td><td>Baterias no carregador · fim do dia</td><td>Todos</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="pg" id="p-callsheet3">
+  <div class="eyebrow">Operação · 34</div>
+  <h2 class="t">Call sheet · domingo 06/09</h2>
+  <p class="lede">Recolher o que faltou, fechar o Vídeo 2 e voltar.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th class="num">Hora</th><th>Ação</th><th>Quem</th><th>Observação</th></tr></thead>
+    <tbody>
+      <tr><td class="tc">06:30</td><td>Café</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">07:00</td><td><b>Bloco V2-B08 — fechamento com luz limpa</b></td><td>Nilton, VM1</td><td>Eletroposto em operação normal</td></tr>
+      <tr><td class="tc">07:30</td><td>Drone da cidade e da serra pela manhã</td><td>VM2</td><td>Melhor luz do dia inteiro</td></tr>
+      <tr><td class="tc">08:00</td><td>Segunda etapa do Ultra Pró, se os atletas competirem</td><td>VM1, VM2</td><td>Depende de <span class="pill w">D6</span></td></tr>
+      <tr><td class="tc">09:00</td><td>Planos de reposição da shot list</td><td>VM1, VM2</td><td>Riscar a lista da página 22 e 27</td></tr>
+      <tr><td class="tc">10:00</td><td>Premiação do Desafio Mucugê, se houver nossos atletas</td><td>Todos</td><td>Pódio é imagem valiosa</td></tr>
+      <tr><td class="tc">11:00</td><td><b>Desmontagem do backdrop</b> · lona enrolada em tubo</td><td>Todos</td><td>Nunca dobrar</td></tr>
+      <tr><td class="tc">12:00</td><td>Almoço · <b>conferência final da shot list</b></td><td>Todos</td><td>Última chance de refilmar</td></tr>
+      <tr><td class="tc">13:00</td><td>Recarga do Dolphin no próprio eletroposto</td><td>Nilton</td><td>Filmar — fecha a história</td></tr>
+      <tr><td class="tc">14:00</td><td><b>Saída de Mucugê</b> · apoio sai junto</td><td>Todos</td><td>Recarga em Itaberaba na volta</td></tr>
+      <tr><td class="tc">20:00</td><td>Chegada em Salvador</td><td>Todos</td><td>—</td></tr>
+      <tr><td class="tc">21:00</td><td><b>Backup final e conferência de todo o material</b></td><td>VM1, VM2</td><td>Só então liberar os cartões</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note ok"><p><b>Antes de sair de Mucugê, faça a pergunta:</b> "se eu descobrir na edição que falta um plano, dá pra voltar aqui?" A resposta é não. Por isso o almoço de domingo é reservado para revisar as shot lists com o documento na mão, item por item, antes de pegar a estrada.</p></div>
+
+  <h3 class="s">Última conferência antes de sair</h3>
+  <ul class="ck">
+    <li>Shot list do Vídeo 1 inteira riscada</li>
+    <li>Shot list do Vídeo 2 inteira riscada</li>
+    <li>Todas as fotos obrigatórias do backdrop feitas</li>
+    <li>Depoimentos dos dois atletas, antes e depois</li>
+    <li>Registro completo da cerimônia arquivado</li>
+    <li>Wild tracks de som coletados</li>
+    <li>Todo o material em dois destinos, conferido</li>
+    <li>Nenhum equipamento esquecido no local do evento</li>
+    <li>Backdrop, windbanners e bandeiras recolhidos e no veículo</li>
+  </ul>
+</section>
+
+<section class="pg" id="p-conting">
+  <div class="eyebrow">Operação · 35</div>
+  <h2 class="t">Contingências</h2>
+  <p class="lede">Se acontecer, o que fazer — decidido agora, com calma, e não às 18h com público esperando.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Se acontecer</th><th>Fazer</th></tr></thead>
+    <tbody>
+      <tr><td><b>Chuva na cerimônia</b></td><td>Tenda 3×3 sobre a área de fala e sobre a mesa de som. Câmeras com capa. Encurtar a cerimônia para 20 minutos, mantendo o momento do plug. <b>Windbanners recolhidos.</b></td></tr>
+      <tr><td><b>Vento forte</b></td><td>Recolher os windbanners imediatamente. Peludo em todos os microfones. Câmera A abrigada atrás do backdrop, se possível.</td></tr>
+      <tr><td><b>Camisas não chegam</b></td><td>Plano B da página 05. Priorizar os dois atletas. Equipe de preto liso com o D aplicado.</td></tr>
+      <tr><td><b>Carregador de Itaberaba fora do ar</b></td><td>Seguir para a alternativa mapeada, a 90 km/h, ar no mínimo, modo econômico. <b>Filmar tudo.</b> Avisar a equipe de apoio para esperar no ponto seguinte.</td></tr>
+      <tr><td><b>Bateria acaba antes do previsto</b></td><td>Reduzir velocidade e desligar o ar. Se ficar crítico, o veículo de apoio reboca ou vai buscar. <b>Nunca ficar sem energia em trecho sem sinal de celular</b> — pare antes, com margem.</td></tr>
+      <tr><td><b>Câmera principal falha</b></td><td>Câmera B assume a posição A. Nilton grava POV como terceira fonte. A cerimônia acontece uma vez só — <b>nunca fique sem nenhuma câmera rodando.</b></td></tr>
+      <tr><td><b>Som da cerimônia falha</b></td><td>Três fontes simultâneas justamente por isso. Se as três falharem, gravar depoimento reconstituído com cada orador logo após, no backdrop.</td></tr>
+      <tr><td><b>Iluminação não chega</b></td><td>Antecipar a cerimônia para <b>17h30</b>, aproveitando o resto de luz natural. Usar os faróis do carro e a luz do próprio eletroposto. Lente luminosa aberta no máximo.</td></tr>
+      <tr><td><b>Atleta se machuca ou abandona</b></td><td><b>Parar de filmar.</b> Atendimento primeiro. A narrativa se adapta — o abandono, contado com respeito e só com autorização do atleta, é uma história tão forte quanto a vitória.</td></tr>
+      <tr><td><b>Público muito acima do esperado</b></td><td>Ampliar o perímetro com as grades. Câmera A tem prioridade de espaço. Nilton assume a organização do público, VM1 e VM2 não saem de posição.</td></tr>
+      <tr><td><b>Autoridade fala muito além do tempo</b></td><td>Não interromper em público. Sinal combinado com o operador de som. Na edição, entram 20 segundos. Prejuízo zero.</td></tr>
+      <tr><td><b>Drone proibido no local</b></td><td>Aceitar imediatamente. Substituir por planos altos a pé — sacada, escada, ponto elevado da cidade.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note crit"><p><b>A única contingência sem plano B é segurança.</b> Vento forte com windbanner de 3,2 m, drone sobre público, manobra de carro no escuro em meio a pessoas, ou atleta machucado — nestes casos a produção para, sem discussão e sem consultar ninguém. Qualquer pessoa da equipe pode determinar a parada.</p></div>
+</section>
+
+<section class="pg" id="p-pos">
+  <div class="eyebrow">Entrega · 36</div>
+  <h2 class="t">Pós-produção</h2>
+  <p class="lede">Quinze dias úteis do retorno até o segundo vídeo no ar.</p>
+
+  <h3 class="s">Cronograma</h3>
+  <ol class="tl">
+    <li class="done"><div class="d">D+1 · segunda 07/09</div><div class="h">Organização e seleção</div>
+      <p>Ingestão de todo o material na estrutura de pastas. Sincronizar áudio. <b>Assistir tudo</b> e marcar os trechos bons. Nenhuma edição ainda — quem edita antes de ver tudo edita o material errado.</p></li>
+    <li><div class="d">D+2 a D+4</div><div class="h">Corte bruto do Vídeo 1</div>
+      <p>Montagem seguindo os nove blocos. Sem música, sem cor, sem gráficos. O objetivo é só ver se a história funciona. Duração do bruto: 30 a 35 min.</p></li>
+    <li><div class="d">D+5</div><div class="h">Revisão do bruto com Nilton</div>
+      <p>Assistir junto e cortar. <b>Todo corte bruto tem 30% de gordura.</b> É aqui que ela sai.</p></li>
+    <li><div class="d">D+6 a D+8</div><div class="h">Corte fino, cor, som e gráficos do Vídeo 1</div>
+      <p>Trilha, cartelas de placar, correção de cor casando as duas câmeras, mixagem. Thumbnail e título.</p></li>
+    <li><div class="d">D+9</div><div class="h">Aprovação final e legendas</div>
+      <p>Legenda em português. Revisar nomes e números na tela.</p></li>
+    <li><div class="d">D+10 · quarta 16/09</div><div class="h">Publicação do Vídeo 1</div><p>—</p></li>
+    <li><div class="d">D+11 a D+15</div><div class="h">Vídeo 2 — mesmo processo</div>
+      <p>Corte bruto, revisão, corte fino, cor, som, gráficos.</p></li>
+    <li><div class="d">D+17 · quarta 23/09</div><div class="h">Publicação do Vídeo 2</div><p>—</p></li>
+    <li><div class="d">D+1 a D+21</div><div class="h">Cortes verticais, em paralelo</div>
+      <p>Um por dia, seguindo a tabela da página 31. Feitos por quem não estiver no corte longo do dia.</p></li>
+  </ol>
+
+  <h3 class="s">Divisão do trabalho</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Tarefa</th><th>Responsável</th></tr></thead>
+    <tbody>
+      <tr><td>Ingestão, sincronia e organização</td><td>VM2</td></tr>
+      <tr><td>Corte bruto e corte fino</td><td>VM1</td></tr>
+      <tr><td>Correção de cor</td><td>VM1</td></tr>
+      <tr><td>Mixagem de som</td><td>VM2</td></tr>
+      <tr><td>Gráficos, cartelas e placar</td><td>VM2</td></tr>
+      <tr><td>Cortes verticais</td><td>VM2</td></tr>
+      <tr><td>Tratamento das fotos</td><td>VM2</td></tr>
+      <tr><td>Roteiro final, títulos, thumbnails e aprovação</td><td>Nilton</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">Padrões de finalização</h3>
+  <div class="kv">
+    <dt>Master</dt><dd>3840 × 2160 · mesmo frame rate da captação · H.264 ou H.265 alta taxa</dd>
+    <dt>Áudio</dt><dd>Estéreo · loudness em torno de <b>−14 LUFS</b>, que é o padrão de normalização do YouTube</dd>
+    <dt>Pico</dt><dd>Nunca acima de −1 dBTP</dd>
+    <dt>Legenda</dt><dd>Arquivo .srt separado, revisado — não legenda queimada no vídeo longo</dd>
+    <dt>Thumbnail</dt><dd>1280 × 720 · abaixo de 2 MB</dd>
+    <dt>Arquivo</dt><dd>Projeto e mídia arquivados em dois destinos por no mínimo 12 meses</dd>
+  </div>
+  <div class="note"><p><b>Sobre a música:</b> use biblioteca licenciada e <b>guarde o comprovante de licença</b> na pasta <span class="tc">05_MUSICA</span> junto com as faixas. Reivindicação de direitos autorais num vídeo que já está performando é uma dor de cabeça inteiramente evitável.</p></div>
+</section>
+
+<section class="pg" id="p-public">
+  <div class="eyebrow">Entrega · 37</div>
+  <h2 class="t">Publicação</h2>
+  <p class="lede">Onde, quando e com qual texto.</p>
+
+  <h3 class="s">Calendário</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Data</th><th>Canal</th><th>Conteúdo</th></tr></thead>
+    <tbody>
+      <tr><td>05/09, ao vivo</td><td>Instagram stories</td><td>Cobertura em tempo real dos três dias</td></tr>
+      <tr><td>07/09 a 27/09</td><td>Reels · Shorts · TikTok</td><td>Um corte vertical por dia</td></tr>
+      <tr><td><b>16/09, quarta, 19h</b></td><td>YouTube</td><td><b>Vídeo 1 — A Viagem</b></td></tr>
+      <tr><td>17/09</td><td>Instagram · LinkedIn</td><td>Post com o melhor trecho + link</td></tr>
+      <tr><td><b>23/09, quarta, 19h</b></td><td>YouTube</td><td><b>Vídeo 2 — A Inauguração</b></td></tr>
+      <tr><td>24/09</td><td>Instagram · LinkedIn</td><td>Post institucional + link</td></tr>
+      <tr><td>25/09</td><td>Imprensa regional</td><td>Release com fotos e link dos vídeos</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p><b>Por que quarta às 19h:</b> começa a ganhar tração na quinta e na sexta e chega ao fim de semana já com histórico de desempenho — que é quando as pessoas assistem vídeo longo. Publicar na sexta joga o vídeo direto no fim de semana sem histórico, e o algoritmo entrega menos.</p></div>
+
+  <h3 class="s">Descrição do Vídeo 1 — modelo</h3>
+  <div class="card" style="background:var(--surface-2)"><p style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;white-space:pre-wrap">Salvador → Mucugê são 455 km. Esse carro faz 291 com a bateria cheia.
+Fui mesmo assim.
+
+Nesse vídeo eu mostro a viagem inteira de Salvador até a Chapada
+Diamantina num BYD Dolphin GS 100% elétrico: quanto gastei de bateria
+em cada trecho, onde precisei parar pra carregar, quanto tempo isso
+custou e quanto ficou a conta no final.
+
+⏱ CAPÍTULOS
+00:00 O problema
+00:45 O carro
+02:45 Saindo de Salvador
+04:15 BR-324 — o primeiro número
+06:45 Feira de Santana
+08:45 A subida da BR-242
+11:45 A recarga que decide a viagem
+15:45 A Chapada aparece
+18:45 Chegada em Mucugê
+
+🔋 e-DRIVE ENERGY — Move o Futuro.
+📍 Mucugê, Chapada Diamantina, Bahia
+
+#carroeletrico #bydDolphin #chapadadiamantina #mucuge #eletroposto</p></div>
+  <div class="note ok"><p><b>Capítulos não são opcionais.</b> Vídeo longo com capítulos retém significativamente mais, porque o espectador que ia sair encontra um motivo para pular adiante em vez de fechar.</p></div>
+
+  <h3 class="s">Entregas institucionais</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Peça</th><th>Para quem</th><th>Prazo</th></tr></thead>
+    <tbody>
+      <tr><td>Cerimônia completa, sem edição criativa</td><td>Prefeitura, governo, parceiros</td><td>D+5</td></tr>
+      <tr><td>80 a 120 fotos tratadas em alta</td><td>Uso comercial e imprensa</td><td>D+5</td></tr>
+      <tr><td>Release com fotos e links</td><td>Imprensa regional</td><td>D+18</td></tr>
+      <tr><td>Versão de 60 s para apresentação comercial</td><td>Uso interno e comercial</td><td>D+20</td></tr>
+      <tr><td>Banco de imagens organizado</td><td>Arquivo da marca</td><td>D+21</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="pg" id="p-metricas">
+  <div class="eyebrow">Entrega · 38</div>
+  <h2 class="t">Métricas e relatório</h2>
+  <p class="lede">O que medir, quando medir e o que fazer com o resultado.</p>
+
+  <h3 class="s">Leituras</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Quando</th><th>O que olhar</th><th>Decisão que isso gera</th></tr></thead>
+    <tbody>
+      <tr><td><b>48h após cada vídeo</b></td><td>Taxa de clique da thumbnail e retenção nos primeiros 30 s</td><td>Se o clique estiver baixo, <b>trocar a thumbnail</b> — dá para trocar a qualquer momento e costuma mudar o resultado</td></tr>
+      <tr><td><b>7 dias</b></td><td>Retenção completa e pontos de queda</td><td>Identificar o minuto exato em que as pessoas saem e ajustar o roteiro do próximo</td></tr>
+      <tr><td><b>30 dias</b></td><td>Todos os indicadores da página 02</td><td>Relatório de fechamento</td></tr>
+      <tr><td><b>90 dias</b></td><td>Cauda longa e tráfego de busca</td><td>Avaliar se vale investir em mais conteúdo do tipo</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">O gráfico que mais ensina</h3>
+  <p>A curva de retenção do YouTube Studio mostra o minuto exato em que as pessoas saem. Uma queda vertical num ponto específico quase sempre significa uma destas três coisas: <b>bloco longo demais</b>, <b>promessa não cumprida</b> ou <b>fala de marca fora de hora</b>. Anote o minuto de cada queda dos dois vídeos — é o material que vai fazer o terceiro vídeo ser melhor que estes dois.</p>
+
+  <h3 class="s">Métricas de negócio</h3>
+  <p>Visualização é meio, não fim. Meça também:</p>
+  <ul class="l">
+    <li>Buscas por "eletroposto Mucugê" ou "carregador Chapada Diamantina" — <b>tendência antes e depois</b></li>
+    <li>Utilização real do eletroposto nos 30 dias seguintes</li>
+    <li>Contatos comerciais mencionando os vídeos</li>
+    <li>Menções espontâneas em grupos de carro elétrico e de ciclismo</li>
+    <li>Republicações da imprensa regional</li>
+  </ul>
+
+  <h3 class="s">Estrutura do relatório de 30 dias</h3>
+  <ol class="l">
+    <li>Resumo: o que foi produzido e publicado</li>
+    <li>Números contra as metas da página 02</li>
+    <li>Curvas de retenção comentadas dos dois vídeos</li>
+    <li>Os cinco cortes verticais de melhor desempenho e por quê</li>
+    <li>Orçamento realizado contra o previsto</li>
+    <li>O que faríamos diferente</li>
+    <li>Recomendação para o próximo evento</li>
+  </ol>
+</section>
+
+<section class="pg" id="p-anexos">
+  <div class="eyebrow">Anexos · 39</div>
+  <h2 class="t">Checklists e anexos</h2>
+  <p class="lede">Para imprimir e levar na prancheta.</p>
+
+  <h3 class="s">A · Checklist de saída — conferir no D-2</h3>
+  <div class="grid g2">
+    <div class="card"><h5>Material de marca</h5>
+      <ul class="ck"><li>5 camisas, conferidas por tamanho</li><li>5 capacetes plotados</li><li>6 windbanners com haste e base lastreada</li><li>10 bandeiras</li><li>1 backdrop + estrutura + lona em tubo</li><li>Abraçadeiras, fita, corda</li></ul></div>
+    <div class="card"><h5>Imagem</h5>
+      <ul class="ck"><li>2 câmeras + todas as lentes</li><li>Gimbal + baterias</li><li>Drone + 4 baterias + hélices reserva</li><li>Tripé e monopé</li><li>2 action cams + todos os suportes</li><li>Filtros ND</li><li>11 baterias de câmera, carregadas</li><li>8 cartões, formatados</li></ul></div>
+    <div class="card"><h5>Som</h5>
+      <ul class="ck"><li>2 kits de lapela sem fio</li><li>Shotgun</li><li>Gravador de campo</li><li>Microfone de mão</li><li><b>Peludos para tudo</b></li><li>2 cabos XLR + adaptadores</li><li>Fone fechado</li><li>Pilhas e baterias reserva</li></ul></div>
+    <div class="card"><h5>Apoio</h5>
+      <ul class="ck"><li>Notebook + HD externo</li><li>Réguas e extensões</li><li>Cabo de recarga em tomada comum</li><li>Lista impressa de carregadores</li><li>Call sheets impressos</li><li>Shot lists impressas</li><li>Termos de autorização de imagem</li><li>Kit de primeiros socorros</li><li>Protetor solar e água</li></ul></div>
+  </div>
+
+  <h3 class="s">B · Autorização de uso de imagem</h3>
+  <p>Levar cópias impressas. Necessária para entrevistados identificáveis, para os atletas e para menores de idade (neste caso, assinada pelo responsável).</p>
+  <div class="card" style="background:var(--surface-2)"><p style="font-family:'IBM Plex Mono',monospace;font-size:.76rem;white-space:pre-wrap">AUTORIZAÇÃO DE USO DE IMAGEM E VOZ
+
+Nome: _______________________________________________
+Documento: __________________________________________
+Telefone: ___________________________________________
+
+Autorizo o uso da minha imagem e voz, captadas em Mucugê/BA
+entre 04 e 06 de setembro de 2026, em materiais audiovisuais
+e fotográficos produzidos pela e-Drive Energy, para veiculação
+em plataformas digitais, redes sociais e materiais institucionais,
+sem limitação de prazo e sem contrapartida financeira.
+
+Data: ____/____/2026
+
+Assinatura: _________________________________________</p></div>
+  <div class="note warn"><p>Este é um modelo simples para orientar a produção. <b>Submeta o texto final à assessoria jurídica da empresa</b> antes de usar — especialmente quanto a prazo, finalidade e à hipótese de uso publicitário, que costuma exigir redação específica.</p></div>
+
+  <h3 class="s">C · Contatos a preencher antes de sair</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Função</th><th>Nome</th><th>Telefone</th></tr></thead>
+    <tbody>
+      <tr><td>Organização do Desafio Mucugê</td><td>______</td><td>______</td></tr>
+      <tr><td>Fornecedor do eletroposto (suporte técnico)</td><td>______</td><td>______</td></tr>
+      <tr><td>Sonorização</td><td>______</td><td>______</td></tr>
+      <tr><td>Iluminação</td><td>______</td><td>______</td></tr>
+      <tr><td>Hospedagem em Mucugê</td><td>______</td><td>______</td></tr>
+      <tr><td>Prefeitura de Mucugê</td><td>______</td><td>______</td></tr>
+      <tr><td>Carregador alternativo 1 — Itaberaba</td><td>______</td><td>______</td></tr>
+      <tr><td>Carregador alternativo 2</td><td>______</td><td>______</td></tr>
+      <tr><td>Carregador alternativo 3</td><td>______</td><td>______</td></tr>
+      <tr><td>Guincho / assistência 24h do carro</td><td>______</td><td>______</td></tr>
+      <tr><td>Emergência médica local</td><td>______</td><td>______</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="s">D · As dez coisas que não podem falhar</h3>
+  <ol class="l">
+    <li>As camisas ficarem prontas até 03/09</li>
+    <li>Haver veículo de apoio</li>
+    <li>A recarga de Itaberaba estar confirmada e funcionando</li>
+    <li>Haver iluminação contratada para as 18h</li>
+    <li>A mesa de som ter saída auxiliar</li>
+    <li>Peludo em todos os microfones</li>
+    <li>Backdrop montado ainda na sexta</li>
+    <li>Nunca ficar sem nenhuma câmera rodando na cerimônia</li>
+    <li>Backup duplo todo fim de dia, sem exceção</li>
+    <li>Fotos oficiais no backdrop feitas antes de o público dispersar</li>
+  </ol>
+
+  <h3 class="s">E · Fontes consultadas</h3>
+  <ul class="l" style="font-size:.85rem">
+    <li>Datas, porte e percursos do Desafio Mucugê — <a href="https://desafiomucuge.com.br/">desafiomucuge.com.br</a> e <a href="https://www.guiachapadadiamantina.com.br/vem-ai-o-11o-desafio-mucuge-de-mtb-atraindo-atletas-de-todo-o-pais/">Guia Chapada Diamantina</a></li>
+    <li>Ficha técnica do BYD Dolphin GS — <a href="https://canalve.com.br/ficha-tecnica/byd/tudo-sobre-dolphin-gs-2026/">Canal VE</a> e <a href="https://verificarauto.com.br/carros-eletricos/byd-dolphin-gs/">Verificar Auto</a></li>
+    <li>Distância e rota Salvador–Mucugê — <a href="http://www.emsampa.com.br/rotas_rodoviarias_VI/salvador_mucuge.htm">Em Sampa</a> e <a href="https://guiaviajarmelhor.com.br/como-chegar-na-chapada-diamantina-saindo-de-salvador/">Guia Viajar Melhor</a></li>
+    <li>Identidade visual, mockups e artes — pasta do Google Drive da marca</li>
+  </ul>
+  <div class="note"><p>Preços de material, prazos de confecção e valores estimados de produção <b>não são cotações</b> — são referências de planejamento a partir do que você informou. Confirme cada um com o fornecedor antes de fechar.</p></div>
+</section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  // barra de progresso
+  var prog=document.getElementById('prog');
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // destaque do sumário
+  var links=Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var map={};links.forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t)map[t.id]=a;});
+  var tb=document.getElementById('tbnow');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.remove('on');});
+          var a=map[e.target.id];
+          if(a){a.classList.add('on');if(tb)tb.textContent=a.textContent.replace(/^\d+/,'').trim();}
+        }
+      });
+    },{rootMargin:'-25% 0px -70% 0px'});
+    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+  }
+
+  // grafismo topográfico da capa
+  var cv=document.getElementById('cv');
+  if(cv){
+    var ctx=cv.getContext('2d');
+    function draw(){
+      var r=cv.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
+      cv.width=r.width*dpr;cv.height=r.height*dpr;ctx.scale(dpr,dpr);
+      ctx.clearRect(0,0,r.width,r.height);
+      ctx.lineWidth=1;
+      for(var i=0;i<26;i++){
+        ctx.beginPath();
+        ctx.strokeStyle='rgba(167,133,255,'+(0.05+ (i%5)*0.022)+')';
+        var base=r.height*0.15+i*(r.height*0.9/26);
+        for(var x=0;x<=r.width;x+=6){
+          var y=base
+            + Math.sin((x/r.width)*Math.PI*2.2 + i*0.42)*(24+i*1.5)
+            + Math.sin((x/r.width)*Math.PI*5.1 + i*0.9)*9;
+          x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+      }
+    }
+    draw();
+    var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,150);});
+  }
+})();
+</script>
